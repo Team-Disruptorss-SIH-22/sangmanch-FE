@@ -1,7 +1,38 @@
 import { Link } from "react-router-dom";
+import { useState } from "react";
+import { toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+
 import styles from "../styles/adminlogin.module.css";
 
 const AdminLogin = () => {
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [passwordShown, setPasswordShown] = useState(false);
+  const [loggingIn, setLoggingIn] = useState(false);
+
+  const togglePassword = (e) => {
+    e.preventDefault();
+    setPasswordShown(!passwordShown);
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+
+    // console.log("Inside HandleSubmit");
+    let error = false;
+    setLoggingIn(true);
+
+    if (!email || !password) {
+      toast.error("Please enter both Email and Password");
+      error = true;
+    }
+
+    if (error) {
+      return setLoggingIn(false);
+    }
+  };
+
   return (
     <div className={styles.container}>
       <div className={styles.loginPageContainer}>
@@ -20,23 +51,63 @@ const AdminLogin = () => {
           <p className={styles.loginTitle}>Log In</p>
         </div>
 
-        <div className={styles.formContainer}>
+        <form className={styles.formContainer}>
           <div className={styles.inputContainer}>
-            <label for="email">EMAIL</label>
-            <input type="email" name="email" placeholder="Email Address" />
+            <label htmlFor="email">EMAIL</label>
+            <input
+              type="email"
+              id="email"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+              placeholder="Email Address"
+            />
           </div>
+
           <div className={styles.inputContainer}>
             <div className={styles.forPassword}>
-              <label for="password">PASSWORD</label>
-              <Link to="/" className={styles.forgotPassword}><p>Forgot Password?</p></Link>
+              <label htmlFor="password">PASSWORD</label>
+              <Link to="/" className={styles.forgotPassword}>
+                <p>Forgot Password?</p>
+              </Link>
             </div>
-            <input type="password" name="password" placeholder="Password" />
+            <div class={styles.inputPassword}>
+              <input
+                type={passwordShown ? "text" : "password"}
+                id="password"
+                value={password}
+                onChange={(e) => setPassword(e.target.value)}
+                placeholder="Password"
+              />
+              <button class={styles.showPassword} onClick={togglePassword}>
+                {passwordShown ? (
+                  <img
+                    src="https://cdn-icons-png.flaticon.com/512/565/565655.png"
+                    alt="hide-password"
+                  />
+                ) : (
+                  <img
+                    src="https://cdn-icons-png.flaticon.com/512/159/159604.png"
+                    alt="show-password"
+                  />
+                )}
+              </button>
+            </div>
           </div>
-          <button className={styles.submit}>Log In</button>
-        </div>
+          
+          <button
+            type="submit"
+            onClick={handleSubmit}
+            className={styles.submit}
+            disabled={loggingIn}
+          >
+            {loggingIn ? "Logging In.." : "Log In"}
+          </button>
+        </form>
 
         <div className={styles.footer}>
-          <p>Don't Have an Account? <Link to="/">Sign up</Link></p>
+          <p>
+            Don't Have an Account? <Link to="/">Sign up</Link>
+          </p>
         </div>
       </div>
     </div>

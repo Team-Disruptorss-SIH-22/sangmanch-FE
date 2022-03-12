@@ -100,19 +100,24 @@ body {
   border-radius: 3px;
 }
 
+.formContainer .inputContainer input:focus {
+  outline: none;
+}
+
 .formContainer .inputContainer label {
   font-size: 0.75rem;
   color: var(--colorLighter2);
 }
 
 .formContainer .inputContainer .forPassword {
-    width: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    color: var(--colorLighter2);
-    font-weight: var(--fontRegular);
-  }
+  width: 100%;
+  display: flex;
+  position: relative;
+  align-items: center;
+  justify-content: space-between;
+  color: var(--colorLighter2);
+  font-weight: var(--fontRegular);
+}
 
 .formContainer .inputContainer .forgotPassword {
   font-size: 0.5rem;
@@ -122,6 +127,27 @@ body {
 .formContainer .inputContainer .forgotPassword:hover {
   font-size: 0.5rem;
   text-decoration: underline;
+}
+
+.formContainer .inputContainer .inputPassword {
+  width: 100%;
+  position: relative;
+  /* border: 1px solid cyan; */
+}
+
+.formContainer .inputContainer .showPassword {
+  background-color: transparent;
+  border: none;
+  width: 30px;
+  position: absolute;
+  right: 0;
+  bottom: 5px;
+  cursor: pointer;
+  /* border: 1px solid cyan; */
+}
+
+.formContainer .inputContainer .showPassword img {
+  width: 100%;
 }
 
 .submit {
@@ -139,18 +165,18 @@ body {
   cursor: pointer;
 }
 
-.footer{
-    margin-top: 5%;
-    font-size: 0.75rem;
-    color: var(--colorLighter2);
+.footer {
+  margin-top: 6%;
+  font-size: 0.75rem;
+  color: var(--colorLighter2);
 }
 
-.footer a{
-    font-weight: var(--fontRegular);
-    color: var(--colorbutton);
-    text-decoration: none;
+.footer a {
+  font-weight: var(--fontRegular);
+  color: var(--colorbutton);
+  text-decoration: none;
 }
 
-.footer a:hover{
-    text-decoration: underline;
+.footer a:hover {
+  text-decoration: underline;
 }
