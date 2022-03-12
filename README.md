@@ -1,2 +1,3 @@
 # SIH Frontend
-![image](https://user-images.githubusercontent.com/60315832/158017637-d7e7e2bb-b7c2-4f84-99b6-8f7e65bd0aec.png)
+![image](https://user-images.githubusercontent.com/60315832/158020871-7c718d0a-c24a-45db-a5bd-1b21eda78923.png)
+
