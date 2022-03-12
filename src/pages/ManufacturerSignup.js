@@ -126,7 +126,7 @@ const ManufacturerSignup = () => {
                 id="confirm-password"
                 value={confirmPassword}
                 onChange={(e) => setConfirmPassword(e.target.value)}
-                placeholder="Password"
+                placeholder="Verify Password"
               />
               <button className={styles.showPassword} onClick={toggleConfirmPassword}>
                 {confirmPasswordShown ? (
