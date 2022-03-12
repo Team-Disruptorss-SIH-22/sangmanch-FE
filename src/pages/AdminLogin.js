@@ -3,7 +3,7 @@ import { useState } from "react";
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
-import styles from "../styles/adminlogin.module.css";
+import styles from "../styles/signup.module.css";
 
 const AdminLogin = () => {
   const [email, setEmail] = useState("");
