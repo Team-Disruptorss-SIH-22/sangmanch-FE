@@ -5,14 +5,14 @@ import "react-toastify/dist/ReactToastify.css";
 
 import styles from "../styles/signup.module.css";
 
-const ManufacturerSignup = () => {
+const MedicalStoreSignup = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
   const [passwordShown, setPasswordShown] = useState(false);
   const [confirmPasswordShown, setConfirmPasswordShown] = useState(false);
   const [Registering, setRegistering] = useState(false);
-  const [manufacturerId, setManufacturerId] = useState("");
+  const [medicalStoreId, setMedicalStoreId] = useState("");
 
   const togglePassword = (e) => {
     e.preventDefault();
@@ -31,7 +31,7 @@ const ManufacturerSignup = () => {
     let error = false;
     setRegistering(true);
 
-    if (!email || !password || !confirmPassword || !manufacturerId) {
+    if (!email || !password || !confirmPassword || !medicalStoreId) {
       toast.error("Please enter all the fields");
       error = true;
     }
@@ -67,17 +67,17 @@ const ManufacturerSignup = () => {
           </div>
         </div>
 
-        <p className={styles.loginTitle}>Manufacturer Sign Up</p>
+        <p className={styles.loginTitle}>Medical Store Sign Up</p>
 
         <form className={styles.formContainer}>
           <div className={styles.inputContainer}>
-            <label htmlFor="id">MANUFACTURER ID</label>
+            <label htmlFor="id">MEDICAL STORE ID</label>
             <input
               type="text"
               id="id"
-              value={manufacturerId}
-              onChange={(e) => setManufacturerId(e.target.value)}
-              placeholder="Drug Liscence Number"
+              value={medicalStoreId}
+              onChange={(e) => setMedicalStoreId(e.target.value)}
+              placeholder="FSSAI LISCENCE ID"
             />
           </div>
 
@@ -128,7 +128,10 @@ const ManufacturerSignup = () => {
                 onChange={(e) => setConfirmPassword(e.target.value)}
                 placeholder="Password"
               />
-              <button className={styles.showPassword} onClick={toggleConfirmPassword}>
+              <button
+                className={styles.showPassword}
+                onClick={toggleConfirmPassword}
+              >
                 {confirmPasswordShown ? (
                   <img
                     src="https://cdn-icons-png.flaticon.com/512/159/159604.png"
@@ -164,4 +167,4 @@ const ManufacturerSignup = () => {
   );
 };
 
-export default ManufacturerSignup;
+export default MedicalStoreSignup;

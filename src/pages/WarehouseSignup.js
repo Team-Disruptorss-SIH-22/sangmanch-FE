@@ -156,7 +156,7 @@ const WarehouseSignup = () => {
 
         <div className={styles.footer}>
           <p>
-            Already have an Account? <Link to="/">Log In</Link>
+            Already have an Account? <Link to="/login">Log In</Link>
           </p>
         </div>
       </div>

@@ -5,7 +5,7 @@ import "react-toastify/dist/ReactToastify.css";
 
 import styles from "../styles/signup.module.css";
 
-const AdminLogin = () => {
+const Login = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [passwordShown, setPasswordShown] = useState(false);
@@ -114,4 +114,4 @@ const AdminLogin = () => {
   );
 };
 
-export default AdminLogin;
+export default Login;

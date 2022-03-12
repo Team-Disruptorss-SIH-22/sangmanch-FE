@@ -1,10 +1,12 @@
-import AdminLogin from "./AdminLogin";
+import Login from "./Login";
 import Home from "./Home";
 import ManufacturerSignup from "./ManufacturerSignup";
 import WarehouseSignup from "./WarehouseSignup";
+import MedicalStoreSignup from "./MedicalStoreSignup";
 export {
-    AdminLogin,
+    Login,
     Home,
     ManufacturerSignup,
-    WarehouseSignup
+    WarehouseSignup,
+    MedicalStoreSignup
 }
