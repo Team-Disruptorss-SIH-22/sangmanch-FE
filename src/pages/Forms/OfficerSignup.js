@@ -3,16 +3,16 @@ import { useState } from "react";
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
-import styles from "../styles/signup.module.css";
+import styles from  "../../styles/signup.module.css";
 
-const ManufacturerSignup = () => {
+const OfficerSignup = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
   const [passwordShown, setPasswordShown] = useState(false);
   const [confirmPasswordShown, setConfirmPasswordShown] = useState(false);
   const [Registering, setRegistering] = useState(false);
-  const [manufacturerId, setManufacturerId] = useState("");
+  const [idCardNumber, setIdCardNumber] = useState("");
 
   const togglePassword = (e) => {
     e.preventDefault();
@@ -31,7 +31,7 @@ const ManufacturerSignup = () => {
     let error = false;
     setRegistering(true);
 
-    if (!email || !password || !confirmPassword || !manufacturerId) {
+    if (!email || !password || !confirmPassword || !idCardNumber) {
       toast.error("Please enter all the fields");
       error = true;
     }
@@ -67,17 +67,17 @@ const ManufacturerSignup = () => {
           </div>
         </div>
 
-        <p className={styles.loginTitle}>Manufacturer Sign Up</p>
+        <p className={styles.loginTitle}>Officer Sign Up</p>
 
         <form className={styles.formContainer}>
           <div className={styles.inputContainer}>
-            <label htmlFor="id">MANUFACTURER ID</label>
+            <label htmlFor="id">OFFICER ID</label>
             <input
               type="text"
               id="id"
-              value={manufacturerId}
-              onChange={(e) => setManufacturerId(e.target.value)}
-              placeholder="Drug Liscence Number"
+              value={idCardNumber}
+              onChange={(e) => setIdCardNumber(e.target.value)}
+              placeholder="Identity Card Number"
             />
           </div>
 
@@ -128,7 +128,10 @@ const ManufacturerSignup = () => {
                 onChange={(e) => setConfirmPassword(e.target.value)}
                 placeholder="Verify Password"
               />
-              <button className={styles.showPassword} onClick={toggleConfirmPassword}>
+              <button
+                className={styles.showPassword}
+                onClick={toggleConfirmPassword}
+              >
                 {confirmPasswordShown ? (
                   <img
                     src="https://cdn-icons-png.flaticon.com/512/159/159604.png"
@@ -164,4 +167,4 @@ const ManufacturerSignup = () => {
   );
 };
 
-export default ManufacturerSignup;
+export default OfficerSignup;

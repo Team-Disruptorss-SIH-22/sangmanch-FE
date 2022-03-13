@@ -1,11 +1,12 @@
-import AdminLogin from "./AdminLogin";
-import UserLogin from "./UserLogin";
-import Home from "./Home";
-import ManufacturerSignup from "./ManufacturerSignup";
-import WarehouseSignup from "./WarehouseSignup";
-import MedicalStoreSignup from "./MedicalStoreSignup";
-import OfficerSignup from "./OfficerSignup";
+import AdminLogin from "./Forms/AdminLogin";
+import UserLogin from "./Forms/UserLogin";
+import ManufacturerSignup from "./Forms/ManufacturerSignup";
+import WarehouseSignup from "./Forms/WarehouseSignup";
+import MedicalStoreSignup from "./Forms/MedicalStoreSignup";
+import OfficerSignup from "./Forms/OfficerSignup";
+
 import Page404 from "./Page404";
+import Home from "./Home";
 
 export {
     AdminLogin,

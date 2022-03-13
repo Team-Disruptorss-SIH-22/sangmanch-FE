@@ -3,9 +3,9 @@ import { useState } from "react";
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
-import styles from "../styles/signup.module.css";
+import styles from  "../../styles/signup.module.css";
 
-const UserLogin = () => {
+const AdminLogin = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [passwordShown, setPasswordShown] = useState(false);
@@ -114,4 +114,4 @@ const UserLogin = () => {
   );
 };
 
-export default UserLogin;
+export default AdminLogin;

@@ -2,17 +2,16 @@ import { Link } from "react-router-dom";
 import { useState } from "react";
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import styles from  "../../styles/signup.module.css";
 
-import styles from "../styles/signup.module.css";
-
-const MedicalStoreSignup = () => {
+const WarehouseSignup = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
   const [passwordShown, setPasswordShown] = useState(false);
   const [confirmPasswordShown, setConfirmPasswordShown] = useState(false);
   const [Registering, setRegistering] = useState(false);
-  const [medicalStoreId, setMedicalStoreId] = useState("");
+  const [warehouseId, setWarehouseId] = useState("");
 
   const togglePassword = (e) => {
     e.preventDefault();
@@ -31,7 +30,7 @@ const MedicalStoreSignup = () => {
     let error = false;
     setRegistering(true);
 
-    if (!email || !password || !confirmPassword || !medicalStoreId) {
+    if (!email || !password || !confirmPassword || !warehouseId) {
       toast.error("Please enter all the fields");
       error = true;
     }
@@ -67,17 +66,17 @@ const MedicalStoreSignup = () => {
           </div>
         </div>
 
-        <p className={styles.loginTitle}>Medical Store Sign Up</p>
+        <p className={styles.loginTitle}>Warehouse Sign Up</p>
 
         <form className={styles.formContainer}>
           <div className={styles.inputContainer}>
-            <label htmlFor="id">MEDICAL STORE ID</label>
+            <label htmlFor="id">WAREHOUSE ID</label>
             <input
               type="text"
               id="id"
-              value={medicalStoreId}
-              onChange={(e) => setMedicalStoreId(e.target.value)}
-              placeholder="FSSAI LISCENCE ID"
+              value={warehouseId}
+              onChange={(e) => setWarehouseId(e.target.value)}
+              placeholder="WAREHOUSE ID"
             />
           </div>
 
@@ -128,10 +127,7 @@ const MedicalStoreSignup = () => {
                 onChange={(e) => setConfirmPassword(e.target.value)}
                 placeholder="Verify Password"
               />
-              <button
-                className={styles.showPassword}
-                onClick={toggleConfirmPassword}
-              >
+              <button className={styles.showPassword} onClick={toggleConfirmPassword}>
                 {confirmPasswordShown ? (
                   <img
                     src="https://cdn-icons-png.flaticon.com/512/159/159604.png"
@@ -167,4 +163,4 @@ const MedicalStoreSignup = () => {
   );
 };
 
-export default MedicalStoreSignup;
+export default WarehouseSignup;
