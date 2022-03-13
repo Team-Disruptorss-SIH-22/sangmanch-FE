@@ -1,0 +1,154 @@
+.container {
+  background-color: var(--colorPrimary);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.userformContainer{
+  background-color: var(--colorLighter1);
+  width: 40%;
+  height: 95%;
+  border-radius: 5px;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+
+.headersContainer{
+  display: flex;
+}
+
+
+.headersContainer .logoIcon{
+  width: 9%;
+  margin: 1% 2% 0 2%;
+  height: min-content;
+  /* border: 1px solid red; */
+}
+
+.logoIcon img{
+  width: 100%;
+}
+
+.headersContainer .headers2{
+  display: flex;
+  text-align: left;
+  flex-direction: column;
+  /* border: 1px solid red; */
+  height: fit-content;
+}
+
+.headersContainer .headers2 .title2{
+  font-weight: var(--fontMedium);
+  color: var(--colorSecondary);
+  margin-top: 5%;
+  margin-bottom: -7%;
+  /* border: 1px solid red; */
+}
+
+.headersContainer .headers2 .titleDetails2 {
+  font-weight: var(--fontMedium);
+  color: var(--colorSecondary);
+  font-size: 0.5rem;
+  /* border: 1px solid red; */
+}
+
+.title {
+  margin-top: -2.5%;
+  margin-bottom: -0.5%;
+  font-weight: 600;
+  font-size: 1.3rem;
+  /* border: 1px solid red; */
+}
+
+.detailsContainer{
+  width: 95%;
+  /* border: 1px solid red; */
+  display: flex;
+  flex-direction: column;
+  align-items: baseline;
+}
+
+.detailsContainer .detailsHeader{
+  font-weight: 600;
+  text-decoration: underline;
+}
+
+.detailsContainer .detailsSubHeader{
+  margin-top: 0%;
+  font-size: 0.6rem;
+  color: var(--colorSecondary)
+}
+
+
+.inputContainer{
+  display: grid;
+  width: 100%;
+  grid-template-columns: 50% 50%;
+  grid-row-gap: 10%;
+  text-align: left;
+  margin-bottom: 3%;
+}
+
+.inputContainer .inputCol1{
+  grid-area: auto / 1;
+  /* border: 1px solid red; */
+}
+
+.inputContainer .inputCol1 label{
+  font-size: 0.8rem;
+  font-weight: 500; 
+  vertical-align: sub;
+}
+
+.inputContainer .inputCol2{
+  grid-area: auto / 2;
+  /* border: 1px solid red; */
+}
+
+.inputContainer .inputCol2 input{
+  border: 1px solid var(--colorSecondary);
+  border-radius: 3px;
+  padding: 3%;
+  width: 90%;
+  font-size: 0.7rem;
+}
+
+/* No Borders for File Upload part */
+
+.inputContainer .inputCol2 .prescription{
+  padding: 0;
+  border: none;
+  width: 65%;
+}
+
+.userformContainer .recaptcha{
+  margin-top: 5%;
+}
+
+.submit {
+  margin-top: 5%;
+  width: 20%;
+  color: white;
+  padding: 2% 0;
+  border: none;
+  box-shadow: 0px 0px 10px 0px rgba(186, 186, 186, 1);
+  border-radius: 5px;
+  background-color: var(--colorbutton);
+}
+
+.submit:hover {
+  background-color: rgba(44, 41, 255);
+  cursor: pointer;
+}
+
+
+
+/* Line Breaks */
+.lineBreak{
+  width: 90%;
+  margin: 2%;
+  border-bottom: 1px solid lightgrey;
+}
