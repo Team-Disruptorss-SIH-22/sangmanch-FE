@@ -13,7 +13,7 @@ const ManufacturerForm = () => {
     quantityforwarded: "",
     prescription: null,
   });
-  
+
   const [Registering, setRegistering] = useState(false);
 
   const handleInput = (e) => {
@@ -23,23 +23,6 @@ const ManufacturerForm = () => {
 
     setUserRegisteration({ ...userRegisteration, [name]: value });
     console.log(`${[name]}`, value);
-  };
-
-  const handleCompressedUpload = (e) => {
-    const image = e.target.files[0];
-    new Compressor(image, {
-      quality: 0.8, // 0.6 can also be used, but its not recommended to go below.
-      success: (compressedResult) => {
-        // compressedResult has the compressed file.
-        // Use the compressed file to upload the images to your server.
-
-        //  setCompressedFile(Response)
-        setUserRegisteration({
-          ...userRegisteration,
-          prescription: compressedResult,
-        });
-      },
-    });
   };
 
   const onSubmitRecaptcha = (e) => {
@@ -152,7 +135,7 @@ const ManufacturerForm = () => {
             </div>
 
             <div className={styles.inputCol1}>
-              <label htmlFor="prescription">Prescription Required</label>
+              <label htmlFor="prescription">Prescription Required? </label>
             </div>
             <div className={styles.inputCol2}>
               <select 

@@ -5,6 +5,7 @@ import ManufacturerSignup from "./Forms/ManufacturerSignup";
 import WarehouseSignup from "./Forms/WarehouseSignup";
 import MedicalStoreSignup from "./Forms/MedicalStoreSignup";
 import OfficerSignup from "./Forms/OfficerSignup";
+import WarehouseForm from "./User Forms/WarehouseForm";
 
 // User Forms
 import ManufacturerForm from "./User Forms/ManufacturerForm";
@@ -21,5 +22,6 @@ export {
     MedicalStoreSignup,
     OfficerSignup,
     Page404,
-    ManufacturerForm
+    ManufacturerForm,
+    WarehouseForm
 }

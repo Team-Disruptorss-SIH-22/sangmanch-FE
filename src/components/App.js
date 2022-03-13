@@ -1,5 +1,5 @@
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import { AdminLogin, UserLogin, Home, ManufacturerSignup, WarehouseSignup, MedicalStoreSignup, OfficerSignup, Page404, ManufacturerForm } from "../pages/index";
+import { AdminLogin, UserLogin, Home, ManufacturerSignup, WarehouseSignup, MedicalStoreSignup, OfficerSignup, Page404, ManufacturerForm, WarehouseForm } from "../pages/index";
 
 import "../styles/App.css";
 
@@ -18,6 +18,7 @@ function App() {
 
 
           <Route exact path="/manufacturer/forms" element={<ManufacturerForm/>}/>
+          <Route exact path="/warehouse/forms" element={<WarehouseForm/>}/>
 
 
           <Route path="*" element={<Page404/>}/>
