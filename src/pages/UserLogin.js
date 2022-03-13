@@ -5,7 +5,7 @@ import "react-toastify/dist/ReactToastify.css";
 
 import styles from "../styles/signup.module.css";
 
-const Login = () => {
+const UserLogin = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [passwordShown, setPasswordShown] = useState(false);
@@ -70,7 +70,7 @@ const Login = () => {
                 <p>Forgot Password?</p>
               </Link>
             </div>
-            <div class={styles.inputPassword}>
+            <div className={styles.inputPassword}>
               <input
                 type={passwordShown ? "text" : "password"}
                 id="password"
@@ -78,7 +78,7 @@ const Login = () => {
                 onChange={(e) => setPassword(e.target.value)}
                 placeholder="Password"
               />
-              <button class={styles.showPassword} onClick={togglePassword}>
+              <button className={styles.showPassword} onClick={togglePassword}>
                 {passwordShown ? (
                   <img
                     src="https://cdn-icons-png.flaticon.com/512/565/565655.png"
@@ -114,4 +114,4 @@ const Login = () => {
   );
 };
 
-export default Login;
+export default UserLogin;

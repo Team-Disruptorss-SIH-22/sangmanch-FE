@@ -9,7 +9,7 @@ const Page404 = () => {
         <div className={styles.content}>
             This Page does not exist or is unavailable!
         </div>
-        <Link to='/' className={styles.button}>Go Back to Home Page</Link>
+        <Link to="/" className={styles.button}>Go Back to Home Page</Link>
     </div>
   );
 };
