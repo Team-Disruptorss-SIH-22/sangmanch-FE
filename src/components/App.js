@@ -1,5 +1,5 @@
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import { Login, Home, ManufacturerSignup, WarehouseSignup, MedicalStoreSignup, OfficerSignup } from "../pages/index";
+import { Login, Home, ManufacturerSignup, WarehouseSignup, MedicalStoreSignup, OfficerSignup, Page404 } from "../pages/index";
 
 import "../styles/App.css";
 
@@ -14,6 +14,8 @@ function App() {
           <Route exact path="/warehouse-signup" element={<WarehouseSignup/>}/>
           <Route exact path="/medicalstore-signup" element={<MedicalStoreSignup/>}/>
           <Route exact path="/officer-signup" element={<OfficerSignup/>}/>
+
+          <Route path="*" element={<Page404/>}/>
         </Routes>
       </Router>
 
