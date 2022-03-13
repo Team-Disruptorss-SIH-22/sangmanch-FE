@@ -13,6 +13,7 @@ const ManufacturerForm = () => {
     quantityforwarded: "",
     prescription: null,
   });
+  
   const [Registering, setRegistering] = useState(false);
 
   const handleInput = (e) => {

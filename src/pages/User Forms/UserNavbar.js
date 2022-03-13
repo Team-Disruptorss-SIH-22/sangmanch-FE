@@ -1,7 +1,12 @@
-import styles from "../../styles/userforms.module.css";
+import { useState } from "react";
+import { Link } from "react-router-dom";
+import styles from "../../styles/userNavbar.module.css";
 // import AccessAlarmIcon from '@mui/icons-material';
 
 const UserNavbar = () => {
+
+  const [menuToggle, setMenuToggle] = useState(false);
+
   return (
     <div className={styles.userNavbar}>
       <div className={styles.headersContainer}>
@@ -19,7 +24,27 @@ const UserNavbar = () => {
         </div>
       </div>
 
-      <div className={styles.headersUserIcon}></div>
+      <div className={styles.userIconAction}>
+        <div className={styles.profile} onClick={() => {setMenuToggle(!menuToggle)}}>
+          <img src="https://cdn-icons-png.flaticon.com/512/618/618631.png" />
+        </div>
+
+        {menuToggle && (
+          <div className={styles.menu}>
+            <h3>USER ID</h3>
+            <ul>
+              <li>
+                <img src="https://cdn-icons-png.flaticon.com/512/929/929872.png" />
+                <Link to={"/manufacturer/settings"}>Settings</Link>
+              </li>
+              <li>
+                <img src="https://cdn-icons-png.flaticon.com/512/1250/1250678.png" />
+                <Link to={"/manufacturer/logout"}>Log Out</Link>
+              </li>
+            </ul>
+          </div>
+        )}
+      </div>
     </div>
   );
 };
