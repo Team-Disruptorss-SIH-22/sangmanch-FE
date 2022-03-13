@@ -98,6 +98,7 @@ const MedicalStoreForm = () => {
                 onChange={handleInput}
                 name="uidai"
                 id="uidai"
+                placeholder="Sold To (Aadhar No.)"
                 required
               />
             </div>
@@ -113,6 +114,7 @@ const MedicalStoreForm = () => {
                 onChange={handleInput}
                 name="drlicense"
                 id="drlicense"
+                placeholder="Prescribed By (IMC ID)"
                 required
               />
             </div>
@@ -128,6 +130,7 @@ const MedicalStoreForm = () => {
                 onChange={handleInput}
                 name="lotnumber"
                 id="lotnumber"
+                placeholder="LOT NUMBER"
                 required
               />
             </div>
@@ -154,6 +157,7 @@ const MedicalStoreForm = () => {
                 onChange={handleInput}
                 name="quantity"
                 id="quantity"
+                placeholder="QUANTITY SOLD"
                 required
               />
             </div>
