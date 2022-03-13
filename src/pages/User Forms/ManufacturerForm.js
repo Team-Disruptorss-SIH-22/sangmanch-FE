@@ -3,6 +3,7 @@ import Compressor from "compressorjs";
 import ReCAPTCHA from "react-google-recaptcha";
 
 import styles from "../../styles/userforms.module.css";
+import UserNavbar from "./UserNavbar";
 
 const ManufacturerForm = () => {
   const [userRegisteration, setUserRegisteration] = useState({
@@ -59,26 +60,16 @@ const ManufacturerForm = () => {
 
   return (
     <div className={styles.container}>
+      <UserNavbar />
+
+      <div className={styles.titleContainer}>
+        <p className={styles.title}>Manufacturer Dispatch Report</p>
+        <p className={styles.titleSubheader}>
+          Fill in the data to report the forwarded data.
+        </p>
+      </div>
+
       <div className={styles.userformContainer}>
-        <div className={styles.headersContainer}>
-          <div className={styles.logoIcon}>
-            <img
-              src="https://narcoticsindia.nic.in/images/acs.png"
-              alt="logo-icon"
-            />
-          </div>
-          <div className={styles.headers2}>
-            <p className={styles.title2}>NCB DAAS</p>
-            <p className={styles.titleDetails2}>
-              Drugs Analytics and Alerting System
-            </p>
-          </div>
-        </div>
-
-        <p className={styles.title}>Manufacturer Forwarding Form</p>
-
-        <div className={styles.lineBreak}></div>
-
         <div className={styles.detailsContainer}>
           <div className={styles.detailsHeader}>Details Of Dispatch</div>
           <p className={styles.detailsSubHeader}>
@@ -160,20 +151,18 @@ const ManufacturerForm = () => {
             </div>
 
             <div className={styles.inputCol1}>
-              <label htmlFor="prescription">Upload Prescription</label>
+              <label htmlFor="prescription">Prescription Required</label>
             </div>
             <div className={styles.inputCol2}>
-              <input
-                type="file"
-                autoComplete="off"
-                // value={userRegisteration.prescription}
-                accept="image/*,capture=camera"
-                capture="”camera"
-                // onChange={handleInput}
-                onChange={handleCompressedUpload}
+              <select 
+                type="dropdown"
                 name="prescription"
                 className={styles.prescription}
-              />
+                onChange={handleInput}
+              >
+              <option value="yes">Yes</option>
+              <option value="no">No</option>
+              </select>
             </div>
           </div>
         </div>

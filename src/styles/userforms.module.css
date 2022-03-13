@@ -1,29 +1,29 @@
 .container {
-  background-color: var(--colorPrimary);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100vh;
+  background-color: var(--colorLighter1);
 }
 
-.userformContainer{
-  background-color: var(--colorLighter1);
-  width: 40%;
-  height: 95%;
-  border-radius: 5px;
+/* FOR NAVBAR */
+.userNavbar{
+  width: 100%;
+  padding: 0 3%;
+  box-sizing: border-box;
   display: flex;
+  justify-content: space-between;
   align-items: center;
-  flex-direction: column;
+  /* border: 1px solid cyan; */
 }
 
 .headersContainer{
   display: flex;
+  width: 20%;
+  align-items: center;
+  /* border: 1px solid red; */
 }
 
 
 .headersContainer .logoIcon{
-  width: 9%;
-  margin: 1% 2% 0 2%;
+  width: 20%;
+  margin: 3% 2% 0 2%;
   height: min-content;
   /* border: 1px solid red; */
 }
@@ -55,12 +55,52 @@
   /* border: 1px solid red; */
 }
 
+.headersUserIcon{
+  width: 25px;
+  height: 25px;
+  border: 1px solid aqua;
+  background: aqua;
+  border-radius: 50%;
+}
+
+/* NAVBAR ENDS HERE */
+
+
+
+
+
+
+
+.titleContainer{
+  width: 35%;
+  margin: 0% auto;
+  display: flex;
+  flex-direction: column;
+  align-items: baseline;
+  /* border: 1px solid red; */
+}
+
 .title {
-  margin-top: -2.5%;
-  margin-bottom: -0.5%;
+  margin: -1% 0;
   font-weight: 600;
   font-size: 1.3rem;
   /* border: 1px solid red; */
+}
+
+.titleSubheader{
+  font-size: 0.6rem;
+  color: var(--colorSecondary);
+}
+
+.userformContainer{
+  box-shadow: 0px 0px 3px 1px rgba(148,148,148,0.35);
+  width: 35%;
+  padding: 1% 0;
+  margin: 0 auto;
+  border-radius: 5px;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
 }
 
 .detailsContainer{
@@ -73,13 +113,12 @@
 
 .detailsContainer .detailsHeader{
   font-weight: 600;
-  text-decoration: underline;
 }
 
 .detailsContainer .detailsSubHeader{
   margin-top: 0%;
   font-size: 0.6rem;
-  color: var(--colorSecondary)
+  color: var(--colorSecondary);
 }
 
 
@@ -108,20 +147,12 @@
   /* border: 1px solid red; */
 }
 
-.inputContainer .inputCol2 input{
+.inputContainer .inputCol2 input, .prescription{
   border: 1px solid var(--colorSecondary);
   border-radius: 3px;
   padding: 3%;
   width: 90%;
   font-size: 0.7rem;
-}
-
-/* No Borders for File Upload part */
-
-.inputContainer .inputCol2 .prescription{
-  padding: 0;
-  border: none;
-  width: 65%;
 }
 
 .userformContainer .recaptcha{
