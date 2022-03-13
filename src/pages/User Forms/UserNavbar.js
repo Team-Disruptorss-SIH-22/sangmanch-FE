@@ -26,7 +26,7 @@ const UserNavbar = () => {
 
       <div className={styles.userIconAction}>
         <div className={styles.profile} onClick={() => {setMenuToggle(!menuToggle)}}>
-          <img src="https://cdn-icons-png.flaticon.com/512/618/618631.png" />
+          <img src="https://cdn-icons-png.flaticon.com/512/618/618631.png" alt="user-icon"/>
         </div>
 
         {menuToggle && (
@@ -34,11 +34,11 @@ const UserNavbar = () => {
             <h3>USER ID</h3>
             <ul>
               <li>
-                <img src="https://cdn-icons-png.flaticon.com/512/929/929872.png" />
+                <img src="https://cdn-icons-png.flaticon.com/512/929/929872.png" alt="settings"/>
                 <Link to={"/manufacturer/settings"}>Settings</Link>
               </li>
               <li>
-                <img src="https://cdn-icons-png.flaticon.com/512/1250/1250678.png" />
+                <img src="https://cdn-icons-png.flaticon.com/512/1250/1250678.png" alt="logout"/>
                 <Link to={"/manufacturer/logout"}>Log Out</Link>
               </li>
             </ul>

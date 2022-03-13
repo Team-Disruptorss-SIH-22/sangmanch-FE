@@ -73,6 +73,10 @@
   vertical-align: sub;
 }
 
+.inputContainer .inputCol1 span{
+  color: red;
+}
+
 .inputContainer .inputCol2{
   grid-area: auto / 2;
   /* border: 1px solid red; */
@@ -84,6 +88,11 @@
   padding: 3%;
   width: 90%;
   font-size: 0.7rem;
+}
+
+.inputContainer .inputCol2 .uploadPrescription{
+  border: none;
+  padding: 0;
 }
 
 .userformContainer .recaptcha{

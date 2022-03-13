@@ -1,5 +1,4 @@
 import { useState } from "react";
-import Compressor from "compressorjs";
 import ReCAPTCHA from "react-google-recaptcha";
 
 import styles from "../../styles/userforms.module.css";
@@ -62,7 +61,7 @@ const ManufacturerForm = () => {
 
           <div className={styles.inputContainer}>
             <div className={styles.inputCol1}>
-              <label htmlFor="dispatchedtoid">Dispatched To (ID)</label>
+              <label htmlFor="dispatchedtoid">Dispatched To (ID)<span> *</span></label>
             </div>
             <div className={styles.inputCol2}>
               <input
@@ -73,11 +72,12 @@ const ManufacturerForm = () => {
                 name="dispatchedtoid"
                 id="dispatchedtoid"
                 placeholder="WAREHOUSE ID"
+                required
               />
             </div>
 
             <div className={styles.inputCol1}>
-              <label htmlFor="lotnumber">Lot ID</label>
+              <label htmlFor="lotnumber">Lot ID<span> *</span></label>
             </div>
             <div className={styles.inputCol2}>
               <input
@@ -88,6 +88,7 @@ const ManufacturerForm = () => {
                 name="lotnumber"
                 id="lotnumber"
                 placeholder="LOT ID"
+                required
               />
             </div>
           </div>
@@ -103,7 +104,7 @@ const ManufacturerForm = () => {
 
           <div className={styles.inputContainer}>
             <div className={styles.inputCol1}>
-              <label htmlFor="primarychem">Drug Name </label>
+              <label htmlFor="primarychem">Drug Name<span> *</span></label>
             </div>
             <div className={styles.inputCol2}>
               <input
@@ -114,12 +115,13 @@ const ManufacturerForm = () => {
                 name="primarychem"
                 id="primarychem"
                 placeholder="DRUG NAME"
+                required
               />
             </div>
 
             <div className={styles.inputCol1}>
               <label htmlFor="quantityforwarded">
-                Quantity Forwarded (in lot)
+                Quantity Forwarded (in lot)<span> *</span>
               </label>
             </div>
             <div className={styles.inputCol2}>
@@ -131,11 +133,12 @@ const ManufacturerForm = () => {
                 name="quantityforwarded"
                 id="quantityforwarded"
                 placeholder="QUANTITY FORWARDED"
+                required
               />
             </div>
 
             <div className={styles.inputCol1}>
-              <label htmlFor="prescription">Prescription Required? </label>
+              <label htmlFor="prescription">Prescription Required?<span> *</span></label>
             </div>
             <div className={styles.inputCol2}>
               <select 
@@ -143,6 +146,7 @@ const ManufacturerForm = () => {
                 name="prescription"
                 className={styles.prescription}
                 onChange={handleInput}
+                required
               >
               <option value="yes">Yes</option>
               <option value="no">No</option>
