@@ -1,8 +1,6 @@
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import { AdminLogin, UserLogin, Home, ManufacturerSignup, WarehouseSignup, MedicalStoreSignup, OfficerSignup, Page404, ManufacturerForm, WarehouseForm, MedicalStoreForm } from "../pages/index";
 
-import "../styles/App.css";
-
 function App() {
   return (
     <div className="App">
