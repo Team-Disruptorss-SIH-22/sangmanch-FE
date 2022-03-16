@@ -10,13 +10,11 @@ import styles from "../../../styles/home.module.css";
 
 const Home = () => {
 	return (
-		<div>
+		<div className={styles.container}>
 			<HomeNavbar />
-			
-			<div className={styles.pageContainer}>
-
+			<div className={styles.content_Container}>
 				<div className={styles.leftbox}>
-					<img src={Img1} width="500 px" />
+					<img src={Img1} className={styles.img1} />
 					<div className={styles.info}>
 						<div className={styles.title}>
 							<b>
@@ -38,7 +36,6 @@ const Home = () => {
 							{" "}
 							<span>Learn more</span>
 						</button>
-
 					</div>
 				</div>
 
@@ -47,8 +44,12 @@ const Home = () => {
 				</div>
 
 				<div className={styles.rightbox}>
-					<img className={styles.img3} src={Img3} width="300 px" />
-					<img className={styles.img4} src={Img4} width="200 px" />
+					<div className={styles.imageContainer}>
+						<img className={styles.img3} src={Img3} />
+					</div>
+					<div className={styles.imageContainer  + ' ' + styles.img4}>
+						<img className={styles.img4} src={Img4} />
+					</div>
 				</div>
 			</div>
 		</div>

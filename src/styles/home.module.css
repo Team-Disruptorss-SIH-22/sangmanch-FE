@@ -1,39 +1,53 @@
+.container {
+	width: 100%;
+	box-sizing: border-box;
+	overflow: hidden;
+}
+.imageContainer {
+	position: absolute;
+	/* border: 1px solid red; */
+	border-radius: 250px;
+    padding: 10%;
+	background: rgb(0, 0, 0);
+	background: linear-gradient(180deg, rgba(0,0,0,0.8076272745426296) 0%, rgba(255,255,255,0) 73%);
+}
+.img1 {
+	width: 70%;
+	margin-left: 5%;
+}
 .img2 {
-	margin-top: 160px;
-	margin-left: 150px;
-	padding-left: 40px;
+	width: 100%;
+	margin-top: 15%;
+	/* margin-left: 150px; */
 }
 .img3 {
-	margin-top: 50px;
-	margin-left: 20px;
+	/* position: absolute; */
+	width: 350px;
+	/* right: -20px; */
 }
 .img4 {
-	margin-top: 60px;
-	margin-left: 80px;
+	width: 180px;
+	top: 300px;
+	right: -25px;
 }
-.pageContainer{
-    box-sizing: border-box;
-}
+
 .leftbox {
 	float: left;
-    border: 1px solid red;
-	/* background:Red; */
+	/* border: 1px solid red; */
 	width: 50%;
-	height: 280px;
 }
 .middlebox {
 	float: left;
-    border: 1px solid red;
+	/* border: 1px solid red; */
 	/* background:Green; */
 	width: 30%;
-	height: 280px;
 }
 .rightbox {
+	position: relative;
 	float: right;
-    border: 1px solid red;
-	/* background:blue; */
 	width: 20%;
-	height: 280px;
+	/* border: 1px solid red; */
+	/* background:blue; */
 }
 
 /* NAVBAR */
@@ -55,9 +69,6 @@
 
 /* ENDS HERE */
 
-
-
-
 .info {
 	margin-left: 70px;
 }
@@ -66,13 +77,7 @@
 	font-weight: 800;
 }
 
-/* .learnMore {
-    padding: 12px 28px;
-    border-radius: 50%;
-    background-color: black;
-    color: white;
-} */
-
+/* FOR BUTTON */
 /* From cssbuttons.io by @BHARGAVPATEL1244 */
 button {
 	outline: none;
