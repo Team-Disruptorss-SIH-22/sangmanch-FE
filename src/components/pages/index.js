@@ -10,7 +10,10 @@ import ManufacturerForm from "./DispatchForms/ManufacturerForm";
 import WarehouseForm from "./DispatchForms/WarehouseForm";
 import MedicalStoreForm from "./DispatchForms/MedicalStoreForm";
 
-import AdminDashboard from "./AdminDashboard";
+// Admin
+import AdminLayout from "./AdminLayout";
+import DrugProgress from "./DrugProgress";
+
 import Page404 from "./Page404";
 import Home from "./Homepage/Home";
 
@@ -25,5 +28,6 @@ export {
 	ManufacturerForm,
 	WarehouseForm,
 	MedicalStoreForm,
-	AdminDashboard
+	AdminLayout,
+	DrugProgress
 };

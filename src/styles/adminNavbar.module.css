@@ -1,0 +1,39 @@
+.navbar {
+	display: flex;
+	justify-content: space-between;
+}
+
+.heading_primary {
+	font-weight: var(--fontMedium);
+	font-size: 20px;
+}
+
+.navbar__menu {
+	display: flex;
+	color: var(--textGray);
+	align-items: center;
+}
+
+.navbar__logo {
+	display: flex;
+}
+
+.navbar__logo > i {
+	margin-right: 20px;
+}
+
+.divider__v {
+	border-left: 1px solid var(--textGray);
+	height: 100%;
+	margin-right: 80px;
+}
+
+.navbar__menu .menu__profile {
+	display: flex;
+	align-items: center;
+	color: #000;
+}
+
+.navbar__menu .menu__profile span {
+	margin-right: 10px;
+}
