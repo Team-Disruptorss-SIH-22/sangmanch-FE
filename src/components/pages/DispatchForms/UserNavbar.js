@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
-import styles from "../styles/userNavbar.module.css";
+import styles from "../../../styles/userNavbar.module.css";
 // import AccessAlarmIcon from '@mui/icons-material';
 
 const UserNavbar = () => {

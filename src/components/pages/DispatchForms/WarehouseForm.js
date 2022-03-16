@@ -2,7 +2,7 @@ import { useState } from "react";
 import ReCAPTCHA from "react-google-recaptcha";
 
 import styles from "../../../styles/userforms.module.css";
-import UserNavbar from "../../UserNavbar";
+import UserNavbar from "./UserNavbar";
 
 const WarehouseForm = () => {
 	const [userRegisteration, setUserRegisteration] = useState({
