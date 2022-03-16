@@ -1,5 +1,5 @@
 import React from "react";
-import styles from "../styles/adminNavbar.module.css";
+import styles from "../../../styles/adminNavbar.module.css";
 import { BsSearch } from "react-icons/bs";
 import { FaBell, FaUserCircle } from "react-icons/fa";
 

@@ -11,7 +11,7 @@ import WarehouseForm from "./DispatchForms/WarehouseForm";
 import MedicalStoreForm from "./DispatchForms/MedicalStoreForm";
 
 // Admin
-import AdminLayout from "./AdminLayout";
+import AdminLayout from "./Admin/AdminLayout";
 import DrugProgress from "./DrugProgress";
 
 import Page404 from "./Page404";
