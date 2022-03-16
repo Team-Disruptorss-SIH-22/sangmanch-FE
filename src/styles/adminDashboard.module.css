@@ -86,10 +86,22 @@
 .divider__v {
 	border-left: 1px solid var(--textGray);
 	height: 100%;
-	margin-right: 80px;
+	margin-right: 50px;
 }
 
-.navbar__menu .menu__profile {
+.navbar__menu .menuAction {
+	width: 100%;
+	padding: 0;
+	display: flex;
+	justify-content: flex-end;
+}
+
+.navbar__menu .menuAction .menu__profile {
+	position: relative;
+	width: 100%;
+	overflow: hidden;
+	cursor: pointer;
+	border: 1px solid red;
 	display: flex;
 	align-items: center;
 	color: #000;
@@ -97,4 +109,60 @@
 
 .navbar__menu .menu__profile span {
 	margin-right: 10px;
+}
+
+.navbar__menu .menuAction .menu {
+	position: absolute;
+	width: 13%;
+	top: 9%;
+	box-shadow: 0px 0px 25px 5px rgba(148, 148, 148, 0.4);
+	border-radius: 5px;
+	border: 1px solid rgba(0, 0, 0, 0.1);
+	transition: 0.5s ease-in-out;
+}
+
+.navbar__menu .menuAction .menu::before {
+	content: "";
+	position: absolute;
+	top: -5px;
+	right: 10px;
+	width: 20px;
+	height: 20px;
+	background: white;
+	transform: rotate(45deg);
+}
+
+.navbar__menu .menuAction .menu h3 {
+	margin-top: 8%;
+	font-size: 1rem;
+	text-align: center;
+	font-weight: var(--fontMedium);
+}
+
+.navbar__menu .menuAction .menu ul li {
+	width: 85%;
+	display: flex;
+	padding: 3% 0;
+	border-top: 1px solid rgba(0, 0, 0, 0.05);
+	/* border: 1px solid red; */
+}
+
+.navbar__menu .menuAction .menu ul li img {
+	width: 25px;
+	margin-right: 10%;
+	opacity: 0.5;
+}
+
+.navbar__menu .menuAction .menu ul li:hover img {
+	opacity: 1;
+}
+
+.navbar__menu .menuAction .menu ul li a {
+	text-decoration: none;
+	color: var(--colorSecondary);
+	transition: 0.5s;
+}
+
+.navbar__menu .menuAction .menu ul li:hover a {
+	color: var(--colorPrimary);
 }
