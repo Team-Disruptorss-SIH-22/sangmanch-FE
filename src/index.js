@@ -3,7 +3,9 @@ import ReactDOM from "react-dom";
 import { ToastContainer } from "react-toastify";
 
 import "./styles/index.css";
-import { App } from "./components"; 
+import {App} from "./components"; 
+import 'bootstrap/dist/css/bootstrap.min.css';
+import 'bootstrap/dist/js/bootstrap.bundle.min.js';
 
 ReactDOM.render(
   <React.StrictMode>

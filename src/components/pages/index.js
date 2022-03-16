@@ -12,7 +12,7 @@ import MedicalStoreForm from "./DispatchForms/MedicalStoreForm";
 
 import AdminDashboard from "./AdminDashboard";
 import Page404 from "./Page404";
-import Home from "./Home";
+import Home from "./Homepage/Home";
 
 export {
 	Login,
