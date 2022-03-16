@@ -1,4 +1,4 @@
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import {
 	Login,
 	Home,
@@ -10,28 +10,35 @@ import {
 	ManufacturerForm,
 	WarehouseForm,
 	MedicalStoreForm,
-	AdminDashboard
+	DrugProgress
 } from "./pages/index";
+
+import AdminRoute from "./HOC/AdminRoute";
 
 function App() {
 	return (
 		<div className="App">
 			<Router>
-				<Routes>
-					<Route exact path="/" element={<Home />} />
-					<Route exact path="/login" element={<Login />} />
-					<Route exact path="/manufacturer/signup" element={<ManufacturerSignup />} />
-					<Route exact path="/warehouse/signup" element={<WarehouseSignup />} />
-					<Route exact path="/medical/signup" element={<MedicalStoreSignup />} />
-					<Route exact path="/admin/signup" element={<AdminSignup />} />
-
-					<Route exact path="/manufacturer/dispatch" element={<ManufacturerForm />} />
-					<Route exact path="/warehouse/dispatch" element={<WarehouseForm />} />
-					<Route exact path="/medical/dispatch" element={<MedicalStoreForm />} />
-
-					<Route exact path="/admin/dashboard" element={<AdminDashboard />} />
-					<Route path="*" element={<Page404 />} />
-				</Routes>
+				<Switch>
+					<Route exact path="/" component={Home} />
+					<Route exact path="/login" component={Login} />
+					<Route exact path="/manufacturer/signup" component={ManufacturerSignup} />
+					<Route exact path="/warehouse/signup" component={WarehouseSignup} />
+					<Route exact path="/medical/signup" component={MedicalStoreSignup} />
+					<Route exact path="/admin/signup" component={AdminSignup} />
+					<Route exact path="/manufacturer/dispatch" component={ManufacturerForm} />
+					<Route exact path="/warehouse/dispatch" component={WarehouseForm} />
+					<Route exact path="/medical/dispatch" component={MedicalStoreForm} />
+					{/* ADMIN */}
+					<AdminRoute exact path="/dashboard" title={"ID"} component={DrugProgress} />
+					<AdminRoute
+						exact
+						path="/progress/:id"
+						component={DrugProgress}
+						title={"Progress"}
+					/>
+					<Route path="*" component={Page404} />
+				</Switch>
 			</Router>
 		</div>
 	);
