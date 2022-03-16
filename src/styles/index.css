@@ -1,27 +1,31 @@
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap");
 
 body {
-  text-align: center;
-  margin: 0;
-  font-family: 'Poppins', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+	margin: 0;
+	font-family: "Poppins", -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto",
+		"Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
+		sans-serif;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
 }
 
 :root {
-  /* COLORS */
-  --colorPrimary: #2a2b33;
-  --colorSecondary: #4d4d4d;
-  --colorLighter1: white;
-  --colorLighter2: #757678;
-  --colorLighter3: #9fa2b4;
-  --colorbutton: #3751ff;
+	/* COLORS */
+	--colorPrimary: #2a2b33;
+	--colorSecondary: #4d4d4d;
+	--colorLighter1: white;
+	--colorLighter2: #757678;
+	--colorLighter3: #9fa2b4;
+	--colorbutton: #3751ff;
+	--colorSidebar: #363740;
+	--colorBG: #f7f8fc;
 
-  /* FONTS */
-  --fontLighter: 200;
-  --fontRegular: 400;
-  --fontMedium: 500;
-  --fontBolder: 700;
+	--textLight: #dde2ff;
+	--textGray: #a7a5a5;
+
+	/* FONTS */
+	--fontLighter: 200;
+	--fontRegular: 400;
+	--fontMedium: 500;
+	--fontBolder: 700;
 }
