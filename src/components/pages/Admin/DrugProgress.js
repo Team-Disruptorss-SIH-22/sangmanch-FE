@@ -1,5 +1,5 @@
 import React from "react";
-import styles from "../../styles/drugProgress.module.css";
+import styles from "../../../styles/admin/drugProgress.module.css";
 
 const DrugProgress = () => {
 	return (

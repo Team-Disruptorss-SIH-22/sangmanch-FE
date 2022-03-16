@@ -1,8 +1,5 @@
 import React, {useState} from "react";
-import { Link } from "react-router-dom";
 import styles from "../../../styles/admin/adminNavbar.module.css";
-import { BsSearch } from "react-icons/bs";
-import { FaBell, FaUserCircle } from "react-icons/fa";
 
 const Navbar = ({ title }) => {
 	const [menuToggle, setMenuToggle] = useState(false);

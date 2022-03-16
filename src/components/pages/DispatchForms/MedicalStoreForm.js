@@ -2,7 +2,7 @@ import { useState } from "react";
 import Compressor from "compressorjs";
 import ReCAPTCHA from "react-google-recaptcha";
 
-import styles from "../../../styles/userforms.module.css";
+import styles from "../../../styles/forms/userforms.module.css";
 import UserNavbar from "./UserNavbar";
 
 const MedicalStoreForm = () => {

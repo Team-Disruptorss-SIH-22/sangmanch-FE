@@ -1,11 +1,12 @@
 import React from "react";
-import styles from "../../../styles/adminLayout.module.css";
+import styles from "../../../styles/admin/adminLayout.module.css";
 import Navbar from "./AdminNavbar.js";
 import { FaUser, FaChartPie, FaLightbulb } from "react-icons/fa";
 import { GiMedicines } from "react-icons/gi";
 import { AiFillAlert, AiOutlineAreaChart, AiFillSetting } from "react-icons/ai";
 
 const AdminLayout = ({ Component, title }) => {
+
 	return (
 		<div className={styles.container}>
 			<aside className={styles.sidebar}>
