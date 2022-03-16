@@ -96,6 +96,7 @@
   .userIconAction .menu h3{
     margin-top: 8%;
     font-size: 1rem;
+    text-align: center;
     font-weight: var(--fontMedium);
   }
 

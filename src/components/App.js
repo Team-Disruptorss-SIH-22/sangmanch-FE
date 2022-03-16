@@ -13,8 +13,6 @@ import {
 	AdminDashboard
 } from "./pages/index";
 
-import "../styles/App.css";
-
 function App() {
 	return (
 		<div className="App">

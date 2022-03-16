@@ -9,9 +9,9 @@ const UserNavbar = () => {
 	return (
 		<div className={styles.userNavbar}>
 			<div className={styles.headersContainer}>
-				<div className={styles.logoIcon}>
+				<Link to='/' className={styles.logoIcon}>
 					<img src="https://narcoticsindia.nic.in/images/acs.png" alt="logo-icon" />
-				</div>
+				</Link>
 				<div className={styles.headers2}>
 					<p className={styles.title2}>NCB DAAS</p>
 					<p className={styles.titleDetails2}>Drugs Analytics and Alerting System</p>
