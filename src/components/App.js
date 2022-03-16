@@ -10,7 +10,8 @@ import {
 	ManufacturerForm,
 	WarehouseForm,
 	MedicalStoreForm,
-	DrugProgress
+	DrugProgress,
+	Dashboard
 } from "./pages/index";
 
 import AdminRoute from "./HOC/AdminRoute";
@@ -30,7 +31,7 @@ function App() {
 					<Route exact path="/warehouse/dispatch" component={WarehouseForm} />
 					<Route exact path="/medical/dispatch" component={MedicalStoreForm} />
 					{/* ADMIN */}
-					<AdminRoute exact path="/dashboard" title={"ID"} component={DrugProgress} />
+					<AdminRoute exact path="/dashboard" title={"ID"} component={Dashboard} />
 					<AdminRoute
 						exact
 						path="/progress/:id"

@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 import { useState } from "react";
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-import styles from "../../../styles/signup.module.css";
+import styles from "../../../styles/forms/signup.module.css";
 
 const WarehouseSignup = () => {
 	const [email, setEmail] = useState("");
