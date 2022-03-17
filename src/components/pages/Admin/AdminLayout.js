@@ -47,7 +47,7 @@ const AdminLayout = ({ Component, title }) => {
 				</ul>
 			</aside>
 			<main className={styles.contentWrapper}>
-				<Navbar title={"Drug View - " + title} />
+				<Navbar title={"Drug View " + title} />
 				<Component />
 			</main>
 		</div>

@@ -16,6 +16,7 @@ import DrugProgress from "./Admin/DrugProgress";
 import Dashboard from "./Admin/Dashboard";
 import NationalView from "./Admin/NationalView";
 import Alerts from "./Admin/Alerts";
+import Drugs from "./Admin/Drugs";
 
 import Page404 from "./Page404";
 import Home from "./Homepage/Home";
@@ -35,5 +36,6 @@ export {
 	DrugProgress,
 	Dashboard,
 	NationalView,
-	Alerts
+	Alerts,
+	Drugs
 };
