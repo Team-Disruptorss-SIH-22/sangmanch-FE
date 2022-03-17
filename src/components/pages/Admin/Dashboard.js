@@ -2,6 +2,15 @@ import React, { useState } from "react";
 import { Link } from "react-router-dom";
 
 import { AiOutlinePlus } from "react-icons/ai";
+import {
+	AreaChart,
+	Area,
+	XAxis,
+	YAxis,
+	CartesianGrid,
+	Tooltip,
+	ResponsiveContainer
+} from "recharts";
 
 import styles from "../../../styles/admin/adminDashboard.module.css";
 
@@ -20,6 +29,51 @@ const Dashboard = () => {
 		anamoliesForwarded: 3,
 		anamoliesDiscarded: 8
 	});
+
+	const data = [
+		{
+			date: 0,
+			uv: 4000,
+			pv: 2400,
+			amt: 2400
+		},
+		{
+			date: 2,
+			uv: 3000,
+			pv: 1398,
+			amt: 2210
+		},
+		{
+			date: 4,
+			uv: 2000,
+			pv: 9800,
+			amt: 2290
+		},
+		{
+			date: 6,
+			uv: 2780,
+			pv: 3908,
+			amt: 2000
+		},
+		{
+			date: 8,
+			uv: 1890,
+			pv: 4800,
+			amt: 2181
+		},
+		{
+			date: 10,
+			uv: 2390,
+			pv: 3800,
+			amt: 2500
+		},
+		{
+			date: 12,
+			uv: 3490,
+			pv: 4300,
+			amt: 2100
+		}
+	];
 
 	return (
 		<div className={styles.dashboardContainer}>
@@ -45,22 +99,17 @@ const Dashboard = () => {
 				</div>
 			</div>
 
-
-
-
-
 			<div className={styles.graphs_charts_Container}>
 				<div className={styles.graphContainer}>
-
 					<div className={styles.sectionHeader}>
 						<div className={styles.titleSubtitle}>
 							<p className={styles.sectionTitle}>Today's Trends</p>
-							<p className={styles.sectionSubTitle + ' ' + styles.clrGrey}>
+							<p className={styles.sectionSubTitle + " " + styles.clrGrey}>
 								As of 25 May 2019, 09:41 PM
 							</p>
 						</div>
 
-						<div to="/" className={styles.graphLineHelper + ' ' + styles.clrGrey}>
+						<div className={styles.graphLineHelper + " " + styles.clrGrey}>
 							<div className={styles.singleLineHelper}>
 								<div className={styles.redLine}></div>
 								<p>Today</p>
@@ -70,10 +119,47 @@ const Dashboard = () => {
 								<div className={styles.greyLine}></div>
 								<p>Yesterday</p>
 							</div>
-							
 						</div>
 					</div>
 
+					<div className={styles.chartContainer}>
+					<ResponsiveContainer width="100%" aspect={2 / 1}>
+						<AreaChart
+							width="100%"
+							data={data}
+							margin={{ top: 10, right: 30, left: 0, bottom: 0 }}
+						>
+							<defs>
+								<linearGradient id="colorUv" x1="0" y1="0" x2="0" y2="1">
+									<stop offset="5%" stopColor="gray" stopOpacity={0.1} />
+									<stop offset="95%" stopColor="gray" stopOpacity={0} />
+								</linearGradient>
+								<linearGradient id="colorPv" x1="0" y1="0" x2="1" y2="0">
+									<stop offset="5%" stopColor="red" stopOpacity={0.1} />
+									<stop offset="95%" stopColor="red" stopOpacity={0} />
+								</linearGradient>
+							</defs>
+							<XAxis dataKey="date" />
+							<YAxis />
+							<CartesianGrid strokeDasharray="3 3" />
+							<Tooltip />
+							<Area
+								type="monotone"
+								dataKey="uv"
+								stroke="gray"
+								fillOpacity={1}
+								fill="url(#colorUv)"
+							/>
+							<Area
+								type="monotone"
+								dataKey="pv"
+								stroke="red"
+								fillOpacity={1}
+								fill="url(#colorPv)"
+							/>
+						</AreaChart>
+						</ResponsiveContainer>
+					</div>
 				</div>
 
 				<div className={styles.line}></div>
@@ -118,10 +204,6 @@ const Dashboard = () => {
 					</div>
 				</div>
 			</div>
-
-
-
-
 
 			<div className={styles.otherInfoContainer}>
 				<div className={styles.unresolved_alerts_Container}>
