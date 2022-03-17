@@ -1,0 +1,130 @@
+/* Navbar container */
+.navbar__wrapper {
+	padding: 0 5px;
+}
+
+.navbar {
+	display: flex;
+	color: #000;
+	justify-content: space-between;
+}
+
+/* Links inside the navbar */
+.navbar ul {
+	display: flex;
+	list-style: none;
+	align-items: center;
+}
+
+.navbar ul li {
+	margin-right: 35px;
+}
+
+.logo {
+	display: flex;
+	align-items: center;
+	margin-right: 70px !important;
+}
+
+.logo img {
+	width: 40px;
+	height: 40px;
+	border-radius: 5px;
+	margin: 0;
+	margin-right: 10px;
+}
+
+.logo p {
+	font-size: 18px;
+	margin: 0;
+	font-weight: var(--fontMedium);
+}
+
+.navbar a {
+	font-size: 14px;
+	font-weight: var(--fontMedium);
+	color: #000;
+	text-align: center;
+	text-decoration: none;
+}
+
+/* RIGHT ALIGNED LIST */
+
+.login {
+	border: 1px solid var(--colorPrimary);
+	padding: 5px 30px !important;
+	cursor: pointer;
+	background-color: var(--colorPrimary);
+	border-radius: 28px;
+	margin: 0;
+}
+
+.login a {
+	color: #fff;
+}
+
+.login:hover {
+	background-color: #000;
+}
+
+/* The dropdown container */
+.dropdown {
+	position: relative;
+}
+
+/* Dropdown button */
+.dropdown .dropbtn {
+	display: flex;
+	font-size: 14px;
+	border: 1px solid black;
+	padding: 6px 20px;
+	padding-right: 10px;
+	cursor: pointer;
+	border-radius: 28px;
+	font-weight: var(--fontMedium);
+	color: #000;
+}
+
+/* Dropdown content (hidden by default) */
+.dropdown__content {
+	/* margin-top: 5px; */
+	display: none;
+	position: absolute;
+	top: 36px;
+	right: -10px;
+	background-color: #f9f9f9;
+	box-shadow: 0px 2px 8px 0px rgba(0, 0, 0, 0.2);
+	border-radius: 15px;
+	z-index: 1;
+}
+
+.dropdown__content ul {
+	display: flex;
+	margin: auto 5px;
+	padding: 0;
+	align-items: flex-start;
+	flex-direction: column;
+}
+
+.dropdown__content ul li {
+	padding: 10px 20px;
+	margin-right: 0;
+}
+
+/* Links inside the dropdown */
+.dropdown__content a {
+	float: none;
+	color: black;
+	text-decoration: none;
+	display: block;
+	text-align: left;
+}
+
+/* Show the dropdown menu on hover */
+.dropdown:hover .dropdown__content {
+	display: block;
+}
+
+.dropdown__content li a:hover {
+	color: rgb(95, 86, 86);
+}
