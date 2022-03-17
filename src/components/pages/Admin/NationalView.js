@@ -1,4 +1,4 @@
-import styles from '../../../styles/nationalView.module.css';
+import styles from '../../../styles/admin/nationalView.module.css';
 
 const NationalView = () => {
 	return (
