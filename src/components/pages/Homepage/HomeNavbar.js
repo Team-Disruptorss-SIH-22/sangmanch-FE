@@ -2,7 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import { MdArrowDropDown } from "react-icons/md";
 import ncb__logo from "../../../assets/ncb__logo.png";
-import styles from "../../../styles/Landing/homeNavbar.module.css";
+import styles from "../../../styles/Home/homeNavbar.module.css";
 
 const HomeNavbar = () => {
 	return (

@@ -38,10 +38,6 @@
 	font-weight: var(--fontMedium);
 }
 
-.footer__divider {
-	/* margin: auto 4px; */
-}
-
 .footer__links > *:not(:last-of-type) {
 	margin-right: 10px;
 }

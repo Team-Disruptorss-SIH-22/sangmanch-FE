@@ -7,7 +7,7 @@ import img__2 from "../../../assets/home/img2.png";
 import img__3 from "../../../assets/home/img3.png";
 import img__4 from "../../../assets/home/img4.png";
 
-import styles from "../../../styles/Landing/home.module.css";
+import styles from "../../../styles/Home/home.module.css";
 
 const Home = () => {
 	return (
