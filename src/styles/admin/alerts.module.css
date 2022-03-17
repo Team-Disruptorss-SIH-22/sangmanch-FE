@@ -1,0 +1,135 @@
+.alertsContainer{
+    box-sizing: border-box;    
+	width: 100%;
+    margin-top: 3%;
+    border-radius: 5px;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+	-webkit-box-shadow: 2px 4px 10px 1px rgba(0, 0, 0, 0.47);
+	box-shadow: 2px 4px 10px 1px rgba(201, 201, 201, 0.47);
+}
+
+/* COLORS */
+.clrGrey {
+	color: rgb(158, 166, 181);
+}
+.clrBlue {
+	color: rgba(55, 81, 255, 255);
+}
+.clrGreen {
+	color: rgba(0, 82, 13, 255);
+}
+.clrLightGreen {
+	color: rgba(0, 149, 33, 255);
+}
+.clrRed {
+	color: rgba(160, 0, 0, 255);
+}
+.taskClrYellow {
+	color: white;
+	background: rgba(254, 196, 0, 255);
+}
+.taskClrGreen {
+	color: white;
+	background: rgba(41, 204, 151, 255);
+}
+.taskClrDefault {
+	color: grey;
+	background: rgba(223, 224, 235, 255);
+}
+
+.alertHeaderContainer{
+    margin-top: -1%;
+    padding: 2%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.alertHeaderContainer>p{
+    font-size: 1.2rem;
+    font-weight: 600;
+}
+
+.alertHeaderContainer .tableOperations{
+    display: flex;
+    width: 15%;
+    justify-content: space-between;
+    /* border: 1px solid red; */
+}
+
+.alertHeaderContainer .operation{
+    display: flex;
+    width: 45%;
+    justify-content: space-around;
+    align-items: center;
+    font-size: 0.9rem;
+    font-weight: var(--fontRegular);
+    cursor: pointer;
+    /* border: 1px solid red; */
+}
+
+.alertHeaderContainer .operation:hover{
+    color: rgba(0,0,0,1);
+}
+
+
+
+
+
+/* TABLE */
+.tableContainer{
+    width: 100%;
+    font-family: 'Poppins';
+}
+.table{
+    width: 100%;
+    height: 80vh;
+    border: none;
+    border-spacing: 0;
+}
+.table td:first-of-type, .table th:first-of-type{
+    text-align: center;
+}
+.table td:last-of-type{
+    font-size: 0.8rem;
+    font-weight: 600;
+}
+
+.tableHeaderRow{
+    border-bottom: 1px solid rgba(0,0,0,0.2);
+    font-weight: 400;
+    text-align: left;
+}
+
+.table .tableSingleCell{
+    font-size: 0.7rem;
+    padding: 2% 0;
+    border-bottom: 1px solid rgba(0,0,0,0.1);
+}
+
+
+.footer{
+    width: 100%;
+    box-sizing: border-box;
+    padding: 0 2%;
+    display: flex;
+    justify-content: right;
+    /* border: 1px solid red; */
+}
+
+.footer .rowsPerPage{
+    width: 15%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    margin-left: 5%;
+    /* border: 1px solid red; */
+}
+
+.footer .rowsPerPage>p{
+    font-size: 0.8rem;
+    color: rgb(158, 166, 181);
+}
+.footer .rowsPerPage select{
+    border: none;
+}

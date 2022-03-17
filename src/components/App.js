@@ -41,7 +41,8 @@ function App() {
 						title={"Progress"}
 					/>
 					<AdminRoute exact path="/national" component={NationalView} />
-					<AdminRoute exact path="/alerts" component={Alerts} />
+					<AdminRoute exact path="/alerts" title={"Alerts"} component={Alerts} />
+					
 					<Route path="*" component={Page404} />
 				</Switch>
 			</Router>
