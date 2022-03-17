@@ -80,6 +80,7 @@
 	min-width: 850px;
 	box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
 	margin-top: 50px;
+	text-align: center;
 }
 .styled__table thead tr {
 	background-color: var(--colorSidebar);

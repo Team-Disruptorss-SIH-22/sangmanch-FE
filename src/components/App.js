@@ -13,7 +13,8 @@ import {
 	DrugProgress,
 	Dashboard,
 	NationalView,
-	Alerts
+	Alerts,
+	Drugs
 } from "./pages/index";
 
 import AdminRoute from "./HOC/AdminRoute";
@@ -33,16 +34,22 @@ function App() {
 					<Route exact path="/warehouse/dispatch" component={WarehouseForm} />
 					<Route exact path="/medical/dispatch" component={MedicalStoreForm} />
 					{/* ADMIN */}
-					<AdminRoute exact path="/dashboard" title={"ID"} component={Dashboard} />
+					<AdminRoute exact path="/dashboard" title={"- ID"} component={Dashboard} />
 					<AdminRoute
 						exact
-						path="/progress/:id"
+						path="/drugs/:id"
 						component={DrugProgress}
-						title={"Progress"}
+						title={"- Progress"}
 					/>
-					<AdminRoute exact path="/national" title={"National View"} component={NationalView} />
-					<AdminRoute exact path="/alerts" title={"Alerts"} component={Alerts} />
-					
+					<AdminRoute
+						exact
+						path="/national"
+						title={"Drug View - National View"}
+						component={NationalView}
+					/>
+					<AdminRoute exact path="/alerts" title={"- Alerts"} component={Alerts} />
+					<AdminRoute exact path="/drugs" title={""} component={Drugs} />
+
 					<Route path="*" component={Page404} />
 				</Switch>
 			</Router>
