@@ -99,10 +99,28 @@
     border-bottom: 1px solid rgba(0,0,0,0.2);
     font-weight: 400;
     text-align: left;
+    /* border: 1px solid red; */
+}
+
+.tableHeaderRow span{
+    margin: 0 5% 0 1.5%;
+    vertical-align: middle;
+}
+.tableHeaderRow input ::placeholder{
+    color: gray;
+}
+.tableHeaderRow input{
+    width: 50px;
+    padding: 1.5%;
+    margin: 1%;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    border-radius: 3px;
+	-webkit-box-shadow: 2px 4px 10px 1px rgba(0, 0, 0, 0.47);
+	box-shadow: 2px 4px 10px 1px rgba(201, 201, 201, 0.47);
 }
 
 .table .tableSingleCell{
-    font-size: 0.7rem;
+    font-size: 0.8rem;
     padding: 2% 0;
     border-bottom: 1px solid rgba(0,0,0,0.1);
 }
@@ -118,7 +136,7 @@
 }
 
 .footer .rowsPerPage{
-    width: 15%;
+    width: 20%;
     display: flex;
     justify-content: space-around;
     align-items: center;
@@ -130,6 +148,19 @@
     font-size: 0.8rem;
     color: rgb(158, 166, 181);
 }
-.footer .rowsPerPage select{
+.footer .rowsPerPage input{
+    width: 50%;
+    font-size: 0.8rem;
+    padding: 2%;
     border: none;
+    border-bottom: 1.3px solid rgba(0,0,0,0.3);
+}
+.rowsPerPage .backForth{
+    border: none;
+    background: transparent;
+    cursor: pointer;
+}
+.rowsPerPage .backForth:hover{
+    font-size: 1.2rem;
+    transition: 0.25s ease-in-out;
 }
