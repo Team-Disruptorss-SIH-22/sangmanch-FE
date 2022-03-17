@@ -1,15 +1,17 @@
 .flex {
 	display: flex;
-	margin-top: 2rem;
+	margin-top: 1rem;
 	align-items: stretch;
+	justify-content: space-between;
 }
 
 .map_container {
-	flex: 8;
+	width: 550px;
 }
 
-.table_container {
-	flex: 6;
+.map {
+	width: 100%;
+	height: 100%;
 }
 
 .table_container table {

@@ -52,14 +52,14 @@ const NationalView = () => {
 			<div className={styles.flex}>
 				<div className={styles.map_container}>
 					<ComposableMap
+						className={styles.map}
 						data-tip=""
 						projection="geoMercator"
 						projectionConfig={{
-							scale: 1024,
+							scale: 1400,
 							rotate: [-82.5, -3, 0],
 							center: [0, 17.5]
 						}}
-						height={600}
 					>
 						<Geographies geography={map}>
 							{({ geographies }) =>
