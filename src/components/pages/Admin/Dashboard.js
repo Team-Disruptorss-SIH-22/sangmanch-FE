@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 
 import { AiOutlinePlus } from "react-icons/ai";
 
-import styles from "../../../styles/admin/adminDashboard.module.css";
+import styles from "styles/admin/adminDashboard.module.css";
 
 const Dashboard = () => {
 	// Stats
@@ -45,22 +45,17 @@ const Dashboard = () => {
 				</div>
 			</div>
 
-
-
-
-
 			<div className={styles.graphs_charts_Container}>
 				<div className={styles.graphContainer}>
-
 					<div className={styles.sectionHeader}>
 						<div className={styles.titleSubtitle}>
 							<p className={styles.sectionTitle}>Today's Trends</p>
-							<p className={styles.sectionSubTitle + ' ' + styles.clrGrey}>
+							<p className={styles.sectionSubTitle + " " + styles.clrGrey}>
 								As of 25 May 2019, 09:41 PM
 							</p>
 						</div>
 
-						<div to="/" className={styles.graphLineHelper + ' ' + styles.clrGrey}>
+						<div to="/" className={styles.graphLineHelper + " " + styles.clrGrey}>
 							<div className={styles.singleLineHelper}>
 								<div className={styles.redLine}></div>
 								<p>Today</p>
@@ -70,10 +65,8 @@ const Dashboard = () => {
 								<div className={styles.greyLine}></div>
 								<p>Yesterday</p>
 							</div>
-							
 						</div>
 					</div>
-
 				</div>
 
 				<div className={styles.line}></div>
@@ -118,10 +111,6 @@ const Dashboard = () => {
 					</div>
 				</div>
 			</div>
-
-
-
-
 
 			<div className={styles.otherInfoContainer}>
 				<div className={styles.unresolved_alerts_Container}>

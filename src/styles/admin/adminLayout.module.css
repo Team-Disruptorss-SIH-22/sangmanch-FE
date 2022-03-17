@@ -29,6 +29,7 @@
 	align-items: flex-start;
 	padding-left: 30px;
 	padding-right: 30px;
+	min-width: max-content;
 }
 
 .sidebar ul {

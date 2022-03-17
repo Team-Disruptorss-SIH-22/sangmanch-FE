@@ -39,7 +39,12 @@ function App() {
 						component={DrugProgress}
 						title={"Progress"}
 					/>
-					<AdminRoute exact path="/national" component={NationalView} />
+					<AdminRoute
+						exact
+						path="/national"
+						component={NationalView}
+						title={"National"}
+					/>
 					<Route path="*" component={Page404} />
 				</Switch>
 			</Router>
