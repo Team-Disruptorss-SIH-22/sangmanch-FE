@@ -15,6 +15,7 @@ import AdminLayout from "./Admin/AdminLayout";
 import DrugProgress from "./Admin/DrugProgress";
 import Dashboard from "./Admin/Dashboard";
 import NationalView from "./Admin/NationalView";
+import Alerts from "./Admin/Alerts";
 
 import Page404 from "./Page404";
 import Home from "./Homepage/Home";
@@ -33,5 +34,6 @@ export {
 	AdminLayout,
 	DrugProgress,
 	Dashboard,
-	NationalView
+	NationalView,
+	Alerts
 };
