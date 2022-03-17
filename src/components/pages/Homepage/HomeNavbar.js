@@ -19,9 +19,9 @@ const HomeNavbar = () => {
 						<Link to="/">Home</Link>
 					</li>
 					<li>
-						<Link to="https://narcoticsindia.nic.in/" target="_blank">
+						<a href="https://narcoticsindia.nic.in/" target="_blank" rel="noreferrer">
 							About NCB
-						</Link>
+						</a>
 					</li>
 					<li>
 						<Link to="/admin/signup" target="_blank">
@@ -31,9 +31,7 @@ const HomeNavbar = () => {
 				</ul>
 				<ul className={styles.links__auth}>
 					<li className={styles.login}>
-						<Link to="/login" target="_blank">
-							Login
-						</Link>
+						<Link to="/login">Login</Link>
 					</li>
 					<li>
 						<div className={styles.dropdown}>
