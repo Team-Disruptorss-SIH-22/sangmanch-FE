@@ -107,6 +107,7 @@
 
 .graphContainer{
 	width: 70%;
+	/* height: 330px; */
 	/* border: 1px solid red; */
 }
 
@@ -137,6 +138,15 @@
 	border-bottom: 3px solid grey;
 	/* border-radius: 5px; */
 }
+
+/* CHART GRAPH */
+.graphContainer .chartContainer{
+	width: 100%;
+	padding: 10px 0;
+	font-size: 0.7rem;
+	/* border: 1px solid red; */
+}
+
 
 
 .graphChartsContainer .line {
