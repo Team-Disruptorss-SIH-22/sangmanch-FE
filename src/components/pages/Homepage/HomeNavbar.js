@@ -1,84 +1,62 @@
-import "../../../styles/home.module.css";
 import React from "react";
+import { Link } from "react-router-dom";
+import { MdArrowDropDown } from "react-icons/md";
+import ncb__logo from "../../../assets/ncb__logo.png";
+import styles from "../../../styles/Home/homeNavbar.module.css";
 
 const HomeNavbar = () => {
 	return (
-		<nav className="navbar navbar-expand-lg navbar-light bg-light">
-      <div className="container-fluid">
-        {/* <a className="navbar-brand" href="#">Navbar</a>
-        <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-            <span className="navbar-toggler-icon"></span>
-        </button> */}
-        <div className="collapse navbar-collapse" id="navbarSupportedContent">
-          <ul className="navbar-nav me-auto mb-2 mb-lg-0">
-            <li className="nav-item">
-              <a className="nav-link active" aria-current="page" href="#">
-                Home
-              </a>
-            </li>
-            <li className="nav-item">
-              <a className="nav-link active" aria-current="page" href="#">
-                About - NCB
-              </a>
-            </li>
-            <li className="nav-item">
-              <a className="nav-link active" aria-current="page" href="#">
-                Admin - NCB
-              </a>
-            </li>
-            {/* <li className="nav-item">
-                    <a className="nav-link" href="#">Link</a>
-                </li> */}
-          </ul>
-          <ul className="navbar-nav">
-            <li className="nav-item bg-light poo">
-              <a className="nav-link active  " aria-current="page" href="#">
-                Login
-              </a>
-            </li>
-            <li className="nav-item dropdown poo dd">
-              <a
-                className="nav-link dropdown-toggle"
-                href="#"
-                id="navbarDropdown"
-                role="button"
-                data-bs-toggle="dropdown"
-                aria-expanded="false"
-              >
-                {" "}
-                Sign Up{" "}
-              </a>
-              <ul
-                className="dropdown-menu dropdown-menu-end"
-                aria-labelledby="navbarDropdown"
-              >
-                <li>
-                  <a className="dropdown-item" href="#">
-                    Manufacturer
-                  </a>
-                </li>
-                <li>
-                  <hr className="dropdown-divider" />
-                </li>
-                <li>
-                  <a className="dropdown-item" href="#">
-                    Warehouse
-                  </a>
-                </li>
-                <li>
-                  <hr className="dropdown-divider" />
-                </li>
-                <li>
-                  <a className="dropdown-item" href="#">
-                    Medical Store
-                  </a>
-                </li>
-              </ul>
-            </li>
-          </ul>
-        </div>
-      </div>
-    </nav>
+		<nav className={styles.navbar__wrapper}>
+			<div className={styles.navbar}>
+				<ul className={styles.links__banner}>
+					<li className={styles.logo}>
+						<Link to="/">
+							<img src={ncb__logo} alt="NCB Logo" />
+						</Link>
+						<p>NCB DAAS</p>
+					</li>
+					<li>
+						<Link to="/">Home</Link>
+					</li>
+					<li>
+						<a href="https://narcoticsindia.nic.in/" target="_blank" rel="noreferrer">
+							About NCB
+						</a>
+					</li>
+					<li>
+						<Link to="/admin/signup" target="_blank">
+							Admin
+						</Link>
+					</li>
+				</ul>
+				<ul className={styles.links__auth}>
+					<li className={styles.login}>
+						<Link to="/login">Login</Link>
+					</li>
+					<li>
+						<div className={styles.dropdown}>
+							<div className={styles.dropbtn}>
+								Signup
+								<MdArrowDropDown size={20} />
+							</div>
+							<div className={styles.dropdown__content}>
+								<ul>
+									<li>
+										<Link to="manufacturer/signup">Manufacturer</Link>
+									</li>
+									<li>
+										<Link to="warehouse/signup">Warehouse</Link>
+									</li>
+									<li>
+										<Link to="medical/signup">Medical Store</Link>
+									</li>
+								</ul>
+							</div>
+						</div>
+					</li>
+				</ul>
+			</div>
+		</nav>
 	);
 };
 

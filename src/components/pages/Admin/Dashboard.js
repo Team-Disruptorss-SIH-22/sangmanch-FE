@@ -12,7 +12,7 @@ import {
 	ResponsiveContainer
 } from "recharts";
 
-import styles from "../../../styles/admin/adminDashboard.module.css";
+import styles from "styles/admin/adminDashboard.module.css";
 
 const Dashboard = () => {
 	// Stats

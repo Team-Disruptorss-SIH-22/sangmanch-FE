@@ -40,9 +40,18 @@ function App() {
 						component={DrugProgress}
 						title={"Progress"}
 					/>
+<<<<<<< HEAD
 					<AdminRoute exact path="/national" component={NationalView} />
 					<AdminRoute exact path="/alerts" title={"Alerts"} component={Alerts} />
 					
+=======
+					<AdminRoute
+						exact
+						path="/national"
+						component={NationalView}
+						title={"National"}
+					/>
+>>>>>>> master
 					<Route path="*" component={Page404} />
 				</Switch>
 			</Router>

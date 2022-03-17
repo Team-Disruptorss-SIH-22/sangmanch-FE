@@ -6,7 +6,6 @@ import { GiMedicines } from "react-icons/gi";
 import { AiFillAlert, AiOutlineAreaChart, AiFillSetting } from "react-icons/ai";
 
 const AdminLayout = ({ Component, title }) => {
-
 	return (
 		<div className={styles.container}>
 			<aside className={styles.sidebar}>
