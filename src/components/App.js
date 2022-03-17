@@ -11,7 +11,8 @@ import {
 	WarehouseForm,
 	MedicalStoreForm,
 	DrugProgress,
-	Dashboard
+	Dashboard,
+	NationalView
 } from "./pages/index";
 
 import AdminRoute from "./HOC/AdminRoute";
@@ -38,6 +39,7 @@ function App() {
 						component={DrugProgress}
 						title={"Progress"}
 					/>
+					<AdminRoute exact path="/national" component={NationalView} />
 					<Route path="*" component={Page404} />
 				</Switch>
 			</Router>
