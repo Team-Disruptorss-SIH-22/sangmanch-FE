@@ -15,7 +15,7 @@ import AdminLayout from "./Admin/AdminLayout";
 import DrugProgress from "./Admin/DrugProgress";
 import Dashboard from "./Admin/Dashboard";
 import NationalView from "./Admin/NationalView";
-import Alerts from "./Admin/Alerts";
+import Alerts from "./Admin/alerts/Alerts";
 import Drugs from "./Admin/Drugs";
 
 import Page404 from "./Page404";
