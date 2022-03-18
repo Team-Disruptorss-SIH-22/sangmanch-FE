@@ -13,6 +13,8 @@ import AdminLayout from "./Admin/AdminLayout";
 import DrugProgress from "./Admin/DrugProgress";
 import Dashboard from "./Admin/Dashboard";
 import NationalView from "./Admin/NationalView";
+import Alerts from "./Admin/alerts/Alerts";
+import Drugs from "./Admin/Drugs";
 
 import Page404 from "./Page404";
 import Home from "./Homepage/Home";
@@ -22,7 +24,6 @@ export {
 	Home,
 	UserSignup,
 	AdminSignup,
-	Verify,
 	Page404,
 	ManufacturerForm,
 	WarehouseForm,
@@ -30,5 +31,7 @@ export {
 	AdminLayout,
 	DrugProgress,
 	Dashboard,
-	NationalView
+	NationalView,
+	Alerts,
+	Drugs
 };
