@@ -14,7 +14,7 @@ ReactDOM.render(
 			closeOnClick
 			newestOnTop={false}
 			autoClose={3000}
-			position="top-left"
+			position="top-right"
 		/>
 	</React.StrictMode>,
 	document.getElementById("root")

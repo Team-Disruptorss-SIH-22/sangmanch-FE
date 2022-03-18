@@ -1,10 +1,20 @@
-import React from "react";
+import React, { useContext, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { MdArrowDropDown } from "react-icons/md";
 import ncb__logo from "../../../assets/ncb__logo.png";
 import styles from "../../../styles/Home/homeNavbar.module.css";
+import authContext from "context/auth/authContext";
 
-const HomeNavbar = () => {
+const HomeNavbar = (props) => {
+	const { isAuthenticated, user } = useContext(authContext);
+
+	useEffect(() => {
+		if (isAuthenticated === true) {
+			console.log(props);
+			props.history.push(`${user.role}/dispatch`);
+		}
+	}, [isAuthenticated]);
+
 	return (
 		<nav className={styles.navbar__wrapper}>
 			<div className={styles.navbar}>
@@ -42,13 +52,13 @@ const HomeNavbar = () => {
 							<div className={styles.dropdown__content}>
 								<ul>
 									<li>
-										<Link to="manufacturer/signup">Manufacturer</Link>
+										<Link to="signup/manufacturer">Manufacturer</Link>
 									</li>
 									<li>
-										<Link to="warehouse/signup">Warehouse</Link>
+										<Link to="signup/warehouse">Warehouse</Link>
 									</li>
 									<li>
-										<Link to="medical/signup">Medical Store</Link>
+										<Link to="signup/medical">Medical Store</Link>
 									</li>
 								</ul>
 							</div>

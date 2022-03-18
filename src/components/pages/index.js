@@ -1,8 +1,6 @@
 // Signup & Login Forms
 import Login from "./AuthForms/Login";
-import ManufacturerSignup from "./AuthForms/ManufacturerSignup";
-import WarehouseSignup from "./AuthForms/WarehouseSignup";
-import MedicalStoreSignup from "./AuthForms/MedicalStoreSignup";
+import UserSignup from "./AuthForms/UserSignup";
 import AdminSignup from "./AuthForms/AdminSignup";
 
 // Dispatch Forms
@@ -22,10 +20,9 @@ import Home from "./Homepage/Home";
 export {
 	Login,
 	Home,
-	ManufacturerSignup,
-	WarehouseSignup,
-	MedicalStoreSignup,
+	UserSignup,
 	AdminSignup,
+	Verify,
 	Page404,
 	ManufacturerForm,
 	WarehouseForm,

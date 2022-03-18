@@ -1,37 +1,62 @@
+import { useState, useEffect, useContext } from "react";
 import { Link } from "react-router-dom";
-import { useState } from "react";
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
 import styles from "../../../styles/forms/signup.module.css";
+import authContext from "context/auth/authContext";
 
-const UserLogin = () => {
-	const [email, setEmail] = useState("");
-	const [password, setPassword] = useState("");
+const UserLogin = (props) => {
 	const [passwordShown, setPasswordShown] = useState(false);
 	const [loggingIn, setLoggingIn] = useState(false);
+	const [user, setUser] = useState({
+		email: "",
+		password: ""
+	});
+	const { email, password } = user;
+	const {
+		isAuthenticated,
+		user: loggedUser,
+		error,
+		login,
+		clearError
+	} = useContext(authContext);
+
+	useEffect(() => {
+		if (isAuthenticated === true) {
+			props.history.push(`${loggedUser.role}/dispatch`);
+		}
+	}, [isAuthenticated, props.history]);
 
 	const togglePassword = (e) => {
 		e.preventDefault();
 		setPasswordShown(!passwordShown);
 	};
 
+	const onChange = (e) => {
+		setUser({ ...user, [e.target.name]: e.target.value });
+	};
+
 	const handleSubmit = (e) => {
 		e.preventDefault();
 
-		// console.log("Inside HandleSubmit");
 		let error = false;
 		setLoggingIn(true);
 
-		if (!email || !password) {
-			toast.error("Please enter both Email and Password");
-			error = true;
-		}
-
 		if (error) {
-			return setLoggingIn(false);
+			setLoggingIn(false);
+			return;
 		}
+		login(user);
 	};
+
+	useEffect(() => {
+		if (error) {
+			setLoggingIn(false);
+			toast.error(error);
+			clearError();
+		}
+	}, [error]);
 
 	return (
 		<div className={styles.container}>
@@ -46,14 +71,16 @@ const UserLogin = () => {
 					<p className={styles.loginTitle}>Log In</p>
 				</div>
 
-				<form className={styles.formContainer}>
+				<form onSubmit={handleSubmit} className={styles.formContainer}>
 					<div className={styles.inputContainer}>
 						<label htmlFor="email">EMAIL</label>
 						<input
 							type="email"
 							id="email"
+							name="email"
 							value={email}
-							onChange={(e) => setEmail(e.target.value)}
+							onChange={onChange}
+							required
 							placeholder="Email Address"
 						/>
 					</div>
@@ -69,11 +96,18 @@ const UserLogin = () => {
 							<input
 								type={passwordShown ? "text" : "password"}
 								id="password"
+								name="password"
 								value={password}
-								onChange={(e) => setPassword(e.target.value)}
+								required
+								onChange={onChange}
+								autoComplete="off"
 								placeholder="Password"
 							/>
-							<button className={styles.showPassword} onClick={togglePassword}>
+							<button
+								type="submit"
+								className={styles.showPassword}
+								onClick={togglePassword}
+							>
 								{passwordShown ? (
 									<img
 										src="https://cdn-icons-png.flaticon.com/512/565/565655.png"
@@ -89,12 +123,7 @@ const UserLogin = () => {
 						</div>
 					</div>
 
-					<button
-						type="submit"
-						onClick={handleSubmit}
-						className={styles.submit}
-						disabled={loggingIn}
-					>
+					<button type="submit" className={styles.submit} disabled={loggingIn}>
 						{loggingIn ? "Logging In.." : "Log In"}
 					</button>
 				</form>

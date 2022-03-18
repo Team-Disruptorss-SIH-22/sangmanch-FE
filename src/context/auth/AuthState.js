@@ -33,7 +33,6 @@ const AuthState = (props) => {
 		}
 		try {
 			const res = await axios.get(url + "/api/auth");
-			console.log(res);
 			dispatch({
 				type: GET_USER,
 				payload: res.data.data

@@ -9,10 +9,10 @@ import img__4 from "../../../assets/home/img4.png";
 
 import styles from "../../../styles/Home/home.module.css";
 
-const Home = () => {
+const Home = (props) => {
 	return (
 		<div className={styles.container}>
-			<HomeNavbar />
+			<HomeNavbar {...props} />
 			<div className={styles.left}>
 				<div className={styles.image__container}>
 					<img src={img__1} alt="" className={styles.img__1} />

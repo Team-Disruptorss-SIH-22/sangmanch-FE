@@ -1,18 +1,44 @@
+import { useState, useContext, useEffect } from "react";
 import { Link } from "react-router-dom";
-import { useState } from "react";
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
 import styles from "../../../styles/forms/signup.module.css";
+import authContext from "context/auth/authContext";
 
-const ManufacturerSignup = () => {
-	const [email, setEmail] = useState("");
-	const [password, setPassword] = useState("");
-	const [confirmPassword, setConfirmPassword] = useState("");
+const UserSignup = (props) => {
+	const { titleRole } = props;
 	const [passwordShown, setPasswordShown] = useState(false);
 	const [confirmPasswordShown, setConfirmPasswordShown] = useState(false);
-	const [Registering, setRegistering] = useState(false);
-	const [manufacturerId, setManufacturerId] = useState("");
+	const [registering, setRegistering] = useState(false);
+	const setRole = () => {
+		const upd_role = titleRole
+			.toLowerCase()
+			.match(/[A-Z0-9]+/gi)
+			.map(function (word, i) {
+				if (!i) return word;
+				return word[0].toUpperCase() + word.slice(1); //
+			})
+			.join("");
+		return upd_role;
+	};
+
+	const [user, setUser] = useState({
+		email: "",
+		password: "",
+		confirmPassword: "",
+		uniqueID: "",
+		role: setRole()
+	});
+
+	const { email, password, confirmPassword, uniqueID } = user;
+	const { isAuthenticated, signup, user: loggedUser } = useContext(authContext);
+
+	useEffect(() => {
+		if (isAuthenticated) {
+			props.history.push(`/${loggedUser.role}/dispatch`);
+		}
+	}, [isAuthenticated]);
 
 	const togglePassword = (e) => {
 		e.preventDefault();
@@ -24,28 +50,26 @@ const ManufacturerSignup = () => {
 		setConfirmPasswordShown(!confirmPasswordShown);
 	};
 
+	const onChange = (e) => {
+		setUser({ ...user, [e.target.name]: e.target.value });
+	};
+
 	const handleSubmit = (e) => {
 		e.preventDefault();
-
-		// console.log("Inside HandleSubmit");
 		let error = false;
 		setRegistering(true);
-
-		if (!email || !password || !confirmPassword || !manufacturerId) {
-			toast.error("Please enter all the fields");
-			error = true;
-		}
-
 		if (password !== confirmPassword) {
 			toast.error("Both Passwords don't match!");
 			error = true;
 		}
 
-		console.log(password, confirmPassword);
-
 		if (error) {
-			return setRegistering(false);
+			setRegistering(false);
+			return;
 		}
+		signup(user);
+		toast.success("Please verify your email to continue");
+		props.history.push("/login");
 	};
 
 	return (
@@ -62,17 +86,19 @@ const ManufacturerSignup = () => {
 					</div>
 				</div>
 
-				<p className={styles.loginTitle}>Manufacturer Sign Up</p>
+				<p className={styles.loginTitle}>{titleRole} Sign Up</p>
 
 				<form className={styles.formContainer}>
 					<div className={styles.inputContainer}>
-						<label htmlFor="id">MANUFACTURER ID</label>
+						<label htmlFor="id">{titleRole} ID</label>
 						<input
 							type="text"
 							id="id"
-							value={manufacturerId}
-							onChange={(e) => setManufacturerId(e.target.value)}
-							placeholder="Drug Liscence Number"
+							name="uniqueID"
+							value={uniqueID}
+							onChange={onChange}
+							placeholder="Your Unique ID"
+							required={true}
 						/>
 					</div>
 
@@ -81,9 +107,11 @@ const ManufacturerSignup = () => {
 						<input
 							type="email"
 							id="email"
+							name="email"
 							value={email}
-							onChange={(e) => setEmail(e.target.value)}
+							onChange={onChange}
 							placeholder="Email Address"
+							required={true}
 						/>
 					</div>
 
@@ -93,9 +121,12 @@ const ManufacturerSignup = () => {
 							<input
 								type={passwordShown ? "text" : "password"}
 								id="password"
+								name="password"
 								value={password}
-								onChange={(e) => setPassword(e.target.value)}
+								onChange={onChange}
 								placeholder="Password"
+								required={true}
+								autoComplete="off"
 							/>
 							<button className={styles.showPassword} onClick={togglePassword}>
 								{passwordShown ? (
@@ -119,9 +150,12 @@ const ManufacturerSignup = () => {
 							<input
 								type={confirmPasswordShown ? "text" : "password"}
 								id="confirm-password"
+								name="confirmPassword"
 								value={confirmPassword}
-								onChange={(e) => setConfirmPassword(e.target.value)}
+								onChange={onChange}
 								placeholder="Verify Password"
+								required={true}
+								autoComplete="off"
 							/>
 							<button className={styles.showPassword} onClick={toggleConfirmPassword}>
 								{confirmPasswordShown ? (
@@ -143,9 +177,9 @@ const ManufacturerSignup = () => {
 						type="submit"
 						onClick={handleSubmit}
 						className={styles.submit}
-						disabled={Registering}
+						// disabled={registering}
 					>
-						{Registering ? "Registering.." : "Sign Up"}
+						{registering ? "Registering.." : "Sign Up"}
 					</button>
 				</form>
 
@@ -159,4 +193,4 @@ const ManufacturerSignup = () => {
 	);
 };
 
-export default ManufacturerSignup;
+export default UserSignup;
