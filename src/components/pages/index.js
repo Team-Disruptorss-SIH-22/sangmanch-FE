@@ -2,6 +2,7 @@
 import Login from "./AuthForms/Login";
 import UserSignup from "./AuthForms/UserSignup";
 import AdminSignup from "./AuthForms/AdminSignup";
+import Verify from "./AuthForms/Verify";
 
 // Dispatch Forms
 import ManufacturerForm from "./DispatchForms/ManufacturerForm";
@@ -24,6 +25,7 @@ export {
 	Home,
 	UserSignup,
 	AdminSignup,
+	Verify,
 	Page404,
 	ManufacturerForm,
 	WarehouseForm,

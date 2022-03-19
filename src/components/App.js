@@ -11,7 +11,8 @@ import {
 	Dashboard,
 	NationalView,
 	Alerts,
-	Drugs
+	Drugs,
+	Verify
 } from "./pages/index";
 
 import AdminRoute from "./HOC/AdminRoute";
@@ -41,6 +42,7 @@ function App() {
 						<UserSignupRoute exact path="/signup/warehouse" titleRole={"Warehouse"} />
 						<UserSignupRoute exact path="/signup/medical" titleRole={"Medical Store"} />
 						<Route exact path="/signup/admin" component={AdminSignup} />
+						<Route exact path="/verify/:token" component={Verify} />
 
 						<Route exact path="/manufacturer/dispatch" component={ManufacturerForm} />
 						<Route exact path="/warehouse/dispatch" component={WarehouseForm} />

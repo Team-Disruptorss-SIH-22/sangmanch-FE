@@ -48,6 +48,7 @@ const UserLogin = (props) => {
 			return;
 		}
 		login(user);
+		if (!error) toast.success("Logged in Successfully");
 	};
 
 	useEffect(() => {

@@ -23,8 +23,8 @@ const AuthState = (props) => {
 	};
 	const [state, dispatch] = useReducer(authReducer, initialState);
 
-	// const url = "https://ncbdaas-backend.herokuapp.com";
-	const url = "http://localhost:5000";
+	const url = "https://ncbdaas-backend.herokuapp.com";
+	// const url = "http://localhost:5000";
 
 	// Set token and load user
 	const loadUser = async () => {
