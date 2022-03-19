@@ -4,6 +4,7 @@ import Navbar from "./AdminNavbar.js";
 import { FaUser, FaChartPie, FaLightbulb } from "react-icons/fa";
 import { GiMedicines } from "react-icons/gi";
 import { AiFillAlert, AiOutlineAreaChart, AiFillSetting } from "react-icons/ai";
+import { Link } from "react-router-dom";
 
 const AdminLayout = ({ Component, title }) => {
 	return (
@@ -16,19 +17,27 @@ const AdminLayout = ({ Component, title }) => {
 				<ul className={styles.collection}>
 					<li>
 						<FaChartPie />
-						<span>Overview</span>
+						<span>
+							<Link to="/dashboard">Overview</Link>
+						</span>
 					</li>
 					<li>
 						<GiMedicines />
-						<span>Drugs</span>
+						<span>
+							<Link to="/drugs">Drugs</Link>
+						</span>
 					</li>
 					<li>
 						<FaLightbulb />
-						<span>National View</span>
+						<span>
+							<Link to="/national">National View</Link>
+						</span>
 					</li>
 					<li>
 						<AiFillAlert />
-						<span>Alerts</span>
+						<span>
+							<Link to="/alerts">Alerts</Link>
+						</span>
 					</li>
 					<li>
 						<FaUser />
