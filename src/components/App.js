@@ -17,6 +17,7 @@ import {
 
 import AdminRoute from "./HOC/AdminRoute";
 import UserSignupRoute from "./HOC/UserSignupRoute";
+import UserRoute from "./HOC/UserRoute";
 import AuthState from "context/auth/AuthState";
 import setAuthToken from "./Utils/SetAuthToken";
 
@@ -30,8 +31,9 @@ function App() {
 			<AuthState>
 				<Router>
 					<Switch>
-						<Route exact path="/" component={Home} />
-						<Route exact path="/login" component={Login} />
+						<UserRoute exact path="/" component={Home} />
+						<UserRoute exact path="/login" component={Login} />
+						<UserRoute exact path="/verify/:token" component={Verify} />
 
 						{/* User Signup */}
 						<UserSignupRoute
@@ -42,7 +44,6 @@ function App() {
 						<UserSignupRoute exact path="/signup/warehouse" titleRole={"Warehouse"} />
 						<UserSignupRoute exact path="/signup/medical" titleRole={"Medical Store"} />
 						<Route exact path="/signup/admin" component={AdminSignup} />
-						<Route exact path="/verify/:token" component={Verify} />
 
 						<Route exact path="/manufacturer/dispatch" component={ManufacturerForm} />
 						<Route exact path="/warehouse/dispatch" component={WarehouseForm} />
