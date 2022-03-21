@@ -66,6 +66,7 @@ function App() {
 
 						<AdminRoute exact path="/alerts" title={"- Alerts"} component={Alerts} />
 						<AdminRoute exact path="/drugs" title={""} component={Drugs} />
+						<AdminRoute exact path="/admin/404" title={""} component={Page404} />
 
 						<Route path="*" component={Page404} />
 					</Switch>
