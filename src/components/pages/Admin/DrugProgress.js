@@ -60,14 +60,14 @@ const DrugProgress = () => {
 						<td>Warehouse: ID</td>
 						<td>13th December 2021, 04:15am</td>
 						<td>90</td>
-						<td className={styles.alert__red}>False</td>
+						<td className={styles.alert__green}>False</td>
 					</tr>
 					<tr>
 						<td>4</td>
 						<td>Warehouse: ID</td>
 						<td>13th December 2021, 04:15am</td>
 						<td>90</td>
-						<td className={styles.alert__red}>False</td>
+						<td className={styles.alert__greeb}>False</td>
 					</tr>
 				</tbody>
 			</table>
