@@ -1,9 +1,10 @@
 import React from "react";
 import styles from "styles/admin/drugs.module.css";
+import { Link } from "react-router-dom";
 
 const Drugs = () => {
 	const data = Array(20).fill({
-		orderID: Math.random(),
+		orderID: 1,
 		CurrentState: Date.now(),
 		Alert: Math.random() > 0.5 ? true : false
 	});
@@ -23,8 +24,10 @@ const Drugs = () => {
 					{data.map((row, idx) => (
 						<tr>
 							<td>{idx}</td>
-							<td>{row.orderID}</td>
-							<td>{row.CurrentState}</td>
+							<Link to="/drug/123">
+								<td>{1000 - idx}</td>
+							</Link>
+							<td>{"Warehouse"}</td>
 							<td className={styles.alert__green}>{`${row.Alert}`}</td>
 						</tr>
 					))}
