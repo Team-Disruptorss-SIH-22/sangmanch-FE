@@ -32,13 +32,38 @@ const UserSignup = (props) => {
 	});
 
 	const { email, password, confirmPassword, uniqueID } = user;
-	const { isAuthenticated, signup, user: loggedUser } = useContext(authContext);
+	const {
+		isAuthenticated,
+		signup,
+		user: loggedUser,
+		registered,
+		error,
+		clearError
+	} = useContext(authContext);
 
 	useEffect(() => {
 		if (isAuthenticated) {
 			props.history.push(`/${loggedUser.role}/dispatch`);
 		}
-	}, [isAuthenticated]);
+		if (registered) {
+			toast(
+				"A Verification Link has been sent to your email address. Please verify to continue",
+				{
+					type: "info",
+					position: "top-center"
+				}
+			);
+			props.history.push("/login");
+		}
+	}, [isAuthenticated, registered]);
+
+	useEffect(() => {
+		if (error) {
+			setRegistering(false);
+			toast.error(error);
+			clearError();
+		}
+	}, [error]);
 
 	const togglePassword = (e) => {
 		e.preventDefault();
@@ -56,20 +81,13 @@ const UserSignup = (props) => {
 
 	const handleSubmit = (e) => {
 		e.preventDefault();
-		let error = false;
 		setRegistering(true);
 		if (password !== confirmPassword) {
 			toast.error("Both Passwords don't match!");
-			error = true;
+			setRegistering(false);
 		}
 
-		if (error) {
-			setRegistering(false);
-			return;
-		}
 		signup(user);
-		toast.success("Please verify your email to continue");
-		props.history.push("/login");
 	};
 
 	return (

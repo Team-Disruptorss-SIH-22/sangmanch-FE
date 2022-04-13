@@ -13,6 +13,7 @@ export default (state, action) => {
 		case SIGNUP_USER:
 			return {
 				...state,
+				registered: true,
 				loading: false
 			};
 		case LOGIN_USER:
@@ -22,6 +23,7 @@ export default (state, action) => {
 				isAuthenticated: true,
 				loading: false,
 				error: null,
+				registered: true,
 				user: action.payload.user
 			};
 
@@ -32,8 +34,8 @@ export default (state, action) => {
 				token: null,
 				isAuthenticated: false,
 				user: null,
-				loading: true,
-				error: action.payload
+				loading: false,
+				error: action.payload ? action.payload : null
 			};
 
 		case CLEAR_ERROR:
