@@ -41,17 +41,23 @@ const AdminLayout = ({ Component, title }) => {
 					</li>
 					<li>
 						<FaUser />
-						<span>Agents [Escalation]</span>
+						<span>
+							<Link to="/admin/404">Agents [Escalation]</Link>
+						</span>
 					</li>
 					<li>
 						<AiOutlineAreaChart />
-						<span>Visualizations</span>
+						<span>
+							<Link to="/admin/404">Visualizations</Link>
+						</span>
 					</li>
 
 					<div className={styles.divider}></div>
 					<li>
 						<AiFillSetting />
-						<span>Settings</span>
+						<span>
+							<Link to="/admin/404">Settings</Link>
+						</span>
 					</li>
 				</ul>
 			</aside>
