@@ -69,8 +69,8 @@ const FAQ = () => {
   const [currentItem, setCurrentItem] = useState(null);
 
   const tabClickHandler = (index) => {
-    setCurrentTab(index);
     if (index !== currentTab) setCurrentItem(null);
+    setCurrentTab(index);
   };
 
   const itemClickHandler = (item) => {
