@@ -1,10 +1,15 @@
 .faq{
-  margin-bottom: 40px;
+  margin: 80px 0;
 }
 
 .faqContainer {
   max-width: 1200px;
   margin: auto;
+}
+
+.faqHeading{
+  text-align: center;
+  color: #147EB7;
 }
 
 .faqContent {
