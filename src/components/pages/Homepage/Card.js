@@ -1,7 +1,7 @@
 import React from "react";
 import styles from "styles/Home/card.module.css";
 
-const Card = ({ num, heading, description }) => {
+const Card = ({ num, heading, description, img }) => {
   return (
     <div className={styles.card}>
       <div className={styles.cardContainer}>
@@ -9,7 +9,7 @@ const Card = ({ num, heading, description }) => {
           <img
             alt="card background"
             className={styles.cardImage}
-            src="https://images1-focus-opensocial.googleusercontent.com/gadgets/proxy?container=focus&resize_w=1500&url=https://codetheweb.blog/assets/img/posts/basic-types-of-html-tags/cover.jpg"
+            src={img}
           />
         </div>
 
