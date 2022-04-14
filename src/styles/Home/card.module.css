@@ -14,10 +14,10 @@
 
 .cardContainer {
   width: 300px;
-  border: 10px solid #eee;
+  /* border: 10px solid #eee; */
   aspect-ratio: 10/15;
   border-radius: 10px;
-  box-shadow: 0 0 5em -1em black;
+  box-shadow: rgba(0, 0, 0, 0.4) 0 10px 30px;
   position: relative;
   overflow: hidden;
   color: #fff;
