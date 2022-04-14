@@ -106,7 +106,7 @@ const FAQ = () => {
                 onClick={() => itemClickHandler(index)}
               >
                 <div className={styles.questionHeading}>
-                  {index + 1}. {item.ques}
+                  {index + 1}.&ensp;<span className={styles.questionOnly}>{item.ques}</span>
                 </div>
                 <div
                   className={`${styles.questionAnswer} ${

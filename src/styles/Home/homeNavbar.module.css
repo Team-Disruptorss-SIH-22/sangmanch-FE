@@ -163,11 +163,8 @@
 }
 
 .login:hover {
-  background-color: #000;
-  border: 1px solid #000;
-}
-.login a:hover {
-  color: #fff;
+	/* border: 1px solid #116897; */
+	box-shadow: rgba(255, 255, 255, 0.6) 0px 1px 4px;
 }
 
 /* The dropdown container */
