@@ -46,7 +46,7 @@ const CarouselSlider = () => {
         </div>
       </div>
       <div>
-        <img src={carousel2} />
+        <img style={{ height: "350px" }} src={carousel2} alt="Carousel2" />
       </div>
     </Carousel>
   );
