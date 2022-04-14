@@ -1,5 +1,6 @@
 .upper_footer {
 	width: 100%;
+	margin-top: 200px;
 	background-color: #147eb7;
 }
 .footer_infos_container {
@@ -8,7 +9,7 @@
 	padding: 1% 0;
 	color: #fff;
 	display: flex;
-	align-items: center;
+	align-items: flex-start;
 	justify-content: space-between;
 }
 
@@ -53,7 +54,8 @@
 .heading_underline {
 	width: 30px;
 	height: 5px;
-	margin-bottom: 10px;
+	margin-top: -5px;
+	margin-bottom: 15px;
 	background-color: #99d9d9;
 }
 
