@@ -6,12 +6,10 @@
 .faqContent {
   display: flex;
   border: 2px solid #333;
-  align-items: stretch;
-  justify-content: stretch;
+  border-radius: 10px;
 }
 
 .tabsContainer {
-  /* background-color: rgb(0, 180, 240); */
   flex-shrink: 0;
   border-right: 1px solid #333;
 }
@@ -30,11 +28,21 @@
   padding: 1rem;
 }
 
+.question {
+  cursor: pointer;
+  margin-bottom: 10px;
+}
+
+.questionHeading {
+  font-weight: 600;
+}
+
 .questionAnswer {
   padding-left: 1rem;
-  /* max-height: 0; */
-  /* overflow: hidden; */
+  max-height: 0;
+  overflow: hidden;
+  transition: all 0.4s ease;
 }
 .activeAnswer {
-  max-height: 600px;
+  max-height: 300px;
 }

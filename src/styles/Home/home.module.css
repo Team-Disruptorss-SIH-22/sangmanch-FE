@@ -1,7 +1,5 @@
 .slide__container {
   display: flex;
-  /* background-color: #f8f4f4; */
-  background-color: #f4f4f4;
   z-index: 10;
 }
 
@@ -48,10 +46,10 @@
   text-align: left;
   padding: 9px 25px;
   cursor: pointer;
-  color: rgb(235, 230, 230);
+  background-color: #263252;
+  color: #fff;
   font-weight: var(--fontRegular);
   font-size: 15x;
-  background-color: var(--colorPrimary);
   border-radius: 20px;
 }
 
