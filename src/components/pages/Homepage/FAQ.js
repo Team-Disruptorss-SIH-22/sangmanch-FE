@@ -66,6 +66,21 @@ const data = [
 
 const FAQ = () => {
   const [currentTab, setCurrentTab] = useState(0);
+  const [currentItem, setCurrentItem] = useState(null);
+
+  const tabClickHandler = (index) => {
+    setCurrentTab(index);
+    if (index !== currentTab) setCurrentItem(null);
+  };
+
+  const itemClickHandler = (item) => {
+    if (item === currentItem) setCurrentItem(null);
+    else setCurrentItem(item);
+  };
+
+  const isActive = (itemIdx) => {
+    return itemIdx === currentItem;
+  };
 
   return (
     <div id="faq" className={styles.faq}>
@@ -77,7 +92,7 @@ const FAQ = () => {
               <div
                 key={index}
                 className={`${styles.tab} ${currentTab === index ? styles.active : ""}`}
-                onClick={() => setCurrentTab(index)}
+                onClick={() => tabClickHandler(index)}
               >
                 {item.entity}
               </div>
@@ -85,11 +100,21 @@ const FAQ = () => {
           </div>
           <div className={styles.questionsContainer}>
             {data[currentTab].questions.map((item, index) => (
-              <div key={index} className={styles.question}>
+              <div
+                key={index}
+                className={styles.question}
+                onClick={() => itemClickHandler(index)}
+              >
                 <div className={styles.questionHeading}>
                   {index + 1}. {item.ques}
                 </div>
-                <div className={`${styles.questionAnswer}`}>{item.ans}</div>
+                <div
+                  className={`${styles.questionAnswer} ${
+                    isActive(index) && styles.activeAnswer
+                  }`}
+                >
+                  {item.ans}
+                </div>
               </div>
             ))}
           </div>

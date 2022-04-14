@@ -32,8 +32,8 @@
 
 .questionAnswer {
   padding-left: 1rem;
-  /* max-height: 0; */
-  /* overflow: hidden; */
+  max-height: 0;
+  overflow: hidden;
 }
 .activeAnswer {
   max-height: 600px;
