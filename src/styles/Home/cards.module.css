@@ -1,0 +1,15 @@
+.galleryContainer {
+  max-width: 1200px;
+  margin: auto;
+}
+
+.galleryHeading {
+  text-align: center;
+}
+
+.cardsContainer {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+}

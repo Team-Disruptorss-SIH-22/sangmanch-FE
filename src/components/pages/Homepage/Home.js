@@ -1,20 +1,22 @@
 import React from "react";
+import styles from "../../../styles/Home/home.module.css";
 
 import HomeNavbar from "./HomeNavbar";
 import Footer from "../Footer";
 
-import styles from "../../../styles/Home/home.module.css";
+import Cards from "./Cards";
+import FAQ from "./FAQ";
 
 const Home = (props) => {
-	return (
-		<div className={styles.container}>
-			<HomeNavbar {...props} />
-			{/* Carousel */}
-			{/* Cards */}
-			{/* FAQ */}
-			<Footer />
-		</div>
-	);
+  return (
+    <div className={styles.container}>
+      <HomeNavbar {...props} />
+      {/* Carousel */}
+      <Cards />
+      <FAQ />
+      <Footer />
+    </div>
+  );
 };
 
 export default Home;
