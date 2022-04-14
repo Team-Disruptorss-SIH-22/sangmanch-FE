@@ -29,9 +29,9 @@ const Cards = () => {
         <h1 className={styles.galleryHeading}>Buy Prescribed Drugs in 3 Simple Steps</h1>
         <div className={styles.cardsContainer}>
           <Card {...data[0]} />
-          <FaChevronRight size={40} color={"#4444dd"} />
+          <FaChevronRight size={40} color={"#147EB7"} />
           <Card {...data[1]} />
-          <FaChevronRight size={40} color={"#4444dd"} />
+          <FaChevronRight size={40} color={"#147EB7"} />
           <Card {...data[2]} />
 
           {/* {data.map((item, index) => (
