@@ -13,8 +13,10 @@ const Home = (props) => {
       {/* <HomeNavbar {...props} />
       <Carousel /> */}
       <Cards />
-      {/* <FAQ />
-      <Footer /> */}
+      <FAQ />
+      {/*
+      <Footer /> 
+      */}
     </div>
   );
 };
