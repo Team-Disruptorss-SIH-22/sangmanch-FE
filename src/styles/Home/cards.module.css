@@ -5,12 +5,28 @@
 
 .galleryHeading {
   text-align: center;
-  color: #147EB7;
+  color: #147eb7;
 }
 
 .cardsContainer {
   display: flex;
-  flex-wrap: wrap;
   justify-content: space-evenly;
   align-items: center;
+}
+
+@media (max-width: 1100px) {
+  .cardsContainer {
+    gap: 50px;
+    justify-content: space-between;
+    overflow: scroll;
+    padding: 50px;
+    margin: auto;
+
+    -ms-overflow-style: none; /* IE and Edge */
+    scrollbar-width: none; /* Firefox */
+  }
+
+  .cardsContainer::-webkit-scrollbar {
+    display: none;
+  }
 }
