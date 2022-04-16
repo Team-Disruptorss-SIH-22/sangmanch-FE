@@ -111,12 +111,12 @@ const Dashboard = () => {
 
 						<div className={styles.graphLineHelper + " " + styles.clrGrey}>
 							<div className={styles.singleLineHelper}>
-								<div className={styles.redLine}></div>
+								<div className={styles.blueLine}></div>
 								<p>Today</p>
 							</div>
 
 							<div className={styles.singleLineHelper}>
-								<div className={styles.greyLine}></div>
+								<div className={styles.greenLine}></div>
 								<p>Yesterday</p>
 							</div>
 						</div>
@@ -130,13 +130,13 @@ const Dashboard = () => {
 							margin={{ top: 10, right: 30, left: 0, bottom: 0 }}
 						>
 							<defs>
-								<linearGradient id="colorUv" x1="0" y1="0" x2="0" y2="1">
-									<stop offset="5%" stopColor="gray" stopOpacity={0.1} />
-									<stop offset="95%" stopColor="gray" stopOpacity={0} />
+								<linearGradient id="colorUv" x1="0" y1="0" x2="1" y2="0">
+									<stop offset="10%" stopColor="#99d9d9" stopOpacity={0.2} />
+									<stop offset="90%" stopColor="#99d9d9" stopOpacity={0} />
 								</linearGradient>
 								<linearGradient id="colorPv" x1="0" y1="0" x2="1" y2="0">
-									<stop offset="5%" stopColor="red" stopOpacity={0.1} />
-									<stop offset="95%" stopColor="red" stopOpacity={0} />
+									<stop offset="5%" stopColor="#147eb7" stopOpacity={0.1} />
+									<stop offset="95%" stopColor="#147eb7" stopOpacity={0} />
 								</linearGradient>
 							</defs>
 							<XAxis dataKey="date" />
@@ -145,14 +145,14 @@ const Dashboard = () => {
 							<Area
 								type="monotone"
 								dataKey="uv"
-								stroke="gray"
+								stroke="#99d9d9"
 								fillOpacity={1}
 								fill="url(#colorUv)"
 							/>
 							<Area
 								type="monotone"
 								dataKey="pv"
-								stroke="red"
+								stroke="#147eb7"
 								fillOpacity={1}
 								fill="url(#colorPv)"
 							/>
