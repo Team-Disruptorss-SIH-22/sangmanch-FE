@@ -10,8 +10,8 @@ import FAQ from "./FAQ";
 const Home = (props) => {
   return (
     <div className={styles.container}>
-      {/* <HomeNavbar {...props} />
-      <Carousel /> */}
+      <HomeNavbar {...props} />
+      {/* <Carousel /> */}
       <Cards />
       <FAQ />
       {/*

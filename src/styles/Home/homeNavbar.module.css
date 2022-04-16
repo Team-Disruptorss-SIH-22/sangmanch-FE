@@ -2,23 +2,25 @@
 .top_Default_Bar {
   box-sizing: border-box;
   width: 100%;
-  padding: 0.5%;
+  background-color: #116897;
+}
+.top_navbar_wrapper {
+  width: 95%;
+  margin: auto;
   display: flex;
   justify-content: space-between;
-  background-color: #116897;
+  padding: 0.5rem 0 0.5rem 0;
 }
 
 .top_Default_Bar .leftSide {
-  width: 12%;
   display: flex;
-  justify-content: space-evenly;
   align-items: center;
-  /* border: 1px solid red; */
+  gap: 0.8rem;
+  padding-left: 0.8rem;
 }
 
 .emblemLogoContainer {
-  width: 12%;
-  /* border: 1px solid red; */
+  width: 20px;
 }
 
 .logo_heading {
@@ -29,29 +31,30 @@
 }
 
 .rightSide {
-  width: 25%;
   display: flex;
-  justify-content: space-evenly;
+  /* justify-content: space-between; */
   align-items: center;
-  /* border: 1px solid red; */
+  gap: 3rem;
 }
 
 .rightSide .font_size_change {
-  width: 50%;
   display: flex;
-  justify-content: space-evenly;
+  justify-content: space-between;
   align-items: center;
+  gap: 0.5rem;
   /* border: 1px solid red; */
 }
 
 .rightSide .font_size_change button {
   font-weight: 600;
-  padding: 3% 6%;
+  width: 40px;
+  height: 29px;
   color: white;
   cursor: pointer;
   background: transparent;
   border: 1px solid rgba(255, 255, 255, 0.5);
   border-radius: 5px;
+  flex-shrink: 0;
 }
 
 .rightSide .font_size_change button:hover {
@@ -88,27 +91,19 @@
 }
 
 .navbar {
+  width: 95%;
+  margin: auto;
+  padding: 0.5rem 0;
   display: flex;
   color: #fff;
   justify-content: space-between;
 }
 
-/* Links inside the navbar */
-.navbar ul {
-  display: flex;
-  list-style: none;
-  align-items: center;
-  justify-content: space-evenly;
-  /* border: 1px solid red; */
-}
-
 .logo {
-  margin-left: 1.2%;
   display: flex;
   align-items: center;
   justify-content: flex-start;
   margin-right: 70px !important;
-  /* border: 1px solid red; */
 }
 
 .logo img {
@@ -116,7 +111,6 @@
   border-radius: 5px;
   margin: 0;
   margin-right: 10px;
-  /* border: 1px solid red; */
 }
 
 .logo p {
@@ -126,13 +120,18 @@
 }
 
 .nav_right_col {
-  width: 55%;
-  /* border: 1px solid red; */
   display: flex;
+  justify-content: space-between;
+  gap: 3rem;
 }
 
 .links__banner {
-  width: 55%;
+  /* width: 55%; */
+  display: flex;
+  list-style: none;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1.2rem;
 }
 
 .navbar a {
@@ -140,12 +139,14 @@
   font-weight: var(--fontMedium);
   color: #fff;
   text-decoration: none;
-  /* border: 1px solid red; */
 }
 
 /* RIGHT ALIGNED LIST */
 .links__auth {
-  width: 40%;
+  display: flex;
+  list-style: none;
+  align-items: center;
+  gap: 1rem;
 }
 
 .login {
@@ -163,8 +164,7 @@
 }
 
 .login:hover {
-	/* border: 1px solid #116897; */
-	box-shadow: rgba(255, 255, 255, 0.6) 0px 1px 4px;
+  box-shadow: rgba(255, 255, 255, 0.6) 0px 1px 4px;
 }
 
 /* The dropdown container */

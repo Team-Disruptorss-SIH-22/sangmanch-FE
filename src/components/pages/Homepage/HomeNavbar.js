@@ -18,30 +18,33 @@ const HomeNavbar = (props) => {
   return (
     <>
       <div className={styles.top_Default_Bar}>
-        <div className={styles.leftSide}>
-          <img
-            className={styles.emblemLogoContainer}
-            src="https://www.cowin.gov.in/assets/images/emblem-gov.svg"
-          />
-          <span className={styles.logo_heading}>
-            Ministry of <br></br>Home Affairs
-          </span>
-        </div>
-
-        <div className={styles.rightSide}>
-          <div className={styles.font_size_change}>
-            <button>A +</button>
-            <button className={styles.currentFontSize}>A</button>
-            <button>A -</button>
+        <div className={styles.top_navbar_wrapper}>
+          <div className={styles.leftSide}>
+            <img
+              className={styles.emblemLogoContainer}
+              src="https://www.cowin.gov.in/assets/images/emblem-gov.svg"
+              alt="logo"
+            />
+            <span className={styles.logo_heading}>
+              Ministry of <br></br>Home Affairs
+            </span>
           </div>
 
-          <div className={styles.language_change}>
-            <select name="languages" className={styles.languages}>
-              <option value="English">English</option>
-              <option value="Hindi">Hindi</option>
-              <option value="Gujrati">Gujrati</option>
-              <option value="Punjabi">Punjabi</option>
-            </select>
+          <div className={styles.rightSide}>
+            <div className={styles.font_size_change}>
+              <button>A +</button>
+              <button className={styles.currentFontSize}>A</button>
+              <button>A -</button>
+            </div>
+
+            <div className={styles.language_change}>
+              <select name="languages" className={styles.languages}>
+                <option value="English">English</option>
+                <option value="Hindi">Hindi</option>
+                <option value="Gujrati">Gujrati</option>
+                <option value="Punjabi">Punjabi</option>
+              </select>
+            </div>
           </div>
         </div>
       </div>
