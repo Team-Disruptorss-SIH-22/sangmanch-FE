@@ -122,6 +122,7 @@
 .nav_right_col {
   display: flex;
   justify-content: space-between;
+  align-items: center;
   gap: 3rem;
 }
 
@@ -147,6 +148,10 @@
   list-style: none;
   align-items: center;
   gap: 1rem;
+}
+
+.phoneMenu {
+  display: none;
 }
 
 .login {
@@ -227,4 +232,46 @@
 
 .dropdown__content li a:hover {
   color: rgb(95, 86, 86);
+}
+
+@media (max-width: 900px) {
+  .links__banner {
+    display: none;
+  }
+  .phoneMenu {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: relative;
+  }
+
+  .phoneMenuPopup {
+    position: absolute;
+    right: 0;
+    top: 100%;
+    z-index: 10;
+    background-color: #fff;
+    border-radius: 0.5rem;
+    display: none;
+    width: max-content;
+  }
+  .activeModal {
+    display: block;
+  }
+
+  .phoneMenuPopup ul {
+    list-style: none;
+  }
+  .phoneMenuPopup ul li {
+    padding: 0.5rem 1rem;
+  }
+  .phoneMenuPopup ul li a {
+    color: #222;
+  }
+  .phoneMenuPopup ul li:hover {
+    background: rgba(0, 0, 0, 0.04);
+  }
+  .phoneMenu svg {
+    cursor: pointer;
+  }
 }

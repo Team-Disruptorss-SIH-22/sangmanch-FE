@@ -1,12 +1,14 @@
-import React, { useContext, useEffect } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { MdArrowDropDown } from "react-icons/md";
 import ncb__logo from "../../../assets/ncb__logo.png";
 import styles from "../../../styles/Home/homeNavbar.module.css";
 import authContext from "context/auth/authContext";
+import { GiHamburgerMenu } from "react-icons/gi";
 
 const HomeNavbar = (props) => {
   const { isAuthenticated, user } = useContext(authContext);
+  const [showModal, setShowModal] = useState(false);
 
   useEffect(() => {
     if (isAuthenticated === true) {
@@ -14,6 +16,21 @@ const HomeNavbar = (props) => {
       props.history.push(`${user.role}/dispatch`);
     }
   }, [isAuthenticated]);
+
+  const modalClickHandler = (e) => {
+    e.stopPropagation();
+  };
+
+  const closeModal = () => {
+    setShowModal(false);
+  };
+
+  useEffect(() => {
+    document.addEventListener("click", closeModal);
+    return () => {
+      document.removeEventListener("click", closeModal);
+    };
+  }, []);
 
   return (
     <>
@@ -111,6 +128,41 @@ const HomeNavbar = (props) => {
                 </div>
               </li>
             </ul>
+            <div className={styles.phoneMenu} onClick={modalClickHandler}>
+              <GiHamburgerMenu size={30} onClick={() => setShowModal((curr) => !curr)} />
+              <div
+                className={`${styles.phoneMenuPopup} ${
+                  showModal ? styles.activeModal : ""
+                }`}
+              >
+                <ul>
+                  <li>
+                    <a
+                      href="https://narcoticsindia.nic.in/"
+                      target="_blank"
+                      rel="noreferrer"
+                    >
+                      About NCB
+                    </a>
+                  </li>
+                  <li>
+                    <Link to="/admin/signup" target="_blank">
+                      Services
+                    </Link>
+                  </li>
+                  <li>
+                    <Link to="/admin/signup" target="_blank">
+                      FAQs
+                    </Link>
+                  </li>
+                  <li>
+                    <Link to="/admin/signup" target="_blank">
+                      Contact Us
+                    </Link>
+                  </li>
+                </ul>
+              </div>
+            </div>
           </div>
         </div>
       </nav>
