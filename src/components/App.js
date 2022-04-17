@@ -15,7 +15,7 @@ import {
   Verify
 } from "./pages/index";
 
-// import AdminRoute from "./HOC/AdminRoute";
+import AdminRoute from "./HOC/AdminRoute";
 import UserSignupRoute from "./HOC/UserSignupRoute";
 import UserRoute from "./HOC/UserRoute";
 import AuthState from "context/auth/AuthState";
