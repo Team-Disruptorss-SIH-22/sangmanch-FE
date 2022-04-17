@@ -3,9 +3,9 @@
 	width: 100%;
     margin-top: 3%;
     border-radius: 5px;
-    border: 1px solid rgba(0, 0, 0, 0.1);
-	-webkit-box-shadow: 2px 4px 10px 1px rgba(0, 0, 0, 0.47);
-	box-shadow: 2px 4px 10px 1px rgba(201, 201, 201, 0.47);
+    border: 1px solid rgba(20, 126, 183, 0.2);
+	-webkit-box-shadow: 2px 4px 10px 1px rgba(20, 126, 183, 0.2);
+	box-shadow: 2px 4px 10px 1px rgba(20, 126, 183, 0.2);
 }
 
 /* COLORS */

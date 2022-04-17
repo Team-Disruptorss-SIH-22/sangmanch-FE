@@ -2,27 +2,32 @@ import React from "react";
 import { FaChevronRight } from "react-icons/fa";
 import styles from "styles/Home/cards.module.css";
 import Card from "./Card";
+import verification from 'assets/home/verification.jpg';
 
 const data = [
   {
     num: 1,
     heading: "Prescription Verification",
-    description: "Verify Prescription From Registered Medical Store"
+    description: "Verify Prescription From Registered Medical Store",
+    img: verification
   },
   {
     num: 2,
     heading: "Drug Sale",
-    description: "The Medical store sells the drugs based on the prescription presented"
+    description: "The Medical store sells the drugs based on the prescription presented",
+    img: verification
   },
   {
     num: 3,
     heading: "Prescription Updation",
     description:
-      "The Data is updated in the prescription and medical store database after submitting the sales report."
+      "The Data is updated in the prescription and medical store database after submitting the sales report.",
+    img: verification
   }
 ];
 
 const Cards = () => {
+  console.log(verification);
   return (
     <div className={styles.gallery}>
       <div className={styles.galleryContainer}>
