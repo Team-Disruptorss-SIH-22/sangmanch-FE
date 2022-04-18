@@ -39,11 +39,12 @@
     flex-direction: column;
     align-items: baseline;
     margin-bottom: 5%;
+    
   }
   
   .formContainer .inputContainer ::placeholder {
     /* Chrome, Firefox, Opera, Safari 10.1+ */
-    color: rgba(159, 162, 180, 0.5);
+    color: rgba(0, 0, 0, 0.5);
     opacity: 1; /* Firefox */
   }
   
@@ -88,12 +89,15 @@
   
   .titleform{
       text-align: left;
+      margin-bottom: 1.7rem;
+      
   }
   
   .heading {
       padding-top: 4rem;
       text-align: center;
   }
-
-  
-  
+ input{
+     height: 4rem;
+     font-size: 1rem;
+ }
