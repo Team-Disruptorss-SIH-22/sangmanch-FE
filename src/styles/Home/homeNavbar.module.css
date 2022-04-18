@@ -235,6 +235,12 @@
 }
 
 @media (max-width: 900px) {
+  .rightSide .font_size_change {
+    display: none;
+  }
+  .links__auth {
+    display: none;
+  }
   .links__banner {
     display: none;
   }
@@ -254,7 +260,9 @@
     border-radius: 0.5rem;
     display: none;
     width: max-content;
+    box-shadow: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);
   }
+
   .activeModal {
     display: block;
   }
@@ -262,10 +270,12 @@
   .phoneMenuPopup ul {
     list-style: none;
   }
-  .phoneMenuPopup ul li {
-    padding: 0.5rem 1rem;
-  }
+  /* .phoneMenuPopup ul li {
+  } */
+
   .phoneMenuPopup ul li a {
+    display: block;
+    padding: 0.5rem 1rem;
     color: #222;
   }
   .phoneMenuPopup ul li:hover {

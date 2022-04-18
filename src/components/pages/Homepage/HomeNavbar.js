@@ -160,6 +160,12 @@ const HomeNavbar = (props) => {
                       Contact Us
                     </Link>
                   </li>
+                  <li>
+                    <Link to="/signup/manufacturer">SignUp</Link>
+                  </li>
+                  <li>
+                    <Link to="/login">Login</Link>
+                  </li>
                 </ul>
               </div>
             </div>
