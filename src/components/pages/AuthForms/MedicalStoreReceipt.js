@@ -97,7 +97,7 @@ const handleCompressedUpload = (e) => {
                  
              <div className={styles.inputContainer}>
                 <label htmlFor='intime'> </label>
-                <input className='form-field' type="text" autoComplete='off'
+                <input className='form-field' type="time" autoComplete='off'
                 value={userRegisteration.intime}
                 onChange={handleInput} 
                 name="intime" id="intime"  placeholder="In Time"/>
