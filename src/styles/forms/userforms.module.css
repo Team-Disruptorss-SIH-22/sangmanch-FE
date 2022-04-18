@@ -2,31 +2,28 @@
   background-color: var(--colorLighter1);
 }
 
-.titleContainer{
+.titleContainer {
   width: 35%;
-  margin: 0% auto;
+  margin: 3rem auto 2rem auto;
   display: flex;
   flex-direction: column;
   align-items: baseline;
-  /* border: 1px solid red; */
 }
 
 .title {
-  margin: -1% 0;
   font-weight: 600;
-  font-size: 1.3rem;
-  /* border: 1px solid red; */
+  font-size: 1.5rem;
 }
 
-.titleSubheader{
-  font-size: 0.6rem;
+.titleSubheader {
+  font-size: 0.9rem;
   color: var(--colorSecondary);
 }
 
-.userformContainer{
-  box-shadow: 0px 0px 3px 1px rgba(148,148,148,0.35);
+.userformContainer {
+  box-shadow: 0px 0px 3px 1px rgba(148, 148, 148, 0.35);
   width: 35%;
-  padding: 1% 0;
+  padding: 1rem 0.5rem;
   margin: 1% auto;
   border-radius: 5px;
   display: flex;
@@ -34,7 +31,7 @@
   flex-direction: column;
 }
 
-.detailsContainer{
+.detailsContainer {
   width: 95%;
   /* border: 1px solid red; */
   display: flex;
@@ -42,66 +39,66 @@
   align-items: baseline;
 }
 
-.detailsContainer .detailsHeader{
+.detailsContainer .detailsHeader {
   font-weight: 600;
+  font-size: 1.1rem;
 }
 
-.detailsContainer .detailsSubHeader{
+.detailsContainer .detailsSubHeader {
   margin-top: 0%;
-  font-size: 0.6rem;
+  font-size: 0.8rem;
   color: var(--colorSecondary);
 }
 
-
-.inputContainer{
+.inputContainer {
   display: grid;
   width: 100%;
   grid-template-columns: 50% 50%;
   grid-row-gap: 10%;
   text-align: left;
-  margin-bottom: 3%;
+  margin: 1rem auto 1rem auto;
 }
 
-.inputContainer .inputCol1{
+.inputContainer .inputCol1 {
   grid-area: auto / 1;
   /* border: 1px solid red; */
 }
 
-.inputContainer .inputCol1 label{
+.inputContainer .inputCol1 label {
   font-size: 0.8rem;
-  font-weight: 500; 
-  vertical-align: sub;
+  font-weight: 500;
 }
 
-.inputContainer .inputCol1 span{
+.inputContainer .inputCol1 span {
   color: red;
 }
 
-.inputContainer .inputCol2{
+.inputContainer .inputCol2 {
   grid-area: auto / 2;
   /* border: 1px solid red; */
 }
 
-.inputContainer .inputCol2 input, .prescription{
-  border: 1px solid rgba(0,0,0,0.5);
+.inputContainer .inputCol2 input,
+.prescription {
+  border: 1px solid rgba(0, 0, 0, 0.5);
   border-radius: 3px;
   padding: 3%;
   width: 90%;
   font-size: 0.7rem;
 }
 
-.inputContainer .inputCol2 .uploadPrescription{
+.inputContainer .inputCol2 .uploadPrescription {
   border: none;
   padding: 0;
 }
 
-.userformContainer .recaptcha{
+.userformContainer .recaptcha {
   margin-top: 5%;
 }
 
 .submit {
   margin: 5% 0;
-  width: 20%;
+  width: 90%;
   color: white;
   padding: 2% 0;
   border: none;
@@ -115,10 +112,8 @@
   cursor: pointer;
 }
 
-
-
 /* Line Breaks */
-.lineBreak{
+.lineBreak {
   width: 90%;
   margin: 2%;
   border-bottom: 1px solid lightgrey;
