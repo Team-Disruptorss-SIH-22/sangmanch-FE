@@ -11,10 +11,12 @@ const Home = (props) => {
   return (
     <div className={styles.container}>
       <HomeNavbar {...props} />
-      <Carousel />
+      {/* <Carousel /> */}
       <Cards />
       <FAQ />
-      <Footer />
+      {/*
+      <Footer /> 
+      */}
     </div>
   );
 };
