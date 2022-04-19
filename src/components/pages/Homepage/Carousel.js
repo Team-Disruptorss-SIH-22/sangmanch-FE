@@ -18,7 +18,7 @@ const CarouselSlider = () => {
       dynamicHeight={true}
     >
       <div>
-        <img alt="Temp" />
+        <img alt="" />
         <div className={styles.slide__container}>
           <div className={styles.left}>
             <div className={styles.showcase__text}>
@@ -27,7 +27,7 @@ const CarouselSlider = () => {
                   Drug Analysis and Alerting System
                 </p>
                 <p className={styles.text__primary}>
-                  Creating India’s First Durg Supply Chain Tracking and Prescription
+                  Creating India’s First Drug Supply Chain Tracking and Prescription
                   Management System
                 </p>
               </div>
