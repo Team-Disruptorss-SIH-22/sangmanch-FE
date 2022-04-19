@@ -11,9 +11,10 @@ const CarouselSlider = () => {
       autoPlay
       infiniteLoop
       transitionTime={2000}
-      interval={5000}
+      interval={4000}
       showThumbs={false}
       showArrows={false}
+      swipeable={false}
       showStatus={false}
       dynamicHeight={true}
     >

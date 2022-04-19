@@ -43,7 +43,6 @@
 }
 
 .btn {
-  text-align: left;
   padding: 9px 25px;
   cursor: pointer;
   background-color: #263252;
@@ -85,7 +84,7 @@
     margin-bottom: 2.5rem;
   }
   .bgImage img {
-    max-height: 400px;
+    height: 425px;
     content: url("../../assets//home/carousel/carousel__mobile.jpg");
   }
 }
