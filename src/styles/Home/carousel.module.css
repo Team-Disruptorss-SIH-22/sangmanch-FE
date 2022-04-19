@@ -83,6 +83,8 @@
     margin-bottom: 0 !important;
   }
   .btn {
+    width: 80%;
+    margin: auto;
     border-radius: 12px;
     padding: 6px 15px;
     margin-bottom: 2.5rem;
