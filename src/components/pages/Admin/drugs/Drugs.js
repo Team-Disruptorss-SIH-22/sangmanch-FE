@@ -13,40 +13,38 @@ import { useTable, useSortBy, useFilters, usePagination } from "react-table";
 import { format } from "date-fns";
 
 import styles from "../../../../styles/admin/alerts.module.css";
-import { ColumnFilter } from "../ColumnFilter";
+import { ColumnFilter } from '../ColumnFilter';
 
-const COLUMNS = [
-	{
-		Header: "Alert ID",
-		accessor: "alert_id",
-		Filter: ColumnFilter
-	},
-	{
-		Header: "Alert Details",
-		accessor: "alert_details",
-		Filter: ColumnFilter
-	},
-	{
-		Header: "Customer Name",
-		accessor: "customer_name",
-		Filter: ColumnFilter
-	},
-	{
-		Header: "Date",
-		accessor: "date",
-		Cell: ({ value }) => {
-			return format(new Date(value), "dd/MM/yyyy");
+const Drugs = () => {
+
+	const COLUMNS = [
+		{
+			Header: "S. No.",
+			accessor: "s_no",
+			Filter: ColumnFilter
 		},
-		Filter: ColumnFilter
-	},
-	{
-		Header: "Priority",
-		accessor: "priority",
-		Filter: ColumnFilter
-	}
-];
+		{
+			Header: "Order ID",
+			accessor: "order_id",
+			Filter: ColumnFilter
+		},
+		{
+			Header: "Current State",
+			accessor: "current_state",
+			Filter: ColumnFilter
+		},
+		{
+			Header: "Alert",
+			accessor: "alert",
+			Filter: ColumnFilter
+		}
+	];
 
-const Alerts = () => {
+	// const data = Array(20).fill({
+	// 	orderID: 1,
+	// 	CurrentState: Date.now(),
+	// 	Alert: Math.random() > 0.5 ? true : false
+	// });
 
 	//to store the values once and for all
 	const columns = useMemo(() => COLUMNS, []);
@@ -166,4 +164,4 @@ const Alerts = () => {
 	);
 };
 
-export default Alerts;
+export default Drugs;
