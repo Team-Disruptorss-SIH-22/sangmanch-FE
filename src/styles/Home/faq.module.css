@@ -10,6 +10,7 @@
 .faqHeading {
   text-align: center;
   color: #147eb7;
+  margin-bottom: 36px;
 }
 
 .faqContent {
@@ -73,6 +74,9 @@
 }
 
 @media (max-width: 768px) {
+  .faq {
+    margin: 50px 0;
+  }
   .faqContent {
     flex-direction: column;
   }

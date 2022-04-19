@@ -1,3 +1,6 @@
+.gallery {
+  margin-top: 80px;
+}
 .galleryContainer {
   max-width: 1200px;
   margin: auto;
@@ -6,6 +9,7 @@
 .galleryHeading {
   text-align: center;
   color: #147eb7;
+  margin-bottom: 36px;
 }
 
 .cardsContainer {
@@ -15,6 +19,9 @@
 }
 
 @media (max-width: 1100px) {
+  .gallery {
+    margin-top: 50px;
+  }
   .cardsContainer {
     gap: 50px;
     justify-content: space-between;
