@@ -62,8 +62,12 @@
     flex-direction: column-reverse;
   }
   .left {
-    max-width: 100%;
-    margin-left: 30px;
+    max-width: 90%;
+    margin: auto;
+  }
+  .showcase__text {
+    width: 100%;
+    margin: 0 auto;
   }
   .info {
     display: none;

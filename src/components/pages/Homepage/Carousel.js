@@ -47,9 +47,9 @@ const CarouselSlider = () => {
           </div>
         </div>
       </div>
-      <div className={styles.bgImage}>
+      {/* <div className={styles.bgImage}>
         <img src={carousel2} alt="Carousel2" />
-      </div>
+      </div> */}
     </Carousel>
   );
 };
