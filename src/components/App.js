@@ -16,6 +16,8 @@ import {
   
 } from "./pages/index";
 import MedicalStoreReceipt from "./pages/AuthForms/MedicalStoreReceipt";
+import MedicalStoreSales from "./pages/AuthForms/MedicalStoreSales";
+import PrescriptionUploading from "./pages/AuthForms/PrescriptionUploading";
 import AdminRoute from "./HOC/AdminRoute";
 import UserSignupRoute from "./HOC/UserSignupRoute";
 import UserRoute from "./HOC/UserRoute";
@@ -28,55 +30,61 @@ if (localStorage.getItem("token")) {
 
 function App() {
   return (
-    <MedicalStoreReceipt/>
-    // <div className="App">
-    //   <AuthState>
-    //     <Router>
-    //       <Switch>
-    //         <UserRoute exact path="/" component={Home} />
-    //         <UserRoute exact path="/login" component={Login} />
-    //         <UserRoute exact path="/verify/:token" component={Verify} />
-    //         {/* <MedicalStoreReceipt /> */}
+    
+    //these three forms do not have any routes yet
+    // <PrescriptionUploading/>
+    // <MedicalStoreSales/>
+    // <MedicalStoreReceipt/>
 
-    //         {/* User Signup */}
-    //         <UserSignupRoute
-    //           exact
-    //           path="/signup/manufacturer"
-    //           titleRole={"Manufacturer"}
-    //         />
-    //         <UserSignupRoute exact path="/signup/warehouse" titleRole={"Warehouse"} />
-    //         <UserSignupRoute exact path="/signup/medical" titleRole={"Medical Store"} />
-    //         <UserSignupRoute exact path="/signup/doctor" titleRole={"Doctor"} />
-    //         <Route exact path="/signup/admin" component={AdminSignup} />
+    
+    <div className="App">
+      <AuthState>
+        <Router>
+          <Switch>
+            <UserRoute exact path="/" component={Home} />
+            <UserRoute exact path="/login" component={Login} />
+            <UserRoute exact path="/verify/:token" component={Verify} />
+            {/* <MedicalStoreReceipt /> */}
 
-    //         <Route exact path="/manufacturer/dispatch" component={ManufacturerForm} />
-    //         <Route exact path="/warehouse/dispatch" component={WarehouseForm} />
-    //         <Route exact path="/medical/dispatch" component={MedicalStoreForm} />
+            {/* User Signup */}
+            <UserSignupRoute
+              exact
+              path="/signup/manufacturer"
+              titleRole={"Manufacturer"}
+            />
+            <UserSignupRoute exact path="/signup/warehouse" titleRole={"Warehouse"} />
+            <UserSignupRoute exact path="/signup/medical" titleRole={"Medical Store"} />
+            <UserSignupRoute exact path="/signup/doctor" titleRole={"Doctor"} />
+            <Route exact path="/signup/admin" component={AdminSignup} />
 
-    //         {/* ADMIN */}
-    //         <AdminRoute exact path="/dashboard" title={"- ID"} component={Dashboard} />
-    //         <AdminRoute
-    //           exact
-    //           path="/drug/:id"
-    //           component={DrugProgress}
-    //           title={"- Progress"}
-    //         />
-    //         <AdminRoute
-    //           exact
-    //           path="/national"
-    //           component={NationalView}
-    //           title={"- National"}
-    //         />
+            <Route exact path="/manufacturer/dispatch" component={ManufacturerForm} />
+            <Route exact path="/warehouse/dispatch" component={WarehouseForm} />
+            <Route exact path="/medical/dispatch" component={MedicalStoreForm} />
 
-    //         <AdminRoute exact path="/alerts" title={"- Alerts"} component={Alerts} />
-    //         <AdminRoute exact path="/drugs" title={""} component={Drugs} />
-    //         <AdminRoute exact path="/admin/404" title={""} component={Page404} />
+            {/* ADMIN */}
+            <AdminRoute exact path="/dashboard" title={"- ID"} component={Dashboard} />
+            <AdminRoute
+              exact
+              path="/drug/:id"
+              component={DrugProgress}
+              title={"- Progress"}
+            />
+            <AdminRoute
+              exact
+              path="/national"
+              component={NationalView}
+              title={"- National"}
+            />
 
-    //         <Route path="*" component={Page404} />
-    //       </Switch>
-    //     </Router>
-    //   </AuthState>
-    // </div>
+            <AdminRoute exact path="/alerts" title={"- Alerts"} component={Alerts} />
+            <AdminRoute exact path="/drugs" title={""} component={Drugs} />
+            <AdminRoute exact path="/admin/404" title={""} component={Page404} />
+
+            <Route path="*" component={Page404} />
+          </Switch>
+        </Router>
+      </AuthState>
+    </div>
   );
 }
 
