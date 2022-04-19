@@ -1,9 +1,9 @@
 import React from "react";
 import "react-responsive-carousel/lib/styles/carousel.min.css";
 import { Carousel } from "react-responsive-carousel";
-import carousel1 from "assets/home/carousel1.jpg";
-import carousel2 from "assets/home/carousel2.jpg";
-import styles from "../../../styles/Home/home.module.css";
+import carousel1 from "assets/home/carousel/carousel1.jpg";
+import carousel2 from "assets/home/carousel/carousel2.jpg";
+import styles from "../../../styles/Home/carousel.module.css";
 
 const CarouselSlider = () => {
   return (
@@ -15,9 +15,10 @@ const CarouselSlider = () => {
       showThumbs={false}
       showArrows={false}
       showStatus={false}
+      dynamicHeight={true}
     >
       <div>
-        <img alt="" />
+        <img alt="Temp" />
         <div className={styles.slide__container}>
           <div className={styles.left}>
             <div className={styles.showcase__text}>
@@ -38,15 +39,15 @@ const CarouselSlider = () => {
                 secure identities issued by the Government of India.
               </div>
             </div>
-            <div className={styles.button}>Learn More</div>
+            <div className={styles.btn}>Learn More</div>
           </div>
           <div className={styles.right}>
             <img src={carousel1} alt="Carousel2" />
           </div>
         </div>
       </div>
-      <div>
-        <img style={{ height: "350px" }} src={carousel2} alt="Carousel2" />
+      <div className={styles.bgImage}>
+        <img src={carousel2} alt="Carousel2" />
       </div>
     </Carousel>
   );
