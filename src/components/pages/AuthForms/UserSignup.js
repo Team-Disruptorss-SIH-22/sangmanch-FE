@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
-import HomeNavbar from "../Homepage/HomeNavbar";
+import HomeNavbar from "../Navbar/HomeNavbar";
 import Footer from "../Footer";
 
 import styles from "../../../styles/forms/signup.module.css";

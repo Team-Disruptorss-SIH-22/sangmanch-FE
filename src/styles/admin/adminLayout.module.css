@@ -7,6 +7,7 @@
 	display: flex;
 	align-items: center;
 	width: 100%;
+	margin: 15% 0;
 }
 
 .logo img {
@@ -26,10 +27,10 @@
 	display: flex;
 	flex-direction: column;
 	color: var(--textLight);
-	align-items: flex-start;
+	/* align-items: flex-start; */
 	padding-left: 30px;
 	padding-right: 30px;
-	min-width: max-content;
+	/* min-width: max-content; */
 }
 
 .sidebar ul {
