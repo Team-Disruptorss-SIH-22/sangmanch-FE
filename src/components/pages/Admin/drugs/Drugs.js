@@ -10,7 +10,6 @@ import { BsSortDownAlt, BsSortDown } from "react-icons/bs";
 // REACT TABLE
 import MOCK_DATA from "./MOCK_DATA.json";
 import { useTable, useSortBy, useFilters, usePagination } from "react-table";
-import { format } from "date-fns";
 
 import styles from "../../../../styles/admin/alerts.module.css";
 import { ColumnFilter } from '../ColumnFilter';
@@ -65,7 +64,7 @@ const Drugs = () => {
 	return (
 		<div className={styles.alertsContainer}>
 			<div className={styles.alertHeaderContainer}>
-				<p>All Alerts</p>
+				<p>Drug Details</p>
 
 				<div className={styles.tableOperations + " " + styles.clrGrey}>
 					<div className={styles.operation}>
@@ -125,7 +124,7 @@ const Drugs = () => {
 										return (
 											<td
 												style={{
-													color: cell?.column?.id === "priority" ? cell.value : ""
+													color: cell?.column?.id === "alert" ? "green" : ""
 												}}
 												className={styles.tableSingleCell}
 												{...cell.getCellProps()}

@@ -259,7 +259,7 @@ const Dashboard = () => {
 							<input
 								className={styles.newTaskInput}
 								placeholder="Create new task"
-							></input>
+							/>
 							<button className={styles.addTaskButton}>
 								<AiOutlinePlus />
 							</button>
