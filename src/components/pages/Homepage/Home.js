@@ -1,5 +1,4 @@
 import React from "react";
-import styles from "../../../styles/Home/home.module.css";
 
 import HomeNavbar from "../Navbar/HomeNavbar";
 import Footer from "../Footer";
@@ -9,9 +8,9 @@ import FAQ from "./FAQ";
 
 const Home = (props) => {
   return (
-    <div className={styles.container}>
+    <div>
       <HomeNavbar {...props} />
-      {/* <Carousel /> */}
+      <Carousel />
       <Cards />
       <FAQ />
       <Footer />

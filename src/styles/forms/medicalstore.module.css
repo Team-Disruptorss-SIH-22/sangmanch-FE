@@ -1,0 +1,103 @@
+.container {
+    /* background-color: rgb(227, 227, 231); */
+    background-color: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    height: max-content;
+    margin: 2rem auto;
+    
+  }
+  
+  .loginPageContainer {
+    box-shadow: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);
+    border: 2px solid rgb(0 0 0 / 0.1);
+    border-radius: 10px;
+    width: 30%;
+    height: 85%;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    padding-bottom: 2rem;
+    padding-top: 2rem;
+  }
+  
+ 
+  
+  .formContainer {
+    width: 85%;
+    /* border: 1px solid red; */
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .formContainer .inputContainer {
+    width: 100%;
+    /* border: 1px solid cyan; */
+    display: flex;
+    flex-direction: column;
+    align-items: baseline;
+    margin-bottom: 5%;
+    
+  }
+  
+  .formContainer .inputContainer ::placeholder {
+    /* Chrome, Firefox, Opera, Safari 10.1+ */
+    color: rgba(0, 0, 0, 0.5);
+    opacity: 1; /* Firefox */
+  }
+  
+  .formContainer .inputContainer input {
+    box-sizing: border-box;
+    width: 100%;
+    padding: 3%;
+    border: 1px solid rgba(159, 162, 180, 0.4);
+    border-top: 4px;
+    border-right: 4px;
+    border-left: 4px;
+    border-radius: 5px;
+  }
+  
+  .formContainer .inputContainer input:focus {
+    outline: none;
+  }
+  
+  .formContainer .inputContainer label {
+    font-size: 0.75rem;
+    color: var(--colorLighter2);
+  }
+  
+  
+  
+  .submit {
+    margin-top: 30px;
+    width: 100%;
+    color: white;
+    padding: 4% 0;
+    border: none;
+    box-shadow: 0px 0px 10px 0px rgba(186, 186, 186, 1);
+    border-radius: 5px;
+    background-color: #147eb7;
+  }
+  
+  .submit:hover {
+    background-color: #116897;
+    cursor: pointer;
+  }
+  
+  
+  .titleform{
+      text-align: left;
+      margin-bottom: 1rem;
+      
+  }
+  
+  .heading {
+      padding-top: 2rem;
+      text-align: center;
+  }
+ input{
+     height: 4rem;
+     font-size: 1rem;
+ }

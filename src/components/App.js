@@ -13,8 +13,11 @@ import {
   Alerts,
   Drugs,
   Verify
+  
 } from "./pages/index";
-
+import MedicalStoreReceipt from "./pages/AuthForms/MedicalStoreReceipt";
+import MedicalStoreSales from "./pages/AuthForms/MedicalStoreSales";
+import PrescriptionUploading from "./pages/AuthForms/PrescriptionUploading";
 import AdminRoute from "./HOC/AdminRoute";
 import UserSignupRoute from "./HOC/UserSignupRoute";
 import UserRoute from "./HOC/UserRoute";
@@ -27,6 +30,13 @@ if (localStorage.getItem("token")) {
 
 function App() {
   return (
+    
+    //these three forms do not have any routes yet
+    // <PrescriptionUploading/>
+    // <MedicalStoreSales/>
+    // <MedicalStoreReceipt/>
+
+    
     <div className="App">
       <AuthState>
         <Router>
@@ -34,6 +44,7 @@ function App() {
             <UserRoute exact path="/" component={Home} />
             <UserRoute exact path="/login" component={Login} />
             <UserRoute exact path="/verify/:token" component={Verify} />
+            {/* <MedicalStoreReceipt /> */}
 
             {/* User Signup */}
             <UserSignupRoute
