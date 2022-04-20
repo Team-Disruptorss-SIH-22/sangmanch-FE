@@ -209,7 +209,7 @@
 	justify-content: space-between;
 	border-bottom: 0.5px solid rgba(0, 0, 0, 0.1);
 	/* border-width: 0.4px 0px 0.4px 1px; */
-}
+} 
 
 .unresolved_alerts_Container .otherDetailsContent .alert p {
 	font-size: 0.8rem;
@@ -219,16 +219,16 @@
 .task {
 	display: flex;
 	padding: 2% 5%;
+	align-items: center;
 	justify-content: space-between;
 	font-size: 0.8rem;
 }
 
-/* .unresolved_alerts_Container .otherDetailsContent .newTaskForm {
-	margin: 1% 0;
-} */
+.unresolved_alerts_Container .otherDetailsContent .newTaskForm {
+	padding: 0 5%;
+}
 
 .unresolved_alerts_Container .otherDetailsContent .newTaskForm input {
-	padding: 1%;
 	border: none;
 	width: 80%;
 }
@@ -241,7 +241,7 @@
 	border: none;
 	border-radius: 5px;
 	cursor: pointer;
-	padding: 0 2%;
+	padding: 1% 2%;
 	background: rgba(223, 224, 235, 255);
 }
 
@@ -255,9 +255,8 @@
 
 .unresolved_alerts_Container .otherDetailsContent .task .taskMain {
 	display: flex;
-	width: 50%;
+	width: 70%;
 	align-items: center;
-
 }
 
 .unresolved_alerts_Container .otherDetailsContent .task .taskMain input {

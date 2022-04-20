@@ -12,9 +12,10 @@ import {
   NationalView,
   Alerts,
   Drugs,
-  Verify
-  
+  Verify,
+  Visualization
 } from "./pages/index";
+
 import MedicalStoreReceipt from "./pages/AuthForms/MedicalStoreReceipt";
 import MedicalStoreSales from "./pages/AuthForms/MedicalStoreSales";
 import PrescriptionUploading from "./pages/AuthForms/PrescriptionUploading";
@@ -78,6 +79,7 @@ function App() {
 
             <AdminRoute exact path="/alerts" title={"- Alerts"} component={Alerts} />
             <AdminRoute exact path="/drugs" title={""} component={Drugs} />
+            <AdminRoute exact path="/visualization" title={""} component={Visualization} />
             <AdminRoute exact path="/admin/404" title={""} component={Page404} />
 
             <Route path="*" component={Page404} />
