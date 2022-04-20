@@ -48,7 +48,7 @@ const AdminLayout = ({ Component, title }) => {
           <li>
             <AiOutlineAreaChart />
             <span>
-              <Link to="/admin/404">Visualizations</Link>
+              <Link to="/visualization">Visualizations</Link>
             </span>
           </li>
 
