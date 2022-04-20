@@ -1,7 +1,7 @@
 import React from "react";
 import styles from "../../../styles/Home/home.module.css";
 
-import HomeNavbar from "./HomeNavbar";
+import HomeNavbar from "../Navbar/HomeNavbar";
 import Footer from "../Footer";
 import Carousel from "./Carousel";
 import Cards from "./Cards";

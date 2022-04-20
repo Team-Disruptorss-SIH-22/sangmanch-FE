@@ -1,6 +1,6 @@
 import React from "react";
 import styles from "../../../styles/admin/adminLayout.module.css";
-import Navbar from "./UserNavbar";
+import Navbar from "../Navbar/AdminNavbar";
 import { FaUser, FaChartPie, FaLightbulb } from "react-icons/fa";
 import { GiMedicines } from "react-icons/gi";
 import { AiFillAlert, AiOutlineAreaChart, AiFillSetting } from "react-icons/ai";
