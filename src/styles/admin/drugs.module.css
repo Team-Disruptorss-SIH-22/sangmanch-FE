@@ -15,6 +15,13 @@
 .styled__table th,
 .styled__table td {
 	padding: 12px 15px;
+	padding: 0;
+	border: 1px solid red;
+}
+
+.styled__table th{
+	padding: 0;
+	border: 1px solid red;
 }
 
 .styled__table tbody tr {

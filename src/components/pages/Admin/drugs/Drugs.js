@@ -132,33 +132,38 @@ const Drugs = () => {
                     {
                       console.log(cell);
                     }
-                    
-					// cell?.column?.id === "order_id" ? 
-                    //     return (<Link to="#">
-                    //       <td
-                    //         style={{
-                    //           color: cell?.column?.id === "alert" ? "green" : ""
-                    //         }}
-                    //         className={styles.tableSingleCell}
-                    //         {...cell.getCellProps()}
-                    //       >
-                    //         {cell.render("Cell")}
-                    //       </td>
-                    //     </Link> )
-						
-                    //   ) : 
 
-					//   return (
-                    //     <td
-                    //       style={{
-                    //         color: cell?.column?.id === "alert" ? "green" : ""
-                    //       }}
-                    //       className={styles.tableSingleCell}
-                    //       {...cell.getCellProps()}
-                    //     >
-                    //       {cell.render("Cell")}
-                    //     </td>
-                    //   );
+                    return cell?.column?.id === "order_id" ? (
+                      <td className={styles.tableSingleCell} {...cell.getCellProps()}>
+                        <Link to="#">{cell.render("Cell")}</Link>
+                      </td>
+                    ) : cell?.column?.id === "alert" ? (
+                      cell?.value === "True" ? (
+                        <td
+                          style={{
+                            color: "green"
+                          }}
+                          className={styles.tableSingleCell}
+                          {...cell.getCellProps()}
+                        >
+                          {cell.render("Cell")}
+                        </td>
+                      ) : (
+                        <td
+                          style={{
+                            color: "red"
+                          }}
+                          className={styles.tableSingleCell}
+                          {...cell.getCellProps()}
+                        >
+                          {cell.render("Cell")}
+                        </td>
+                      )
+                    ) : (
+                      <td className={styles.tableSingleCell} {...cell.getCellProps()}>
+                        {cell.render("Cell")}
+                      </td>
+                    );
                   })}
                 </tr>
               );
