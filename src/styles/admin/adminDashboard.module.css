@@ -215,10 +215,15 @@
 	font-size: 0.8rem;
 }
 
+.unresolved_alerts_Container .otherDetailsContent .content_container{
+	height: 105px;
+	overflow-y: auto;
+}
+
 .unresolved_alerts_Container .otherDetailsContent .newTaskForm,
 .task {
 	display: flex;
-	padding: 2% 5%;
+	padding: 1% 5%;
 	align-items: center;
 	justify-content: space-between;
 	font-size: 0.8rem;
@@ -226,10 +231,13 @@
 
 .unresolved_alerts_Container .otherDetailsContent .newTaskForm {
 	padding: 0 5%;
+	margin-bottom: 1.5%;
+	/* border: 1px solid red; */
 }
 
 .unresolved_alerts_Container .otherDetailsContent .newTaskForm input {
 	border: none;
+	height: 30px;
 	width: 80%;
 }
 
@@ -261,8 +269,8 @@
 
 .unresolved_alerts_Container .otherDetailsContent .task .taskMain input {
 	margin-right: 10%;
-	width: 1.3em;
-	height: 1.3em;
+	width: 1em;
+	height: 1em;
 	border: 2px solid rgba(0, 0, 0, 0.2);
 	border-radius: 50%;
 	appearance: none;
