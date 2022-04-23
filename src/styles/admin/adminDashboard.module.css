@@ -281,7 +281,7 @@
 
 .unresolved_alerts_Container .otherDetailsContent .task .taskMain input:checked:after {
 	content: "✔";
-	padding: 2px 4px;
+	padding: 2px 3px;
 	border-radius: 50%;
 	margin-top: 0px;
 	margin-left: -2px;

@@ -8,12 +8,14 @@ import {
   WarehouseForm,
   MedicalStoreForm,
   DrugProgress,
-  Dashboard,
+  AdminDashboard,
   NationalView,
   Alerts,
   Drugs,
   Verify,
-  Visualization
+  Visualization,
+  MedicalLayout,
+  MedicalDashboard
 } from "./pages/index";
 
 import MedicalStoreReceipt from "./pages/AuthForms/MedicalStoreReceipt";
@@ -22,8 +24,11 @@ import PrescriptionUploading from "./pages/AuthForms/PrescriptionUploading";
 import AdminRoute from "./HOC/AdminRoute";
 import UserSignupRoute from "./HOC/UserSignupRoute";
 import UserRoute from "./HOC/UserRoute";
+import MedicalRoute from "./HOC/MedicalRoute";
+
 import AuthState from "context/auth/AuthState";
 import setAuthToken from "./Utils/SetAuthToken";
+
 
 if (localStorage.getItem("token")) {
   setAuthToken(localStorage.token);
@@ -63,7 +68,7 @@ function App() {
             <Route exact path="/medical/dispatch" component={MedicalStoreForm} />
 
             {/* ADMIN */}
-            <AdminRoute exact path="/dashboard" title={"- ID"} component={Dashboard} />
+            <AdminRoute exact path="/dashboard" title={"- ID"} component={AdminDashboard} />
             <AdminRoute
               exact
               path="/drug/:id"
@@ -81,6 +86,9 @@ function App() {
             <AdminRoute exact path="/drugs" title={""} component={Drugs} />
             <AdminRoute exact path="/visualization" title={""} component={Visualization} />
             <AdminRoute exact path="/admin/404" title={""} component={Page404} />
+
+            {/* MEDICAL STORE DASHBOARD */}
+            <MedicalRoute exact path="/medical/" title={"- Alerts"} component={Alerts} />
 
             <Route path="*" component={Page404} />
           </Switch>

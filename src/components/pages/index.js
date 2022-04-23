@@ -12,11 +12,16 @@ import MedicalStoreForm from "./DispatchForms/MedicalStoreForm";
 // Admin
 import AdminLayout from "./Admin/AdminLayout";
 import DrugProgress from "./Admin/DrugProgress";
-import Dashboard from "./Admin/Dashboard";
+import AdminDashboard from "./Admin/AdminDashboard";
 import NationalView from "./Admin/NationalView";
 import Alerts from "./Admin/alerts/Alerts";
 import Drugs from "./Admin/drugs/Drugs";
 import Visualization from './Admin/Visualization';
+
+
+// Medical Store Dashboard
+import MedicalLayout from './MedicalStore/MedicalLayout';
+import MedicalDashboard from './MedicalStore/MedicalDashboard';
 
 import Page404 from "./Page404";
 import Home from "./Homepage/Home";
@@ -33,9 +38,11 @@ export {
 	MedicalStoreForm,
 	AdminLayout,
 	DrugProgress,
-	Dashboard,
+	AdminDashboard,
 	NationalView,
 	Alerts,
 	Drugs,
-	Visualization
+	Visualization,
+	MedicalLayout,
+	MedicalDashboard,
 };
