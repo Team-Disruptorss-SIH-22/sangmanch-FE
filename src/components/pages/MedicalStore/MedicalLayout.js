@@ -50,7 +50,7 @@ const MedicalLayout = ({ Component, title }) => {
         </ul>
       </aside>
       <main className={styles.contentWrapper}>
-        <Navbar title={"Drug View " + title} />
+        <Navbar title={title} />
         <Component />
       </main>
     </div>

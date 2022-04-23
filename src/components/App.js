@@ -99,28 +99,28 @@ function App() {
             <MedicalRoute
               exact
               path="/medical/overview"
-              title={"- Overview"}
+              title={"Overview"}
               component={MedicalDashboard}
             />
 
             <MedicalRoute
               exact
               path="/medical/drugs"
-              title={"- Drugs Sold"}
+              title={"Sales Data"}
               component={MedicalDrugs}
             />
 
             <MedicalRoute
               exact
               path="/medical/received"
-              title={""}
+              title={"Sales Data"}
               component={MedicalStoreReceipt}
             />
 
             <MedicalRoute
               exact
               path="/medical/sales"
-              title={""}
+              title={"Sales Data"}
               component={MedicalStoreSales}
             />
 
