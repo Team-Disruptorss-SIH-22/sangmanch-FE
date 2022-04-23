@@ -18,37 +18,25 @@ const MedicalLayout = ({ Component, title }) => {
           <li>
             <FaChartPie />
             <span>
-              <Link to="/dashboard">Overview</Link>
+              <Link to="/medical/overview">Overview</Link>
             </span>
           </li>
           <li>
             <GiMedicines />
             <span>
-              <Link to="/drugs">Drugs</Link>
+              <Link to="/medical/drugs">Drugs</Link>
             </span>
           </li>
           <li>
             <FaLightbulb />
             <span>
-              <Link to="/national">National View</Link>
-            </span>
-          </li>
-          <li>
-            <AiFillAlert />
-            <span>
-              <Link to="/alerts">Alerts</Link>
-            </span>
-          </li>
-          <li>
-            <FaUser />
-            <span>
-              <Link to="/admin/404">Agents [Escalation]</Link>
+              <Link to="/medical/received">Receiving Form</Link>
             </span>
           </li>
           <li>
             <AiOutlineAreaChart />
             <span>
-              <Link to="/visualization">Visualizations</Link>
+              <Link to="/medical/sales">Sales Form</Link>
             </span>
           </li>
 

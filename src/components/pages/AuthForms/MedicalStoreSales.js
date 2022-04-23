@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import ReCAPTCHA from "react-google-recaptcha";
 import Compressor from "compressorjs";
 import styles from "../../../styles/forms/medicalstore.module.css";
+
 const MedicalStoreSales = () => {
   const [userRegisteration, setUserRegisteration] = useState({
     soldto: "",

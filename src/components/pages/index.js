@@ -22,6 +22,7 @@ import Visualization from './Admin/Visualization';
 // Medical Store Dashboard
 import MedicalLayout from './MedicalStore/MedicalLayout';
 import MedicalDashboard from './MedicalStore/MedicalDashboard';
+import MedicalDrugs from "./MedicalStore/drugs/MedicalDrugs";
 
 import Page404 from "./Page404";
 import Home from "./Homepage/Home";
@@ -45,4 +46,5 @@ export {
 	Visualization,
 	MedicalLayout,
 	MedicalDashboard,
+	MedicalDrugs
 };
