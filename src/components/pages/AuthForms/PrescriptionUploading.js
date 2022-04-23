@@ -57,21 +57,22 @@ const PrescriptionUploading = () => {
 
   return (
     <div>
-      <div className={styles.heading}>
-        <h2>Prescription Uploading form</h2>
-        <h5>Fill in the data to report the forwarded data.</h5>
+      <div className={styles.titleContainer}>
+        <p className={styles.title}>Prescription Uploading form</p>
+        <p className={styles.titleSubheader}>
+          Fill in the data to report the forwarded data.
+        </p>
       </div>
 
       <div className={styles.container}>
-        <div className={styles.loginPageContainer}>
-          <form className={styles.formContainer} action="" onSubmit={handleSubmit}>
+        <div className={styles.detailsContainer}>
+          <form action="" onSubmit={handleSubmit}>
             <div className={styles.titleform}>
-              <h3>Details of Patient</h3>
-              <h5>Details of patients</h5>
+              <p className={styles.detailsHeader}>Details of Patient</p>
+              <p className={styles.detailsSubHeader}>Details of patients</p>
             </div>
 
             <div className={styles.inputContainer}>
-              <label htmlFor="uniqueid"> </label>
               <input
                 className="form-field"
                 type="text"
@@ -84,13 +85,10 @@ const PrescriptionUploading = () => {
               />
             </div>
 
-            <div className={styles.titleform}>
-              <h3> Drug Details </h3>
-              <h5>Details of Prescribed Drugs </h5>
-            </div>
+            <p className={styles.detailsHeader}> Drug Details </p>
+            <p className={styles.detailsSubHeader}>Details of Prescribed Drugs </p>
 
             <div className={styles.inputContainer}>
-              <label htmlFor="drugname"> </label>
               <input
                 className="form-field"
                 type="text"
@@ -104,7 +102,6 @@ const PrescriptionUploading = () => {
             </div>
 
             <div className={styles.inputContainer}>
-              <label htmlFor="drugpotency"> </label>
               <input
                 className="form-field"
                 type="text"
@@ -118,7 +115,6 @@ const PrescriptionUploading = () => {
             </div>
 
             <div className={styles.inputContainer}>
-              <label htmlFor="quantitysold"> </label>
               <input
                 className="form-field"
                 type="text"
@@ -132,7 +128,6 @@ const PrescriptionUploading = () => {
             </div>
 
             <div className={styles.inputContainer}>
-              <label htmlFor="prescription"> </label>
               <input
                 className="form-field"
                 type="file"

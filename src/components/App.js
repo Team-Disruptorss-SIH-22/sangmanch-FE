@@ -15,7 +15,9 @@ import {
   Verify,
   Visualization,
   MedicalDashboard,
-  MedicalDrugs
+  MedicalDrugs,
+  DoctorDashboard,
+  DoctorPrescriptions
 } from "./pages/index";
 
 import MedicalStoreReceipt from "./pages/AuthForms/MedicalStoreReceipt";
@@ -29,6 +31,7 @@ import MedicalRoute from "./HOC/MedicalRoute";
 
 import AuthState from "context/auth/AuthState";
 import setAuthToken from "./Utils/SetAuthToken";
+import DoctorRoute from "./HOC/DoctorRoute";
 
 if (localStorage.getItem("token")) {
   setAuthToken(localStorage.token);
@@ -124,6 +127,30 @@ function App() {
               component={MedicalStoreSales}
             />
             <MedicalRoute exact path="/medical/404" title={""} component={Page404} />
+
+            {/* DOCTOR DASHBOARD */}
+            <DoctorRoute
+              exact
+              path="/doctor/overview"
+              title={"Overview"}
+              component={DoctorDashboard}
+            />
+
+            <DoctorRoute
+              exact
+              path="/doctor/prescription"
+              title={"Prescriptions"}
+              component={DoctorPrescriptions}
+            />
+
+            <DoctorRoute
+              exact
+              path="/doctor/form"
+              title={""}
+              component={PrescriptionUploading}
+            />
+
+            <DoctorRoute exact path="/doctor/404" title={""} component={Page404} />
 
             <Route path="*" component={Page404} />
           </Switch>
