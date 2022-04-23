@@ -44,7 +44,7 @@ const MedicalLayout = ({ Component, title }) => {
           <li>
             <AiFillSetting />
             <span>
-              <Link to="/admin/404">Settings</Link>
+              <Link to="/medical/404">Settings</Link>
             </span>
           </li>
         </ul>

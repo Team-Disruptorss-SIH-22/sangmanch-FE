@@ -123,6 +123,7 @@ function App() {
               title={"Sales Data"}
               component={MedicalStoreSales}
             />
+            <MedicalRoute exact path="/medical/404" title={""} component={Page404} />
 
             <Route path="*" component={Page404} />
           </Switch>

@@ -56,21 +56,22 @@ const MedicalStoreReceipt = () => {
 
   return (
     <div>
-      <div className={styles.heading}>
-        <h2>Medical store received receipt</h2>
-        <h5>Fill in the data to report the forwarded data.</h5>
+      <div className={styles.titleContainer}>
+        <p className={styles.title}>Medical store Received Receipt</p>
+        <p className={styles.titleSubheader}>
+          Fill in the data to report the forwarded data.
+        </p>
       </div>
 
       <div className={styles.container}>
-        <div className={styles.loginPageContainer}>
-          <form className={styles.formContainer} action="" onSubmit={handleSubmit}>
-            <div className={styles.titleform}>
-              <h3>Details of Consignment</h3>
-              <h5>These contacts are used to inform about orders</h5>
-            </div>
+        <div className={styles.detailsContainer}>
+          <form action="" onSubmit={handleSubmit}>
+            <p className={styles.detailsHeader}>Details of Consignment</p>
+            <p className={styles.detailsSubHeader}>
+              These contacts are used to inform about orders
+            </p>
 
             <div className={styles.inputContainer}>
-              <label htmlFor="intime"> </label>
               <input
                 className="form-field"
                 type="time"
@@ -84,7 +85,6 @@ const MedicalStoreReceipt = () => {
             </div>
 
             <div className={styles.inputContainer}>
-              <label htmlFor="lotnumber"> </label>
               <input
                 className="form-field"
                 type="text"
@@ -97,13 +97,10 @@ const MedicalStoreReceipt = () => {
               />
             </div>
 
-            <div className={styles.titleform}>
-              <h3> Drug Details </h3>
-              <h5>Details of the drugs forwarded</h5>
-            </div>
+            <p className={styles.detailsHeader}> Drug Details </p>
+            <p className={styles.detailsSubHeader}>Details of the drugs forwarded</p>
 
             <div className={styles.inputContainer}>
-              <label htmlFor="quantityforwarded"> </label>
               <input
                 className="form-field"
                 type="text"

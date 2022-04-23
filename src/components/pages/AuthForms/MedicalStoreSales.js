@@ -60,19 +60,20 @@ const MedicalStoreSales = () => {
 
   return (
     <div>
-      <div className={styles.heading}>
-        <h2>Medical store sales form</h2>
-        <h5>Fill in the data to report the forwarded data.</h5>
+      <div className={styles.titleContainer}>
+        <p className={styles.title}>Medical store sales form</p>
+        <p className={styles.titleSubheader}>
+          Fill in the data to report the forwarded data.
+        </p>
       </div>
 
       <div className={styles.container}>
-        <div className={styles.loginPageContainer}>
-          <form className={styles.formContainer} action="" onSubmit={handleSubmit}>
-            <div className={styles.titleform}>
-              <h3>Details of Dispatch</h3>
-              <h5>These contacts are used to inform about orders</h5>
-            </div>
-
+        <div className={styles.detailsContainer}>
+          <form action="" onSubmit={handleSubmit}>
+            <p className={styles.detailsHeader}>Details of Dispatch</p>
+            <p className={styles.detailsSubHeader}>
+              These contacts are used to inform about orders
+            </p>
             <div className={styles.inputContainer}>
               <label htmlFor="soldto"> </label>
               <input
@@ -180,6 +181,7 @@ const MedicalStoreSales = () => {
                 onChange={onChange}
               />
             </div>
+
             <button type="submit" className={styles.submit}>
               {" "}
               Submit{" "}
