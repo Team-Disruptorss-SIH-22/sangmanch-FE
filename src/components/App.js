@@ -8,22 +8,30 @@ import {
   WarehouseForm,
   MedicalStoreForm,
   DrugProgress,
-  Dashboard,
+  AdminDashboard,
   NationalView,
   Alerts,
   Drugs,
   Verify,
-  Visualization
+  Visualization,
+  MedicalDashboard,
+  MedicalDrugs,
+  DoctorDashboard,
+  DoctorPrescriptions
 } from "./pages/index";
 
 import MedicalStoreReceipt from "./pages/AuthForms/MedicalStoreReceipt";
 import MedicalStoreSales from "./pages/AuthForms/MedicalStoreSales";
 import PrescriptionUploading from "./pages/AuthForms/PrescriptionUploading";
+
 import AdminRoute from "./HOC/AdminRoute";
 import UserSignupRoute from "./HOC/UserSignupRoute";
 import UserRoute from "./HOC/UserRoute";
+import MedicalRoute from "./HOC/MedicalRoute";
+
 import AuthState from "context/auth/AuthState";
 import setAuthToken from "./Utils/SetAuthToken";
+import DoctorRoute from "./HOC/DoctorRoute";
 
 if (localStorage.getItem("token")) {
   setAuthToken(localStorage.token);
@@ -31,13 +39,11 @@ if (localStorage.getItem("token")) {
 
 function App() {
   return (
-    
     //these three forms do not have any routes yet
     // <PrescriptionUploading/>
     // <MedicalStoreSales/>
     // <MedicalStoreReceipt/>
 
-    
     <div className="App">
       <AuthState>
         <Router>
@@ -63,7 +69,12 @@ function App() {
             <Route exact path="/medical/dispatch" component={MedicalStoreForm} />
 
             {/* ADMIN */}
-            <AdminRoute exact path="/dashboard" title={"- ID"} component={Dashboard} />
+            <AdminRoute
+              exact
+              path="/dashboard"
+              title={"- ID"}
+              component={AdminDashboard}
+            />
             <AdminRoute
               exact
               path="/drug/:id"
@@ -79,8 +90,67 @@ function App() {
 
             <AdminRoute exact path="/alerts" title={"- Alerts"} component={Alerts} />
             <AdminRoute exact path="/drugs" title={""} component={Drugs} />
-            <AdminRoute exact path="/visualization" title={""} component={Visualization} />
+            <AdminRoute
+              exact
+              path="/visualization"
+              title={""}
+              component={Visualization}
+            />
             <AdminRoute exact path="/admin/404" title={""} component={Page404} />
+
+            {/* MEDICAL STORE DASHBOARD */}
+            <MedicalRoute
+              exact
+              path="/medical/overview"
+              title={"Overview"}
+              component={MedicalDashboard}
+            />
+
+            <MedicalRoute
+              exact
+              path="/medical/drugs"
+              title={"Sales Data"}
+              component={MedicalDrugs}
+            />
+
+            <MedicalRoute
+              exact
+              path="/medical/received"
+              title={"Sales Data"}
+              component={MedicalStoreReceipt}
+            />
+
+            <MedicalRoute
+              exact
+              path="/medical/sales"
+              title={"Sales Data"}
+              component={MedicalStoreSales}
+            />
+            <MedicalRoute exact path="/medical/404" title={""} component={Page404} />
+
+            {/* DOCTOR DASHBOARD */}
+            <DoctorRoute
+              exact
+              path="/doctor/overview"
+              title={"Overview"}
+              component={DoctorDashboard}
+            />
+
+            <DoctorRoute
+              exact
+              path="/doctor/prescription"
+              title={"Prescriptions"}
+              component={DoctorPrescriptions}
+            />
+
+            <DoctorRoute
+              exact
+              path="/doctor/form"
+              title={""}
+              component={PrescriptionUploading}
+            />
+
+            <DoctorRoute exact path="/doctor/404" title={""} component={Page404} />
 
             <Route path="*" component={Page404} />
           </Switch>
