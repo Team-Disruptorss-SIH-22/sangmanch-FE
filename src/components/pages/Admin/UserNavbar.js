@@ -10,7 +10,7 @@ import userNavStyles from "../../../styles/forms/userNavbar.module.css";
 import authContext from "context/auth/authContext";
 
 const HomeNavbar = (props) => {
-  const { isAuthenticated, user } = useContext(authContext);
+  const { isAuthenticated, user, logout } = useContext(authContext);
   const [menuToggle, setMenuToggle] = useState(false);
 
   useEffect(() => {
@@ -18,6 +18,11 @@ const HomeNavbar = (props) => {
       props.history?.push(`${user.role}/dispatch`);
     }
   }, [isAuthenticated]);
+
+  const onLogout = () => {
+    logout();
+    props.history?.push("/login");
+  };
 
   return (
     <>
@@ -56,7 +61,7 @@ const HomeNavbar = (props) => {
                   </li>
                   <li>
                     <HiOutlineLogin />
-                    <Link to={"/manufacturer/logout"}>Log Out</Link>
+                    <p onClick={onLogout}>Log Out</p>
                   </li>
                 </ul>
               </div>

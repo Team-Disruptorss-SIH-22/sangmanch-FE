@@ -2,23 +2,18 @@ import React, { useContext } from "react";
 import { Route, Redirect } from "react-router-dom";
 import authContext from "context/auth/authContext";
 
-import { UserSignup } from "components/pages";
-
-const UserSignupRoute = ({ titleRole, ...rest }) => {
+const FormRoute = ({ component: Component, ...rest }) => {
   const { isAuthenticated, user } = useContext(authContext);
+  console.log("hello");
   return (
     <Route
       {...rest}
       render={(props) =>
         isAuthenticated !== null &&
-        (isAuthenticated === false ? (
-          <UserSignup {...props} titleRole={titleRole} />
-        ) : (
-          <Redirect to={`/${user.role}/dispatch`} />
-        ))
+        (isAuthenticated === true ? <Component {...props} /> : <Redirect to={"/login"} />)
       }
     />
   );
 };
 
-export default UserSignupRoute;
+export default FormRoute;

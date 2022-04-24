@@ -1,5 +1,9 @@
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import {
+  AdminRoute,
+  UserRoute,
+  UserSignupRoute,
+  FormRoute,
   Login,
   Home,
   AdminSignup,
@@ -17,9 +21,6 @@ import {
   Verify
 } from "./pages/index";
 
-import AdminRoute from "./HOC/AdminRoute";
-import UserSignupRoute from "./HOC/UserSignupRoute";
-import UserRoute from "./HOC/UserRoute";
 import AuthState from "context/auth/AuthState";
 import setAuthToken from "./Utils/SetAuthToken";
 import FormState from "context/forms/FormState";
@@ -43,7 +44,7 @@ function App() {
               <UserRoute exact path="/" component={Home} />
               <UserRoute exact path="/login" component={Login} />
               <UserRoute exact path="/verify/:token" component={Verify} />
-              <UserRoute exact path="/medical" component={MedicalStoreReciept} />
+              {/* <UserRoute exact path="/medical" component={MedicalStoreReciept} /> */}
 
               {/* User Signup */}
               <UserSignupRoute
@@ -54,10 +55,14 @@ function App() {
               <UserSignupRoute exact path="/signup/warehouse" titleRole={"Warehouse"} />
               <UserSignupRoute exact path="/signup/medical" titleRole={"Medical Store"} />
               <UserSignupRoute exact path="/signup/doctor" titleRole={"Doctor"} />
-              <Route exact path="/signup/admin" component={AdminSignup} />
+              <UserSignupRoute exact path="/signup/admin" component={AdminSignup} />
 
-              <Route exact path="/manufacturer/dispatch" component={ManufacturerForm} />
-              <Route exact path="/warehouse/dispatch" component={WarehouseForm} />
+              <FormRoute
+                exact
+                path="/manufacturer/dispatch"
+                component={ManufacturerForm}
+              />
+              <FormRoute exact path="/warehouse/dispatch" component={WarehouseForm} />
 
               {/* ADMIN */}
               <AdminRoute exact path="/dashboard" title={"- ID"} component={Dashboard} />
