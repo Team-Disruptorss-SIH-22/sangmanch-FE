@@ -7,7 +7,9 @@ import Verify from "./AuthForms/Verify";
 // Dispatch Forms
 import ManufacturerForm from "./DispatchForms/ManufacturerForm";
 import WarehouseForm from "./DispatchForms/WarehouseForm";
-import MedicalStoreForm from "./DispatchForms/MedicalStoreForm";
+import MedicalStoreSales from "./DispatchForms/MedicalStoreSales";
+import MedicalStoreReciept from "./DispatchForms/MedicalStoreReceipt";
+import PrescriptionUploading from "./DispatchForms/PrescriptionUploading";
 
 // Admin
 import AdminLayout from "./Admin/AdminLayout";
@@ -21,19 +23,21 @@ import Page404 from "./Page404";
 import Home from "./Homepage/Home";
 
 export {
-	Login,
-	Home,
-	UserSignup,
-	AdminSignup,
-	Verify,
-	Page404,
-	ManufacturerForm,
-	WarehouseForm,
-	MedicalStoreForm,
-	AdminLayout,
-	DrugProgress,
-	Dashboard,
-	NationalView,
-	Alerts,
-	Drugs
+  Login,
+  Home,
+  UserSignup,
+  AdminSignup,
+  Verify,
+  Page404,
+  ManufacturerForm,
+  WarehouseForm,
+  MedicalStoreReciept,
+  MedicalStoreSales,
+  PrescriptionUploading,
+  AdminLayout,
+  DrugProgress,
+  Dashboard,
+  NationalView,
+  Alerts,
+  Drugs
 };
