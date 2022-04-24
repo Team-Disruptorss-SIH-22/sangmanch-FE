@@ -13,7 +13,7 @@ import { useTable, useSortBy, useFilters, usePagination } from "react-table";
 import { format } from "date-fns";
 
 import styles from "../../../../styles/admin/alerts.module.css";
-import { ColumnFilter } from "./ColumnFilter";
+import { ColumnFilter } from "../ColumnFilter";
 
 const COLUMNS = [
 	{
@@ -47,6 +47,7 @@ const COLUMNS = [
 ];
 
 const Alerts = () => {
+
 	//to store the values once and for all
 	const columns = useMemo(() => COLUMNS, []);
 	const data = useMemo(() => MOCK_DATA, []);

@@ -4,7 +4,7 @@ import ReCAPTCHA from "react-google-recaptcha";
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import styles from "../../../styles/forms/userforms.module.css";
-import UserNavbar from "../Admin/UserNavbar";
+import UserNavbar from "../Navbar/UserNavbar";
 import Footer from "../Footer";
 
 import formContext from "context/forms/formContext";

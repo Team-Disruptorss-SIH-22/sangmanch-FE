@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import { FiSettings } from "react-icons/fi";
 import { HiOutlineLogin } from "react-icons/hi";
 import { FaRegUserCircle } from "react-icons/fa";
+import { toast } from "react-toastify";
 
 import ncb__logo from "../../../assets/ncb__logo.png";
 import homeNavStyles from "../../../styles/Home/homeNavbar.module.css";
@@ -22,6 +23,7 @@ const HomeNavbar = (props) => {
   const onLogout = () => {
     logout();
     props.history?.push("/login");
+    toast.success("Logged out successfully");
   };
 
   return (

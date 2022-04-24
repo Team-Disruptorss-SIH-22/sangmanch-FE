@@ -13,7 +13,7 @@
 }
 
 .stats_container .stats {
-	padding: 0 3%;
+	padding: 1% 3%;
 	text-align: center;
 	border-radius: 5px;
 	border: 1px solid rgba(0, 0, 0, 0.1);
@@ -27,7 +27,6 @@
 }
 
 .stats_container .stats .stats_number {
-	margin: -10% 0 auto 0;
 	font-size: 2rem;
 	font-weight: var(--fontMedium);
 }
@@ -36,14 +35,13 @@
 .sectionHeader {
 	display: flex;
 	justify-content: space-between;
-	padding: 0 5%;
+	padding: 3% 5%;
 	align-items: center;
 }
 
 .titleSubtitle .sectionTitle {
 	font-weight: var(--fontMedium);
 	font-size: 1rem;
-	margin-bottom: -5%;
 }
 
 .titleSubtitle .sectionSubTitle {
@@ -150,7 +148,7 @@
 
 .graphChartsContainer .line {
 	width: 1px;
-	height: 150px;
+	height: 120px;
 	border-right: 1px solid rgba(0, 0, 0, 0.1);
 }
 
@@ -163,7 +161,7 @@
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
-	height: 19.7%;
+	height: 20%;
 	text-align: center;
 	border: 1px solid rgba(0, 0, 0, 0.1);
 	border-width: 0.4px 0px 0.4px 1px;
@@ -178,7 +176,6 @@
 }
 
 .graphs_charts_Container .graphChartsContainer .chart_number {
-	margin-top: -4%;
 	font-size: 1.2rem;
 	font-weight: 600;
 }
@@ -208,31 +205,39 @@
 
 .unresolved_alerts_Container .otherDetailsContent .alert {
 	display: flex;
-	padding: 0 5%;
+	padding: 2% 5%;
 	justify-content: space-between;
 	border-bottom: 0.5px solid rgba(0, 0, 0, 0.1);
 	/* border-width: 0.4px 0px 0.4px 1px; */
-}
+} 
 
 .unresolved_alerts_Container .otherDetailsContent .alert p {
 	font-size: 0.8rem;
 }
 
+.unresolved_alerts_Container .otherDetailsContent .content_container{
+	height: 105px;
+	overflow-y: auto;
+}
+
 .unresolved_alerts_Container .otherDetailsContent .newTaskForm,
 .task {
 	display: flex;
-	padding: 0 5%;
+	padding: 1% 5%;
+	align-items: center;
 	justify-content: space-between;
 	font-size: 0.8rem;
 }
 
 .unresolved_alerts_Container .otherDetailsContent .newTaskForm {
-	margin: 1% 0;
+	padding: 0 5%;
+	margin-bottom: 1.5%;
+	/* border: 1px solid red; */
 }
 
 .unresolved_alerts_Container .otherDetailsContent .newTaskForm input {
-	padding: 1%;
 	border: none;
+	height: 30px;
 	width: 80%;
 }
 
@@ -244,6 +249,7 @@
 	border: none;
 	border-radius: 5px;
 	cursor: pointer;
+	padding: 1% 2%;
 	background: rgba(223, 224, 235, 255);
 }
 
@@ -257,14 +263,14 @@
 
 .unresolved_alerts_Container .otherDetailsContent .task .taskMain {
 	display: flex;
-	width: 50%;
+	width: 70%;
 	align-items: center;
 }
 
 .unresolved_alerts_Container .otherDetailsContent .task .taskMain input {
 	margin-right: 10%;
-	width: 1.3em;
-	height: 1.3em;
+	width: 1em;
+	height: 1em;
 	border: 2px solid rgba(0, 0, 0, 0.2);
 	border-radius: 50%;
 	appearance: none;
@@ -275,7 +281,7 @@
 
 .unresolved_alerts_Container .otherDetailsContent .task .taskMain input:checked:after {
 	content: "✔";
-	padding: 2px 4px;
+	padding: 2px 3px;
 	border-radius: 50%;
 	margin-top: 0px;
 	margin-left: -2px;

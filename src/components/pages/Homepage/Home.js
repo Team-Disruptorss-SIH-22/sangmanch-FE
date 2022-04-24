@@ -1,6 +1,6 @@
 import React from "react";
 
-import HomeNavbar from "./HomeNavbar";
+import HomeNavbar from "../Navbar/HomeNavbar";
 import Footer from "../Footer";
 import Carousel from "./Carousel";
 import Cards from "./Cards";

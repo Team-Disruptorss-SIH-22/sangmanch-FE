@@ -6,7 +6,7 @@ import { GiMedicines } from "react-icons/gi";
 import { AiFillAlert, AiOutlineAreaChart, AiFillSetting } from "react-icons/ai";
 import { Link } from "react-router-dom";
 
-const AdminLayout = ({ Component, title }) => {
+const MedicalLayout = ({ Component, title }) => {
   return (
     <div className={styles.container}>
       <aside className={styles.sidebar}>
@@ -18,37 +18,25 @@ const AdminLayout = ({ Component, title }) => {
           <li>
             <FaChartPie />
             <span>
-              <Link to="/dashboard">Overview</Link>
+              <Link to="/medical/overview">Overview</Link>
             </span>
           </li>
           <li>
             <GiMedicines />
             <span>
-              <Link to="/drugs">Drugs</Link>
+              <Link to="/medical/drugs">Drugs</Link>
             </span>
           </li>
           <li>
             <FaLightbulb />
             <span>
-              <Link to="/national">National View</Link>
-            </span>
-          </li>
-          <li>
-            <AiFillAlert />
-            <span>
-              <Link to="/alerts">Alerts</Link>
-            </span>
-          </li>
-          <li>
-            <FaUser />
-            <span>
-              <Link to="/admin/404">Agents [Escalation]</Link>
+              <Link to="/medical/received">Receiving Form</Link>
             </span>
           </li>
           <li>
             <AiOutlineAreaChart />
             <span>
-              <Link to="/visualization">Visualizations</Link>
+              <Link to="/medical/sales">Sales Form</Link>
             </span>
           </li>
 
@@ -56,17 +44,17 @@ const AdminLayout = ({ Component, title }) => {
           <li>
             <AiFillSetting />
             <span>
-              <Link to="/admin/404">Settings</Link>
+              <Link to="/medical/404">Settings</Link>
             </span>
           </li>
         </ul>
       </aside>
       <main className={styles.contentWrapper}>
-        <Navbar title={"Drug View " + title} />
+        <Navbar title={title} />
         <Component />
       </main>
     </div>
   );
 };
 
-export default AdminLayout;
+export default MedicalLayout;

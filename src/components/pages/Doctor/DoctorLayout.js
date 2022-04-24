@@ -1,12 +1,12 @@
 import React from "react";
 import styles from "../../../styles/admin/adminLayout.module.css";
 import Navbar from "../Navbar/AdminNavbar";
-import { FaUser, FaChartPie, FaLightbulb } from "react-icons/fa";
+import { FaChartPie, FaLightbulb } from "react-icons/fa";
 import { GiMedicines } from "react-icons/gi";
-import { AiFillAlert, AiOutlineAreaChart, AiFillSetting } from "react-icons/ai";
+import { AiFillSetting } from "react-icons/ai";
 import { Link } from "react-router-dom";
 
-const AdminLayout = ({ Component, title }) => {
+const DoctorLayout = ({ Component, title }) => {
   return (
     <div className={styles.container}>
       <aside className={styles.sidebar}>
@@ -18,55 +18,36 @@ const AdminLayout = ({ Component, title }) => {
           <li>
             <FaChartPie />
             <span>
-              <Link to="/dashboard">Overview</Link>
+              <Link to="/doctor/overview">Overview</Link>
             </span>
           </li>
           <li>
             <GiMedicines />
             <span>
-              <Link to="/drugs">Drugs</Link>
+              <Link to="/doctor/prescription">Prescription</Link>
             </span>
           </li>
           <li>
             <FaLightbulb />
             <span>
-              <Link to="/national">National View</Link>
+              <Link to="/doctor/form">Prescription Form</Link>
             </span>
           </li>
-          <li>
-            <AiFillAlert />
-            <span>
-              <Link to="/alerts">Alerts</Link>
-            </span>
-          </li>
-          <li>
-            <FaUser />
-            <span>
-              <Link to="/admin/404">Agents [Escalation]</Link>
-            </span>
-          </li>
-          <li>
-            <AiOutlineAreaChart />
-            <span>
-              <Link to="/visualization">Visualizations</Link>
-            </span>
-          </li>
-
           <div className={styles.divider}></div>
           <li>
             <AiFillSetting />
             <span>
-              <Link to="/admin/404">Settings</Link>
+              <Link to="/doctor/404">Settings</Link>
             </span>
           </li>
         </ul>
       </aside>
       <main className={styles.contentWrapper}>
-        <Navbar title={"Drug View " + title} />
+        <Navbar title={title} />
         <Component />
       </main>
     </div>
   );
 };
 
-export default AdminLayout;
+export default DoctorLayout;
