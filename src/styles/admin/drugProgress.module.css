@@ -1,0 +1,119 @@
+/* Tracking */
+
+.flex {
+	display: flex;
+}
+
+.flex__between {
+	display: flex;
+	justify-content: space-between;
+}
+
+.container__wrap {
+	max-width: 90%;
+	width: 70%;
+	margin: auto;
+	margin-top: 70px;
+}
+
+.order__tracking {
+	text-align: center;
+	width: 33.33%;
+	position: relative;
+	display: block;
+}
+.order__tracking .is_complete {
+	display: block;
+	position: relative;
+	border-radius: 50%;
+	height: 25px;
+	width: 25px;
+	border: 0px solid #afafaf;
+	background-color: var(--textGray);
+	margin: 0 auto;
+	transition: background 0.25s linear;
+	-webkit-transition: background 0.25s linear;
+	z-index: 2;
+}
+
+.order__tracking.completed .is_complete {
+	border-color: #404252;
+	border-width: 0px;
+	background-color: #404252;
+}
+.order__tracking p {
+	color: #a4a4a4;
+	font-size: 14px;
+	margin-top: 8px;
+	margin-bottom: 0;
+	line-height: 20px;
+}
+.order__tracking p span {
+	font-size: 14px;
+}
+.order__tracking.completed p {
+	color: #000;
+}
+.order__tracking::before {
+	content: "";
+	display: block;
+	height: 3px;
+	width: calc(100% - 20px);
+	background-color: var(--textGray);
+	top: 11px;
+	position: absolute;
+	left: calc(-50% + 10px);
+	z-index: 0;
+}
+.order__tracking:first-child:before {
+	display: none;
+}
+.order__tracking.completed:before {
+	background-color: #404252;
+}
+
+/* TABLE */
+.styled__table {
+	border-collapse: collapse;
+	margin: auto;
+	font-size: 0.9em;
+	min-width: 850px;
+	box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+	margin-top: 50px;
+	text-align: center;
+}
+.styled__table thead tr {
+	background-color: var(--colorSidebar);
+	color: #ffffff;
+	text-align: center;
+}
+.styled__table th,
+.styled__table td {
+	padding: 12px 15px;
+}
+
+.styled__table tbody tr {
+	border-bottom: 1px solid #dddddd;
+}
+
+.styled__table tbody tr:nth-of-type(even) {
+	background-color: #f3f3f3;
+}
+
+.styled__table tbody tr:last-of-type {
+	border-bottom: 2px solid var(--colorSidebar);
+}
+
+.styled__table tbody tr.active-row {
+	font-weight: bold;
+	color: var(--colorSidebar);
+}
+
+.alert__red {
+	color: red;
+	font-weight: 600;
+}
+.alert__green {
+	color: green;
+	font-weight: 600;
+}
