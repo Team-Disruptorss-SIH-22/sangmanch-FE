@@ -20,7 +20,7 @@
 }
 
 .emblemLogoContainer {
-  width: 20px;
+  width: 44px;
 }
 
 .logo_heading {
@@ -103,14 +103,15 @@
   display: flex;
   align-items: center;
   justify-content: flex-start;
-  margin-right: 70px !important;
+  /* margin-right: 70px !important; */
+  width: 200px;
 }
 
 .logo img {
-  width: 50px;
+  /* width: 50px; */
   border-radius: 5px;
   margin: 0;
-  margin-right: 10px;
+  /* margin-right: 10px; */
 }
 
 .logo p {

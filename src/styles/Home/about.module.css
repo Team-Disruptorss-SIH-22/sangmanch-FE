@@ -1,0 +1,22 @@
+.about {
+  margin-top: 30px;
+}
+.about .about_container {
+  max-width: 1200px;
+  margin: auto;
+}
+
+.about .about_container .about_heading {
+  text-align: center;
+  color: #147eb7;
+  margin-bottom: 6px;
+}
+
+.about .about_container .about_content p {
+  font-size: 14px;
+  line-height: 21px;
+}
+
+.about .about_container .about_content p:nth-of-type(2) {
+  margin-top: 16px;
+}

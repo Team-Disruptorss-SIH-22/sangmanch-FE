@@ -2,36 +2,38 @@ import React from "react";
 import { FaChevronRight } from "react-icons/fa";
 import styles from "styles/Home/cards.module.css";
 import Card from "./Card";
-import verification from 'assets/home/verification.jpg';
+import First from "assets/home/cards/First.jpg";
+import Second from "assets/home/cards/Second.jpg";
+import Third from "assets/home/cards/Third.jpg";
 
 const data = [
   {
     num: 1,
-    heading: "Prescription Verification",
-    description: "Verify Prescription From Registered Medical Store",
-    img: verification
+    heading: "Upload Event Details",
+    description: "",
+    img: First
   },
   {
     num: 2,
-    heading: "Drug Sale",
-    description: "The Medical store sells the drugs based on the prescription presented",
-    img: verification
+    heading: "Get approval from Team",
+    description: "",
+    img: Second
   },
   {
     num: 3,
-    heading: "Prescription Updation",
-    description:
-      "The Data is updated in the prescription and medical store database after submitting the sales report.",
-    img: verification
+    heading: "Get Paid for the Event",
+    description: "",
+    img: Third
   }
 ];
 
 const Cards = () => {
-  console.log(verification);
   return (
     <div className={styles.gallery}>
       <div className={styles.galleryContainer}>
-        <h1 className={styles.galleryHeading}>Buy Prescribed Drugs in 3 Simple Steps</h1>
+        <h1 className={styles.galleryHeading}>
+          Logistic Management in Three Simple Steps
+        </h1>
         <div className={styles.cardsContainer}>
           <Card {...data[0]} />
           <FaChevronRight size={40} color={"#147EB7"} />

@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import styles from "../../styles/footer.module.css";
-import ncb__logo from "../../assets/ncb__logo.png";
+import Iccr_logo from "assets/icons/iccr_logo.svg";
 
 const Footer = () => {
   return (
@@ -110,14 +110,12 @@ const Footer = () => {
 
       <footer className={styles.down_footer}>
         <div className={styles.footer__content}>
-          <p className={styles.footer__text}>Copyright © 2022. All Rights Reserved</p>
+          <p className={styles.footer__text}>© ICCR | Team Disruptorss </p>
           <div className={styles.logo}>
-            <img src={ncb__logo} alt="NCB Logo" />
-            <p>NCB DAAS</p>
+            <img src={Iccr_logo} alt="Sangmanch Logo" />
+            <p>Indian Council for Cultural Relations</p>
           </div>
           <div className={styles.footer__links}>
-            <span className={styles.footer__link}>Terms of Service</span>
-            <span className={styles.footer__link}>|</span>
             <span className={styles.footer__link}>Privacy Policy</span>
           </div>
         </div>

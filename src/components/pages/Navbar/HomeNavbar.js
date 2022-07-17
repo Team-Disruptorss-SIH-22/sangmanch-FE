@@ -1,7 +1,8 @@
 import React, { useContext, useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { MdArrowDropDown } from "react-icons/md";
-import ncb__logo from "../../../assets/ncb__logo.png";
+import IccrLogo from "assets/icons/iccr_logo.svg";
+import Sangmanch from "assets/sangmanch_logo.svg";
 import styles from "../../../styles/Home/homeNavbar.module.css";
 import authContext from "context/auth/authContext";
 import { GiHamburgerMenu } from "react-icons/gi";
@@ -37,13 +38,11 @@ const HomeNavbar = (props) => {
       <div className={styles.top_Default_Bar}>
         <div className={styles.top_navbar_wrapper}>
           <div className={styles.leftSide}>
-            <img
-              className={styles.emblemLogoContainer}
-              src="https://www.cowin.gov.in/assets/images/emblem-gov.svg"
-              alt="logo"
-            />
+            <img className={styles.emblemLogoContainer} src={IccrLogo} alt="logo" />
             <span className={styles.logo_heading}>
-              Ministry of <br></br>Home Affairs
+              Indian Council for
+              <br></br>
+              Cultural Relations
             </span>
           </div>
 
@@ -70,8 +69,7 @@ const HomeNavbar = (props) => {
         <div className={styles.navbar}>
           <div className={styles.logo}>
             <Link to="/" className={styles.logo__center}>
-              <img src={ncb__logo} alt="NCB Logo" />
-              <p>NCB DAAS</p>
+              <img src={Sangmanch} alt="NCB Logo" />
             </Link>
           </div>
 
@@ -79,13 +77,8 @@ const HomeNavbar = (props) => {
             <ul className={styles.links__banner}>
               <li>
                 <a href="https://narcoticsindia.nic.in/" target="_blank" rel="noreferrer">
-                  About NCB
+                  About Sangmanch
                 </a>
-              </li>
-              <li>
-                <Link to="/admin/signup" target="_blank">
-                  Services
-                </Link>
               </li>
               <li>
                 <Link to="/admin/signup" target="_blank">
@@ -95,6 +88,11 @@ const HomeNavbar = (props) => {
               <li>
                 <Link to="/admin/signup" target="_blank">
                   Contact Us
+                </Link>
+              </li>
+              <li>
+                <Link to="https://iccr.gov.in/home" target="_blank">
+                  ICCR Website
                 </Link>
               </li>
             </ul>
