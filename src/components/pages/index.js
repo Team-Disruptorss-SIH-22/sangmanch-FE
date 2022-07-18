@@ -13,11 +13,11 @@ import AdminSignup from "./AuthForms/AdminSignup";
 import Verify from "./AuthForms/Verify";
 
 // Dispatch Forms
-import ManufacturerForm from "./DispatchForms/ManufacturerForm";
-import WarehouseForm from "./DispatchForms/WarehouseForm";
-import MedicalStoreSales from "./DispatchForms/MedicalStoreSales";
-import MedicalStoreReceipt from "./DispatchForms/MedicalStoreReceipt";
-import PrescriptionUploading from "./DispatchForms/PrescriptionUploading";
+// import ManufacturerForm from "./DispatchForms/ManufacturerForm";
+// import WarehouseForm from "./DispatchForms/WarehouseForm";
+// import MedicalStoreSales from "./DispatchForms/MedicalStoreSales";
+// import MedicalStoreReceipt from "./DispatchForms/MedicalStoreReceipt";
+// import PrescriptionUploading from "./DispatchForms/PrescriptionUploading";
 
 // Admin
 import AdminLayout from "./Admin/AdminLayout";
@@ -54,15 +54,15 @@ export {
   AdminSignup,
   Verify,
   Page404,
-  ManufacturerForm,
-  WarehouseForm,
-  MedicalStoreReceipt,
-  MedicalStoreSales,
-  PrescriptionUploading,
+  // ManufacturerForm,
+  // WarehouseForm,
+  // MedicalStoreReceipt,
+  // MedicalStoreSales,
+  // PrescriptionUploading,
   AdminLayout,
   DrugProgress,
   AdminDashboard,
-  NationalView,
+  // NationalView,
   Alerts,
   Drugs,
   Visualization,

@@ -16,13 +16,13 @@ const HomeNavbar = (props) => {
 
   useEffect(() => {
     if (isAuthenticated === true) {
-      props.history?.push(`${user.role}/dispatch`);
+      // props.history?.push(`${user.role}/dispatch`);
     }
   }, [isAuthenticated]);
 
   const onLogout = () => {
     logout();
-    props.history?.push("/login");
+    // props.history?.push("/login");
     toast.success("Logged out successfully");
   };
 

@@ -14,7 +14,7 @@ const HomeNavbar = (props) => {
   useEffect(() => {
     if (isAuthenticated === true) {
       console.log(props);
-      props.history?.push(`${user.role}/dispatch`);
+      // props.history?.push(`${user.role}/dispatch`);
     }
   }, [isAuthenticated]);
 

@@ -1,3 +1,4 @@
+import React from 'react';
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import {
   AdminRoute,
@@ -10,14 +11,14 @@ import {
   Home,
   AdminSignup,
   Page404,
-  ManufacturerForm,
-  WarehouseForm,
-  MedicalStoreReceipt,
-  MedicalStoreSales,
-  PrescriptionUploading,
+  // ManufacturerForm,
+  // WarehouseForm,
+  // MedicalStoreReceipt,
+  // MedicalStoreSales,
+  // PrescriptionUploading,
   DrugProgress,
   AdminDashboard,
-  NationalView,
+  // NationalView,
   Alerts,
   Drugs,
   Verify,
@@ -64,12 +65,12 @@ function App() {
               <UserSignupRoute exact path="/signup/doctor" titleRole={"Doctor"} />
               <UserSignupRoute exact path="/signup/admin" component={AdminSignup} />
 
-              <FormRoute
+              {/* <FormRoute
                 exact
                 path="/manufacturer/dispatch"
                 component={ManufacturerForm}
-              />
-              <FormRoute exact path="/warehouse/dispatch" component={WarehouseForm} />
+              /> */}
+              {/* <FormRoute exact path="/warehouse/dispatch" component={WarehouseForm} /> */}
 
               {/* ADMIN */}
               <AdminRoute
@@ -84,12 +85,12 @@ function App() {
                 component={DrugProgress}
                 title={"- Progress"}
               />
-              <AdminRoute
+              {/* <AdminRoute
                 exact
                 path="/national"
                 component={NationalView}
                 title={"- National"}
-              />
+              /> */}
 
               <AdminRoute exact path="/alerts" title={"- Alerts"} component={Alerts} />
               <AdminRoute exact path="/drugs" title={""} component={Drugs} />
@@ -116,19 +117,19 @@ function App() {
                 component={MedicalDrugs}
               />
 
-              <MedicalRoute
+              {/* <MedicalRoute
                 exact
                 path="/medical/received"
                 title={"Sales Data"}
                 component={MedicalStoreReceipt}
-              />
+              /> */}
 
-              <MedicalRoute
+              {/* <MedicalRoute
                 exact
                 path="/medical/sales"
                 title={"Sales Data"}
                 component={MedicalStoreSales}
-              />
+              /> */}
               <MedicalRoute exact path="/medical/404" title={""} component={Page404} />
 
               {/* DOCTOR DASHBOARD */}
@@ -146,12 +147,12 @@ function App() {
                 component={DoctorPrescriptions}
               />
 
-              <DoctorRoute
+              {/* <DoctorRoute
                 exact
                 path="/doctor/form"
                 title={""}
                 component={PrescriptionUploading}
-              />
+              /> */}
 
               <DoctorRoute exact path="/doctor/404" title={""} component={Page404} />
 
