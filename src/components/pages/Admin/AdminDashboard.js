@@ -101,8 +101,8 @@ const AdminDashboard = () => {
   ];
 
   const handleAddTasks = () => {
-    setTasks(prev => [...prev, task]);
-	setTask(prev => ({...prev, content: ''}));
+    setTasks((prev) => [...prev, task]);
+    setTask((prev) => ({ ...prev, content: "" }));
   };
 
   return (
@@ -193,7 +193,31 @@ const AdminDashboard = () => {
 
         <div className={styles.line}></div>
         <div className={styles.graphChartsContainer}>
-          <div className={styles.chart + " " + styles.noTopBorder}>
+          <div className={styles.todo_container}>
+            <div className={styles.todo_header}>Things to do</div>
+            <div className={styles.todo_items}>
+              <div className={styles.single_todo}>
+                <input id="todo-check" type="checkbox" />
+                <label for="#todo-check">todo-item</label>
+              </div>
+
+              <div className={styles.single_todo}>
+                <input id="todo-check" type="checkbox" />
+                <label for="#todo-check">todo-item</label>
+              </div>
+
+              <div className={styles.single_todo}>
+                <input id="todo-check" type="checkbox" />
+                <label for="#todo-check">todo-item</label>
+              </div>
+
+              <div className={styles.single_todo}>
+                <input id="todo-check" type="checkbox" />
+                <label for="#todo-check">todo-item</label>
+              </div>
+            </div>
+          </div>
+          {/* <div className={styles.chart + " " + styles.noTopBorder}>
             <p className={styles.chartTitle + " " + styles.clrGrey}>
               Consignments Received
             </p>
@@ -230,7 +254,7 @@ const AdminDashboard = () => {
             <p className={styles.chart_number + " " + styles.clrLightGreen}>
               {charts.anamoliesDiscarded}
             </p>
-          </div>
+          </div> */}
         </div>
       </div>
 
@@ -289,17 +313,18 @@ const AdminDashboard = () => {
               <input
                 className={styles.newTaskInput}
                 placeholder="Create new task"
-				value={task.content}
-                onChange={(e) => setTask(prev => ({...prev, content: e.target.value}))}
+                value={task.content}
+                onChange={(e) =>
+                  setTask((prev) => ({ ...prev, content: e.target.value }))
+                }
               />
-			  {console.log(task)}
+              {console.log(task)}
               <button className={styles.addTaskButton} onClick={handleAddTasks}>
                 <AiOutlinePlus />
               </button>
             </div>
 
             <div className={styles.content_container}>
-				
               {tasks.map((task, index) => {
                 return (
                   <div className={styles.task} key={index}>
@@ -307,11 +332,18 @@ const AdminDashboard = () => {
                       <input type="checkbox"></input>
                       <p>{task.content}</p>
                     </div>
-                    <p className={styles.taskPriority} style={{color: task.color === '#dfe0eb' ? "black" : "white", backgroundColor: task.color}}>{task.priority}</p>
+                    <p
+                      className={styles.taskPriority}
+                      style={{
+                        color: task.color === "#dfe0eb" ? "black" : "white",
+                        backgroundColor: task.color
+                      }}
+                    >
+                      {task.priority}
+                    </p>
                   </div>
                 );
               })}
-
             </div>
           </div>
         </div>

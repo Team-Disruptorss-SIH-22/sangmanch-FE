@@ -1,9 +1,11 @@
 import React from "react";
 import styles from "../../../styles/admin/adminLayout.module.css";
 import Navbar from "../Navbar/AdminNavbar";
-import { FaUser, FaChartPie, FaLightbulb } from "react-icons/fa";
-import { GiMedicines } from "react-icons/gi";
-import { AiFillAlert, AiOutlineAreaChart, AiFillSetting } from "react-icons/ai";
+import SangmanchLogo from "../../../assets/sangmanch_logo.svg";
+import { MdDateRange } from "react-icons/md";
+import { TbReport } from "react-icons/tb";
+import { FaChartPie } from "react-icons/fa";
+import { AiFillAlert, AiFillSetting } from "react-icons/ai";
 import { Link } from "react-router-dom";
 
 const AdminLayout = ({ Component, title }) => {
@@ -11,35 +13,34 @@ const AdminLayout = ({ Component, title }) => {
     <div className={styles.container}>
       <aside className={styles.sidebar}>
         <div className={styles.logo}>
-          <img src="https://narcoticsindia.nic.in/images/acs.png" alt="NCB Logo" />
-          <p>NCB DAAS</p>
+          <img src={SangmanchLogo} alt="Sangmanch Logo" />
         </div>
         <ul className={styles.collection}>
           <li>
-            <FaChartPie />
+            <FaChartPie size={15}/>
             <span>
               <Link to="/dashboard">Overview</Link>
             </span>
           </li>
           <li>
-            <GiMedicines />
+            <MdDateRange size={18}/>
             <span>
-              <Link to="/drugs">Drugs</Link>
+              <Link to="/drugs">User Reports</Link>
             </span>
           </li>
           <li>
-            <FaLightbulb />
+            <TbReport size={18}/>
             <span>
-              <Link to="/national">National View</Link>
+              <Link to="/national">Report Status</Link>
             </span>
           </li>
           <li>
-            <AiFillAlert />
+            <AiFillAlert size={18}/>
             <span>
-              <Link to="/alerts">Alerts</Link>
+              <Link to="/alerts">Infographics</Link>
             </span>
           </li>
-          <li>
+          {/* <li>
             <FaUser />
             <span>
               <Link to="/admin/404">Agents [Escalation]</Link>
@@ -50,7 +51,7 @@ const AdminLayout = ({ Component, title }) => {
             <span>
               <Link to="/visualization">Visualizations</Link>
             </span>
-          </li>
+          </li> */}
 
           <div className={styles.divider}></div>
           <li>
