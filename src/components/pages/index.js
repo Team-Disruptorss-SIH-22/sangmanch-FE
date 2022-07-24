@@ -16,7 +16,7 @@ import Verify from "./AuthForms/Verify";
 // import ManufacturerForm from "./DispatchForms/ManufacturerForm";
 // import WarehouseForm from "./DispatchForms/WarehouseForm";
 // import MedicalStoreSales from "./DispatchForms/MedicalStoreSales";
-// import MedicalStoreReceipt from "./DispatchForms/MedicalStoreReceipt";
+import MedicalStoreReceipt from "./DispatchForms/MedicalStoreReceipt";
 // import PrescriptionUploading from "./DispatchForms/PrescriptionUploading";
 
 // Admin
@@ -56,7 +56,7 @@ export {
   Page404,
   // ManufacturerForm,
   // WarehouseForm,
-  // MedicalStoreReceipt,
+  MedicalStoreReceipt,
   // MedicalStoreSales,
   // PrescriptionUploading,
   AdminLayout,
