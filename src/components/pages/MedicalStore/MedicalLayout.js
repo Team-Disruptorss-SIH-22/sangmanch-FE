@@ -1,6 +1,7 @@
 import React from "react";
 import styles from "../../../styles/admin/adminLayout.module.css";
 import Navbar from "../Navbar/AdminNavbar";
+import SangmanchLogo from "../../../assets/sangmanch_logo.svg";
 import { FaUser, FaChartPie, FaLightbulb } from "react-icons/fa";
 import { GiMedicines } from "react-icons/gi";
 import { AiFillAlert, AiOutlineAreaChart, AiFillSetting } from "react-icons/ai";
@@ -11,8 +12,7 @@ const MedicalLayout = ({ Component, title }) => {
     <div className={styles.container}>
       <aside className={styles.sidebar}>
         <div className={styles.logo}>
-          <img src="https://narcoticsindia.nic.in/images/acs.png" alt="NCB Logo" />
-          <p>NCB DAAS</p>
+          <img src={SangmanchLogo} alt="Sangmanch Logo" />
         </div>
         <ul className={styles.collection}>
           <li>
