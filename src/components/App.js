@@ -13,7 +13,7 @@ import {
   Page404,
   // ManufacturerForm,
   // WarehouseForm,
-  // MedicalStoreReceipt,
+  MedicalStoreReceipt,
   // MedicalStoreSales,
   // PrescriptionUploading,
   DrugProgress,
@@ -117,12 +117,12 @@ function App() {
                 component={MedicalDrugs}
               />
 
-              {/* <MedicalRoute
+              <MedicalRoute
                 exact
                 path="/medical/received"
                 title={"Sales Data"}
                 component={MedicalStoreReceipt}
-              /> */}
+              />
 
               {/* <MedicalRoute
                 exact

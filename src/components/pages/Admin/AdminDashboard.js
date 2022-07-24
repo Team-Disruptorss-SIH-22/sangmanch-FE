@@ -16,7 +16,7 @@ import styles from "styles/admin/adminDashboard.module.css";
 
 const AdminDashboard = () => {
   // Stats
-  const [drugsInPipeline, setDrugsInPipeline] = useState(610);
+  const [drugsInPipeline, setDrugsInPipeline] = useState(610000);
   const [deliveredDrugs, setDeliveredDrugs] = useState(500);
   const [safeDeliveries, setSafeDeliveries] = useState(443);
   const [anamoliesDetected, setAnamoliesDetected] = useState(57);
@@ -109,17 +109,17 @@ const AdminDashboard = () => {
     <div className={styles.dashboardContainer}>
       <div className={styles.stats_container}>
         <div className={styles.stats}>
-          <p className={styles.clrGrey}>Drugs In-Pipeline</p>
+          <p className={styles.clrGrey}>Total Expenditure</p>
           <p className={styles.stats_number}>{drugsInPipeline}</p>
         </div>
 
-        <div className={styles.stats + " " + styles.clrBlue}>
-          <p>Delivered Drugs</p>
+        <div className={styles.stats}>
+          <p className={styles.clrGrey}>Pending Reports</p>
           <p className={styles.stats_number}>{deliveredDrugs}</p>
         </div>
 
         <div className={styles.stats + " " + styles.clrGreen}>
-          <p>Safe Deliveries</p>
+          <p>Approved Reports</p>
           <p className={styles.stats_number}>{safeDeliveries}</p>
         </div>
 
@@ -258,7 +258,7 @@ const AdminDashboard = () => {
         </div>
       </div>
 
-      <div className={styles.otherInfoContainer}>
+      {/* <div className={styles.otherInfoContainer}>
         <div className={styles.unresolved_alerts_Container}>
           <div className={styles.sectionHeader}>
             <div className={styles.titleSubtitle}>
@@ -347,8 +347,8 @@ const AdminDashboard = () => {
             </div>
           </div>
         </div>
-      </div>
-    </div>
+      </div>*/}
+    </div> 
   );
 };
 
