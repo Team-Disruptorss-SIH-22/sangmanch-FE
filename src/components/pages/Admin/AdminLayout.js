@@ -2,7 +2,7 @@ import React from "react";
 import styles from "../../../styles/admin/adminLayout.module.css";
 import Navbar from "../Navbar/AdminNavbar";
 import SangmanchLogo from "../../../assets/sangmanch_logo.svg";
-import { MdDateRange } from "./react-icons/md";
+import { MdDateRange } from "react-icons/md";
 import { TbReport } from "react-icons/tb";
 import { FaChartPie } from "react-icons/fa";
 import { AiFillAlert, AiFillSetting } from "react-icons/ai";
@@ -17,25 +17,25 @@ const AdminLayout = ({ Component, title }) => {
         </div>
         <ul className={styles.collection}>
           <li>
-            <FaChartPie />
+            <FaChartPie size={15}/>
             <span>
               <Link to="/dashboard">Overview</Link>
             </span>
           </li>
           <li>
-            <MdDateRange />
+            <MdDateRange size={18}/>
             <span>
               <Link to="/drugs">User Reports</Link>
             </span>
           </li>
           <li>
-            <TbReport />
+            <TbReport size={18}/>
             <span>
               <Link to="/national">Report Status</Link>
             </span>
           </li>
           <li>
-            <AiFillAlert />
+            <AiFillAlert size={18}/>
             <span>
               <Link to="/alerts">Infographics</Link>
             </span>

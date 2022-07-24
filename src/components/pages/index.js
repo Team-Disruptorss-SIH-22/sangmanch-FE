@@ -23,7 +23,7 @@ import Verify from "./AuthForms/Verify";
 import AdminLayout from "./Admin/AdminLayout";
 import DrugProgress from "./Admin/DrugProgress";
 import AdminDashboard from "./Admin/AdminDashboard";
-import NationalView from "./Admin/NationalView";
+// import NationalView from "./Admin/NationalView";
 import Alerts from "./Admin/alerts/Alerts";
 import Drugs from "./Admin/drugs/Drugs";
 import Visualization from "./Admin/Visualization";
