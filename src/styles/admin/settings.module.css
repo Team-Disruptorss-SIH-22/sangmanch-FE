@@ -1,0 +1,36 @@
+.settingContainer {
+    box-sizing: border-box;
+    border-radius: 5px;
+    height: 60vh;
+    margin: 7% 10%;
+}
+
+.outerBlock {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 85%;
+    margin: 2% 0 7% 5%;
+    font-size: 1.2rem;
+    font-family: 'Roboto';
+}
+
+.innerBlock {
+    width: 70%;
+}
+
+.button,
+.delBtn {
+    color: blue;
+    border: 1px solid blue;
+    border-radius: 5px;
+    padding: 1%;
+    box-shadow: 0px 2px 2px 1px rgb(154, 154, 156);
+    background-color: white;
+}
+
+.delBtn {
+    color: red;
+    border: 1px solid red;
+    box-shadow: 0px 2px 2px 1px rgb(139, 74, 74);
+}

@@ -17,25 +17,25 @@ const AdminLayout = ({ Component, title }) => {
         </div>
         <ul className={styles.collection}>
           <li>
-            <FaChartPie size={15}/>
+            <FaChartPie size={15} />
             <span>
               <Link to="/dashboard">Overview</Link>
             </span>
           </li>
           <li>
-            <MdDateRange size={18}/>
+            <MdDateRange size={18} />
             <span>
               <Link to="/drugs">User Reports</Link>
             </span>
           </li>
           <li>
-            <TbReport size={18}/>
+            <TbReport size={18} />
             <span>
               <Link to="/national">Report Status</Link>
             </span>
           </li>
           <li>
-            <AiFillAlert size={18}/>
+            <AiFillAlert size={18} />
             <span>
               <Link to="/alerts">Infographics</Link>
             </span>
@@ -57,7 +57,7 @@ const AdminLayout = ({ Component, title }) => {
           <li>
             <AiFillSetting />
             <span>
-              <Link to="/admin/404">Settings</Link>
+              <Link to="/settings">Settings</Link>
             </span>
           </li>
         </ul>
