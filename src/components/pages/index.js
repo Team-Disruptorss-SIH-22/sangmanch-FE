@@ -27,6 +27,7 @@ import AdminDashboard from "./Admin/AdminDashboard";
 import Alerts from "./Admin/alerts/Alerts";
 import Drugs from "./Admin/drugs/Drugs";
 import Visualization from "./Admin/Visualization";
+import Settings from "./Admin/Setting";
 
 // Medical Store Dashboard
 import MedicalLayout from "./MedicalStore/MedicalLayout";
@@ -66,6 +67,7 @@ export {
   Alerts,
   Drugs,
   Visualization,
+  Settings,
   MedicalLayout,
   MedicalDashboard,
   MedicalDrugs,

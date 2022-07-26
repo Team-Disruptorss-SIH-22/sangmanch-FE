@@ -149,15 +149,15 @@ const Alerts = () => {
 					<input type="number" placeholder="Page Number" onChange={e => {
 						const pageNumber = e.target.value ? Number(e.target.value) - 1 : 0;
 						gotoPage(pageNumber);
-					}}/>
+					}} />
 				</div>
 
 				<div className={styles.rowsPerPage}>
-					<p> Page: {pageIndex} of {Math.round(MOCK_DATA.length/10)}</p>
-					<button className={styles.backForth} onClick={() => {previousPage(); setPageIndex(pageIndex-1)}} disabled={!canPreviousPage}>
+					<p> Page: {pageIndex} of {Math.round(MOCK_DATA.length / 10)}</p>
+					<button className={styles.backForth} onClick={() => { previousPage(); setPageIndex(pageIndex - 1) }} disabled={!canPreviousPage}>
 						<FiArrowLeft />
 					</button>
-					<button className={styles.backForth} onClick={() => {nextPage(); setPageIndex(pageIndex+1)}} disabled={!canNextPage} >
+					<button className={styles.backForth} onClick={() => { nextPage(); setPageIndex(pageIndex + 1) }} disabled={!canNextPage} >
 						<FiArrowRight />
 					</button>
 				</div>

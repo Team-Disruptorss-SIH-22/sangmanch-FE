@@ -23,6 +23,7 @@ import {
   Drugs,
   Verify,
   Visualization,
+  Settings,
   MedicalDashboard,
   MedicalDrugs,
   DoctorDashboard,
@@ -100,7 +101,7 @@ function App() {
                 title={""}
                 component={Visualization}
               />
-              <AdminRoute exact path="/admin/404" title={""} component={Page404} />
+              <AdminRoute exact path="/settings" title={"- Settings"} component={Settings} />
 
               {/* MEDICAL STORE DASHBOARD */}
               <MedicalRoute
@@ -157,6 +158,7 @@ function App() {
               <DoctorRoute exact path="/doctor/404" title={""} component={Page404} />
 
               <Route path="*" component={Page404} />
+              {/* hello */}
             </Switch>
           </Router>
         </FormState>
