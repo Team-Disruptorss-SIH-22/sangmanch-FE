@@ -5,45 +5,48 @@ import { Link } from "react-router-dom";
 import { BiSortUp } from "react-icons/bi";
 import { FiArrowLeft, FiArrowRight } from "react-icons/fi";
 import { FaFilter } from "react-icons/fa";
-import { BsSortDownAlt, BsSortDown } from "react-icons/bs";
+import { BsSortDownAlt, BsSortDown, BsThreeDotsVertical } from "react-icons/bs";
 
 // REACT TABLE
 import MOCK_DATA from "./MOCK_DATA.json";
 import { useTable, useSortBy, useFilters, usePagination } from "react-table";
+import { format } from "date-fns";
 
 import styles from "../../../../styles/admin/reports.module.css";
 import { ColumnFilter } from "../ColumnFilter";
 
-const Drugs = () => {
-  const COLUMNS = [
-    {
-      Header: "S. No.",
-      accessor: "s_no",
-      Filter: ColumnFilter
+const COLUMNS = [
+  {
+    Header: "S. No.",
+    accessor: "serial_no",
+    Filter: ColumnFilter
+  },
+  {
+    Header: "Report Number",
+    accessor: "report_number",
+    Filter: ColumnFilter
+  },
+  {
+    Header: "Customer Name",
+    accessor: "customer_name",
+    Filter: ColumnFilter
+  },
+  {
+    Header: "Date",
+    accessor: "date",
+    Cell: ({ value }) => {
+      return format(new Date(value), "dd/MM/yyyy");
     },
-    {
-      Header: "Order ID",
-      accessor: "order_id",
-      Filter: ColumnFilter
-    },
-    {
-      Header: "Current State",
-      accessor: "current_state",
-      Filter: ColumnFilter
-    },
-    {
-      Header: "Alert",
-      accessor: "alert",
-      Filter: ColumnFilter
-    }
-  ];
+    Filter: ColumnFilter
+  },
+  {
+    Header: "Report Details",
+    accessor: "report_details",
+    Filter: ColumnFilter
+  }
+];
 
-  // const data = Array(20).fill({
-  // 	orderID: 1,
-  // 	CurrentState: Date.now(),
-  // 	Alert: Math.random() > 0.5 ? true : false
-  // });
-
+const Reports = () => {
   //to store the values once and for all
   const columns = useMemo(() => COLUMNS, []);
   const data = useMemo(() => MOCK_DATA, []);
@@ -76,7 +79,7 @@ const Drugs = () => {
   return (
     <div className={styles.alertsContainer}>
       <div className={styles.alertHeaderContainer}>
-        <p>Drug Details</p>
+        <p>Received User Reports</p>
 
         <div className={styles.tableOperations + " " + styles.clrGrey}>
           <div className={styles.operation}>
@@ -129,36 +132,23 @@ const Drugs = () => {
               return (
                 <tr {...row.getRowProps()}>
                   {row.cells.map((cell) => {
-                    {
-                      console.log(cell);
-                    }
-
-                    return cell?.column?.id === "order_id" ? (
-                      <td className={styles.tableSingleCell} {...cell.getCellProps()}>
-                        <Link to="#">{cell.render("Cell")}</Link>
+                    return cell?.column?.id === "report_details" ? (
+                      <td
+                        className={
+                          styles.tableSingleCell + " " + styles.report_status_container
+                        }
+                        {...cell.getCellProps()}
+                      >
+                        <Link
+                          to={"/"}
+                          className={styles.report_details + " " + styles.tableSingleCell}
+                        >
+                          View
+                        </Link>
+                        <Link to={"/"}>
+                          <BsThreeDotsVertical />
+                        </Link>
                       </td>
-                    ) : cell?.column?.id === "alert" ? (
-                      cell?.value === "True" ? (
-                        <td
-                          style={{
-                            color: "green"
-                          }}
-                          className={styles.tableSingleCell}
-                          {...cell.getCellProps()}
-                        >
-                          {cell.render("Cell")}
-                        </td>
-                      ) : (
-                        <td
-                          style={{
-                            color: "red"
-                          }}
-                          className={styles.tableSingleCell}
-                          {...cell.getCellProps()}
-                        >
-                          {cell.render("Cell")}
-                        </td>
-                      )
                     ) : (
                       <td className={styles.tableSingleCell} {...cell.getCellProps()}>
                         {cell.render("Cell")}
@@ -181,6 +171,7 @@ const Drugs = () => {
             onChange={(e) => {
               const pageNumber = e.target.value ? Number(e.target.value) - 1 : 0;
               gotoPage(pageNumber);
+              setPageIndex(e.target.value);
             }}
           />
         </div>
@@ -188,7 +179,7 @@ const Drugs = () => {
         <div className={styles.rowsPerPage}>
           <p>
             {" "}
-            Page: {pageIndex} of {Math.round(MOCK_DATA.length / 10)}
+            Page: {pageIndex > 1 ? pageIndex : 1} of {Math.round(MOCK_DATA.length / 10)}
           </p>
           <button
             className={styles.backForth}
@@ -216,4 +207,4 @@ const Drugs = () => {
   );
 };
 
-export default Drugs;
+export default Reports;

@@ -24,9 +24,10 @@ import AdminLayout from "./Admin/AdminLayout";
 import DrugProgress from "./Admin/DrugProgress";
 import AdminDashboard from "./Admin/AdminDashboard";
 // import NationalView from "./Admin/NationalView";
-import Alerts from "./Admin/alerts/Alerts";
+import Reports from "./Admin/reports/Reports";
 import Drugs from "./Admin/drugs/Drugs";
 import Visualization from "./Admin/Visualization";
+import Settings from "./Admin/Setting";
 
 // Medical Store Dashboard
 import MedicalLayout from "./MedicalStore/MedicalLayout";
@@ -54,18 +55,14 @@ export {
   AdminSignup,
   Verify,
   Page404,
-  // ManufacturerForm,
-  // WarehouseForm,
   MedicalStoreReceipt,
-  // MedicalStoreSales,
-  // PrescriptionUploading,
   AdminLayout,
   DrugProgress,
   AdminDashboard,
-  // NationalView,
-  Alerts,
+  Reports,
   Drugs,
   Visualization,
+  Settings,
   MedicalLayout,
   MedicalDashboard,
   MedicalDrugs,

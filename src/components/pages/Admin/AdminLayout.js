@@ -5,7 +5,7 @@ import SangmanchLogo from "../../../assets/sangmanch_logo.svg";
 import { MdDateRange } from "react-icons/md";
 import { TbReport } from "react-icons/tb";
 import { FaChartPie } from "react-icons/fa";
-import { AiFillAlert, AiFillSetting } from "react-icons/ai";
+import { AiFillSetting, AiFillInfoCircle } from "react-icons/ai";
 import { Link } from "react-router-dom";
 
 const AdminLayout = ({ Component, title }) => {
@@ -17,53 +17,40 @@ const AdminLayout = ({ Component, title }) => {
         </div>
         <ul className={styles.collection}>
           <li>
-            <FaChartPie size={15}/>
+            <FaChartPie size={15} />
             <span>
               <Link to="/dashboard">Overview</Link>
             </span>
           </li>
           <li>
-            <MdDateRange size={18}/>
+            <MdDateRange size={18} />
             <span>
-              <Link to="/drugs">User Reports</Link>
+              <Link to="/reports">User Reports</Link>
             </span>
           </li>
           <li>
-            <TbReport size={18}/>
+            <TbReport size={18} />
             <span>
-              <Link to="/national">Report Status</Link>
+              <Link to="/admin/404">Report Status</Link>
             </span>
           </li>
           <li>
-            <AiFillAlert size={18}/>
+            <AiFillInfoCircle size={18} />
             <span>
-              <Link to="/alerts">Infographics</Link>
+              <Link to="/infographics">Infographics</Link>
             </span>
           </li>
-          {/* <li>
-            <FaUser />
-            <span>
-              <Link to="/admin/404">Agents [Escalation]</Link>
-            </span>
-          </li>
-          <li>
-            <AiOutlineAreaChart />
-            <span>
-              <Link to="/visualization">Visualizations</Link>
-            </span>
-          </li> */}
-
           <div className={styles.divider}></div>
           <li>
-            <AiFillSetting />
+            <AiFillSetting size={18} />
             <span>
-              <Link to="/admin/404">Settings</Link>
+              <Link to="/settings">Settings</Link>
             </span>
           </li>
         </ul>
       </aside>
       <main className={styles.contentWrapper}>
-        <Navbar title={"Drug View " + title} />
+        <Navbar title={"General Assembly Dashboard" + title} />
         <Component />
       </main>
     </div>
