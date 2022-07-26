@@ -91,7 +91,6 @@ function App() {
                 component={Visualization}
               />
               <AdminRoute exact path="/settings" title={""} component={Settings} />
-
               <AdminRoute exact path="/admin/404" title={""} component={Page404} />
 
               {/* MEDICAL STORE DASHBOARD */}

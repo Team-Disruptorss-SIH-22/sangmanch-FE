@@ -11,7 +11,7 @@ import { BsSortDownAlt, BsSortDown } from "react-icons/bs";
 import MOCK_DATA from "./MOCK_DATA.json";
 import { useTable, useSortBy, useFilters, usePagination } from "react-table";
 
-import styles from "../../../../styles/admin/alerts.module.css";
+import styles from "../../../../styles/admin/reports.module.css";
 import { ColumnFilter } from "../ColumnFilter";
 
 const Drugs = () => {
