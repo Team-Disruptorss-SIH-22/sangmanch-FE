@@ -31,13 +31,13 @@ const AdminLayout = ({ Component, title }) => {
           <li>
             <TbReport size={18} />
             <span>
-              <Link to="/alerts">Report Status</Link>
+              <Link to="/report/status">Report Status</Link>
             </span>
           </li>
           <li>
             <AiFillInfoCircle size={18} />
             <span>
-              <Link to="/">Infographics</Link>
+              <Link to="/infographics">Infographics</Link>
             </span>
           </li>
           <div className={styles.divider}></div>

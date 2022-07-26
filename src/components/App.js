@@ -86,27 +86,16 @@ function App() {
                 component={DrugProgress}
                 title={"- Progress"}
               />
-              {/* <AdminRoute
-                exact
-                path="/national"
-                component={NationalView}
-                title={"- National"}
-              /> */}
 
               <AdminRoute exact path="/reports" title={""} component={Reports} />
-              <AdminRoute exact path="/drugs" title={""} component={Drugs} />
+
               <AdminRoute
                 exact
-                path="/visualization"
+                path="/infographics"
                 title={""}
                 component={Visualization}
               />
-              <AdminRoute
-                exact
-                path="/settings"
-                title={""}
-                component={Settings}
-              />
+              <AdminRoute exact path="/settings" title={""} component={Settings} />
 
               {/* MEDICAL STORE DASHBOARD */}
               <MedicalRoute
