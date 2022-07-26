@@ -74,18 +74,13 @@ function App() {
               {/* <FormRoute exact path="/warehouse/dispatch" component={WarehouseForm} /> */}
 
               {/* ADMIN */}
-              <AdminRoute
-                exact
-                path="/dashboard"
-                title={"- ID"}
-                component={AdminDashboard}
-              />
-              <AdminRoute
+              <AdminRoute exact path="/dashboard" title={""} component={AdminDashboard} />
+              {/* <AdminRoute
                 exact
                 path="/drug/:id"
                 component={DrugProgress}
                 title={"- Progress"}
-              />
+              /> */}
 
               <AdminRoute exact path="/reports" title={""} component={Reports} />
 
@@ -96,6 +91,8 @@ function App() {
                 component={Visualization}
               />
               <AdminRoute exact path="/settings" title={""} component={Settings} />
+
+              <AdminRoute exact path="/admin/404" title={""} component={Page404} />
 
               {/* MEDICAL STORE DASHBOARD */}
               <MedicalRoute
