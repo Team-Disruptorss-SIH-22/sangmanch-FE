@@ -165,7 +165,8 @@ const Reports = () => {
             placeholder="Page Number"
             onChange={(e) => {
               const pageNumber = e.target.value ? Number(e.target.value) - 1 : 0;
-              gotoPage(pageNumber);
+              gotoPage(pageNumber)
+			  setPageIndex(e.target.value);
             }}
           />
         </div>
@@ -173,7 +174,7 @@ const Reports = () => {
         <div className={styles.rowsPerPage}>
           <p>
             {" "}
-            Page: {pageIndex} of {Math.round(MOCK_DATA.length / 10)}
+            Page: {pageIndex > 1 ? pageIndex : 1} of {Math.round(MOCK_DATA.length / 10)}
           </p>
           <button
             className={styles.backForth}
