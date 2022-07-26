@@ -46,7 +46,7 @@ const COLUMNS = [
 	}
 ];
 
-const Alerts = () => {
+const Reports = () => {
 
 	//to store the values once and for all
 	const columns = useMemo(() => COLUMNS, []);
@@ -67,7 +67,7 @@ const Alerts = () => {
 	return (
 		<div className={styles.alertsContainer}>
 			<div className={styles.alertHeaderContainer}>
-				<p>All Alerts</p>
+				<p>Received User Reports</p>
 
 				<div className={styles.tableOperations + " " + styles.clrGrey}>
 					<div className={styles.operation}>
@@ -166,4 +166,4 @@ const Alerts = () => {
 	);
 };
 
-export default Alerts;
+export default Reports;

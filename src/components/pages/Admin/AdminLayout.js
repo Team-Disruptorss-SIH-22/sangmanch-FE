@@ -5,7 +5,7 @@ import SangmanchLogo from "../../../assets/sangmanch_logo.svg";
 import { MdDateRange } from "react-icons/md";
 import { TbReport } from "react-icons/tb";
 import { FaChartPie } from "react-icons/fa";
-import { AiFillAlert, AiFillSetting, AiFillInfoCircle } from "react-icons/ai";
+import { AiFillSetting, AiFillInfoCircle } from "react-icons/ai";
 import { Link } from "react-router-dom";
 
 const AdminLayout = ({ Component, title }) => {
@@ -25,34 +25,21 @@ const AdminLayout = ({ Component, title }) => {
           <li>
             <MdDateRange size={18} />
             <span>
-              <Link to="/drugs">User Reports</Link>
+              <Link to="/reports">User Reports</Link>
             </span>
           </li>
           <li>
             <TbReport size={18} />
             <span>
-              <Link to="/national">Report Status</Link>
+              <Link to="/alerts">Report Status</Link>
             </span>
           </li>
           <li>
             <AiFillInfoCircle size={18} />
             <span>
-              <Link to="/alerts">Infographics</Link>
+              <Link to="/">Infographics</Link>
             </span>
           </li>
-          {/* <li>
-            <FaUser />
-            <span>
-              <Link to="/admin/404">Agents [Escalation]</Link>
-            </span>
-          </li>
-          <li>
-            <AiOutlineAreaChart />
-            <span>
-              <Link to="/visualization">Visualizations</Link>
-            </span>
-          </li> */}
-
           <div className={styles.divider}></div>
           <li>
             <AiFillSetting size={18} />
@@ -63,7 +50,7 @@ const AdminLayout = ({ Component, title }) => {
         </ul>
       </aside>
       <main className={styles.contentWrapper}>
-        <Navbar title={"Drug View " + title} />
+        <Navbar title={"General Assembly Dashboard" + title} />
         <Component />
       </main>
     </div>

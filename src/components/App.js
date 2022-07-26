@@ -1,4 +1,4 @@
-import React from 'react';
+import React from "react";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import {
   AdminRoute,
@@ -19,7 +19,7 @@ import {
   DrugProgress,
   AdminDashboard,
   // NationalView,
-  Alerts,
+  Reports,
   Drugs,
   Verify,
   Visualization,
@@ -93,7 +93,7 @@ function App() {
                 title={"- National"}
               /> */}
 
-              <AdminRoute exact path="/alerts" title={"- Alerts"} component={Alerts} />
+              <AdminRoute exact path="/reports" title={""} component={Reports} />
               <AdminRoute exact path="/drugs" title={""} component={Drugs} />
               <AdminRoute
                 exact
@@ -101,7 +101,12 @@ function App() {
                 title={""}
                 component={Visualization}
               />
-              <AdminRoute exact path="/settings" title={"- Settings"} component={Settings} />
+              <AdminRoute
+                exact
+                path="/settings"
+                title={""}
+                component={Settings}
+              />
 
               {/* MEDICAL STORE DASHBOARD */}
               <MedicalRoute
