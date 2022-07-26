@@ -124,6 +124,23 @@
   border-bottom: 1px solid rgba(0, 0, 0, 0.1);
 }
 
+.table .report_status_container{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 7%;
+}
+
+.table .report_details{
+  text-decoration: none;
+  font-weight: 300;
+  background: #263252;
+  color: white;
+  padding: 2% 10%;
+  border-radius: 15px;
+}
+
+
 .footer {
   width: 100%;
   box-sizing: border-box;

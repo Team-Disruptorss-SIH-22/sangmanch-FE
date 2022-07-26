@@ -1,4 +1,4 @@
-import React from 'react';
+import React from "react";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import {
   AdminRoute,
@@ -19,7 +19,7 @@ import {
   DrugProgress,
   AdminDashboard,
   // NationalView,
-  Alerts,
+  Reports,
   Drugs,
   Verify,
   Visualization,
@@ -74,34 +74,24 @@ function App() {
               {/* <FormRoute exact path="/warehouse/dispatch" component={WarehouseForm} /> */}
 
               {/* ADMIN */}
-              <AdminRoute
-                exact
-                path="/dashboard"
-                title={"- ID"}
-                component={AdminDashboard}
-              />
-              <AdminRoute
+              <AdminRoute exact path="/dashboard" title={""} component={AdminDashboard} />
+              {/* <AdminRoute
                 exact
                 path="/drug/:id"
                 component={DrugProgress}
                 title={"- Progress"}
-              />
-              {/* <AdminRoute
-                exact
-                path="/national"
-                component={NationalView}
-                title={"- National"}
               /> */}
 
-              <AdminRoute exact path="/alerts" title={"- Alerts"} component={Alerts} />
-              <AdminRoute exact path="/drugs" title={""} component={Drugs} />
+              <AdminRoute exact path="/reports" title={""} component={Reports} />
+
               <AdminRoute
                 exact
-                path="/visualization"
+                path="/infographics"
                 title={""}
                 component={Visualization}
               />
-              <AdminRoute exact path="/settings" title={"- Settings"} component={Settings} />
+              <AdminRoute exact path="/settings" title={""} component={Settings} />
+              <AdminRoute exact path="/admin/404" title={""} component={Page404} />
 
               {/* MEDICAL STORE DASHBOARD */}
               <MedicalRoute
