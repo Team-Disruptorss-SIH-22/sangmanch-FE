@@ -41,6 +41,8 @@
 
 .sidebar ul li {
   margin-bottom: 30px;
+  display: flex;
+  align-items: center;
   cursor: pointer;
   font-size: 15px;
 }
@@ -55,7 +57,7 @@
 }
 
 .sidebar ul .divider {
-  border-top: 1px solid #4e4e4e;
+  border-top: 1px solid #60728a;
   margin: 0;
   margin-bottom: 20px;
 }
