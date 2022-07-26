@@ -142,12 +142,12 @@ const AdminDashboard = () => {
             <div className={styles.graphLineHelper + " " + styles.clrGrey}>
               <div className={styles.singleLineHelper}>
                 <div className={styles.blueLine}></div>
-                <p>Today</p>
+                <p>Expenses</p>
               </div>
 
               <div className={styles.singleLineHelper}>
                 <div className={styles.greenLine}></div>
-                <p>Yesterday</p>
+                <p>Attendees</p>
               </div>
             </div>
           </div>
