@@ -133,14 +133,19 @@ const Reports = () => {
                 <tr {...row.getRowProps()}>
                   {row.cells.map((cell) => {
                     return cell?.column?.id === "report_details" ? (
-                      <td className={styles.tableSingleCell + " " + styles.report_status_container} {...cell.getCellProps()}>
+                      <td
+                        className={
+                          styles.tableSingleCell + " " + styles.report_status_container
+                        }
+                        {...cell.getCellProps()}
+                      >
                         <Link
                           to={"/"}
                           className={styles.report_details + " " + styles.tableSingleCell}
                         >
                           View
                         </Link>
-                        <Link to={"/"} >
+                        <Link to={"/"}>
                           <BsThreeDotsVertical />
                         </Link>
                       </td>
@@ -165,8 +170,8 @@ const Reports = () => {
             placeholder="Page Number"
             onChange={(e) => {
               const pageNumber = e.target.value ? Number(e.target.value) - 1 : 0;
-              gotoPage(pageNumber)
-			  setPageIndex(e.target.value);
+              gotoPage(pageNumber);
+              setPageIndex(e.target.value);
             }}
           />
         </div>
