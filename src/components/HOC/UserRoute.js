@@ -1,20 +1,12 @@
-import React, { useContext } from "react";
-import { Route, Redirect } from "react-router-dom";
-import authContext from "context/auth/authContext";
+import React from "react";
+import { Route } from "react-router-dom";
+import { UserLayout } from "../pages";
 
-const UserRoute = ({ component: Component, ...rest }) => {
-	const { isAuthenticated, user } = useContext(authContext);
+const UserRoute = ({ component, title, ...rest }) => {
 	return (
 		<Route
 			{...rest}
-			render={(props) =>
-				isAuthenticated !== null &&
-				(isAuthenticated === false ? (
-					<Component {...props} />
-				) : (
-					<Redirect to={`${user.role}/dispatch`} />
-				))
-			}
+			render={(props) => <UserLayout Component={component} title={title} {...props} />}
 		/>
 	);
 };
