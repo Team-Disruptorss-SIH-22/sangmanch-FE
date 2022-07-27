@@ -1,0 +1,12 @@
+.container{
+    margin-top: 3%;
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    border: 1px solid red;
+}
+
+.monthly_exp_container{
+    width: 45%;
+    border: 1px solid red;
+}

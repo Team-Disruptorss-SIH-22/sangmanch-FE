@@ -44,7 +44,7 @@ import DoctorLayout from "./Doctor/DoctorLayout";
 import UserLayout from "./User/UserLayout";
 import UserDashboard from "./User/UserDashboard";
 import UserReports from "./User/reports/UserReports";
-import Infographics from "./User/Infographics";
+import Infographics from "./Admin/Infographics";
 
 import Page404 from "./Page404";
 import Home from "./Homepage/Home";
