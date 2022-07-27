@@ -39,7 +39,7 @@ const AdminLayout = ({ Component, title }) => {
             <AiFillInfoCircle size={18} />
             <span>
               {/* <Link to="/user/infographics">Infographics</Link> */}
-              <Link to="/user/404">Infographics</Link>
+              <Link to="/infographics">Infographics</Link>
             </span>
           </li>
           <div className={styles.divider}></div>

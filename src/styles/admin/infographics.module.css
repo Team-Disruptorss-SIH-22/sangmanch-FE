@@ -1,0 +1,39 @@
+.container {
+  margin-top: 3%;
+  box-sizing: border-box;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  /* border: 1px solid red; */
+}
+
+.graph_header {
+  font-size: 0.9rem;
+  font-weight: 600;
+  margin-bottom: 5%;
+}
+
+.chart_container {
+  width: 100%;
+  font-size: 0.6rem;
+  font-weight: 600;
+  margin-bottom: 5%;
+  /* border: 1px solid red; */
+}
+
+.monthly_exp_container {
+  width: 45%;
+}
+
+.monthly_aud_reach_container {
+  width: 45%;
+}
+
+.event_type_container {
+  width: 45%;
+}
+
+.event_type2_container {
+  width: 45%;
+}

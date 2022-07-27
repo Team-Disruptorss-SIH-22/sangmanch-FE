@@ -82,12 +82,12 @@ function App() {
 
               <AdminRoute exact path="/reports" title={""} component={Reports} />
 
-              {/* <AdminRoute
+              <AdminRoute
                 exact
                 path="/infographics"
                 title={""}
-                component={Visualization}
-              /> */}
+                component={Infographics}
+              />
               <AdminRoute exact path="/settings" title={""} component={Settings} />
               <AdminRoute exact path="/admin/404" title={""} component={Page404} />
 
@@ -101,7 +101,7 @@ function App() {
               <UserRoute exact path="/user/reports" title={""} component={UserReports} />
               <UserRoute
                 exact
-                path="/user/infographics"
+                path="/infographics"
                 title={""}
                 component={Infographics}
               />
