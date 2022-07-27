@@ -101,7 +101,7 @@ function App() {
               <UserRoute exact path="/user/reports" title={""} component={UserReports} />
               <UserRoute
                 exact
-                path="/user/infographics"
+                path="/infographics"
                 title={""}
                 component={Infographics}
               />

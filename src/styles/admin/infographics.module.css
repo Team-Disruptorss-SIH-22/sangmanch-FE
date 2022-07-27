@@ -1,9 +1,11 @@
 .container {
   margin-top: 3%;
+  box-sizing: border-box;
   width: 100%;
   display: flex;
   justify-content: space-between;
   flex-wrap: wrap;
+  /* border: 1px solid red; */
 }
 
 .graph_header {
@@ -17,6 +19,7 @@
   font-size: 0.6rem;
   font-weight: 600;
   margin-bottom: 5%;
+  /* border: 1px solid red; */
 }
 
 .monthly_exp_container {
