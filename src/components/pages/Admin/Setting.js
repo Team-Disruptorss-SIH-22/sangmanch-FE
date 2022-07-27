@@ -17,7 +17,6 @@ const Comp = (props) => {
 
 const Settings = () => {
     return (
-
         <div className={styles.settingContainer}>
             <Comp
                 heading="Profile Settings"
