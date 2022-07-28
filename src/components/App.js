@@ -2,32 +2,36 @@ import React from "react";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import {
   AdminRoute,
+  OldUserRoute,
   UserRoute,
   UserSignupRoute,
-  FormRoute,
-  DoctorRoute,
-  MedicalRoute,
+  // FormRoute,
+  // DoctorRoute,
+  // MedicalRoute,
   Login,
   Home,
   AdminSignup,
   Page404,
   // ManufacturerForm,
   // WarehouseForm,
-  MedicalStoreReceipt,
+  // MedicalStoreReceipt,
   // MedicalStoreSales,
   // PrescriptionUploading,
-  DrugProgress,
+  // DrugProgress,
   AdminDashboard,
   // NationalView,
   Reports,
-  Drugs,
+  UserDashboard,
+  UserReports,
+  Infographics,
+  // Drugs,
   Verify,
-  Visualization,
-  Settings,
-  MedicalDashboard,
-  MedicalDrugs,
-  DoctorDashboard,
-  DoctorPrescriptions
+  // Visualization,
+  Settings
+  // MedicalDashboard,
+  // MedicalDrugs,
+  // DoctorDashboard,
+  // DoctorPrescriptions
 } from "./pages/index";
 
 import AuthState from "context/auth/AuthState";
@@ -50,9 +54,9 @@ function App() {
         <FormState>
           <Router>
             <Switch>
-              <UserRoute exact path="/" component={Home} />
-              <UserRoute exact path="/login" component={Login} />
-              <UserRoute exact path="/verify/:token" component={Verify} />
+              <OldUserRoute exact path="/" component={Home} />
+              <OldUserRoute exact path="/login" component={Login} />
+              <OldUserRoute exact path="/verify/:token" component={Verify} />
               {/* <UserRoute exact path="/medical" component={MedicalStoreReciept} /> */}
 
               {/* User Signup */}
@@ -75,12 +79,6 @@ function App() {
 
               {/* ADMIN */}
               <AdminRoute exact path="/dashboard" title={""} component={AdminDashboard} />
-              {/* <AdminRoute
-                exact
-                path="/drug/:id"
-                component={DrugProgress}
-                title={"- Progress"}
-              /> */}
 
               <AdminRoute exact path="/reports" title={""} component={Reports} />
 
@@ -88,13 +86,30 @@ function App() {
                 exact
                 path="/infographics"
                 title={""}
-                component={Visualization}
+                component={Infographics}
               />
               <AdminRoute exact path="/settings" title={""} component={Settings} />
               <AdminRoute exact path="/admin/404" title={""} component={Page404} />
 
+              {/* USER */}
+              <UserRoute
+                exact
+                path="/user/dashboard"
+                title={""}
+                component={UserDashboard}
+              />
+              <UserRoute exact path="/user/reports" title={""} component={UserReports} />
+              <UserRoute
+                exact
+                path="/infographics"
+                title={""}
+                component={Infographics}
+              />
+              <UserRoute exact path="/user/settings" title={""} component={Settings} />
+              <UserRoute exact path="/user/404" title={""} component={Page404} />
+
               {/* MEDICAL STORE DASHBOARD */}
-              <MedicalRoute
+              {/* <MedicalRoute
                 exact
                 path="/medical/overview"
                 title={"Overview"}
@@ -115,16 +130,16 @@ function App() {
                 component={MedicalStoreReceipt}
               />
 
-              {/* <MedicalRoute
+              <MedicalRoute
                 exact
                 path="/medical/sales"
                 title={"Sales Data"}
                 component={MedicalStoreSales}
-              /> */}
-              <MedicalRoute exact path="/medical/404" title={""} component={Page404} />
+              />
+              <MedicalRoute exact path="/medical/404" title={""} component={Page404} /> */}
 
               {/* DOCTOR DASHBOARD */}
-              <DoctorRoute
+              {/* <DoctorRoute
                 exact
                 path="/doctor/overview"
                 title={"Overview"}
@@ -138,14 +153,14 @@ function App() {
                 component={DoctorPrescriptions}
               />
 
-              {/* <DoctorRoute
+              <DoctorRoute
                 exact
                 path="/doctor/form"
                 title={""}
                 component={PrescriptionUploading}
-              /> */}
+              />
 
-              <DoctorRoute exact path="/doctor/404" title={""} component={Page404} />
+              <DoctorRoute exact path="/doctor/404" title={""} component={Page404} /> */}
 
               <Route path="*" component={Page404} />
               {/* hello */}
