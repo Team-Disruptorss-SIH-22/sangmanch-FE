@@ -52,8 +52,13 @@
   border-radius: 20px;
 }
 
+.bgImage {
+  height: 100%;
+}
+
 .bgImage img {
-  height: 350px;
+  height: 100%;
+  object-fit: cover;
 }
 
 /* Responsive */

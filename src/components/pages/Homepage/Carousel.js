@@ -16,7 +16,7 @@ const CarouselSlider = () => {
       showArrows={false}
       swipeable={false}
       showStatus={false}
-      dynamicHeight={true}
+      dynamicHeight={false}
     >
       <div>
         <img alt="" />
