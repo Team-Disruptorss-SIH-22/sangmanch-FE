@@ -1,0 +1,22 @@
+.eventsContainer {
+  box-sizing: border-box;
+  width: 100%;
+  margin-top: 3%;
+  border-radius: 5px;
+  border: 1px solid rgba(20, 126, 183, 0.2);
+  -webkit-box-shadow: 2px 4px 10px 1px rgba(20, 126, 183, 0.2);
+  box-shadow: 2px 4px 10px 1px rgba(20, 126, 183, 0.2);
+}
+
+.eventsHeaderContainer {
+  margin-top: -1%;
+  padding: 2%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.eventsHeaderContainer > p {
+    font-size: 1.2rem;
+    font-weight: 600;
+  }
