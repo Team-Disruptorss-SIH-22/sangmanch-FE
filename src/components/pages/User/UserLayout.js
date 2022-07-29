@@ -26,7 +26,7 @@ const AdminLayout = ({ Component, title }) => {
             <MdDateRange size={18} />
             <span>
               {/* <Link to="/user/events">User Reports</Link> */}
-              <Link to="/user/404">Events</Link>
+              <Link to="/user/events">Events</Link>
             </span>
           </li>
           <li>
@@ -39,7 +39,7 @@ const AdminLayout = ({ Component, title }) => {
             <AiFillInfoCircle size={18} />
             <span>
               {/* <Link to="/user/infographics">Infographics</Link> */}
-              <Link to="/infographics">Infographics</Link>
+              <Link to="/user/infographics">Infographics</Link>
             </span>
           </li>
           <div className={styles.divider}></div>

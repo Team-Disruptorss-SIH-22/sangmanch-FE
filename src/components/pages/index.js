@@ -22,13 +22,15 @@ import Verify from "./AuthForms/Verify";
 
 // Admin
 import AdminLayout from "./Admin/AdminLayout";
-// import DrugProgress from "./Admin/DrugProgress";
 import AdminDashboard from "./Admin/AdminDashboard";
-// import NationalView from "./Admin/NationalView";
 import Reports from "./Admin/reports/Reports";
+import Settings from "./Admin/Setting";
+import AdminInfographics from "./Admin/AdminInfographics";
+// import DrugProgress from "./Admin/DrugProgress";
 // import Drugs from "./Admin/drugs/Drugs";
 // import Visualization from "./Admin/Visualization";
-import Settings from "./Admin/Setting";
+// import NationalView from "./Admin/NationalView";
+
 
 // Medical Store Dashboard
 import MedicalLayout from "./MedicalStore/MedicalLayout";
@@ -44,7 +46,8 @@ import DoctorLayout from "./Doctor/DoctorLayout";
 import UserLayout from "./User/UserLayout";
 import UserDashboard from "./User/UserDashboard";
 import UserReports from "./User/reports/UserReports";
-import Infographics from "./Admin/Infographics";
+import Events from './User/Events';
+import UserInfographics from "./User/UserInfographics";
 
 import Page404 from "./Page404";
 import Home from "./Homepage/Home";
@@ -62,23 +65,25 @@ export {
   AdminSignup,
   Verify,
   Page404,
-  // MedicalStoreReceipt,
   AdminLayout,
-  // DrugProgress,
   AdminDashboard,
   Reports,
+  AdminInfographics,
   UserReports,
   UserRoute,
   UserLayout,
   UserDashboard,
-  Infographics,
-  // Drugs,
-  // Visualization,
+  UserInfographics,
+  Events,
   Settings,
   MedicalLayout,
-  // MedicalDashboard,
-  // MedicalDrugs,
   DoctorLayout,
+  // DrugProgress,
+  // Drugs,
+  // Visualization,
+  // MedicalDashboard,
+  // MedicalStoreReceipt,
+  // MedicalDrugs,
   // DoctorDashboard,
   // DoctorPrescriptions
 };

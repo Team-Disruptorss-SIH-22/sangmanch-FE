@@ -24,10 +24,13 @@ import {
   UserDashboard,
   UserReports,
   Infographics,
+  Events,
   // Drugs,
   Verify,
   // Visualization,
-  Settings
+  Settings,
+  UserInfographics,
+  AdminInfographics
   // MedicalDashboard,
   // MedicalDrugs,
   // DoctorDashboard,
@@ -86,7 +89,7 @@ function App() {
                 exact
                 path="/infographics"
                 title={""}
-                component={Infographics}
+                component={AdminInfographics}
               />
               <AdminRoute exact path="/settings" title={""} component={Settings} />
               <AdminRoute exact path="/admin/404" title={""} component={Page404} />
@@ -101,11 +104,12 @@ function App() {
               <UserRoute exact path="/user/reports" title={""} component={UserReports} />
               <UserRoute
                 exact
-                path="/infographics"
+                path="/user/infographics"
                 title={""}
-                component={Infographics}
+                component={UserInfographics}
               />
               <UserRoute exact path="/user/settings" title={""} component={Settings} />
+              <UserRoute exact path="/user/events" title={""} component={Events} />
               <UserRoute exact path="/user/404" title={""} component={Page404} />
 
               {/* MEDICAL STORE DASHBOARD */}
