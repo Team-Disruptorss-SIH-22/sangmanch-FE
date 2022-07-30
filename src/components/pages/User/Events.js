@@ -9,47 +9,98 @@ import interactionPlugin from "@fullcalendar/interaction";
 import styles from "../../../styles/user/events.module.css";
 
 const Events = () => {
+  const [events, setEvents] = useState([]);
 
-  const events = [
-    {
-      // this object will be "parsed" into an Event Object
-      title: "The Title", // a property!
-      start: "2022-07-03", // a property!
-      end: "2012-07-03" // a property! ** see important note below about 'end' **
-    }
-  ];
+  console.log(events);
 
   const countryOptions = countryList().getData();
 
-  const [country, setCountry] = useState(null);
   const [newEvent, setNewEvent] = useState(false);
+  //   const [eventId, setEventId] = useState("");
 
-  const [userRegisteration, setUserRegisteration] = useState({
-    uniqueid: "",
-    drugname: "",
-    drugpotency: "",
-    quantitysold: "",
-    prescription: null
+  const [eventRegistration, setEventRegistration] = useState({
+    id: "",
+    title: "",
+    start: "",
+    type: "",
+    people_reached: "",
+    total_expenses: "",
+    budget_defined: "",
+    city: "",
+    country: "",
+    invoice: null
   });
 
-  const [records, setRecords] = useState([]);
+  const handleEventClick = (info) => {
+    let tempId = info.event._def.publicId;
+    let idx = events.findIndex((item) => item.id == tempId)
+
+    //we get the particular event details with that particular date when we click on event text
+    if (idx != -1) {
+      let obj = events[idx];
+      setEventRegistration({ ...obj });
+    }
+    // console.log(info.event._def.publicId);
+  };
+
+  const handleDateClick = (e) => {
+    let tempId = e.date.getTime().toString();
+    let idx = events.findIndex((item) => item.id == tempId);
+
+    //we get the particular event details with that particular date when we click on date text
+    if (idx != -1) {
+      let obj = events[idx];
+      setEventRegistration({ ...obj });
+    } else {
+      setEventRegistration({
+        id: tempId,
+        start: e.dateStr,
+        title: "",
+        type: "",
+        people_reached: "",
+        total_expenses: "",
+        budget_defined: "",
+        city: "",
+        country: "",
+        invoice: null
+      });
+    }
+
+    setNewEvent(true);
+  };
+
+  const handleCountry = (value) => {
+    setEventRegistration({ ...eventRegistration, country: value });
+    console.log(eventRegistration);
+  };
+
+  const handleCompressedUpload = (e) => {
+    const image = e.target.files[0];
+    new Compressor(image, {
+      quality: 0.8,
+      success: (compressedResult) => {
+        setEventRegistration({ ...eventRegistration, invoice: compressedResult });
+      }
+    });
+  };
 
   const handleInput = (e) => {
     const name = e.target.name;
     const value = e.target.value;
-    console.log(name, value);
-
-    setUserRegisteration({ ...userRegisteration, [name]: value });
+    // console.log(name, value);
+    setEventRegistration({ ...eventRegistration, [name]: value });
   };
 
   const handleSubmit = (e) => {
-    //send data
     e.preventDefault();
-  };
 
-  const handleDateClick = (e) => {
-    console.log(e);
-    setNewEvent(true);
+    //if event already exists. We edit that event only.
+    let newEvents = events.filter((item) => item.id != eventRegistration.id);
+
+    const newObj = [...newEvents, eventRegistration];
+    setEvents(newObj);
+
+    console.log(newObj);
   };
 
   return (
@@ -64,6 +115,7 @@ const Events = () => {
             initialView="dayGridMonth"
             //   weekends={false}
             events={events}
+            eventClick={handleEventClick}
             dateClick={handleDateClick}
           />
         </div>
@@ -72,124 +124,134 @@ const Events = () => {
             <div>
               <div className={styles.heading}>
                 <h2>Event Details Form</h2>
+                <p>Selected Date: {eventRegistration.start}</p>
               </div>
 
               <div className={styles.container}>
                 <form className={styles.formContainer} action="" onSubmit={handleSubmit}>
                   <div className={styles.inputContainer}>
-                    <label htmlFor="uniqueid">Event Name</label>
+                    <label htmlFor="title">
+                      Event Name<span style={{ color: "red" }}> *</span>
+                    </label>
                     <input
                       className="form-field"
                       type="text"
                       autoComplete="off"
-                      value={userRegisteration.uniqueid}
+                      value={eventRegistration.title}
                       onChange={handleInput}
-                      name="uniqueid"
-                      id="uniqueid"
+                      name="title"
+                      id="title"
                       placeholder="Enter text"
                       required
                     />
                   </div>
 
                   <div className={styles.inputContainer}>
-                    <label htmlFor="drugname">Type</label>
+                    <label htmlFor="type">
+                      Type <span style={{ color: "red" }}> *</span>
+                    </label>
                     <input
                       className="form-field"
                       type="text"
                       autoComplete="off"
-                      value={userRegisteration.drugname}
+                      value={eventRegistration.type}
                       onChange={handleInput}
-                      name="drugname"
-                      id="drugname"
+                      name="type"
+                      id="type"
                       placeholder="Enter text"
                       required
                     />
                   </div>
 
                   <div className={styles.inputContainer}>
-                    <label htmlFor="drugname">People Reached</label>
+                    <label htmlFor="people_reached">People Reached</label>
                     <input
                       className="form-field"
-                      type="text"
+                      type="number"
                       autoComplete="off"
-                      value={userRegisteration.drugname}
+                      value={eventRegistration.people_reached}
                       onChange={handleInput}
-                      name="drugname"
-                      id="drugname"
+                      name="people_reached"
+                      id="people_reached"
                       placeholder="Enter text"
                     />
                   </div>
 
                   <div className={styles.inputContainer}>
-                    <label htmlFor="drugname">Total Expenses</label>
+                    <label htmlFor="total_expenses">
+                      Total Expenses <span style={{ color: "red" }}> *</span>
+                    </label>
                     <input
                       className="form-field"
-                      type="text"
-                      autoComplete="off"
-                      value={userRegisteration.drugname}
+                      type="number"
+                      value={eventRegistration.total_expenses}
                       onChange={handleInput}
-                      name="drugname"
-                      id="drugname"
+                      name="total_expenses"
+                      id="total_expenses"
                       placeholder="Enter text"
                       required
                     />
                   </div>
 
                   <div className={styles.inputContainer}>
-                    <label htmlFor="drugname">Budget Defined</label>
+                    <label htmlFor="budget_defined">Budget Defined</label>
                     <input
                       className="form-field"
-                      type="text"
-                      autoComplete="off"
-                      value={userRegisteration.drugname}
+                      type="number"
+                      value={eventRegistration.budget_defined}
                       onChange={handleInput}
-                      name="drugname"
-                      id="drugname"
+                      name="budget_defined"
+                      id="budget_defined"
                       placeholder="Enter text"
                     />
                   </div>
 
                   <div className={styles.inputContainer}>
-                    <label htmlFor="drugname">City</label>
+                    <label htmlFor="city">
+                      City <span style={{ color: "red" }}> *</span>
+                    </label>
                     <input
                       className="form-field"
                       type="text"
                       autoComplete="off"
-                      value={userRegisteration.drugname}
+                      value={eventRegistration.city}
                       onChange={handleInput}
-                      name="drugname"
-                      id="drugname"
+                      name="city"
+                      id="city"
                       placeholder="Enter text"
                     />
                   </div>
 
                   <div className={styles.inputContainer}>
-                    <label htmlFor="drugname">Country</label>
+                    <label htmlFor="country">
+                      Country <span style={{ color: "red" }}> *</span>
+                    </label>
                     <Select
                       className={styles.select}
                       options={countryOptions}
-                      value={country}
-                      onChange={(e) => setCountry(e.target.value)}
-                      name="drugname"
-                      id="drugname"
+                      value={eventRegistration.country}
+                      onChange={(value) => {
+                        handleCountry(value.label);
+                      }}
+                      name="country"
+                      id="country"
                       placeholder="Select Country"
                     />
                   </div>
 
                   <div className={styles.inputContainer}>
-                    <label htmlFor="prescription">Upload Invoice</label>
+                    <label htmlFor="invoice">Upload Invoice</label>
                     <input
                       className="form-field"
                       type="file"
                       autoComplete="off"
-                      // value={userRegisteration.prescription}
+                      // value={eventRegistration.invoice}
                       accept="image/*,capture=camera"
                       capture="”camera"
-                      // onChange={handleInput}
-                      //   onChange={handleCompressedUpload}
-                      name="prescription"
-                      id="prescription"
-                      placeholder="Upload Prescription"
+                      onChange={handleCompressedUpload}
+                      name="invoice"
+                      id="invoice"
+                      placeholder="Upload Invoice"
                     />
                   </div>
 
@@ -201,7 +263,7 @@ const Events = () => {
               </div>
             </div>
           ) : (
-            <p>Please click on any date to create an event.</p>
+            <p>Please click on a date to view an existing event or create a new one.</p>
           )}
         </div>
       </div>

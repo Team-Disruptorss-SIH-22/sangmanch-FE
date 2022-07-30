@@ -18,25 +18,29 @@
   font-weight: 600;
 }
 
-.calender_form_container{
+.calender_form_container {
   padding: 1% 2%;
   display: flex;
   justify-content: space-between;
   /* border: 1px solid red; */
 }
 
-.calenderContainer{
+.calenderContainer {
   width: 60%;
+}
+
+.calenderContainer td div{
+  cursor: pointer;
 }
 
 /* FORM */
 
-.form_super_container{
+.form_super_container {
   /* border: 1px solid red; */
   width: 35%;
 }
 
-.form_super_container > p{
+.form_super_container > p {
   text-align: center;
 }
 
@@ -61,7 +65,6 @@
 
 .formContainer .inputContainer {
   width: 100%;
-  /* border: 1px solid cyan; */
   display: flex;
   flex-direction: column;
   align-items: baseline;
@@ -74,7 +77,7 @@
   opacity: 1; /* Firefox */
 }
 
-.formContainer .inputContainer input{
+.formContainer .inputContainer input {
   box-sizing: border-box;
   width: 100%;
   margin: 1.5% 0;
@@ -83,12 +86,11 @@
   border-radius: 5px;
 }
 
-.formContainer .inputContainer .select{
+.formContainer .inputContainer .select {
   box-sizing: border-box;
   margin: 1.5% 0;
   width: 100%;
 }
-
 
 .formContainer .inputContainer input:focus {
   outline: none;
