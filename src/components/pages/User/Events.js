@@ -2,6 +2,10 @@ import React, { useState } from "react";
 import Select from "react-select";
 import countryList from "react-select-country-list";
 import Compressor from "compressorjs";
+
+import { toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+
 import FullCalendar from "@fullcalendar/react";
 import dayGridPlugin from "@fullcalendar/daygrid";
 import interactionPlugin from "@fullcalendar/interaction";
@@ -32,46 +36,50 @@ const Events = () => {
   });
 
   const handleEventClick = (info) => {
-    let tempId = info.event._def.publicId;
-    let idx = events.findIndex((item) => item.id == tempId)
+    // let tempId = info.event._def.publicId;
+    // let idx = events.findIndex((item) => item.id == tempId);
 
     //we get the particular event details with that particular date when we click on event text
-    if (idx != -1) {
-      let obj = events[idx];
-      setEventRegistration({ ...obj });
-    }
+    // if (idx != -1) {
+    //   let obj = events[idx];
+    //   setEventRegistration({ ...obj });
+    // }
+
     // console.log(info.event._def.publicId);
   };
 
   const handleDateClick = (e) => {
-    let tempId = e.date.getTime().toString();
-    let idx = events.findIndex((item) => item.id == tempId);
+    // let idx = events.findIndex((item) => item.id == tempId);
 
     //we get the particular event details with that particular date when we click on date text
-    if (idx != -1) {
-      let obj = events[idx];
-      setEventRegistration({ ...obj });
-    } else {
-      setEventRegistration({
-        id: tempId,
-        start: e.dateStr,
-        title: "",
-        type: "",
-        people_reached: "",
-        total_expenses: "",
-        budget_defined: "",
-        city: "",
-        country: "",
-        invoice: null
-      });
-    }
+    // if (idx != -1) {
+    //   let obj = events[idx];
+    //   setEventRegistration({ ...obj });
+    // } else {
+    setEventRegistration({
+      id: "",
+      start: e.dateStr,
+      title: "",
+      type: "",
+      people_reached: "",
+      total_expenses: "",
+      budget_defined: "",
+      city: "",
+      country: "India",
+      invoice: null
+    });
+    // }
 
     setNewEvent(true);
   };
 
+  const [country, setCountry] = useState({ value: "IN", label: "India" });
+
   const handleCountry = (value) => {
-    setEventRegistration({ ...eventRegistration, country: value });
-    console.log(eventRegistration);
+    // console.log(value);
+    setCountry(value);
+    setEventRegistration({ ...eventRegistration, country: value.label });
+    // console.log(eventRegistration);
   };
 
   const handleCompressedUpload = (e) => {
@@ -94,13 +102,29 @@ const Events = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
 
+    let tempId = new Date().getTime().toString();
+
     //if event already exists. We edit that event only.
     let newEvents = events.filter((item) => item.id != eventRegistration.id);
 
-    const newObj = [...newEvents, eventRegistration];
-    setEvents(newObj);
+    setEventRegistration({...eventRegistration, id: tempId});
 
-    console.log(newObj);
+    const newObj = [...newEvents, eventRegistration];
+
+    if (
+      !eventRegistration.title ||
+      !eventRegistration.type ||
+      !eventRegistration.total_expenses ||
+      !eventRegistration.city ||
+      !eventRegistration.country
+    ) {
+      toast.error("Please enter all the fields");
+    } else {
+      toast.success("Event Added Successfully!");
+      setEvents(newObj);
+    }
+
+    console.log(events);
   };
 
   return (
@@ -219,6 +243,7 @@ const Events = () => {
                       name="city"
                       id="city"
                       placeholder="Enter text"
+                      required
                     />
                   </div>
 
@@ -229,13 +254,14 @@ const Events = () => {
                     <Select
                       className={styles.select}
                       options={countryOptions}
-                      value={eventRegistration.country}
+                      value={country}
                       onChange={(value) => {
-                        handleCountry(value.label);
+                        handleCountry(value);
                       }}
                       name="country"
                       id="country"
                       placeholder="Select Country"
+                      required
                     />
                   </div>
 
