@@ -1,0 +1,230 @@
+[
+  {
+    "key": 0,
+    "lat": "32.082929",
+    "lng": "34.7691346",
+    "name": "Indian Cultural Centre, Tel Aviv, Israel"
+  },
+  {
+    "key": 1,
+    "lat": "-33.8771746",
+    "lng": "151.2084865",
+    "name": "Swami Vivekananda Cultural Centre, Sydney, Australia"
+  },
+  {
+    "key": 2,
+    "lat": "27.7214835",
+    "lng": "85.3178763",
+    "name": "Swami Vivekananda Cultural Centre, Kathmandu, Nepal"
+  },
+  {
+    "key": 3,
+    "lat": "21.021774",
+    "lng": "105.849469",
+    "name": "Swami Vivekananda Cultural Centre, Hanoi, Vietnam"
+  },
+  {
+    "key": 4,
+    "lat": "6.8012793",
+    "lng": "-58.1551255",
+    "name": "Swami Vivekananda Cultural Centre, Georgetown, Guyana"
+  },
+  {
+    "key": 5,
+    "lat": "41.2994958",
+    "lng": "69.2400734",
+    "name": "Lal Bahadur Shastri Centre For Indian Culture, Tashkent, Uzbekistan"
+  },
+  {
+    "key": 6,
+    "lat": "51.5076721",
+    "lng": "-0.1508278",
+    "name": "The Nehru Centre, London, United Kingdom"
+  },
+  {
+    "key": 7,
+    "lat": "13.7313627",
+    "lng": "100.5603246",
+    "name": "Swami Vivekananda Cultural Centre, Bangkok, Thailand"
+  },
+  {
+    "key": 8,
+    "lat": "-6.7561298",
+    "lng": "39.286623",
+    "name": "Swami Vivekananda Cultural Centre, Dar-es-Salaam, Tanzania"
+  },
+  {
+    "key": 9,
+    "lat": "5.830976",
+    "lng": "-55.1812096",
+    "name": "Swami Vivekananda Culture Centre, Paramaribo, Suriname"
+  },
+  {
+    "key": 10,
+    "lat": "16.771585",
+    "lng": "96.161141",
+    "name": "Swami Vivekananda Cultural Centre, Yangon, Myanmar"
+  },
+  {
+    "key": 11,
+    "lat": "-26.1796629",
+    "lng": "28.0326289",
+    "name": "Swami Vivekanand Cultural Centre, Johannesburg, South Africa"
+  },
+  {
+    "key": 12,
+    "lat": "10.644107",
+    "lng": "-61.4303032",
+    "name": "Mahatma Gandhi Indian Cultural Co-operation, Port Of Spain Trinidad & Tobago"
+  },
+  {
+    "key": 13,
+    "lat": "52.0869588",
+    "lng": "4.2911467",
+    "name": "The Gandhi Centre, The Hague, Netherlands"
+  },
+  {
+    "key": 14,
+    "lat": "55.752869",
+    "lng": "37.649897",
+    "name": "Jawaharlal Nehru Cultural Center, Moscow, Russia"
+  },
+  {
+    "key": 15,
+    "lat": "38.5718839",
+    "lng": "68.7907845",
+    "name": "Swami Vivekananda Cultural Centre, Dushanbe, Tajikistan"
+  },
+  {
+    "key": 16,
+    "lat": "35.1795543",
+    "lng": "129.0756416",
+    "name": "Swami Vivekananda Cultural Centre, Seoul, South Korea"
+  },
+  {
+    "key": 17,
+    "lat": "19.432666",
+    "lng": "-99.1324396",
+    "name": "Gurudev Tagore Indian Cultural Centre, Mexico City, Mexico"
+  },
+  {
+    "key": 18,
+    "lat": "3.1325402",
+    "lng": "101.6903737",
+    "name": "Netaji Subhash Chandra Bose Indian Cultural Centre, Kuala Lumpur, Malaysia"
+  },
+  {
+    "key": 19,
+    "lat": "6.9089457",
+    "lng": "79.8689274",
+    "name": "Swami Vivekananda Cultural Centre, Colombo, Sri Lanka"
+  },
+  {
+    "key": 20,
+    "lat": "35.6940153",
+    "lng": "139.7471885",
+    "name": "Vivekananda Cultural Centre, Tokyo, Japan"
+  },
+  {
+    "key": 21,
+    "lat": "-29.84774",
+    "lng": "31.028122",
+    "name": "Swami Vivekananda Cultural Centre, Durban, South Africa"
+  },
+  {
+    "key": 22,
+    "lat": "-8.6706296",
+    "lng": "115.237396",
+    "name": "Swami Vivekananda Cultural Centre, Bali, Indonesia"
+  },
+  {
+    "key": 23,
+    "lat": "4.1754959",
+    "lng": "73.5093474",
+    "name": "Indian Cultural Centre, Male, Maldives"
+  },
+  {
+    "key": 24,
+    "lat": "47.5254191",
+    "lng": "19.0163134",
+    "name": "Amrita Sher-Gil Cultural Centre, Budapest, Hungary"
+  },
+  {
+    "key": 25,
+    "lat": "52.5069115",
+    "lng": "13.3650508",
+    "name": "The Tagore Centre, Berlin, Germany"
+  },
+  {
+    "key": 26,
+    "lat": "-20.3072547",
+    "lng": "57.5101132",
+    "name": "Indira Gandhi Centre for Indian Culture, Port Louis, Mauritius"
+  },
+  {
+    "key": 27,
+    "lat": "51.1449337",
+    "lng": "71.4825056",
+    "name": "Swami Vivekananda Cultural Centre, Astana, Kazakhstan"
+  },
+  {
+    "key": 28,
+    "lat": "38.9113213",
+    "lng": "-77.0469904",
+    "name": "Swami Vivekananda Cultural Centre, Tehran, Iran"
+  },
+  {
+    "key": 29,
+    "lat": "-6.2240115",
+    "lng": "106.8337276",
+    "name": "Jawaharlal Nehru Indian Cultural Centre, Jakarta, Indonesia"
+  },
+  {
+    "key": 30,
+    "lat": "30.0635866",
+    "lng": "31.2160435",
+    "name": "Maulana Azad Centre for Indian Culture, Cairo, Egypt"
+  },
+  {
+    "key": 31,
+    "lat": "39.953427",
+    "lng": "116.46821",
+    "name": "Swami Vivekananda Cultural Centre, Beijing, China"
+  },
+  {
+    "key": 32,
+    "lat": "27.4727924",
+    "lng": "89.6392863",
+    "name": "Nehru-Wangchuck Cultural Centre, Thimphu, Bhutan"
+  },
+  {
+    "key": 33,
+    "lat": "34.5316884",
+    "lng": "69.1821823",
+    "name": "Swami Vivekananda Cultural Centre, Kabul, Afghanistan"
+  },
+  {
+    "key": 34,
+    "lat": "-18.1413958",
+    "lng": "178.4241785",
+    "name": "Swami Vivekananda Cultural Centre, Suva, Fiji"
+  },
+  {
+    "key": 35,
+    "lat": "50.0975844",
+    "lng": "14.4087091",
+    "name": "Swami Vivekananda Cultural Centre, Prague, Czech Republic"
+  },
+  {
+    "key": 36,
+    "lat": "-23.568615",
+    "lng": "-46.6550975",
+    "name": "Swami Vivekananda Cultural Centre, Sao Paulo, Brazil"
+  },
+  {
+    "key": 37,
+    "lat": "23.7386488",
+    "lng": "90.3782987",
+    "name": "Indira Gandhi Cultural Centre, Dhaka, Bangladesh"
+  }
+]
