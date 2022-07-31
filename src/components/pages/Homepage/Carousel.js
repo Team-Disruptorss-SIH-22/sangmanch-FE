@@ -1,8 +1,8 @@
 import React from "react";
 import "react-responsive-carousel/lib/styles/carousel.min.css";
 import { Carousel } from "react-responsive-carousel";
-import carousel1 from "assets/home/carousel/carousel1.jpg";
-import carousel2 from "assets/home/carousel/carousel2.jpg";
+import India from "assets/home/carousel/India.png";
+import banner from "assets/home/carousel/banner2.jpg";
 import styles from "../../../styles/Home/carousel.module.css";
 
 const CarouselSlider = () => {
@@ -25,30 +25,31 @@ const CarouselSlider = () => {
             <div className={styles.showcase__text}>
               <div className={styles.heading}>
                 <p className={styles.text__secondary}>
-                  Drug Analysis and Alerting System
+                  Sangmanch: Realtime Monitoring and Evaluation System
                 </p>
                 <p className={styles.text__primary}>
-                  Creating India’s First Drug Supply Chain Tracking and Prescription
-                  Management System
+                  Creating an Automated and Unified Platform for ICCR Event Management
                 </p>
               </div>
               <div className={styles.info}>
-                A secure web interface allows NCB in end-to-end supply chain tracking from
-                manufacturer to medical store. Patient prescription management by doctors
-                facilitates smooth and tracked drug sales from registered medical stores
-                after prescription verification. User identification and registration from
-                secure identities issued by the Government of India.
+                Using a secure online interface, ICCR can administer and verify events and
+                distribute cash for hosted events. ICCR Cultural Centers input event
+                information, budget, attendance, and bills. The finance manager validates
+                the uploaded bills, transmits the report to the Governing Body for
+                approval, and requests that the finance manager release the cash to the
+                cultural center. The General Assembly operates as a super-administrator
+                with the authority to approve sub-authorities' reports, invoices, and
+                feedback.
               </div>
             </div>
-            <div className={styles.btn}>Learn More</div>
           </div>
           <div className={styles.right}>
-            <img src={carousel1} alt="Carousel2" />
+            <img src={India} alt="Carousel2" />
           </div>
         </div>
       </div>
       <div className={styles.bgImage}>
-        <img src={carousel2} alt="Carousel2" />
+        <img src={banner} alt="Carousel2" />
       </div>
     </Carousel>
   );

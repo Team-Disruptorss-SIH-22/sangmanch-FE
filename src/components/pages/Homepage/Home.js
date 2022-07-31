@@ -2,7 +2,6 @@ import React from "react";
 
 import HomeNavbar from "../Navbar/HomeNavbar";
 import Carousel from "./Carousel";
-import About from "./About";
 import Cards from "./Cards";
 import Maps from "./Maps";
 import FAQ from "./FAQ";
@@ -13,7 +12,6 @@ const Home = (props) => {
     <div>
       <HomeNavbar {...props} />
       <Carousel />
-      <About />
       <Cards />
       <Maps />
       <FAQ />

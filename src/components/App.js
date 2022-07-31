@@ -40,6 +40,7 @@ import {
 import AuthState from "context/auth/AuthState";
 import FormState from "context/forms/FormState";
 import setAuthToken from "./Utils/SetAuthToken";
+import About from "./pages/About/About";
 
 if (localStorage.getItem("token")) {
   setAuthToken(localStorage.token);
@@ -58,6 +59,7 @@ function App() {
           <Router>
             <Switch>
               <OldUserRoute exact path="/" component={Home} />
+              <OldUserRoute exact path="/about" component={About} />
               <OldUserRoute exact path="/login" component={Login} />
               <OldUserRoute exact path="/verify/:token" component={Verify} />
               {/* <UserRoute exact path="/medical" component={MedicalStoreReciept} /> */}
