@@ -8,12 +8,12 @@ import { FaFilter } from "react-icons/fa";
 import { BsSortDownAlt, BsSortDown, BsThreeDotsVertical } from "react-icons/bs";
 
 // REACT TABLE
-import MOCK_DATA from "./MOCK_DATA.json";
+import MOCK_DATA from "../../../assets/MOCK_DATA.json";
 import { useTable, useSortBy, useFilters, usePagination } from "react-table";
 import { format } from "date-fns";
 
-import styles from "../../../../styles/admin/reports.module.css";
-import { ColumnFilter } from "../ColumnFilter";
+import styles from "../../../styles/admin/reports.module.css";
+import { ColumnFilter } from "../Admin/ColumnFilter";
 
 const COLUMNS = [
   {

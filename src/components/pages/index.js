@@ -23,7 +23,7 @@ import Verify from "./AuthForms/Verify";
 // Admin
 import AdminLayout from "./Admin/AdminLayout";
 import AdminDashboard from "./Admin/AdminDashboard";
-import Reports from "./Admin/reports/Reports";
+import Reports from "./Admin/Reports";
 import Settings from "./Admin/Setting";
 import AdminInfographics from "./Admin/AdminInfographics";
 // import DrugProgress from "./Admin/DrugProgress";
@@ -45,7 +45,7 @@ import DoctorLayout from "./Doctor/DoctorLayout";
 // User Dashboard
 import UserLayout from "./User/UserLayout";
 import UserDashboard from "./User/UserDashboard";
-import UserReports from "./User/reports/UserReports";
+import UserReports from "./User/UserReports";
 import Events from './User/Events';
 import UserInfographics from "./User/UserInfographics";
 
