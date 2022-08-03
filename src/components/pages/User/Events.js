@@ -69,7 +69,6 @@ const Events = () => {
       invoice: null
     });
     // }
-
     setNewEvent(true);
   };
 
@@ -135,6 +134,7 @@ const Events = () => {
       <div className={styles.calender_form_container}>
         <div className={styles.calenderContainer}>
           <FullCalendar
+            selectable={true}
             plugins={[dayGridPlugin, interactionPlugin]}
             initialView="dayGridMonth"
             //   weekends={false}
