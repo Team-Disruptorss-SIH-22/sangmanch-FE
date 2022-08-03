@@ -198,22 +198,22 @@ const AdminDashboard = () => {
             <div className={styles.todo_items}>
               <div className={styles.single_todo}>
                 <input id="todo-check" type="checkbox" />
-                <label for="#todo-check">todo-item</label>
+                <label htmlFor="#todo-check">todo-item</label>
               </div>
 
               <div className={styles.single_todo}>
                 <input id="todo-check" type="checkbox" />
-                <label for="#todo-check">todo-item</label>
+                <label htmlFor="#todo-check">todo-item</label>
               </div>
 
               <div className={styles.single_todo}>
                 <input id="todo-check" type="checkbox" />
-                <label for="#todo-check">todo-item</label>
+                <label htmlFor="#todo-check">todo-item</label>
               </div>
 
               <div className={styles.single_todo}>
                 <input id="todo-check" type="checkbox" />
-                <label for="#todo-check">todo-item</label>
+                <label htmlFor="#todo-check">todo-item</label>
               </div>
             </div>
           </div>
@@ -348,7 +348,7 @@ const AdminDashboard = () => {
           </div>
         </div>
       </div>*/}
-    </div> 
+    </div>
   );
 };
 
