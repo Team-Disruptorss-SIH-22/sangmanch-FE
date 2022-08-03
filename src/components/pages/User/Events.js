@@ -38,13 +38,11 @@ const Events = () => {
   const handleEventClick = (info) => {
     // let tempId = info.event._def.publicId;
     // let idx = events.findIndex((item) => item.id == tempId);
-
     //we get the particular event details with that particular date when we click on event text
     // if (idx !== -1) {
     //   let obj = events[idx];
     //   setEventRegistration({ ...obj });
     // }
-
     // console.log(info.event._def.publicId);
   };
 
@@ -106,7 +104,7 @@ const Events = () => {
     //if event already exists. We edit that event only.
     let newEvents = events.filter((item) => item.id !== eventRegistration.id);
 
-    setEventRegistration({...eventRegistration, id: tempId});
+    setEventRegistration({ ...eventRegistration, id: tempId });
 
     const newObj = [...newEvents, eventRegistration];
 
