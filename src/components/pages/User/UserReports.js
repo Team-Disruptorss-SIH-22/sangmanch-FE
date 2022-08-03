@@ -57,14 +57,12 @@ const Reports = () => {
     getTableProps,
     getTableBodyProps,
     headerGroups,
-    rows,
     page,
     nextPage,
     previousPage,
     canPreviousPage,
     canNextPage,
     gotoPage,
-    pageCount,
     prepareRow
   } = useTable(
     {

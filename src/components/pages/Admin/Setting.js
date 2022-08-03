@@ -1,5 +1,3 @@
-import { useState, useMemo } from "react";
-import { Link } from "react-router-dom";
 import styles from "styles/admin/settings.module.css";
 
 const Comp = (props) => {

@@ -40,7 +40,7 @@ const Events = () => {
     // let idx = events.findIndex((item) => item.id == tempId);
 
     //we get the particular event details with that particular date when we click on event text
-    // if (idx != -1) {
+    // if (idx !== -1) {
     //   let obj = events[idx];
     //   setEventRegistration({ ...obj });
     // }
@@ -52,7 +52,7 @@ const Events = () => {
     // let idx = events.findIndex((item) => item.id == tempId);
 
     //we get the particular event details with that particular date when we click on date text
-    // if (idx != -1) {
+    // if (idx !== -1) {
     //   let obj = events[idx];
     //   setEventRegistration({ ...obj });
     // } else {
@@ -105,7 +105,7 @@ const Events = () => {
     let tempId = new Date().getTime().toString();
 
     //if event already exists. We edit that event only.
-    let newEvents = events.filter((item) => item.id != eventRegistration.id);
+    let newEvents = events.filter((item) => item.id !== eventRegistration.id);
 
     setEventRegistration({...eventRegistration, id: tempId});
 
