@@ -20,6 +20,7 @@ import AdminInfographics from "./Admin/AdminInfographics";
 // User Dashboard
 import UserLayout from "./User/UserLayout";
 import UserDashboard from "./User/UserDashboard";
+import ReviewReport from "./User/ReviewReport";
 
 // import Infographics from "./Admin/Infographics";
 import ReportStatus from "./Admin/reports/ReportStatus"
@@ -50,7 +51,7 @@ export {
   UserRoute,
   UserLayout,
   UserDashboard,
-
+  ReviewReport,
   ReportStatus,
   // Drugs,
   // Visualization,

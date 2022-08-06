@@ -207,22 +207,4 @@ const ReportStatus = () => {
     );
 };
 
-
-// const ReportID = () => {
-//     return (
-//         <div>
-//             <h2>Review Report- Report ID</h2>
-//             <form>
-//                 <label for="username">Username</label>
-//                 <input type="text" placeholder="Enter username" name="username" />
-//                 <label for="password">4 Digit PIN</label>
-//                 <input type="password" placeholder="Enter password" name="password" />
-
-//                 <input type="checkbox" value="Accepted" name="ans">Accepted</input>
-//                 <input type="checkbox" value="Rejected" name="ans">Rejected</input>
-
-//             </form>
-//         </div>
-//     )
-// }
 export default ReportStatus;

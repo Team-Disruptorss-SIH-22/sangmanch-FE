@@ -35,6 +35,17 @@ const AdminLayout = ({ Component, title }) => {
               <Link to="/user/reports">Report Status</Link>
             </span>
           </li>
+
+
+          {/* review report */}
+          <li>
+            <TbReport size={18} />
+            <span>
+              <Link to="/user/reviewreport">Review Report</Link>
+            </span>
+          </li>
+
+
           <li>
             <AiFillInfoCircle size={18} />
             <span>

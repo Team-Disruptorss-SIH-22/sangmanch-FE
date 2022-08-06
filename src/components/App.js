@@ -14,7 +14,6 @@ import {
   Reports,
   UserDashboard,
   UserReports,
-
   Infographics,
   ReportStatus,
   // Drugs,
@@ -22,6 +21,7 @@ import {
   Verify,
   Settings,
   UserInfographics,
+  ReviewReport,
 } from "./pages/index";
 
 import AuthState from "context/auth/AuthState";
@@ -86,6 +86,7 @@ function App() {
               <UserRoute exact path="/user/settings" title={""} component={Settings} />
 
               <UserRoute exact path="/user/reportstatus" title={""} component={ReportStatus} />
+              <UserRoute exact path="/user/reviewreport" title={""} component={ReviewReport} />
 
               <UserRoute exact path="/user/events" title={""} component={Events} />
               <UserRoute exact path="/user/404" title={""} component={Page404} />
