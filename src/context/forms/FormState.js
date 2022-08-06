@@ -17,7 +17,7 @@ const FormState = (props) => {
   };
   const [state, dispatch] = useReducer(formReducer, initialState);
 
-  const url = "https://ncbdaas-backend.herokuapp.com";
+  const url = ""; //CHANGE BACKEND
   // const url = "http://localhost:5000";
 
   // Manufacturer Dispatch

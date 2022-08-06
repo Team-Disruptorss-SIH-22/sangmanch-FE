@@ -76,9 +76,9 @@ const HomeNavbar = (props) => {
           <div className={styles.nav_right_col}>
             <ul className={styles.links__banner}>
               <li>
-                <a href="https://narcoticsindia.nic.in/" target="_blank" rel="noreferrer">
-                  About Sangmanch
-                </a>
+                <Link to="/about">
+                  <a>About Sangmanch</a>
+                </Link>
               </li>
               <li>
                 <Link to="/admin/signup" target="_blank">
