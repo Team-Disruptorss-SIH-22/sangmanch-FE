@@ -21,8 +21,7 @@ import AdminInfographics from "./Admin/AdminInfographics";
 import UserLayout from "./User/UserLayout";
 import UserDashboard from "./User/UserDashboard";
 
-import UserReports from "./User/reports/UserReports";
-import Infographics from "./Admin/Infographics";
+// import Infographics from "./Admin/Infographics";
 import ReportStatus from "./Admin/reports/ReportStatus"
 
 import UserReports from "./User/UserReports";
@@ -52,20 +51,15 @@ export {
   UserLayout,
   UserDashboard,
 
-  Infographics,
   ReportStatus,
   // Drugs,
   // Visualization,
-  Settings,
-  MedicalLayout,
   // MedicalDashboard,
   // MedicalDrugs,
-  DoctorLayout,
   // DoctorDashboard,
   // DoctorPrescriptions
 
   UserInfographics,
   Events,
   Settings,
-  main
 };
