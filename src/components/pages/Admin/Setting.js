@@ -1,20 +1,29 @@
+import { Link } from "react-router-dom";
 import styles from "styles/admin/settings.module.css";
 
 const Comp = (props) => {
+
   return (
     <div className={styles.outerBlock}>
+
       <div className={styles.innerBlock}>
         <h3>{props.heading}</h3>
         <p>{props.para}</p>
       </div>
-      <button className={props.btn === "Delete Account" ? styles.delBtn : styles.button}>
+
+      <a href="/"
+        className={props.btn === "Delete Account" ? styles.delBtn : styles.button}
+        id={props.btn === "Revoke Report" ? styles.Revokebtn : props.btn === "Raise Ticket" ? styles.Raisebtn : styles.otherbtn}>
         {props.btn}
-      </button>
+      </a>
     </div>
   );
 };
 
+
+
 const Settings = () => {
+
   return (
     <div className={styles.settingContainer}>
       <Comp
