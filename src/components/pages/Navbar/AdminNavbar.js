@@ -50,7 +50,7 @@ const Navbar = (props) => {
               setMenuToggle(!menuToggle);
             }}
           >
-            <span>Welcome User!</span>
+            <span>Welcome {user.name}!</span>
             <FaUserCircle size={20} />
           </div>
 

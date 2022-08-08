@@ -16,7 +16,7 @@ const UserSignup = (props) => {
   const [registering, setRegistering] = useState(false);
   const setRole = () => {
     const upd_role = titleRole
-      .toLowerCase()
+      ?.toLowerCase()
       .match(/[A-Z0-9]+/gi)
       .map(function (word, i) {
         if (!i) return word;

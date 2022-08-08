@@ -1,5 +1,7 @@
 import React, { useContext, useEffect, useState } from "react";
 import { Link } from "react-router-dom";
+import { HashLink } from "react-router-hash-link";
+
 import { MdArrowDropDown } from "react-icons/md";
 import IccrLogo from "assets/icons/iccr_logo.svg";
 import Sangmanch from "assets/sangmanch_logo.svg";
@@ -76,24 +78,18 @@ const HomeNavbar = (props) => {
           <div className={styles.nav_right_col}>
             <ul className={styles.links__banner}>
               <li>
-                <Link to="/about">
-                  <a>About Sangmanch</a>
-                </Link>
+                <Link to="/about">About Sangmanch</Link>
               </li>
               <li>
-                <Link to="/admin/signup" target="_blank">
-                  FAQs
-                </Link>
+                <HashLink to="/#faq">FAQs</HashLink>
               </li>
               <li>
-                <Link to="/admin/signup" target="_blank">
-                  Contact Us
-                </Link>
+                <HashLink to="#footer">Contact Us</HashLink>
               </li>
               <li>
-                <Link to="https://iccr.gov.in/home" target="_blank">
+                <a href="https://iccr.gov.in/home" target="_blank">
                   ICCR Website
-                </Link>
+                </a>
               </li>
             </ul>
 
