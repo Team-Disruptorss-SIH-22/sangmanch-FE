@@ -157,9 +157,16 @@ const Reports = () => {
                         >
                           View
                         </button>
-                        <Link to={"/"}>
+                        <button
+                          style={{ cursor: "pointer", background: "none", border: "none"}}
+                          onClick={() => {
+                            //change it when get original json data from backend
+                            setReportID(cell.row.original.serial_no);
+                            setViewReport(!viewReport);
+                          }}
+                        >
                           <BsThreeDotsVertical />
-                        </Link>
+                        </button>
                       </td>
                     ) : (
                       <td className={styles.tableSingleCell} {...cell.getCellProps()}>

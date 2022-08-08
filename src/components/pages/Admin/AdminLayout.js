@@ -31,7 +31,7 @@ const AdminLayout = ({ Component, title }) => {
           <li>
             <TbReport size={18} />
             <span>
-              <Link to="/admin/404">Report Status</Link>
+              <Link to="/reports">Report Status</Link>
             </span>
           </li>
           <li>
