@@ -15,8 +15,6 @@ import styles from "../../../styles/user/events.module.css";
 const Events = () => {
   const [events, setEvents] = useState([]);
 
-  console.log(events);
-
   const countryOptions = countryList().getData();
 
   const [newEvent, setNewEvent] = useState(false);
@@ -35,16 +33,16 @@ const Events = () => {
     invoice: null
   });
 
-  const handleEventClick = (info) => {
-    // let tempId = info.event._def.publicId;
-    // let idx = events.findIndex((item) => item.id == tempId);
-    //we get the particular event details with that particular date when we click on event text
-    // if (idx !== -1) {
-    //   let obj = events[idx];
-    //   setEventRegistration({ ...obj });
-    // }
-    // console.log(info.event._def.publicId);
-  };
+  // const handleEventClick = (info) => {
+  // let tempId = info.event._def.publicId;
+  // let idx = events.findIndex((item) => item.id == tempId);
+  //we get the particular event details with that particular date when we click on event text
+  // if (idx !== -1) {
+  //   let obj = events[idx];
+  //   setEventRegistration({ ...obj });
+  // }
+  // console.log(info.event._def.publicId);
+  // };
 
   const handleDateClick = (e) => {
     // let idx = events.findIndex((item) => item.id == tempId);
@@ -54,18 +52,7 @@ const Events = () => {
     //   let obj = events[idx];
     //   setEventRegistration({ ...obj });
     // } else {
-    setEventRegistration({
-      id: "",
-      start: e.dateStr,
-      title: "",
-      type: "",
-      people_reached: "",
-      total_expenses: "",
-      budget_defined: "",
-      city: "",
-      country: "India",
-      invoice: null
-    });
+    setEventRegistration({ ...eventRegistration, start: e.dateStr });
     // }
     setNewEvent(true);
   };
@@ -132,12 +119,13 @@ const Events = () => {
       <div className={styles.calender_form_container}>
         <div className={styles.calenderContainer}>
           <FullCalendar
+            allDay={true}
             selectable={true}
             plugins={[dayGridPlugin, interactionPlugin]}
             initialView="dayGridMonth"
             //   weekends={false}
             events={events}
-            eventClick={handleEventClick}
+            // eventClick={handleEventClick}
             dateClick={handleDateClick}
           />
         </div>

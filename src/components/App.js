@@ -17,7 +17,7 @@ import {
   Events,
   Verify,
   Settings,
-  UserInfographics,
+  UserInfographics
 } from "./pages/index";
 
 import AuthState from "context/auth/AuthState";

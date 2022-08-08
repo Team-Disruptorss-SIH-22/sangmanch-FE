@@ -47,5 +47,5 @@ export {
   UserDashboard,
   UserInfographics,
   Events,
-  Settings
+  Settings,
 };

@@ -42,7 +42,7 @@ const Navbar = (props) => {
               setMenuToggle(!menuToggle);
             }}
           >
-            <span>NCB Officer - 1</span>
+            <span>Welcome User!</span>
             <FaUserCircle size={20} />
           </div>
 
