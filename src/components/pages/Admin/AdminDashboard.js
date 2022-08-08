@@ -32,28 +32,12 @@ const AdminDashboard = () => {
 
   // Tasks
   const [tasks, setTasks] = useState([
-    {
-      content: "Escalated to Raid Team",
-      priority: "Urgent",
-      color: "#fec400"
-    },
-    {
-      content: "Escalated to Raid Team",
-      priority: "New",
-      color: "#29cc97"
-    },
-    {
-      content: "Escalated to Raid Team",
-      priority: "Default",
-      color: "#dfe0eb"
-    }
+    "Escalate Report Number 234 to Finance Team",
+    "Check the report status of today",
+    "Check the deadlines for events"
   ]);
 
-  const [task, setTask] = useState({
-    content: "",
-    priority: "Default",
-    color: "#dfe0eb"
-  });
+  const [task, setTask] = useState("");
 
   const data = [
     {
@@ -102,7 +86,7 @@ const AdminDashboard = () => {
 
   const handleAddTasks = () => {
     setTasks((prev) => [...prev, task]);
-    setTask((prev) => ({ ...prev, content: "" }));
+    setTask("");
   };
 
   return (
@@ -142,12 +126,12 @@ const AdminDashboard = () => {
             <div className={styles.graphLineHelper + " " + styles.clrGrey}>
               <div className={styles.singleLineHelper}>
                 <div className={styles.blueLine}></div>
-                <p>Expenses</p>
+                <p>&nbsp;Expenses</p>
               </div>
 
               <div className={styles.singleLineHelper}>
                 <div className={styles.greenLine}></div>
-                <p>Attendees</p>
+                <p>&nbsp;Attendees</p>
               </div>
             </div>
           </div>
@@ -192,7 +176,43 @@ const AdminDashboard = () => {
         </div>
 
         <div className={styles.line}></div>
-        <div className={styles.graphChartsContainer}>
+
+        <div className={styles.unresolved_alerts_Container}>
+          <div className={styles.sectionHeader}>
+            <div className={styles.titleSubtitle}>
+              <p className={styles.sectionTitle}>Tasks</p>
+              <p className={styles.sectionSubTitle + " " + styles.clrGrey}>Today</p>
+            </div>
+          </div>
+
+          <div className={styles.otherDetailsContent}>
+            <div className={styles.newTaskForm}>
+              <input
+                className={styles.newTaskInput}
+                placeholder="Create new task"
+                value={task}
+                onChange={(e) => setTask(e.target.value)}
+              />
+              {console.log(task)}
+              <button className={styles.addTaskButton} onClick={handleAddTasks}>
+                <AiOutlinePlus />
+              </button>
+            </div>
+
+            <div className={styles.content_container}>
+              {tasks.map((task, index) => {
+                return (
+                  <div className={styles.task} key={index}>
+                    <input type="checkbox"></input>
+                    <p>{task}</p>
+                  </div>
+                );
+              })}
+            </div>
+          </div>
+        </div>
+
+        {/* <div className={styles.graphChartsContainer}>
           <div className={styles.todo_container}>
             <div className={styles.todo_header}>Things to do</div>
             <div className={styles.todo_items}>
@@ -216,138 +236,8 @@ const AdminDashboard = () => {
                 <label htmlFor="#todo-check">todo-item</label>
               </div>
             </div>
-          </div>
-          {/* <div className={styles.chart + " " + styles.noTopBorder}>
-            <p className={styles.chartTitle + " " + styles.clrGrey}>
-              Consignments Received
-            </p>
-            <p className={styles.chart_number}>{charts.consignmentsReceived}</p>
-          </div>
-
-          <div className={styles.chart}>
-            <p className={styles.chartTitle + " " + styles.clrGrey}>Safe Deliveries</p>
-            <p className={styles.chart_number + " " + styles.clrGreen}>
-              {charts.safeDeliveries}
-            </p>
-          </div>
-
-          <div className={styles.chart}>
-            <p className={styles.chartTitle + " " + styles.clrGrey}>Anamolies Detected</p>
-            <p className={styles.chart_number + " " + styles.clrRed}>
-              {charts.anamoliesDetected}
-            </p>
-          </div>
-
-          <div className={styles.chart}>
-            <p className={styles.chartTitle + " " + styles.clrGrey}>
-              Anamolies Forwarded
-            </p>
-            <p className={styles.chart_number + " " + styles.clrRed}>
-              {charts.anamoliesForwarded}
-            </p>
-          </div>
-
-          <div className={styles.chart}>
-            <p className={styles.chartTitle + " " + styles.clrGrey}>
-              Anomalies Discarded
-            </p>
-            <p className={styles.chart_number + " " + styles.clrLightGreen}>
-              {charts.anamoliesDiscarded}
-            </p>
           </div> */}
-        </div>
       </div>
-
-      {/* <div className={styles.otherInfoContainer}>
-        <div className={styles.unresolved_alerts_Container}>
-          <div className={styles.sectionHeader}>
-            <div className={styles.titleSubtitle}>
-              <p className={styles.sectionTitle}>Unresolved Alerts</p>
-              <p className={styles.sectionSubTitle}>
-                <span className={styles.clrGrey}>Group:</span> Support
-              </p>
-            </div>
-
-            <Link to="/" className={styles.viewMore + " " + styles.clrBlue}>
-              View Details
-            </Link>
-          </div>
-
-          <div className={styles.otherDetailsContent}>
-            <div className={styles.alert}>
-              <p>Escalated to Raid Team</p>
-              <p className={styles.clrGrey}>2</p>
-            </div>
-
-            <div className={styles.alert}>
-              <p>Forwarded for Follow-up</p>
-              <p className={styles.clrGrey}>9</p>
-            </div>
-
-            <div className={styles.alert}>
-              <p>Awaiting Descisions</p>
-              <p className={styles.clrGrey}>10</p>
-            </div>
-
-            <div className={styles.alert}>
-              <p>Pending</p>
-              <p className={styles.clrGrey}>42</p>
-            </div>
-          </div>
-        </div>
-
-        <div className={styles.unresolved_alerts_Container}>
-          <div className={styles.sectionHeader}>
-            <div className={styles.titleSubtitle}>
-              <p className={styles.sectionTitle}>Tasks</p>
-              <p className={styles.sectionSubTitle + " " + styles.clrGrey}>Today</p>
-            </div>
-
-            <Link to="/" className={styles.viewMore + " " + styles.clrBlue}>
-              View All
-            </Link>
-          </div>
-
-          <div className={styles.otherDetailsContent}>
-            <div className={styles.newTaskForm}>
-              <input
-                className={styles.newTaskInput}
-                placeholder="Create new task"
-                value={task.content}
-                onChange={(e) =>
-                  setTask((prev) => ({ ...prev, content: e.target.value }))
-                }
-              />
-              {console.log(task)}
-              <button className={styles.addTaskButton} onClick={handleAddTasks}>
-                <AiOutlinePlus />
-              </button>
-            </div>
-
-            <div className={styles.content_container}>
-              {tasks.map((task, index) => {
-                return (
-                  <div className={styles.task} key={index}>
-                    <div className={styles.taskMain}>
-                      <input type="checkbox"></input>
-                      <p>{task.content}</p>
-                    </div>
-                    <p
-                      className={styles.taskPriority}
-                      style={{
-                        color: task.color === "#dfe0eb" ? "black" : "white",
-                        backgroundColor: task.color
-                      }}
-                    >
-                      {task.priority}
-                    </p>
-                  </div>
-                );
-              })}
-            </div>
-          </div>
-        </div>
-      </div>*/}
     </div>
   );
 };

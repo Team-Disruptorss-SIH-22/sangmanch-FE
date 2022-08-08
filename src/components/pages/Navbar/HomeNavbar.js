@@ -110,16 +110,16 @@ const HomeNavbar = (props) => {
                   <div className={styles.dropdown__content}>
                     <ul>
                       <li>
-                        <Link to="/signup/manufacturer">Manufacturer</Link>
+                        <Link to="/signup/admin">General Assembly Member</Link>
                       </li>
                       <li>
-                        <Link to="/signup/warehouse">Warehouse</Link>
+                        <Link to="/signup/admin">Governing Body</Link>
                       </li>
                       <li>
-                        <Link to="/signup/medical">Medical Store</Link>
+                        <Link to="/signup/admin">Finance Body</Link>
                       </li>
                       <li>
-                        <Link to="/signup/doctor">Doctor</Link>
+                        <Link to="/signup/user">ICCR Member</Link>
                       </li>
                     </ul>
                   </div>

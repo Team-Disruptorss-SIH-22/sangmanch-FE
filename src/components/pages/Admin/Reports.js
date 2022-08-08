@@ -12,8 +12,9 @@ import MOCK_DATA from "../../../assets/MOCK_DATA.json";
 import { useTable, useSortBy, useFilters, usePagination } from "react-table";
 import { format } from "date-fns";
 
+import ReviewReport from "./ReviewReport";
 import styles from "../../../styles/admin/reports.module.css";
-import { ColumnFilter } from "./ColumnFilter";
+import { ColumnFilter } from "../Admin/ColumnFilter";
 
 const COLUMNS = [
   {
@@ -52,19 +53,19 @@ const Reports = () => {
   const data = useMemo(() => MOCK_DATA, []);
   const [toggleFilter, setToggleFilter] = useState(false);
   const [pageIndex, setPageIndex] = useState(1);
+  const [viewReport, setViewReport] = useState(false);
+  const [reportID, setReportID] = useState();
 
   const {
     getTableProps,
     getTableBodyProps,
     headerGroups,
-    rows,
     page,
     nextPage,
     previousPage,
     canPreviousPage,
     canNextPage,
     gotoPage,
-    pageCount,
     prepareRow
   } = useTable(
     {
@@ -78,9 +79,16 @@ const Reports = () => {
 
   return (
     <div className={styles.alertsContainer}>
+      {viewReport && (
+        <ReviewReport
+          id={reportID}
+          handleClose={() => {
+            setViewReport(!viewReport);
+          }}
+        />
+      )}
       <div className={styles.alertHeaderContainer}>
         <p>Received User Reports</p>
-
         <div className={styles.tableOperations + " " + styles.clrGrey}>
           <div className={styles.operation}>
             <BiSortUp />
@@ -97,7 +105,6 @@ const Reports = () => {
           </div>
         </div>
       </div>
-
       <div className={styles.tableContainer}>
         <table className={styles.table} {...getTableProps()}>
           <thead>
@@ -139,15 +146,31 @@ const Reports = () => {
                         }
                         {...cell.getCellProps()}
                       >
-                        <Link
-                          to={"/"}
+                        <button
+                          style={{ cursor: "pointer" }}
+                          onClick={() => {
+                            //change it when get original json data from backend
+                            setReportID(cell.row.original.serial_no);
+                            setViewReport(!viewReport);
+                          }}
                           className={styles.report_details + " " + styles.tableSingleCell}
                         >
                           View
-                        </Link>
-                        <Link to={"/"}>
+                        </button>
+                        <button
+                          style={{
+                            cursor: "pointer",
+                            background: "none",
+                            border: "none"
+                          }}
+                          onClick={() => {
+                            //change it when get original json data from backend
+                            setReportID(cell.row.original.serial_no);
+                            setViewReport(!viewReport);
+                          }}
+                        >
                           <BsThreeDotsVertical />
-                        </Link>
+                        </button>
                       </td>
                     ) : (
                       <td className={styles.tableSingleCell} {...cell.getCellProps()}>
@@ -161,7 +184,6 @@ const Reports = () => {
           </tbody>
         </table>
       </div>
-
       <div className={styles.footer}>
         <div className={styles.rowsPerPage}>
           <p>Go to Page: </p>

@@ -1,7 +1,7 @@
 import React from "react";
 import styles from "../../../styles/admin/adminLayout.module.css";
 import Navbar from "../Navbar/AdminNavbar";
-import SangmanchLogo from "../../../assets/sangmanch_logo.svg";
+import SangmanchLogo from "../../../assets/sangmanch_logo.png";
 import { MdDateRange } from "react-icons/md";
 import { TbReport } from "react-icons/tb";
 import { FaChartPie } from "react-icons/fa";
@@ -31,7 +31,7 @@ const AdminLayout = ({ Component, title }) => {
           <li>
             <TbReport size={18} />
             <span>
-              <Link to="/admin/404">Report Status</Link>
+              <Link to="/reports">Report Status</Link>
             </span>
           </li>
           <li>

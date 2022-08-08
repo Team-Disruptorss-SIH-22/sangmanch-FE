@@ -1,7 +1,7 @@
 // HOC
 import AdminRoute from "components/HOC/AdminRoute";
 import UserSignupRoute from "components/HOC/UserSignupRoute";
-import OldUserRoute from "components/HOC/OldUserRoute";
+import VerifyRoute from "components/HOC/VerifyRoute";
 import UserRoute from "components/HOC/UserRoute";
 
 // Signup & Login Forms
@@ -26,13 +26,15 @@ import UserInfographics from "./User/UserInfographics";
 
 import Page404 from "./Page404";
 import Home from "./Homepage/Home";
+import About from "./About/About";
 
 export {
   AdminRoute,
-  OldUserRoute,
+  VerifyRoute,
   UserSignupRoute,
   Login,
   Home,
+  About,
   UserSignup,
   AdminSignup,
   Verify,
