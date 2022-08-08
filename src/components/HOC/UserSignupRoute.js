@@ -14,7 +14,7 @@ const UserSignupRoute = ({ titleRole, ...rest }) => {
         (isAuthenticated === false ? (
           <UserSignup {...props} titleRole={titleRole} />
         ) : (
-          <Redirect to={`/${user.role}/dispatch`} />
+          <Redirect to={`/${user.role}/dashboard`} />
         ))
       }
     />

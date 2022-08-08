@@ -2,11 +2,12 @@ import React from "react";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import {
   AdminRoute,
-  OldUserRoute,
+  VerifyRoute,
   UserRoute,
   UserSignupRoute,
   Login,
   Home,
+  About,
   AdminSignup,
   Page404,
   AdminDashboard,
@@ -17,13 +18,13 @@ import {
   Events,
   Verify,
   Settings,
-  UserInfographics
+  UserInfographics,
+  UserSignup
 } from "./pages/index";
 
 import AuthState from "context/auth/AuthState";
 import FormState from "context/forms/FormState";
 import setAuthToken from "./Utils/SetAuthToken";
-import About from "./pages/About/About";
 
 if (localStorage.getItem("token")) {
   setAuthToken(localStorage.token);
@@ -37,17 +38,18 @@ function App() {
         <FormState>
           <Router>
             <Switch>
-              <OldUserRoute exact path="/" component={Home} />
-              <OldUserRoute exact path="/about" component={About} />
-              <OldUserRoute exact path="/login" component={Login} />
-              <OldUserRoute exact path="/verify/:token" component={Verify} />
+              <VerifyRoute exact path="/" component={Home} />
+              <VerifyRoute exact path="/about" component={About} />
+              <VerifyRoute exact path="/login" component={Login} />
+              <VerifyRoute exact path="/verify/:token" component={Verify} />
               {/* <UserRoute exact path="/medical" component={MedicalStoreReciept} /> */}
 
               {/* User Signup */}
               <UserSignupRoute
                 exact
-                path="/signup/manufacturer"
-                titleRole={"Manufacturer"}
+                path="/signup/user"
+                titleRole={""}
+                component={UserSignup}
               />
               <UserSignupRoute exact path="/signup/admin" component={AdminSignup} />
 
