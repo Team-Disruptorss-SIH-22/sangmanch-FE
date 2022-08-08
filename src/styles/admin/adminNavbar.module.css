@@ -108,6 +108,8 @@
   color: rgba(0, 0, 0, 0.5);
 }
 
-.navbar__menu .menuAction .menu ul li:hover a {
+.navbar__menu .menuAction .menu ul li:hover,
+.navbar__menu .menuAction .menu ul li a:hover {
   color: rgba(0, 0, 0, 0.8);
+  cursor: pointer;
 }

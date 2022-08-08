@@ -27,7 +27,8 @@ const UserLogin = (props) => {
 
   useEffect(() => {
     if (isAuthenticated === true) {
-      props.history.push(`${loggedUser.role}/dispatch`);
+      if (user.role === "ICCRUser") props.history?.push("/user/events");
+      else props.history?.push("/user/overview");
     }
   }, [isAuthenticated, props.history]);
 
@@ -40,18 +41,16 @@ const UserLogin = (props) => {
     setUser({ ...user, [e.target.name]: e.target.value });
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
 
-    let error = false;
     setLoggingIn(true);
-
-    if (error) {
-      setLoggingIn(false);
-      return;
+    try {
+      await login(user);
+      if (!error) toast.success("Logged in Successfully");
+    } catch (err) {
+      toast.error(error);
     }
-    login(user);
-    if (!error) toast.success("Logged in Successfully");
   };
 
   useEffect(() => {

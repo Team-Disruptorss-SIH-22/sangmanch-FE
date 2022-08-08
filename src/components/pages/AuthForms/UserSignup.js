@@ -45,8 +45,9 @@ const UserSignup = (props) => {
   } = useContext(authContext);
 
   useEffect(() => {
-    if (isAuthenticated) {
-      props.history.push(`/${loggedUser.role}/dispatch`);
+    if (isAuthenticated === true) {
+      if (user.role === "ICCRUser") props.history?.push("user/events");
+      else props.history?.push("user/overview");
     }
     if (registered) {
       toast(
