@@ -1,6 +1,7 @@
 import { useState, useEffect, useContext, Fragment } from "react";
 import { Link } from "react-router-dom";
 import { toast } from "react-toastify";
+import Logo from "assets/icons/iccr_logo.svg";
 import "react-toastify/dist/ReactToastify.css";
 import HomeNavbar from "../Navbar/HomeNavbar";
 import Footer from "../Footer";
@@ -26,7 +27,8 @@ const UserLogin = (props) => {
 
   useEffect(() => {
     if (isAuthenticated === true) {
-      props.history.push(`${loggedUser.role}/dispatch`);
+      if (user.role === "ICCRUser") props.history?.push("/user/events");
+      else props.history?.push("/user/overview");
     }
   }, [isAuthenticated, props.history]);
 
@@ -39,18 +41,16 @@ const UserLogin = (props) => {
     setUser({ ...user, [e.target.name]: e.target.value });
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
 
-    let error = false;
     setLoggingIn(true);
-
-    if (error) {
-      setLoggingIn(false);
-      return;
+    try {
+      await login(user);
+      if (!error) toast.success("Logged in Successfully");
+    } catch (err) {
+      toast.error(error);
     }
-    login(user);
-    if (!error) toast.success("Logged in Successfully");
   };
 
   useEffect(() => {
@@ -67,12 +67,10 @@ const UserLogin = (props) => {
       <div className={styles.container}>
         <div className={styles.loginPageContainer}>
           <div className={styles.logoIcon}>
-            <img src="https://narcoticsindia.nic.in/images/acs.png" alt="logo-icon" />
+            <img src={Logo} alt="" />
           </div>
 
           <div className={styles.headers}>
-            <p className={styles.title}>NCB DAAS</p>
-            <p className={styles.titleDetails}>Drugs Analytics and Alerting System</p>
             <p className={styles.loginTitle}>Log In</p>
           </div>
 
@@ -91,12 +89,7 @@ const UserLogin = (props) => {
             </div>
 
             <div className={styles.inputContainer}>
-              <div className={styles.forPassword}>
-                <label htmlFor="password">PASSWORD</label>
-                <Link to="/" className={styles.forgotPassword}>
-                  <p>Forgot Password?</p>
-                </Link>
-              </div>
+              <label htmlFor="password">PASSWORD</label>
               <div className={styles.inputPassword}>
                 <input
                   type={passwordShown ? "text" : "password"}
@@ -127,10 +120,19 @@ const UserLogin = (props) => {
                 </button>
               </div>
             </div>
-
             <button type="submit" className={styles.submit} disabled={loggingIn}>
               {loggingIn ? "Logging In.." : "Log In"}
             </button>
+            <div className={styles.form__footer}>
+              <div className={styles.row + " " + styles.links}>
+                <Link to="/signup" className={styles.link}>
+                  <p>Create an account</p>
+                </Link>
+                <Link to="/" className={styles.link}>
+                  <p>Forgot Password</p>
+                </Link>
+              </div>
+            </div>
           </form>
         </div>
       </div>

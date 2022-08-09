@@ -16,7 +16,7 @@ const UserSignup = (props) => {
   const [registering, setRegistering] = useState(false);
   const setRole = () => {
     const upd_role = titleRole
-      .toLowerCase()
+      ?.toLowerCase()
       .match(/[A-Z0-9]+/gi)
       .map(function (word, i) {
         if (!i) return word;
@@ -45,8 +45,9 @@ const UserSignup = (props) => {
   } = useContext(authContext);
 
   useEffect(() => {
-    if (isAuthenticated) {
-      props.history.push(`/${loggedUser.role}/dispatch`);
+    if (isAuthenticated === true) {
+      if (user.role === "ICCRUser") props.history?.push("user/events");
+      else props.history?.push("user/overview");
     }
     if (registered) {
       toast(
