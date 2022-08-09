@@ -74,8 +74,10 @@ const AdminDashboard = () => {
   ];
 
   const handleAddTasks = () => {
-    setTasks((prev) => [...prev, task]);
-    setTask("");
+    if (task.length !== 0) {
+      setTasks((prev) => [...prev, task]);
+      setTask("");
+    }
   };
 
   return (
@@ -180,6 +182,7 @@ const AdminDashboard = () => {
                 className={styles.newTaskInput}
                 placeholder="Create new task"
                 value={task}
+                required
                 onChange={(e) => setTask(e.target.value)}
               />
               {console.log(task)}

@@ -37,11 +37,11 @@ const ReviewReport = (props) => {
           <form className={styles.formContainer} action="" onSubmit={handleSubmit}>
             <div className={styles.inputContainer}>
               <label htmlFor="username">
-                Username<span style={{ color: "red" }}> *</span>
+                User ID<span style={{ color: "red" }}> *</span>
               </label>
               <input
                 className="form-field"
-                type="text"
+                type="number"
                 autoComplete="off"
                 value={report.username}
                 onChange={handleInput}
