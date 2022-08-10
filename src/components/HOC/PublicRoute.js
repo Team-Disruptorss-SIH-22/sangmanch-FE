@@ -2,7 +2,7 @@ import React, { useContext } from "react";
 import { Route, Redirect } from "react-router-dom";
 import authContext from "context/auth/authContext";
 
-const VerifyRoute = ({ component: Component, ...rest }) => {
+const PublicRoute = ({ component: Component, ...rest }) => {
   const { isAuthenticated, user } = useContext(authContext);
   return (
     <Route
@@ -19,4 +19,4 @@ const VerifyRoute = ({ component: Component, ...rest }) => {
   );
 };
 
-export default VerifyRoute;
+export default PublicRoute;

@@ -82,7 +82,6 @@ const Footer = () => {
               Azad Bhawan, I. P Estate, New Delhi - 110002
             </span>
             <span>
-              Telephone Number: Email Id:
               <b>Telephone Number</b>: +91-11-23379309
             </span>
             <span>

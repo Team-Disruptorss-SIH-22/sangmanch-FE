@@ -162,7 +162,7 @@
 
 .formContainer .link {
   text-decoration: none;
-  color: var(--colorLink);
+  color: var(--colorbutton);
 }
 
 .formContainer .link:hover {
@@ -207,7 +207,6 @@
 }
 
 .footer {
-  margin-top: 6%;
   font-size: 0.75rem;
   color: var(--colorLighter2);
 }

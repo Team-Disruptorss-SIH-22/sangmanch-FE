@@ -4,6 +4,7 @@ import { toast } from "react-toastify";
 import Select from "react-select";
 import "react-toastify/dist/ReactToastify.css";
 
+import Logo from "assets/icons/iccr_logo.svg";
 import HomeNavbar from "../Navbar/HomeNavbar";
 import Footer from "../Footer";
 
@@ -29,7 +30,7 @@ const options = [
   }
 ];
 
-const UserSignup = (props) => {
+const Signup = (props) => {
   const [passwordShown, setPasswordShown] = useState(false);
   const [confirmPasswordShown, setConfirmPasswordShown] = useState(false);
   const [registering, setRegistering] = useState(false);
@@ -101,15 +102,8 @@ const UserSignup = (props) => {
       <HomeNavbar />
       <div className={styles.container}>
         <div className={styles.loginPageContainer}>
-          <div className={styles.headersContainer}>
-            <div className={styles.logoIcon2}>
-              <img src="https://narcoticsindia.nic.in/images/acs.png" alt="logo-icon" />
-            </div>
-
-            <div className={styles.headers2}>
-              <p className={styles.title2}>NCB DAAS</p>
-              <p className={styles.titleDetails2}>Drugs Analytics and Alerting System</p>
-            </div>
+          <div className={styles.logoIcon}>
+            <img src={Logo} alt="" />
           </div>
 
           <p className={styles.loginTitle}>Sign Up</p>
@@ -249,4 +243,4 @@ const UserSignup = (props) => {
   );
 };
 
-export default UserSignup;
+export default Signup;

@@ -2,7 +2,6 @@ import React, { useContext, useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { HashLink } from "react-router-hash-link";
 
-import { MdArrowDropDown } from "react-icons/md";
 import IccrLogo from "assets/icons/iccr_logo.svg";
 import Sangmanch from "assets/sangmanch_logo.svg";
 import styles from "../../../styles/Home/homeNavbar.module.css";

@@ -1,10 +1,9 @@
 import React from "react";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import {
-  AdminRoute,
-  NonAuthRoute,
+  PublicRoute,
+  PrivateRoute,
   Signup,
-  UserRoute,
   Login,
   Home,
   About,
@@ -36,39 +35,49 @@ function App() {
         <FormState>
           <Router>
             <Switch>
-              <NonAuthRoute exact path="/" component={Home} />
-              <NonAuthRoute exact path="/about" component={About} />
-              <NonAuthRoute exact path="/signup" component={Signup} />
-              <NonAuthRoute exact path="/login" component={Login} />
-              <NonAuthRoute exact path="/verify/:token" component={Verify} />
+              <PublicRoute exact path="/" component={Home} />
+              <PublicRoute exact path="/about" component={About} />
+              <PublicRoute exact path="/signup" component={Signup} />
+              <PublicRoute exact path="/login" component={Login} />
+              <PublicRoute exact path="/verify/:token" component={Verify} />
 
               {/* ADMIN */}
-              <AdminRoute exact path="/dashboard" title={""} component={AdminDashboard} />
-              <AdminRoute exact path="/reports" title={""} component={Reports} />
-              <AdminRoute
+              <PrivateRoute
+                exact
+                path="/dashboard"
+                title={""}
+                component={AdminDashboard}
+              />
+              <PrivateRoute exact path="/reports" title={""} component={Reports} />
+              <PrivateRoute
                 exact
                 path="/infographics"
                 title={""}
                 component={AdminInfographics}
               />
-              <AdminRoute exact path="/settings" title={""} component={Settings} />
+              <PrivateRoute exact path="/settings" title={""} component={Settings} />
 
               {/* USER */}
-              <UserRoute
+              <PrivateRoute
                 exact
                 path="/user/dashboard"
                 title={""}
                 component={UserDashboard}
               />
-              <UserRoute exact path="/user/reports" title={""} component={UserReports} />
-              <UserRoute
+              <PrivateRoute
+                exact
+                path="/user/reports"
+                title={""}
+                component={UserReports}
+              />
+              <PrivateRoute
                 exact
                 path="/user/infographics"
                 title={""}
                 component={UserInfographics}
               />
-              <UserRoute exact path="/user/settings" title={""} component={Settings} />
-              <UserRoute exact path="/user/events" title={""} component={Events} />
+              <PrivateRoute exact path="/user/settings" title={""} component={Settings} />
+              <PrivateRoute exact path="/user/events" title={""} component={Events} />
               <Route path="*" component={Page404} />
               {/* hello */}
             </Switch>

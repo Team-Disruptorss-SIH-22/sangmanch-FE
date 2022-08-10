@@ -1,8 +1,9 @@
 import { useState, useEffect, useContext, Fragment } from "react";
 import { Link } from "react-router-dom";
 import { toast } from "react-toastify";
-import Logo from "assets/icons/iccr_logo.svg";
 import "react-toastify/dist/ReactToastify.css";
+
+import Logo from "assets/icons/iccr_logo.svg";
 import HomeNavbar from "../Navbar/HomeNavbar";
 import Footer from "../Footer";
 
@@ -102,6 +103,7 @@ const UserLogin = (props) => {
                   placeholder="Password"
                 />
                 <button
+                  tabIndex={-1}
                   type="submit"
                   className={styles.showPassword}
                   onClick={togglePassword}
@@ -124,7 +126,7 @@ const UserLogin = (props) => {
               {loggingIn ? "Logging In.." : "Log In"}
             </button>
             <div className={styles.form__footer}>
-              <div className={styles.row + " " + styles.links}>
+              <div className={`${styles.row} ${styles.links}`}>
                 <Link to="/signup" className={styles.link}>
                   <p>Create an account</p>
                 </Link>

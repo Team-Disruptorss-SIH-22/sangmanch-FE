@@ -137,6 +137,7 @@
 }
 
 .navbar a {
+  line-height: 0.85rem;
   font-size: 0.85rem;
   font-weight: var(--fontMedium);
   color: #fff;
@@ -151,6 +152,11 @@
   gap: 1rem;
 }
 
+.links__auth a {
+  display: inline-block;
+  padding: 10px 30px !important;
+}
+
 .phoneMenu {
   display: none;
 }
@@ -159,7 +165,6 @@
 .signup {
   color: #000;
   border: 1px solid #fff;
-  padding: 5px 30px !important;
   cursor: pointer;
   background-color: #fff;
   border-radius: 28px;

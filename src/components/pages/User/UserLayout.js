@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useContext } from "react";
 import styles from "../../../styles/admin/adminLayout.module.css";
 import Navbar from "../Navbar/AdminNavbar";
 import SangmanchLogo from "../../../assets/sangmanch_logo.png";
@@ -7,8 +7,11 @@ import { TbReport } from "react-icons/tb";
 import { FaChartPie } from "react-icons/fa";
 import { AiFillSetting, AiFillInfoCircle } from "react-icons/ai";
 import { Link } from "react-router-dom";
+import AuthContext from "context/auth/authContext";
 
 const AdminLayout = ({ Component, title }) => {
+  const { user } = useContext(AuthContext);
+
   return (
     <div className={styles.container}>
       <aside className={styles.sidebar}>
@@ -16,12 +19,14 @@ const AdminLayout = ({ Component, title }) => {
           <img src={SangmanchLogo} alt="Sangmanch Logo" />
         </div>
         <ul className={styles.collection}>
-          <li>
-            <FaChartPie size={15} />
-            <span>
-              <Link to="/user/dashboard">Overview</Link>
-            </span>
-          </li>
+          {user?.role != "ICCRUser" && (
+            <li>
+              <FaChartPie size={15} />
+              <span>
+                <Link to="/user/dashboard">Overview</Link>
+              </span>
+            </li>
+          )}
           <li>
             <MdDateRange size={18} />
             <span>
@@ -35,13 +40,15 @@ const AdminLayout = ({ Component, title }) => {
               <Link to="/user/reports">Report Status</Link>
             </span>
           </li>
-          <li>
-            <AiFillInfoCircle size={18} />
-            <span>
-              {/* <Link to="/user/infographics">Infographics</Link> */}
-              <Link to="/user/infographics">Infographics</Link>
-            </span>
-          </li>
+          {user?.role != "ICCRUser" && (
+            <li>
+              <AiFillInfoCircle size={18} />
+              <span>
+                {/* <Link to="/user/infographics">Infographics</Link> */}
+                <Link to="/user/infographics">Infographics</Link>
+              </span>
+            </li>
+          )}
           <div className={styles.divider}></div>
           <li>
             <AiFillSetting size={18} />

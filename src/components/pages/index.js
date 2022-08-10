@@ -1,8 +1,6 @@
 // HOC
-import AdminRoute from "components/HOC/AdminRoute";
-import UserSignupRoute from "components/HOC/UserSignupRoute";
-import NonAuthRoute from "components/HOC/NonAuthRoute";
-import UserRoute from "components/HOC/UserRoute";
+import PublicRoute from "components/HOC/PublicRoute";
+import PrivateRoute from "components/HOC/PrivateRoute";
 
 // Signup & Login Forms
 import Login from "./AuthForms/Login";
@@ -29,9 +27,8 @@ import Home from "./Homepage/Home";
 import About from "./About/About";
 
 export {
-  AdminRoute,
-  NonAuthRoute,
-  UserSignupRoute,
+  PublicRoute,
+  PrivateRoute,
   Login,
   Home,
   About,
@@ -44,7 +41,6 @@ export {
   Reports,
   AdminInfographics,
   UserReports,
-  UserRoute,
   UserLayout,
   UserDashboard,
   UserInfographics,

@@ -14,6 +14,14 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
+.carousel li.dot {
+  background-color: #2a2b33 !important;
+}
+
+.carousel li.dot.selected {
+  background-color: #147eb7 !important;
+}
+
 :root {
   /* COLORS */
   --colorPrimary: #2a2b33;
