@@ -2,7 +2,7 @@ import React, { useContext } from "react";
 import { Route, Redirect } from "react-router-dom";
 import authContext from "context/auth/authContext";
 
-import { UserSignup } from "components/pages";
+import { Signup } from "components/pages";
 
 const UserSignupRoute = ({ titleRole, ...rest }) => {
   const { isAuthenticated, user } = useContext(authContext);
@@ -12,7 +12,7 @@ const UserSignupRoute = ({ titleRole, ...rest }) => {
       render={(props) =>
         isAuthenticated !== null &&
         (isAuthenticated === false ? (
-          <UserSignup {...props} titleRole={titleRole} />
+          <Signup {...props} titleRole={titleRole} />
         ) : (
           <Redirect to={user.role === "ICCRUser" ? "/user/events" : "/user/overview"} />
         ))

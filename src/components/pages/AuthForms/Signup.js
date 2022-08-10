@@ -1,6 +1,7 @@
 import { useState, useContext, useEffect, Fragment } from "react";
 import { Link } from "react-router-dom";
 import { toast } from "react-toastify";
+import Select from "react-select";
 import "react-toastify/dist/ReactToastify.css";
 
 import HomeNavbar from "../Navbar/HomeNavbar";
@@ -9,57 +10,54 @@ import Footer from "../Footer";
 import styles from "../../../styles/forms/signup.module.css";
 import authContext from "context/auth/authContext";
 
+const options = [
+  {
+    value: "ICCRUser",
+    label: "User"
+  },
+  {
+    value: "financeManager",
+    label: "Finance Manager"
+  },
+  {
+    value: "governingBody",
+    label: "Governing Body"
+  },
+  {
+    value: "generalAssembly",
+    label: "General Assembly"
+  }
+];
+
 const UserSignup = (props) => {
-  const { titleRole } = props;
   const [passwordShown, setPasswordShown] = useState(false);
   const [confirmPasswordShown, setConfirmPasswordShown] = useState(false);
   const [registering, setRegistering] = useState(false);
-  const setRole = () => {
-    const upd_role = titleRole
-      ?.toLowerCase()
-      .match(/[A-Z0-9]+/gi)
-      .map(function (word, i) {
-        if (!i) return word;
-        return word[0].toUpperCase() + word.slice(1); //
-      })
-      .join("");
-    return upd_role;
-  };
 
   const [user, setUser] = useState({
+    licenceID: "",
+    name: "",
     email: "",
     password: "",
-    confirmPassword: "",
-    uniqueID: "",
-    role: setRole()
+    confirmPassword: ""
   });
+  const [selectedOption, setSelectedOption] = useState(null);
 
-  const { email, password, confirmPassword, uniqueID } = user;
-  const {
-    isAuthenticated,
-    signup,
-    user: loggedUser,
-    registered,
-    error,
-    clearError
-  } = useContext(authContext);
+  const { name, email, password, confirmPassword, licenceID } = user;
+  const { signup, registered, error, clearError } = useContext(authContext);
 
   useEffect(() => {
-    if (isAuthenticated === true) {
-      if (user.role === "ICCRUser") props.history?.push("user/events");
-      else props.history?.push("user/overview");
-    }
+    // if (isAuthenticated === true) {
+    //   if (user.role === "ICCRUser") props.history?.push("user/events");
+    //   else props.history?.push("user/overview");
+    // }
     if (registered) {
-      toast(
-        "A Verification Link has been sent to your email address. Please verify to continue",
-        {
-          type: "info",
-          position: "top-center"
-        }
+      toast.info(
+        "A Verification Link has been sent to your email address. Please verify to continue"
       );
       props.history.push("/login");
     }
-  }, [isAuthenticated, registered]);
+  }, [registered]);
 
   useEffect(() => {
     if (error) {
@@ -83,15 +81,19 @@ const UserSignup = (props) => {
     setUser({ ...user, [e.target.name]: e.target.value });
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    setRegistering(true);
+    if (!selectedOption) {
+      toast.error("Please select a role");
+      return;
+    }
     if (password !== confirmPassword) {
       toast.error("Both Passwords don't match!");
-      setRegistering(false);
+      return;
     }
-
-    signup(user);
+    setRegistering(true);
+    await signup({ ...user, role: selectedOption.value });
+    setRegistering(false);
   };
 
   return (
@@ -110,18 +112,30 @@ const UserSignup = (props) => {
             </div>
           </div>
 
-          <p className={styles.loginTitle}>{titleRole} Sign Up</p>
+          <p className={styles.loginTitle}>Sign Up</p>
 
           <form className={styles.formContainer}>
             <div className={styles.inputContainer}>
-              <label htmlFor="id">{titleRole} ID</label>
+              <label htmlFor="id">Licence ID</label>
               <input
                 type="text"
-                id="id"
-                name="uniqueID"
-                value={uniqueID}
+                id="licenceID"
+                name="licenceID"
+                value={licenceID}
                 onChange={onChange}
-                placeholder="Your Unique ID"
+                placeholder="Licence ID"
+                required={true}
+              />
+            </div>
+            <div className={styles.inputContainer}>
+              <label htmlFor="id">Name</label>
+              <input
+                type="text"
+                id="name"
+                name="name"
+                value={name}
+                onChange={onChange}
+                placeholder="Name"
                 required={true}
               />
             </div>
@@ -152,7 +166,11 @@ const UserSignup = (props) => {
                   required={true}
                   autoComplete="off"
                 />
-                <button className={styles.showPassword} onClick={togglePassword}>
+                <button
+                  tabIndex={-1}
+                  className={styles.showPassword}
+                  onClick={togglePassword}
+                >
                   {passwordShown ? (
                     <img
                       src="https://cdn-icons-png.flaticon.com/512/159/159604.png"
@@ -181,7 +199,11 @@ const UserSignup = (props) => {
                   required={true}
                   autoComplete="off"
                 />
-                <button className={styles.showPassword} onClick={toggleConfirmPassword}>
+                <button
+                  tabIndex={-1}
+                  className={styles.showPassword}
+                  onClick={toggleConfirmPassword}
+                >
                   {confirmPasswordShown ? (
                     <img
                       src="https://cdn-icons-png.flaticon.com/512/159/159604.png"
@@ -196,7 +218,15 @@ const UserSignup = (props) => {
                 </button>
               </div>
             </div>
-
+            <div className={styles.inputContainer}>
+              <Select
+                className={styles.select}
+                defaultValue={selectedOption}
+                onChange={setSelectedOption}
+                options={options}
+                placeholder="Select your role"
+              />
+            </div>
             <button
               type="submit"
               onClick={handleSubmit}

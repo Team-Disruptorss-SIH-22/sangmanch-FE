@@ -97,29 +97,8 @@ const HomeNavbar = (props) => {
               <li className={styles.login}>
                 <Link to="/login">Login</Link>
               </li>
-              <li>
-                <div className={styles.dropdown}>
-                  <div className={styles.dropbtn}>
-                    Signup
-                    <MdArrowDropDown size={20} />
-                  </div>
-                  <div className={styles.dropdown__content}>
-                    <ul>
-                      <li>
-                        <Link to="/signup/admin">General Assembly Member</Link>
-                      </li>
-                      <li>
-                        <Link to="/signup/admin">Governing Body</Link>
-                      </li>
-                      <li>
-                        <Link to="/signup/admin">Finance Body</Link>
-                      </li>
-                      <li>
-                        <Link to="/signup/user">ICCR Member</Link>
-                      </li>
-                    </ul>
-                  </div>
-                </div>
+              <li className={styles.signup}>
+                <Link to="/signup">Signup</Link>
               </li>
             </ul>
             <div className={styles.phoneMenu} onClick={modalClickHandler}>

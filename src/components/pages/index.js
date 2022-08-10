@@ -1,12 +1,12 @@
 // HOC
 import AdminRoute from "components/HOC/AdminRoute";
 import UserSignupRoute from "components/HOC/UserSignupRoute";
-import VerifyRoute from "components/HOC/VerifyRoute";
+import NonAuthRoute from "components/HOC/NonAuthRoute";
 import UserRoute from "components/HOC/UserRoute";
 
 // Signup & Login Forms
 import Login from "./AuthForms/Login";
-import UserSignup from "./AuthForms/UserSignup";
+import Signup from "./AuthForms/Signup";
 import AdminSignup from "./AuthForms/AdminSignup";
 import Verify from "./AuthForms/Verify";
 
@@ -30,12 +30,12 @@ import About from "./About/About";
 
 export {
   AdminRoute,
-  VerifyRoute,
+  NonAuthRoute,
   UserSignupRoute,
   Login,
   Home,
   About,
-  UserSignup,
+  Signup,
   AdminSignup,
   Verify,
   Page404,

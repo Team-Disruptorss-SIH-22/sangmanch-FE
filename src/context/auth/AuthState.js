@@ -58,7 +58,7 @@ const AuthState = (props) => {
         type: SIGNUP_USER,
         payload: res.data.data
       });
-      loadUser();
+      // loadUser();
     } catch (err) {
       console.log(err.response.data.msg);
       dispatch({
