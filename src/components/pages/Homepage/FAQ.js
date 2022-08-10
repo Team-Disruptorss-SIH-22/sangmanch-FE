@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, Fragment } from "react";
 import styles from "styles/Home/faq.module.css";
 
 const faq = [
@@ -41,23 +41,26 @@ const FAQ = () => {
         <h1 className={styles.faqHeading}>Frequently Asked Questions</h1>
         <div className={styles.faqContent}>
           {faq.map((item, idx) => (
-            <div
-              className={`${styles.faq_item} ${
-                activeAnswers.includes(idx) ? styles.active : ""
-              }`}
-              key={idx}
-            >
+            <Fragment>
               <div
-                className={styles.faq_item_question}
-                onClick={() => questionClickHandler(idx)}
+                className={`${styles.faq_item} ${
+                  activeAnswers.includes(idx) ? styles.active : ""
+                }`}
+                key={idx}
               >
-                <p>{item.question}</p>
-                <div className={styles.faq_item_question_icon}></div>
+                <div
+                  className={styles.faq_item_question}
+                  onClick={() => questionClickHandler(idx)}
+                >
+                  <p>{item.question}</p>
+                  <div className={styles.faq_item_question_icon}></div>
+                </div>
+                <div className={styles.faq_item_answer}>
+                  <p>{item.answer}</p>
+                </div>
               </div>
-              <div className={styles.faq_item_answer}>
-                <p>{item.answer}</p>
-              </div>
-            </div>
+              {idx != faq.length - 1 && <div className={styles.divider}></div>}
+            </Fragment>
           ))}
         </div>
       </div>

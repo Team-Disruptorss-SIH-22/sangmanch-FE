@@ -36,7 +36,7 @@
   flex-grow: 1;
   font-size: 18px;
   line-height: 21px;
-  font-weight: 700;
+  font-weight: 600;
 }
 
 .faq_item .faq_item_question .faq_item_question_icon {
@@ -67,6 +67,13 @@
 .faq_item.active .faq_item_answer {
   max-height: 500px;
   margin-top: 16px;
+}
+
+.divider {
+  height: 1px;
+  width: 95%;
+  background-color: #dfe3e8;
+  margin: auto;
 }
 
 @media (max-width: 768px) {
