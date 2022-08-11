@@ -16,7 +16,7 @@ import Settings from "./Admin/Setting";
 import AdminInfographics from "./Admin/AdminInfographics";
 
 // User Dashboard
-import UserLayout from "./User/UserLayout";
+import Sidebar from "./Sidebar";
 import UserDashboard from "./User/UserDashboard";
 import UserReports from "./User/UserReports";
 import Events from "./User/Events";
@@ -41,7 +41,7 @@ export {
   Reports,
   AdminInfographics,
   UserReports,
-  UserLayout,
+  Sidebar,
   UserDashboard,
   UserInfographics,
   Events,

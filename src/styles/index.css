@@ -22,6 +22,17 @@ body {
   background-color: #147eb7 !important;
 }
 
+/* Hide all input number arrows */
+input[type="number"]::-webkit-outer-spin-button,
+input[type="number"]::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+input[type="number"] {
+  -moz-appearance: textfield;
+}
+
 :root {
   /* COLORS */
   --colorPrimary: #2a2b33;

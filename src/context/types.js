@@ -8,6 +8,6 @@ export const AUTH_FAIL = "AUTH_FAIL";
 export const CLEAR_ERROR = "CLEAR_ERROR";
 
 // Forms
-export const MANUFACTURER_DISPATCH = "MANUFACTURER_DISPATCH";
-export const WAREHOUSE_DISPATCH = "WAREHOUSE_DISPATCH";
+export const GET_EVENTS = "GET_EVENTS";
+export const CREATE_EVENT = "CREATE_EVENT";
 export const FORM_ERROR = "FORM_ERROR";

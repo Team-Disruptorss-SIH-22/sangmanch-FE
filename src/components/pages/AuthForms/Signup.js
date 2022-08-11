@@ -10,25 +10,7 @@ import Footer from "../Footer";
 
 import styles from "../../../styles/forms/signup.module.css";
 import authContext from "context/auth/authContext";
-
-const options = [
-  {
-    value: "ICCRUser",
-    label: "User"
-  },
-  {
-    value: "financeManager",
-    label: "Finance Manager"
-  },
-  {
-    value: "governingBody",
-    label: "Governing Body"
-  },
-  {
-    value: "generalAssembly",
-    label: "General Assembly"
-  }
-];
+import { roleOptions } from "components/Utils/constant";
 
 const Signup = (props) => {
   const [passwordShown, setPasswordShown] = useState(false);
@@ -217,7 +199,7 @@ const Signup = (props) => {
                 className={styles.select}
                 defaultValue={selectedOption}
                 onChange={setSelectedOption}
-                options={options}
+                options={roleOptions}
                 placeholder="Select your role"
               />
             </div>

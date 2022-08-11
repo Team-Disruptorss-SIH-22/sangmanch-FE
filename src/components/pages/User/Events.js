@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import Select from "react-select";
-import countryList from "react-select-country-list";
 import Compressor from "compressorjs";
 
 import { toast } from "react-toastify";
@@ -9,27 +8,25 @@ import "react-toastify/dist/ReactToastify.css";
 import FullCalendar from "@fullcalendar/react";
 import dayGridPlugin from "@fullcalendar/daygrid";
 import interactionPlugin from "@fullcalendar/interaction";
-
 import styles from "../../../styles/user/events.module.css";
+import { countryOptions, typeOptions } from "components/Utils/constant";
 
 const Events = () => {
-  const [events, setEvents] = useState([]);
-
-  const countryOptions = countryList().getData();
-
-  const [newEvent, setNewEvent] = useState(false);
   //   const [eventId, setEventId] = useState("");
-
+  const [events, setEvents] = useState([]);
+  const [newEvent, setNewEvent] = useState(false);
+  const [country, setCountry] = useState(null);
+  const [type, setType] = useState(null);
   const [eventRegistration, setEventRegistration] = useState({
     id: "",
-    title: "",
-    start: "",
+    name: "",
+    date: "",
     type: "",
     people_reached: "",
     total_expenses: "",
-    budget_defined: "",
+    budget: "",
     city: "",
-    country: "",
+    country: "india",
     invoice: null
   });
 
@@ -52,12 +49,10 @@ const Events = () => {
     //   let obj = events[idx];
     //   setEventRegistration({ ...obj });
     // } else {
-    setEventRegistration({ ...eventRegistration, start: e.dateStr });
+    setEventRegistration({ ...eventRegistration, date: e.dateStr });
     // }
     setNewEvent(true);
   };
-
-  const [country, setCountry] = useState({ value: "IN", label: "India" });
 
   const handleCountry = (value) => {
     // console.log(value);
@@ -79,7 +74,6 @@ const Events = () => {
   const handleInput = (e) => {
     const name = e.target.name;
     const value = e.target.value;
-    // console.log(name, value);
     setEventRegistration({ ...eventRegistration, [name]: value });
   };
 
@@ -96,14 +90,18 @@ const Events = () => {
     const newObj = [...newEvents, eventRegistration];
 
     if (
-      !eventRegistration.title ||
+      !eventRegistration.name ||
       !eventRegistration.type ||
       !eventRegistration.total_expenses ||
+      !eventRegistration.people_reached ||
       !eventRegistration.city ||
-      !eventRegistration.country
+      !eventRegistration.country ||
+      !eventRegistration.invoice
     ) {
       toast.error("Please enter all the fields");
     } else {
+      console.log(newObj);
+      return;
       toast.success("Event Added Successfully!");
       setEvents(newObj);
     }
@@ -134,24 +132,24 @@ const Events = () => {
             <div>
               <div className={styles.heading}>
                 <h2>Event Details Form</h2>
-                <p>Selected Date: {eventRegistration.start}</p>
+                <p>Selected Date: {eventRegistration.date}</p>
               </div>
 
               <div className={styles.container}>
                 <form className={styles.formContainer} action="" onSubmit={handleSubmit}>
                   <div className={styles.inputContainer}>
-                    <label htmlFor="title">
+                    <label htmlFor="name">
                       Event Name<span style={{ color: "red" }}> *</span>
                     </label>
                     <input
                       className="form-field"
                       type="text"
                       autoComplete="off"
-                      value={eventRegistration.title}
+                      value={eventRegistration.name}
                       onChange={handleInput}
-                      name="title"
-                      id="title"
-                      placeholder="Enter text"
+                      name="name"
+                      id="name"
+                      placeholder="Enter Name"
                       required
                     />
                   </div>
@@ -160,21 +158,24 @@ const Events = () => {
                     <label htmlFor="type">
                       Type <span style={{ color: "red" }}> *</span>
                     </label>
-                    <input
-                      className="form-field"
-                      type="text"
-                      autoComplete="off"
-                      value={eventRegistration.type}
-                      onChange={handleInput}
+                    <Select
+                      className={styles.select}
+                      options={typeOptions}
+                      value={type}
+                      onChange={(value) => {
+                        handleCountry(value);
+                      }}
                       name="type"
                       id="type"
-                      placeholder="Enter text"
+                      placeholder="Select Type"
                       required
                     />
                   </div>
 
                   <div className={styles.inputContainer}>
-                    <label htmlFor="people_reached">People Reached</label>
+                    <label htmlFor="people_reached">
+                      People Reached <span style={{ color: "red" }}> *</span>
+                    </label>
                     <input
                       className="form-field"
                       type="number"
@@ -183,7 +184,8 @@ const Events = () => {
                       onChange={handleInput}
                       name="people_reached"
                       id="people_reached"
-                      placeholder="Enter text"
+                      placeholder="Enter People Reached"
+                      required
                     />
                   </div>
 
@@ -198,38 +200,21 @@ const Events = () => {
                       onChange={handleInput}
                       name="total_expenses"
                       id="total_expenses"
-                      placeholder="Enter text"
+                      placeholder="Enter Total Expenses"
                       required
                     />
                   </div>
 
                   <div className={styles.inputContainer}>
-                    <label htmlFor="budget_defined">Budget Defined</label>
+                    <label htmlFor="budget">Budget</label>
                     <input
                       className="form-field"
                       type="number"
-                      value={eventRegistration.budget_defined}
+                      value={eventRegistration.budget}
                       onChange={handleInput}
-                      name="budget_defined"
-                      id="budget_defined"
-                      placeholder="Enter text"
-                    />
-                  </div>
-
-                  <div className={styles.inputContainer}>
-                    <label htmlFor="city">
-                      City <span style={{ color: "red" }}> *</span>
-                    </label>
-                    <input
-                      className="form-field"
-                      type="text"
-                      autoComplete="off"
-                      value={eventRegistration.city}
-                      onChange={handleInput}
-                      name="city"
-                      id="city"
-                      placeholder="Enter text"
-                      required
+                      name="budget"
+                      id="budget"
+                      placeholder="Enter Budget"
                     />
                   </div>
 
@@ -252,7 +237,26 @@ const Events = () => {
                   </div>
 
                   <div className={styles.inputContainer}>
-                    <label htmlFor="invoice">Upload Invoice</label>
+                    <label htmlFor="city">
+                      City <span style={{ color: "red" }}> *</span>
+                    </label>
+                    <input
+                      className="form-field"
+                      type="text"
+                      autoComplete="off"
+                      value={eventRegistration.city}
+                      onChange={handleInput}
+                      name="city"
+                      id="city"
+                      placeholder="Enter City"
+                      required
+                    />
+                  </div>
+
+                  <div className={styles.inputContainer}>
+                    <label htmlFor="invoice">
+                      Upload Invoice <span style={{ color: "red" }}> *</span>
+                    </label>
                     <input
                       className="form-field"
                       type="file"
@@ -268,8 +272,7 @@ const Events = () => {
                   </div>
 
                   <button type="submit" className={styles.submit}>
-                    {" "}
-                    Submit{" "}
+                    Submit
                   </button>
                 </form>
               </div>

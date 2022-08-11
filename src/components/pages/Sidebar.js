@@ -1,7 +1,7 @@
 import React, { useContext } from "react";
-import styles from "../../../styles/admin/adminLayout.module.css";
-import Navbar from "../Navbar/AdminNavbar";
-import SangmanchLogo from "../../../assets/sangmanch_logo.png";
+import styles from "../../styles/admin/adminLayout.module.css";
+import Navbar from "./Navbar/AdminNavbar";
+import SangmanchLogo from "../../assets/sangmanch_logo.png";
 import { MdDateRange } from "react-icons/md";
 import { TbReport } from "react-icons/tb";
 import { FaChartPie } from "react-icons/fa";
@@ -9,17 +9,19 @@ import { AiFillSetting, AiFillInfoCircle } from "react-icons/ai";
 import { Link } from "react-router-dom";
 import AuthContext from "context/auth/authContext";
 
-const AdminLayout = ({ Component, title }) => {
+const Sidebar = ({ Component, title }) => {
   const { user } = useContext(AuthContext);
 
   return (
     <div className={styles.container}>
       <aside className={styles.sidebar}>
         <div className={styles.logo}>
-          <img src={SangmanchLogo} alt="Sangmanch Logo" />
+          <Link to="/">
+            <img src={SangmanchLogo} alt="Sangmanch Logo" />
+          </Link>
         </div>
         <ul className={styles.collection}>
-          {user?.role != "ICCRUser" && (
+          {user?.role !== "ICCRUser" && (
             <li>
               <FaChartPie size={15} />
               <span>
@@ -40,7 +42,7 @@ const AdminLayout = ({ Component, title }) => {
               <Link to="/user/reports">Report Status</Link>
             </span>
           </li>
-          {user?.role != "ICCRUser" && (
+          {user?.role !== "ICCRUser" && (
             <li>
               <AiFillInfoCircle size={18} />
               <span>
@@ -66,4 +68,4 @@ const AdminLayout = ({ Component, title }) => {
   );
 };
 
-export default AdminLayout;
+export default Sidebar;

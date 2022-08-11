@@ -94,11 +94,13 @@ const HomeNavbar = (props) => {
 
             <ul className={styles.links__auth}>
               <li className={styles.login}>
-                <Link to="/login">Login</Link>
+                <Link to="/login">{isAuthenticated ? "Dashboard" : "Login"}</Link>
               </li>
-              <li className={styles.signup}>
-                <Link to="/signup">Signup</Link>
-              </li>
+              {!isAuthenticated && (
+                <li className={styles.signup}>
+                  <Link to="/signup">Signup</Link>
+                </li>
+              )}
             </ul>
             <div className={styles.phoneMenu} onClick={modalClickHandler}>
               <GiHamburgerMenu size={30} onClick={() => setShowModal((curr) => !curr)} />
