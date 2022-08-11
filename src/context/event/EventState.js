@@ -4,9 +4,9 @@ import axios from "axios";
 import EventContext from "./eventContext";
 import eventReducer from "./eventReducer";
 
-import { CREATE_EVENT, CLEAR_ERROR } from "../types";
+import { CREATE_EVENT, CLEAR_ERROR, GET_EVENTS, FORM_ERROR } from "../types";
 
-const AuthState = (props) => {
+const EventState = (props) => {
   const initialState = {
     error: null,
     events: []
@@ -22,7 +22,7 @@ const AuthState = (props) => {
       const res = await axios.get(`${url}/api/event`);
       dispatch({
         type: GET_EVENTS,
-        payload: res.data.data
+        payload: res.data.data.events
       });
     } catch (err) {
       dispatch({
@@ -37,13 +37,17 @@ const AuthState = (props) => {
     try {
       const config = {
         headers: {
-          "Content-Type": "application/json"
+          "Content-Type": "multipart/form-data"
         }
       };
-      const res = await axios.post(url + "/api/event/", event, config);
+      let formData = new FormData();
+      for (let key in event) {
+        formData.append(key, event[key]);
+      }
+      const res = await axios.post(url + "/api/event/", formData, config);
       dispatch({
         type: CREATE_EVENT,
-        payload: res.data.data
+        payload: res.data.data.event
       });
     } catch (err) {
       dispatch({
@@ -73,4 +77,4 @@ const AuthState = (props) => {
   );
 };
 
-export default AuthState;
+export default EventState;

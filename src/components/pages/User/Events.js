@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState, useContext } from "react";
 import Select from "react-select";
 import Compressor from "compressorjs";
 
@@ -10,25 +10,30 @@ import dayGridPlugin from "@fullcalendar/daygrid";
 import interactionPlugin from "@fullcalendar/interaction";
 import styles from "../../../styles/user/events.module.css";
 import { countryOptions, typeOptions } from "components/Utils/constant";
+import eventContext from "context/event/eventContext";
+
+const initialState = {
+  id: "",
+  name: "",
+  date: "",
+  peopleReached: "",
+  expenses: "",
+  budget: "",
+  city: "",
+  invoice: null
+};
 
 const Events = () => {
   //   const [eventId, setEventId] = useState("");
-  const [events, setEvents] = useState([]);
   const [newEvent, setNewEvent] = useState(false);
   const [country, setCountry] = useState(null);
   const [type, setType] = useState(null);
-  const [eventRegistration, setEventRegistration] = useState({
-    id: "",
-    name: "",
-    date: "",
-    type: "",
-    people_reached: "",
-    total_expenses: "",
-    budget: "",
-    city: "",
-    country: "india",
-    invoice: null
-  });
+  const [eventRegistration, setEventRegistration] = useState(initialState);
+  const { events, getEvents, createEvent } = useContext(eventContext);
+
+  useEffect(() => {
+    getEvents();
+  }, []);
 
   // const handleEventClick = (info) => {
   // let tempId = info.event._def.publicId;
@@ -54,13 +59,6 @@ const Events = () => {
     setNewEvent(true);
   };
 
-  const handleCountry = (value) => {
-    // console.log(value);
-    setCountry(value);
-    setEventRegistration({ ...eventRegistration, country: value.label });
-    // console.log(eventRegistration);
-  };
-
   const handleCompressedUpload = (e) => {
     const image = e.target.files[0];
     new Compressor(image, {
@@ -74,7 +72,11 @@ const Events = () => {
   const handleInput = (e) => {
     const name = e.target.name;
     const value = e.target.value;
-    setEventRegistration({ ...eventRegistration, [name]: value });
+    if (["peopleReached", "expenses", "budget"].includes(name)) {
+      setEventRegistration({ ...eventRegistration, [name]: parseInt(value) });
+    } else {
+      setEventRegistration({ ...eventRegistration, [name]: value });
+    }
   };
 
   const handleSubmit = (e) => {
@@ -82,31 +84,26 @@ const Events = () => {
 
     let tempId = new Date().getTime().toString();
 
-    //if event already exists. We edit that event only.
-    let newEvents = events.filter((item) => item.id !== eventRegistration.id);
-
     setEventRegistration({ ...eventRegistration, id: tempId });
-
-    const newObj = [...newEvents, eventRegistration];
 
     if (
       !eventRegistration.name ||
-      !eventRegistration.type ||
-      !eventRegistration.total_expenses ||
-      !eventRegistration.people_reached ||
+      !type ||
+      !eventRegistration.expenses ||
+      !eventRegistration.peopleReached ||
       !eventRegistration.city ||
-      !eventRegistration.country ||
+      !country ||
       !eventRegistration.invoice
     ) {
       toast.error("Please enter all the fields");
     } else {
-      console.log(newObj);
-      return;
+      const newObj = { ...eventRegistration, type: type.value, country: country.value };
+      createEvent(newObj);
       toast.success("Event Added Successfully!");
-      setEvents(newObj);
+      setEventRegistration(initialState);
+      setType(null);
+      setCountry(null);
     }
-
-    console.log(events);
   };
 
   return (
@@ -163,7 +160,7 @@ const Events = () => {
                       options={typeOptions}
                       value={type}
                       onChange={(value) => {
-                        handleCountry(value);
+                        setType(value);
                       }}
                       name="type"
                       id="type"
@@ -173,33 +170,33 @@ const Events = () => {
                   </div>
 
                   <div className={styles.inputContainer}>
-                    <label htmlFor="people_reached">
+                    <label htmlFor="peopleReached">
                       People Reached <span style={{ color: "red" }}> *</span>
                     </label>
                     <input
                       className="form-field"
                       type="number"
                       autoComplete="off"
-                      value={eventRegistration.people_reached}
+                      value={eventRegistration.peopleReached}
                       onChange={handleInput}
-                      name="people_reached"
-                      id="people_reached"
+                      name="peopleReached"
+                      id="peopleReached"
                       placeholder="Enter People Reached"
                       required
                     />
                   </div>
 
                   <div className={styles.inputContainer}>
-                    <label htmlFor="total_expenses">
+                    <label htmlFor="expenses">
                       Total Expenses <span style={{ color: "red" }}> *</span>
                     </label>
                     <input
                       className="form-field"
                       type="number"
-                      value={eventRegistration.total_expenses}
+                      value={eventRegistration.expenses}
                       onChange={handleInput}
-                      name="total_expenses"
-                      id="total_expenses"
+                      name="expenses"
+                      id="expenses"
                       placeholder="Enter Total Expenses"
                       required
                     />
@@ -227,7 +224,7 @@ const Events = () => {
                       options={countryOptions}
                       value={country}
                       onChange={(value) => {
-                        handleCountry(value);
+                        setCountry(value);
                       }}
                       name="country"
                       id="country"
@@ -244,7 +241,7 @@ const Events = () => {
                       className="form-field"
                       type="text"
                       autoComplete="off"
-                      value={eventRegistration.city}
+                      // value={eventRegistration.city}
                       onChange={handleInput}
                       name="city"
                       id="city"
@@ -261,7 +258,7 @@ const Events = () => {
                       className="form-field"
                       type="file"
                       autoComplete="off"
-                      // value={eventRegistration.invoice}
+                      value={eventRegistration.invoice}
                       accept="image/*,capture=camera"
                       capture="”camera"
                       onChange={handleCompressedUpload}

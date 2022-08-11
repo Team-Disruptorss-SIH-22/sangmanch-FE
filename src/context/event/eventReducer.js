@@ -8,6 +8,7 @@ export default (state, action) => {
         events: action.payload
       };
     case CREATE_EVENT:
+      console.log(state, action);
       return {
         ...state,
         events: [...state.events, action.payload]
