@@ -14,6 +14,25 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
+.carousel li.dot {
+  background-color: #2a2b33 !important;
+}
+
+.carousel li.dot.selected {
+  background-color: #147eb7 !important;
+}
+
+/* Hide all input number arrows */
+input[type="number"]::-webkit-outer-spin-button,
+input[type="number"]::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+input[type="number"] {
+  -moz-appearance: textfield;
+}
+
 :root {
   /* COLORS */
   --colorPrimary: #2a2b33;
@@ -22,6 +41,7 @@ body {
   --colorLighter2: #757678;
   --colorLighter3: #9fa2b4;
   --colorbutton: #3751ff;
+  --colorLink: #0000ee;
   --colorSidebar: #363740;
   --colorBG: #f7f8fc;
 

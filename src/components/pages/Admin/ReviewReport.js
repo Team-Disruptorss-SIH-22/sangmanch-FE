@@ -1,22 +1,3 @@
-
-import "styles/user/review.module.css";
-
-const ReviewReport = () => {
-  return (
-
-    <div className="outer">
-
-      <div className="container">
-        <h2>Review Report- Report ID</h2>
-      </div>
-    </div>
-  )
-}
-
-
-
-export default ReviewReport;
-
 import React, { useState } from "react";
 import { GrClose } from "react-icons/gr";
 
@@ -56,11 +37,11 @@ const ReviewReport = (props) => {
           <form className={styles.formContainer} action="" onSubmit={handleSubmit}>
             <div className={styles.inputContainer}>
               <label htmlFor="username">
-                User ID<span style={{ color: "red" }}> *</span>
+                Username<span style={{ color: "red" }}> *</span>
               </label>
               <input
                 className="form-field"
-                type="number"
+                type="text"
                 autoComplete="off"
                 value={report.username}
                 onChange={handleInput}
@@ -142,4 +123,3 @@ const ReviewReport = (props) => {
 };
 
 export default ReviewReport;
-

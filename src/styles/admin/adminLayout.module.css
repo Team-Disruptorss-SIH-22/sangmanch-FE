@@ -4,15 +4,12 @@
 }
 
 .logo {
-  display: flex;
-  align-items: center;
-  width: 130%;
-  margin: 15% 0;
+  width: 100%;
+  margin: 7% 0 20% 0;
 }
 
 .logo img {
   width: 100%;
-  margin: 0 -15% 0 -15%;
 }
 
 /*

@@ -1,26 +1,27 @@
-import React, { useState } from "react";
+import React, { useState, Fragment } from "react";
 import styles from "styles/Home/faq.module.css";
 
 const faq = [
   {
-    question: "Can I choose my meals?",
+    question: "How can I sign up as an ICCR Cultural Center Administrator?",
     answer:
-      " Quisque rutrum. Aenean imperdi. Etiam ultricies nisi vel augue. Curabitur ullamcorper ultricies nisi. Nam eget dui. Etiam rhoncus. Maecenas tempus, tellus eget."
+      "Use the Sign-Up form and provide your credentials and ICCR Unique ID to register. After submitting the form, you will get a verification code by email. It typically takes seven days for the ICCR General Assembly to approve a new user."
   },
   {
-    question: "When will I receive my order?",
+    question:
+      "My event invoice was denied, and I believe it was due to an error. What should I do?",
     answer:
-      " Quisque rutrum. Aenean imperdi. Etiam ultricies nisi vel augue. Curabitur ullamcorper ultricies nisi. Nam eget dui. Etiam rhoncus. Maecenas tempus, tellus eget."
+      "Occasionally, the Finance Manager and Governing Body may reject bills owing to report mistakes. If you believe that the invoice was accurate, you may file an appeal with the ICCR General Assembly. The General Assembly's decision will be final and binding."
   },
   {
-    question: "Can I skip a delivery?",
+    question: "How long does it typically take to get compensation for a hosted event?",
     answer:
-      " Quisque rutrum. Aenean imperdi. Etiam ultricies nisi vel augue. Curabitur ullamcorper ultricies nisi. Nam eget dui. Etiam rhoncus. Maecenas tempus, tellus eget."
+      "Prior to approval for reimbursement, the invoice is sent via two hierarchical departments. We anticipate one week per department; thus, it may take three weeks for the money to be reimbursed for the event hosted."
   },
   {
-    question: "Can I add Extras to my delivery?",
+    question: "Can we expedite the process of reimbursement?",
     answer:
-      " Quisque rutrum. Aenean imperdi. Etiam ultricies nisi vel augue. Curabitur ullamcorper ultricies nisi. Nam eget dui. Etiam rhoncus. Maecenas tempus, tellus eget."
+      "The ICCR has a small staff dedicated to promoting Indian culture and assisting the Cultural Centres in achieving their objective. It is difficult for us to expedite the procedure, however The Cultural Centre Admins may approach the ICCR General Assembly to resolve the matter directly in exceptional circumstances."
   }
 ];
 
@@ -41,23 +42,26 @@ const FAQ = () => {
         <h1 className={styles.faqHeading}>Frequently Asked Questions</h1>
         <div className={styles.faqContent}>
           {faq.map((item, idx) => (
-            <div
-              className={`${styles.faq_item} ${
-                activeAnswers.includes(idx) ? styles.active : ""
-              }`}
-              key={idx}
-            >
+            <Fragment>
               <div
-                className={styles.faq_item_question}
-                onClick={() => questionClickHandler(idx)}
+                className={`${styles.faq_item} ${
+                  activeAnswers.includes(idx) ? styles.active : ""
+                }`}
+                key={idx}
               >
-                <p>{item.question}</p>
-                <div className={styles.faq_item_question_icon}></div>
+                <div
+                  className={styles.faq_item_question}
+                  onClick={() => questionClickHandler(idx)}
+                >
+                  <p>{item.question}</p>
+                  <div className={styles.faq_item_question_icon}></div>
+                </div>
+                <div className={styles.faq_item_answer}>
+                  <p>{item.answer}</p>
+                </div>
               </div>
-              <div className={styles.faq_item_answer}>
-                <p>{item.answer}</p>
-              </div>
-            </div>
+              {idx != faq.length - 1 && <div className={styles.divider}></div>}
+            </Fragment>
           ))}
         </div>
       </div>

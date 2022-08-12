@@ -9,6 +9,16 @@
   margin: 3rem auto;
 }
 
+.row {
+  width: 100%;
+  display: flex;
+  position: relative;
+  align-items: center;
+  justify-content: space-between;
+  color: var(--colorLighter2);
+  font-weight: var(--fontRegular);
+}
+
 .loginPageContainer {
   box-shadow: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);
   border: 2px solid rgb(0 0 0 / 0.1);
@@ -82,7 +92,6 @@
 .headers .title {
   font-weight: var(--fontMedium);
   color: var(--colorSecondary);
-  margin-top: -1px;
   font-size: 1.25rem;
   /* border: 1px solid red; */
 }
@@ -96,7 +105,7 @@
 /* -----------END HERE------------ */
 
 .loginTitle {
-  margin-top: -5%;
+  margin: 5px 0;
   font-weight: 600;
   font-size: 1.3rem;
   /* border: 1px solid red; */
@@ -141,23 +150,22 @@
   color: var(--colorLighter2);
 }
 
-.formContainer .inputContainer .forPassword {
+.formContainer .select {
   width: 100%;
-  display: flex;
-  position: relative;
-  align-items: center;
-  justify-content: space-between;
-  color: var(--colorLighter2);
-  font-weight: var(--fontRegular);
+  text-align: left;
+  font-size: 13px;
 }
 
-.formContainer .inputContainer .forgotPassword {
-  font-size: 0.5rem;
+.formContainer .links {
+  font-size: 0.85rem;
+}
+
+.formContainer .link {
   text-decoration: none;
+  color: var(--colorbutton);
 }
 
-.formContainer .inputContainer .forgotPassword:hover {
-  font-size: 0.5rem;
+.formContainer .link:hover {
   text-decoration: underline;
 }
 
@@ -170,9 +178,9 @@
 .formContainer .inputContainer .showPassword {
   background-color: transparent;
   border: none;
-  width: 30px;
+  width: 20px;
   position: absolute;
-  right: 0;
+  right: 10px;
   bottom: 5px;
   cursor: pointer;
   /* border: 1px solid cyan; */
@@ -190,6 +198,7 @@
   box-shadow: 0px 0px 10px 0px rgba(186, 186, 186, 1);
   border-radius: 5px;
   background-color: #147eb7;
+  margin-bottom: 20px;
 }
 
 .submit:hover {
@@ -198,7 +207,6 @@
 }
 
 .footer {
-  margin-top: 6%;
   font-size: 0.75rem;
   color: var(--colorLighter2);
 }

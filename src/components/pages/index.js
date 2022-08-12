@@ -1,12 +1,10 @@
 // HOC
-import AdminRoute from "components/HOC/AdminRoute";
-import UserSignupRoute from "components/HOC/UserSignupRoute";
-import OldUserRoute from "components/HOC/OldUserRoute";
-import UserRoute from "components/HOC/UserRoute";
+import PublicRoute from "components/HOC/PublicRoute";
+import PrivateRoute from "components/HOC/PrivateRoute";
 
 // Signup & Login Forms
 import Login from "./AuthForms/Login";
-import UserSignup from "./AuthForms/UserSignup";
+import Signup from "./AuthForms/Signup";
 import AdminSignup from "./AuthForms/AdminSignup";
 import Verify from "./AuthForms/Verify";
 
@@ -18,7 +16,7 @@ import Settings from "./Admin/Setting";
 import AdminInfographics from "./Admin/AdminInfographics";
 
 // User Dashboard
-import UserLayout from "./User/UserLayout";
+import Sidebar from "./Sidebar";
 import UserDashboard from "./User/UserDashboard";
 import ReviewReport from "./User/ReviewReport";
 
@@ -32,14 +30,15 @@ import UserInfographics from "./User/UserInfographics";
 
 import Page404 from "./Page404";
 import Home from "./Homepage/Home";
+import About from "./About/About";
 
 export {
-  AdminRoute,
-  OldUserRoute,
-  UserSignupRoute,
+  PublicRoute,
+  PrivateRoute,
   Login,
   Home,
-  UserSignup,
+  About,
+  Signup,
   AdminSignup,
   Verify,
   Page404,
@@ -48,8 +47,7 @@ export {
   Reports,
   AdminInfographics,
   UserReports,
-  UserRoute,
-  UserLayout,
+  Sidebar,
   UserDashboard,
   ReviewReport,
   ReportStatus,

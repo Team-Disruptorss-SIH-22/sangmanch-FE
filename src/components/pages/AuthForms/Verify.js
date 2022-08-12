@@ -16,7 +16,7 @@ const Verify = (props) => {
     async function verifyUser() {
       try {
         const res = await axios.get(
-          `https://ncbdaas-backend.herokuapp.com/api/auth/confirmEmail/${token}`
+          `https://sangmanch.herokuapp.com/api/auth/confirmEmail/${token}`
         );
         console.log(res);
         toast.success("Email Verified Successfully");

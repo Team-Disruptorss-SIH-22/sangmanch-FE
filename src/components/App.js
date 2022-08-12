@@ -1,13 +1,12 @@
 import React from "react";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import {
-  AdminRoute,
-  OldUserRoute,
-  UserRoute,
-  UserSignupRoute,
+  PublicRoute,
+  PrivateRoute,
+  Signup,
   Login,
   Home,
-  AdminSignup,
+  About,
   Page404,
   AdminDashboard,
   AdminInfographics,
@@ -20,14 +19,17 @@ import {
   Events,
   Verify,
   Settings,
+
   UserInfographics,
   ReviewReport,
+
+  UserInfographics
+
 } from "./pages/index";
 
 import AuthState from "context/auth/AuthState";
-import FormState from "context/forms/FormState";
+import EventState from "context/event/EventState";
 import setAuthToken from "./Utils/SetAuthToken";
-import About from "./pages/About/About";
 
 if (localStorage.getItem("token")) {
   setAuthToken(localStorage.token);
@@ -38,29 +40,24 @@ function App() {
     //these three forms do not have any routes yet
     <div className="App">
       <AuthState>
-        <FormState>
+        <EventState>
           <Router>
             <Switch>
-              <OldUserRoute exact path="/" component={Home} />
-              <OldUserRoute exact path="/about" component={About} />
-              <OldUserRoute exact path="/login" component={Login} />
-              <OldUserRoute exact path="/verify/:token" component={Verify} />
-              {/* <UserRoute exact path="/medical" component={MedicalStoreReciept} /> */}
-
-              {/* User Signup */}
-              <UserSignupRoute
-                exact
-                path="/signup/manufacturer"
-                titleRole={"Manufacturer"}
-              />
-              <UserSignupRoute exact path="/signup/admin" component={AdminSignup} />
+              <Route exact path="/" component={Home} />
+              <PublicRoute exact path="/about" component={About} />
+              <PublicRoute exact path="/signup" component={Signup} />
+              <PublicRoute exact path="/login" component={Login} />
+              <PublicRoute exact path="/verify/:token" component={Verify} />
 
               {/* ADMIN */}
-              <AdminRoute exact path="/dashboard" title={""} component={AdminDashboard} />
-
-              <AdminRoute exact path="/reports" title={""} component={Reports} />
-
-              <AdminRoute
+              <PrivateRoute
+                exact
+                path="/dashboard"
+                title={""}
+                component={AdminDashboard}
+              />
+              <PrivateRoute exact path="/reports" title={""} component={Reports} />
+              <PrivateRoute
                 exact
                 path="/infographics"
                 title={""}
@@ -68,21 +65,29 @@ function App() {
               />
               <AdminRoute exact path="/settings" title={""} component={Settings} />
               <AdminRoute exact path="/reportstatus" title={""} component={ReportStatus} />
+              <PrivateRoute exact path="/settings" title={""} component={Settings} />
+
 
               {/* USER */}
-              <UserRoute
+              <PrivateRoute
                 exact
                 path="/user/dashboard"
                 title={""}
                 component={UserDashboard}
               />
-              <UserRoute exact path="/user/reports" title={""} component={UserReports} />
-              <UserRoute
+              <PrivateRoute
+                exact
+                path="/user/reports"
+                title={""}
+                component={UserReports}
+              />
+              <PrivateRoute
                 exact
                 path="/user/infographics"
                 title={""}
                 component={UserInfographics}
               />
+
               <UserRoute exact path="/user/settings" title={""} component={Settings} />
 
               <UserRoute exact path="/user/reportstatus" title={""} component={ReportStatus} />
@@ -92,11 +97,15 @@ function App() {
               <UserRoute exact path="/user/404" title={""} component={Page404} />
 
 
+
+              <PrivateRoute exact path="/user/settings" title={""} component={Settings} />
+              <PrivateRoute exact path="/user/events" title={""} component={Events} />
+
               <Route path="*" component={Page404} />
               {/* hello */}
             </Switch>
           </Router>
-        </FormState>
+        </EventState>
       </AuthState>
     </div>
   );

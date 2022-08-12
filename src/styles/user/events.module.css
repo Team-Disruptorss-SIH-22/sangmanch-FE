@@ -29,7 +29,7 @@
   width: 60%;
 }
 
-.calenderContainer td div{
+.calenderContainer td div {
   cursor: pointer;
 }
 
@@ -90,6 +90,7 @@
   box-sizing: border-box;
   margin: 1.5% 0;
   width: 100%;
+  font-size: 13px;
 }
 
 .formContainer .inputContainer input:focus {

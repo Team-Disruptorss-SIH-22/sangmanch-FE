@@ -6,7 +6,7 @@ import Iccr_logo from "assets/icons/iccr_logo.svg";
 const Footer = () => {
   return (
     <>
-      <footer className={styles.upper_footer}>
+      <footer className={styles.upper_footer} id="footer">
         <div className={styles.footer_infos_container}>
           <div className={styles.footer_multiple_cols_containter}>
             <div className={styles.footer_info_col}>
@@ -82,7 +82,6 @@ const Footer = () => {
               Azad Bhawan, I. P Estate, New Delhi - 110002
             </span>
             <span>
-              Telephone Number: Email Id:
               <b>Telephone Number</b>: +91-11-23379309
             </span>
             <span>

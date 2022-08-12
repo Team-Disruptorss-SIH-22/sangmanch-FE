@@ -1,5 +1,6 @@
 import React, { useContext, useState, useEffect } from "react";
-import { Link } from "react-router-dom";
+import { Link, withRouter } from "react-router-dom";
+import { toast } from "react-toastify";
 
 // ICONS
 import { BsSearch } from "react-icons/bs";
@@ -12,14 +13,21 @@ import authContext from "context/auth/authContext";
 import styles from "../../../styles/admin/adminNavbar.module.css";
 
 const Navbar = (props) => {
-  const { isAuthenticated, user } = useContext(authContext);
+  const { isAuthenticated, user, logout } = useContext(authContext);
   const [menuToggle, setMenuToggle] = useState(false);
 
   useEffect(() => {
     if (isAuthenticated === true) {
-      props.history.push(`${user.role}/dispatch`);
+      if (user.role === "ICCRUser") props.history?.push("/user/events");
+      else props.history?.push("/user/overview");
     }
   }, [isAuthenticated]);
+
+  const onLogout = () => {
+    logout();
+    toast.success("Logged out successfully");
+    props.history?.push("/");
+  };
 
   return (
     <nav className={styles.navbar}>
@@ -42,7 +50,7 @@ const Navbar = (props) => {
               setMenuToggle(!menuToggle);
             }}
           >
-            <span>NCB Officer - 1</span>
+            <span>Welcome {user?.name}!</span>
             <FaUserCircle size={20} />
           </div>
 
@@ -55,7 +63,11 @@ const Navbar = (props) => {
                 </li>
                 <li>
                   <BiLogOut size={20} className={styles.menu_image} />
+
                   <Link to={"/"}>Log Out</Link>
+
+                  <div onClick={onLogout}>Log Out</div>
+
                 </li>
               </ul>
             </div>
@@ -66,4 +78,4 @@ const Navbar = (props) => {
   );
 };
 
-export default Navbar;
+export default withRouter(Navbar);

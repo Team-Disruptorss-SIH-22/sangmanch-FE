@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
-
 import { AreaChart, Area, XAxis, YAxis, Tooltip, ResponsiveContainer } from "recharts";
+import { AiOutlinePlus } from "react-icons/ai";
 
 import styles from "styles/admin/adminDashboard.module.css";
 
@@ -19,6 +19,14 @@ const AdminDashboard = () => {
     anamoliesForwarded: 3,
     anamoliesDiscarded: 8
   });
+
+  const [tasks, setTasks] = useState([
+    "Escalate Report Number 234 to Finance Team",
+    "Check the report status of today",
+    "Check the deadlines for events"
+  ]);
+
+  const [task, setTask] = useState("");
 
   const data = [
     {
@@ -64,6 +72,13 @@ const AdminDashboard = () => {
       amt: 2100
     }
   ];
+
+  const handleAddTasks = () => {
+    if (task.length !== 0) {
+      setTasks((prev) => [...prev, task]);
+      setTask("");
+    }
+  };
 
   return (
     <div className={styles.dashboardContainer}>
@@ -152,29 +167,39 @@ const AdminDashboard = () => {
         </div>
 
         <div className={styles.line}></div>
-        <div className={styles.graphChartsContainer}>
-          <div className={styles.todo_container}>
-            <div className={styles.todo_header}>Things to do</div>
-            <div className={styles.todo_items}>
-              <div className={styles.single_todo}>
-                <input id="todo-check" type="checkbox" />
-                <label htmlFor="#todo-check">todo-item</label>
-              </div>
 
-              <div className={styles.single_todo}>
-                <input id="todo-check" type="checkbox" />
-                <label htmlFor="#todo-check">todo-item</label>
-              </div>
+        <div className={styles.unresolved_alerts_Container}>
+          <div className={styles.sectionHeader}>
+            <div className={styles.titleSubtitle}>
+              <p className={styles.sectionTitle}>Tasks</p>
+              <p className={styles.sectionSubTitle + " " + styles.clrGrey}>Today</p>
+            </div>
+          </div>
 
-              <div className={styles.single_todo}>
-                <input id="todo-check" type="checkbox" />
-                <label htmlFor="#todo-check">todo-item</label>
-              </div>
+          <div className={styles.otherDetailsContent}>
+            <div className={styles.newTaskForm}>
+              <input
+                className={styles.newTaskInput}
+                placeholder="Create new task"
+                value={task}
+                required
+                onChange={(e) => setTask(e.target.value)}
+              />
+              {console.log(task)}
+              <button className={styles.addTaskButton} onClick={handleAddTasks}>
+                <AiOutlinePlus />
+              </button>
+            </div>
 
-              <div className={styles.single_todo}>
-                <input id="todo-check" type="checkbox" />
-                <label htmlFor="#todo-check">todo-item</label>
-              </div>
+            <div className={styles.content_container}>
+              {tasks.map((task, index) => {
+                return (
+                  <div className={styles.task} key={index}>
+                    <input type="checkbox"></input>
+                    <p>{task}</p>
+                  </div>
+                );
+              })}
             </div>
           </div>
         </div>

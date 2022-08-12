@@ -1,0 +1,130 @@
+.outer {
+  position: fixed;
+  background: #00000050;
+  width: 100%;
+  height: 100vh;
+  top: 0;
+  left: 0;
+}
+
+.content {
+  position: relative;
+  width: 55%;
+  margin: 0 auto;
+  height: auto;
+  max-height: 90vh;
+  margin-top: calc(100vh - 85vh - 20px);
+  background: #fff;
+  border-radius: 4px;
+  padding: 20px;
+  border: 1px solid #999;
+  overflow: auto;
+}
+
+.alertHeaderContainer {
+  width: 99%;
+  display: flex;
+  margin: 1% auto;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.heading {
+  font-size: 1rem;
+  font-weight: 600;
+}
+
+.container {
+  /* background-color: rgb(227, 227, 231); */
+  background-color: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 1rem auto;
+}
+
+.formContainer {
+  width: 85%;
+  display: flex;
+  flex-direction: column;
+}
+
+.formContainer .inputContainer {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: baseline;
+  margin-bottom: 3%;
+}
+
+.formContainer .inputContainer ::placeholder {
+  /* Chrome, Firefox, Opera, Safari 10.1+ */
+  color: rgba(159, 162, 180, 0.8);
+  opacity: 1; /* Firefox */
+}
+
+.formContainer .inputContainer input {
+  box-sizing: border-box;
+  width: 100%;
+  margin: 1% 0;
+  padding: 1.5%;
+  border: 1px solid rgba(159, 162, 180, 0.4);
+  border-radius: 5px;
+}
+
+.formContainer .inputContainer input:focus {
+  outline: none;
+}
+
+.formContainer .inputContainer label {
+  font-size: 0.9rem;
+  color: var(--colorLighter2);
+}
+
+.formContainer .checkboxContainer {
+  color: #666666;
+  font-size: 0.9rem;
+  line-height: 1.1;
+  display: grid;
+  grid-template-columns: 1.5em auto;
+  gap: 1em;
+  margin: 1.5% 0;
+}
+
+.formContainer .checkboxContainer input {
+  width: 100%;
+}
+
+.buttonContainer {
+  margin: 3% 0;
+  display: flex;
+  justify-content: space-between;
+}
+
+.buttonCommon {
+  width: 30%;
+  padding: 2% 0;
+  border: none;
+  /* box-shadow: 0px 0px 10px 0px rgba(186, 186, 186, 1); */
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.cancel {
+  background-color: white;
+  border: 1px solid #147eb7;
+  color: #147eb7;
+}
+
+.submit {
+  color: white;
+  background-color: #147eb7;
+}
+
+.cancel:hover {
+  background-color: #e8e8e8;
+}
+
+.submit:hover {
+  background-color: #116897;
+}

@@ -25,7 +25,7 @@ const AuthState = (props) => {
   };
   const [state, dispatch] = useReducer(authReducer, initialState);
 
-  const url = "https://ncbdaas-backend.herokuapp.com";
+  const url = "https://sangmanch.herokuapp.com";
   // const url = "http://localhost:5000";
 
   // Set token and load user
@@ -58,7 +58,7 @@ const AuthState = (props) => {
         type: SIGNUP_USER,
         payload: res.data.data
       });
-      loadUser();
+      // loadUser();
     } catch (err) {
       console.log(err.response.data.msg);
       dispatch({
@@ -89,6 +89,7 @@ const AuthState = (props) => {
         type: AUTH_FAIL,
         payload: err.response.data.msg
       });
+      throw new Error(err.response.data.msg);
     }
   };
 
