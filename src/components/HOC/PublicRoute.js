@@ -12,7 +12,7 @@ const PublicRoute = ({ component: Component, ...rest }) => {
         (isAuthenticated === false ? (
           <Component {...props} />
         ) : (
-          <Redirect to={user.role === "ICCRUser" ? "/user/events" : "/user/overview"} />
+          <Redirect to={user.role === "ICCRUser" ? "/user/events" : "/user/dashboard"} />
         ))
       }
     />

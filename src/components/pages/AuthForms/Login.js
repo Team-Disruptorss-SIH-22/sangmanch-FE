@@ -29,7 +29,7 @@ const UserLogin = (props) => {
   useEffect(() => {
     if (isAuthenticated === true) {
       if (user.role === "ICCRUser") props.history?.push("/user/events");
-      else props.history?.push("/user/overview");
+      else props.history?.push("/user/dashboard");
     }
   }, [isAuthenticated, props.history]);
 
