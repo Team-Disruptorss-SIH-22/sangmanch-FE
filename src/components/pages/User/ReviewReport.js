@@ -48,15 +48,15 @@ const ReviewReport = (props) => {
   return (
     <div className={styles.outer}>
       <div className={styles.content}>
-        <div className={styles.alertHeaderContainer}>
-          <div className={styles.heading}>
-            <p>Review Report - {props.eventID}</p>
-          </div>
-          <div onClick={props.handleClose} style={{ cursor: "pointer" }}>
-            <GrClose />
-          </div>
-        </div>
         <div className={styles.container}>
+          <div className={styles.alertHeaderContainer}>
+            <div className={styles.heading}>
+              <p>Review Report - {props.eventID}</p>
+            </div>
+            <div onClick={props.handleClose} style={{ cursor: "pointer" }}>
+              <GrClose />
+            </div>
+          </div>
           <form className={styles.formContainer} onSubmit={handleSubmit}>
             <div className={styles.inputContainer}>
               <label htmlFor="pin">
@@ -93,27 +93,30 @@ const ReviewReport = (props) => {
                 required
               />
             </div>
-            <label htmlFor="accepted" className={styles.checkboxContainer}>
-              <input
-                type="radio"
-                value={1}
-                onChange={handleInput}
-                name="status"
-                id="accepted"
-                required
-              />
-              Accepted
-            </label>
-            <label htmlFor="rejected" className={styles.checkboxContainer}>
-              <input
-                type="radio"
-                value={-1}
-                onChange={handleInput}
-                name="status"
-                id="rejected"
-              />
-              Rejected
-            </label>
+            <div className={styles.checkBoxSuperContainer}>
+              <div className={styles.checkboxContainer}>
+                <input
+                  type="radio"
+                  value={1}
+                  onChange={handleInput}
+                  name="status"
+                  id="accepted"
+                  required
+                />
+                <label htmlFor="accepted">Accepted</label>
+              </div>
+              <div className={styles.checkboxContainer}>
+                <input
+                  type="radio"
+                  value={-1}
+                  onChange={handleInput}
+                  name="status"
+                  id="rejected"
+                />
+                <label htmlFor="rejected">Rejected</label>
+              </div>
+            </div>
+
             <div className={styles.buttonContainer}>
               <button
                 onClick={props.handleClose}
