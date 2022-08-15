@@ -12,6 +12,7 @@ import { useTable, useSortBy, useFilters, usePagination } from "react-table";
 import { format } from "date-fns";
 
 import ReviewReport from "./ReviewReport";
+import ViewReport from "./ViewReport";
 import { ColumnFilter } from "../Admin/ColumnFilter";
 import eventContext from "context/event/eventContext";
 import styles from "../../../styles/admin/reports.module.css";
@@ -68,6 +69,7 @@ const Reports = () => {
   const [toggleFilter, setToggleFilter] = useState(false);
   const [pageIndex, setPageIndex] = useState(1);
   const [reviewReport, setReviewReport] = useState(false);
+  const [viewReport, setViewReport] = useState(false);
   const [eventID, setEventID] = useState();
 
   const { events, getAllEvents } = useContext(eventContext);
@@ -104,6 +106,14 @@ const Reports = () => {
           eventID={eventID}
           handleClose={() => {
             setReviewReport(!reviewReport);
+          }}
+        />
+      )}
+      {viewReport && (
+        <ViewReport
+          eventID={eventID}
+          handleClose={() => {
+            setViewReport(!viewReport);
           }}
         />
       )}
@@ -164,8 +174,12 @@ const Reports = () => {
                         <button
                           onClick={() => {
                             //change it when get original json data from backend
-                            setEventID(cell.row.original._id);
-                            setReviewReport(!reviewReport);
+                            setEventID(cell.row.index + 1);
+                            if (cell?.column?.id === "view_report") {
+                              setViewReport(!viewReport);
+                            } else if (cell?.column?.id === "report_details") {
+                              setReviewReport(!reviewReport);
+                            }
                           }}
                           className={styles.report_details + " " + styles.tableSingleCell}
                         >
