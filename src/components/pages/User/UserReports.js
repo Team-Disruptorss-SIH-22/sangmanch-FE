@@ -1,35 +1,41 @@
-import { useState, useMemo } from "react";
-import { Link } from "react-router-dom";
+import { useState, useMemo, useEffect, useContext } from "react";
 
 // REACT ICONS
 import { BiSortUp } from "react-icons/bi";
 import { FiArrowLeft, FiArrowRight } from "react-icons/fi";
 import { FaFilter } from "react-icons/fa";
-import { BsSortDownAlt, BsSortDown, BsThreeDotsVertical } from "react-icons/bs";
+import { BsSortDownAlt, BsSortDown } from "react-icons/bs";
 
 // REACT TABLE
-import MOCK_DATA from "../../../assets/MOCK_DATA.json";
+// import MOCK_DATA from "../../../assets/MOCK_DATA.json";
 import { useTable, useSortBy, useFilters, usePagination } from "react-table";
 import { format } from "date-fns";
 
 import ReviewReport from "./ReviewReport";
-import styles from "../../../styles/admin/reports.module.css";
 import { ColumnFilter } from "../Admin/ColumnFilter";
+import eventContext from "context/event/eventContext";
+import styles from "../../../styles/admin/reports.module.css";
 
 const COLUMNS = [
   {
-    Header: "S. No.",
-    accessor: "serial_no",
-    Filter: ColumnFilter
+    Header: "S. No",
+    id: "row",
+    width: 100,
+    Filter: ColumnFilter,
+    Cell: (row) => {
+      return <div>{row.row.index + 1}</div>;
+    }
   },
   {
     Header: "Report Number",
-    accessor: "report_number",
+    accessor: "_id",
+    width: 250,
     Filter: ColumnFilter
   },
   {
-    Header: "Customer Name",
-    accessor: "customer_name",
+    Header: "Event Name",
+    accessor: "name",
+    width: 200,
     Filter: ColumnFilter
   },
   {
@@ -41,20 +47,34 @@ const COLUMNS = [
     Filter: ColumnFilter
   },
   {
-    Header: "Report Details",
+    Header: "Review",
     accessor: "report_details",
-    Filter: ColumnFilter
+    filterable: false,
+    name: "abc",
+    type: "button"
+  },
+  {
+    Header: "View",
+    accessor: "view_report",
+    name: "def",
+    type: "button"
   }
 ];
 
 const Reports = () => {
   //to store the values once and for all
   const columns = useMemo(() => COLUMNS, []);
-  const data = useMemo(() => MOCK_DATA, []);
+  // const data = useMemo(() => MOCK_DATA, []);
   const [toggleFilter, setToggleFilter] = useState(false);
   const [pageIndex, setPageIndex] = useState(1);
-  const [viewReport, setViewReport] = useState(false);
-  const [reportID, setReportID] = useState();
+  const [reviewReport, setReviewReport] = useState(false);
+  const [eventID, setEventID] = useState();
+
+  const { events, getAllEvents } = useContext(eventContext);
+
+  useEffect(async () => {
+    getAllEvents();
+  }, []);
 
   const {
     getTableProps,
@@ -70,7 +90,7 @@ const Reports = () => {
   } = useTable(
     {
       columns,
-      data
+      data: events
     },
     useFilters,
     useSortBy,
@@ -79,11 +99,11 @@ const Reports = () => {
 
   return (
     <div className={styles.alertsContainer}>
-      {viewReport && (
+      {reviewReport && (
         <ReviewReport
-          id={reportID}
+          eventID={eventID}
           handleClose={() => {
-            setViewReport(!viewReport);
+            setReviewReport(!reviewReport);
           }}
         />
       )}
@@ -139,33 +159,17 @@ const Reports = () => {
               return (
                 <tr {...row.getRowProps()}>
                   {row.cells.map((cell) => {
-                    return cell?.column?.id === "report_details" ? (
-                      <td
-                        className={
-                          styles.tableSingleCell + " " + styles.report_status_container
-                        }
-                        {...cell.getCellProps()}
-                      >
+                    return cell?.column?.type === "button" ? (
+                      <td className={styles.tableSingleCell} {...cell.getCellProps()}>
                         <button
-                          style={{ cursor: "pointer" }}
                           onClick={() => {
                             //change it when get original json data from backend
-                            setReportID(cell.row.original.serial_no);
-                            setViewReport(!viewReport);
+                            setEventID(cell.row.original._id);
+                            setReviewReport(!reviewReport);
                           }}
                           className={styles.report_details + " " + styles.tableSingleCell}
                         >
-                          View
-                        </button>
-                        <button
-                          style={{ cursor: "pointer", background: "none", border: "none"}}
-                          onClick={() => {
-                            //change it when get original json data from backend
-                            setReportID(cell.row.original.serial_no);
-                            setViewReport(!viewReport);
-                          }}
-                        >
-                          <BsThreeDotsVertical />
+                          {cell.column.Header}
                         </button>
                       </td>
                     ) : (
@@ -197,7 +201,7 @@ const Reports = () => {
         <div className={styles.rowsPerPage}>
           <p>
             {" "}
-            Page: {pageIndex > 1 ? pageIndex : 1} of {Math.round(MOCK_DATA.length / 10)}
+            Page: {pageIndex > 1 ? pageIndex : 1} of {Math.round(events.length / 10)}
           </p>
           <button
             className={styles.backForth}

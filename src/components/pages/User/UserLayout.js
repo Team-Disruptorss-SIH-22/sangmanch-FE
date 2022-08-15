@@ -1,15 +1,16 @@
 import React, { useContext } from "react";
-import styles from "../../styles/admin/adminLayout.module.css";
-import Navbar from "./Navbar/AdminNavbar";
-import SangmanchLogo from "../../assets/sangmanch_logo.png";
+import { Link } from "react-router-dom";
+import { AiFillSetting, AiFillInfoCircle } from "react-icons/ai";
+import { FaChartPie } from "react-icons/fa";
 import { MdDateRange } from "react-icons/md";
 import { TbReport } from "react-icons/tb";
-import { FaChartPie } from "react-icons/fa";
-import { AiFillSetting, AiFillInfoCircle } from "react-icons/ai";
-import { Link } from "react-router-dom";
-import AuthContext from "context/auth/authContext";
 
-const Sidebar = ({ Component, title }) => {
+import Navbar from "components/pages/Navbar/AdminNavbar";
+import AuthContext from "context/auth/authContext";
+import SangmanchLogo from "assets/sangmanch_logo.png";
+import styles from "styles/admin/adminLayout.module.css";
+
+const UserLayout = ({ Component, title }) => {
   const { user } = useContext(AuthContext);
 
   return (
@@ -68,4 +69,4 @@ const Sidebar = ({ Component, title }) => {
   );
 };
 
-export default Sidebar;
+export default UserLayout;

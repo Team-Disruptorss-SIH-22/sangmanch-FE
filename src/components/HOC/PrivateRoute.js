@@ -1,6 +1,6 @@
 import React, { useContext } from "react";
 import { Redirect, Route } from "react-router-dom";
-import { Sidebar } from "../pages";
+import { UserLayout } from "../pages";
 import authContext from "context/auth/authContext";
 
 const PrivateRoute = ({ component, title, ...rest }) => {
@@ -10,7 +10,7 @@ const PrivateRoute = ({ component, title, ...rest }) => {
       {...rest}
       render={(props) =>
         isAuthenticated ? (
-          <Sidebar Component={component} title={title} {...props} />
+          <UserLayout Component={component} title={title} {...props} />
         ) : (
           <Redirect to={"/login"} />
         )

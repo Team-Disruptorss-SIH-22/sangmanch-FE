@@ -29,10 +29,10 @@ const Events = () => {
   const [country, setCountry] = useState(null);
   const [type, setType] = useState(null);
   const [eventRegistration, setEventRegistration] = useState(initialState);
-  const { events, getEvents, createEvent } = useContext(eventContext);
+  const { events, getEventsOfUser, createEvent } = useContext(eventContext);
 
   useEffect(() => {
-    getEvents();
+    getEventsOfUser();
   }, []);
 
   // const handleEventClick = (info) => {

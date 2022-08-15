@@ -88,10 +88,6 @@
 .table th:first-of-type {
   text-align: center;
 }
-.table td:last-of-type {
-  font-size: 0.8rem;
-  font-weight: 600;
-}
 
 .tableHeaderRow {
   border-bottom: 1px solid rgba(0, 0, 0, 0.2);
@@ -125,14 +121,14 @@
   border-bottom: 1px solid rgba(0, 0, 0, 0.1);
 }
 
-.table .report_status_container{
+.table .report_status_container {
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding: 7%;
 }
 
-.table .report_details{
+.table .report_details {
   text-decoration: none;
   font-weight: 300;
   background: #263252;
@@ -140,7 +136,6 @@
   padding: 2% 10%;
   border-radius: 15px;
 }
-
 
 .footer {
   width: 100%;

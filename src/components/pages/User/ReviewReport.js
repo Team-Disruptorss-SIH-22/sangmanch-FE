@@ -1,15 +1,28 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import { GrClose } from "react-icons/gr";
+import eventContext from "context/event/eventContext";
+import authContext from "context/auth/authContext";
 
 import styles from "../../../styles/user/reviewReport.module.css";
+import { useEffect } from "react";
+import { toast } from "react-toastify";
 
 const ReviewReport = (props) => {
   const [report, setReport] = useState({
-    username: "",
     pin: "",
-    comments: "",
+    comment: "",
     status: ""
   });
+  const { reviewEvent, error, clearError, loading } = useContext(eventContext);
+  const { user } = useContext(authContext);
+
+  useEffect(() => {
+    if (!loading && error) {
+      console.log(Date.now());
+      toast.error(error);
+      clearError();
+    }
+  }, [loading, error]);
 
   const handleInput = (e) => {
     const name = e.target.name;
@@ -17,9 +30,19 @@ const ReviewReport = (props) => {
     setReport({ ...report, [name]: value });
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log(report);
+    await reviewEvent({
+      ...report,
+      pin: +report.pin,
+      status: +report.status,
+      userID: user._id,
+      eventID: props.eventID
+    });
+    if (!loading && error === null) {
+      console.log(Date.now());
+      toast.success("Report Reviewed");
+    }
   };
 
   return (
@@ -27,31 +50,14 @@ const ReviewReport = (props) => {
       <div className={styles.content}>
         <div className={styles.alertHeaderContainer}>
           <div className={styles.heading}>
-            <p>Review Report - {props.id}</p>
+            <p>Review Report - {props.eventID}</p>
           </div>
           <div onClick={props.handleClose} style={{ cursor: "pointer" }}>
             <GrClose />
           </div>
         </div>
         <div className={styles.container}>
-          <form className={styles.formContainer} action="" onSubmit={handleSubmit}>
-            <div className={styles.inputContainer}>
-              <label htmlFor="username">
-                User ID<span style={{ color: "red" }}> *</span>
-              </label>
-              <input
-                className="form-field"
-                type="number"
-                autoComplete="off"
-                value={report.username}
-                onChange={handleInput}
-                name="username"
-                id="username"
-                placeholder="Enter username"
-                required
-              />
-            </div>
-
+          <form className={styles.formContainer} onSubmit={handleSubmit}>
             <div className={styles.inputContainer}>
               <label htmlFor="pin">
                 4 digit Pin<span style={{ color: "red" }}> *</span>
@@ -63,41 +69,45 @@ const ReviewReport = (props) => {
                 value={report.pin}
                 onChange={handleInput}
                 name="pin"
+                minLength={4}
+                maxLength={4}
                 id="pin"
-                placeholder="Enter password"
+                placeholder="Enter pin"
                 required
               />
             </div>
 
             <div className={styles.inputContainer}>
-              <label htmlFor="comments">
-                Comments <span style={{ color: "red" }}> *</span>
+              <label htmlFor="comment">
+                comment <span style={{ color: "red" }}> *</span>
               </label>
               <input
                 className="form-field"
                 type="text"
                 autoComplete="off"
-                value={report.comments}
+                value={report.comment}
                 onChange={handleInput}
-                name="comments"
-                id="comments"
-                placeholder="Enter comments"
+                name="comment"
+                id="comment"
+                placeholder="Enter comment"
+                required
               />
             </div>
             <label htmlFor="accepted" className={styles.checkboxContainer}>
               <input
                 type="radio"
-                value="accepted"
+                value={1}
                 onChange={handleInput}
                 name="status"
                 id="accepted"
+                required
               />
               Accepted
             </label>
             <label htmlFor="rejected" className={styles.checkboxContainer}>
               <input
                 type="radio"
-                value="rejected"
+                value={-1}
                 onChange={handleInput}
                 name="status"
                 id="rejected"
