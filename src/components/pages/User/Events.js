@@ -8,6 +8,7 @@ import "react-toastify/dist/ReactToastify.css";
 import FullCalendar from "@fullcalendar/react";
 import dayGridPlugin from "@fullcalendar/daygrid";
 import interactionPlugin from "@fullcalendar/interaction";
+
 import styles from "../../../styles/user/events.module.css";
 import { countryOptions, typeOptions } from "components/Utils/constant";
 import eventContext from "context/event/eventContext";
@@ -20,7 +21,7 @@ const initialState = {
   expenses: "",
   budget: "",
   city: "",
-  invoice: null
+  invoice: undefined
 };
 
 const Events = () => {
@@ -119,7 +120,9 @@ const Events = () => {
             plugins={[dayGridPlugin, interactionPlugin]}
             initialView="dayGridMonth"
             //   weekends={false}
-            events={events}
+            events={events.map((e) => {
+              return { ...e, title: e.name, start: e.date.split("T")[0] };
+            })}
             // eventClick={handleEventClick}
             dateClick={handleDateClick}
           />
@@ -258,7 +261,6 @@ const Events = () => {
                       className="form-field"
                       type="file"
                       autoComplete="off"
-                      value={eventRegistration.invoice}
                       accept="image/*,capture=camera"
                       capture="”camera"
                       onChange={handleCompressedUpload}
