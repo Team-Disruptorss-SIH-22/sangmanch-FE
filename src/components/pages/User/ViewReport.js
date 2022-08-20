@@ -1,77 +1,75 @@
-import React, { useState, useContext } from "react";
+import React from "react";
+import { format } from "date-fns";
 import { GrClose } from "react-icons/gr";
-import eventContext from "context/event/eventContext";
-import authContext from "context/auth/authContext";
 
 import styles from "../../../styles/user/viewReport.module.css";
-import { useEffect } from "react";
-import { toast } from "react-toastify";
 
-const ViewReport = (props) => {
-  const { reviewEvent, error, clearError, loading } = useContext(eventContext);
-  const { user } = useContext(authContext);
-
-  const [report, setReport] = useState({
-    id: "1",
-    name: "Diwali",
-    date: "27-10-2021",
-    peopleReached: "123",
-    expenses: "12,500",
-    budget: "15,000",
-    city: "New Delhi",
-    invoice: "https://cloudinary.com/"
-  });
-
-  useEffect(() => {
-    if (!loading && error) {
-      console.log(Date.now());
-      toast.error(error);
-      clearError();
-    }
-  }, [loading, error]);
-
+const ViewReport = ({ event, handleClose }) => {
   return (
     <div className={styles.outer}>
       <div className={styles.content}>
         <div className={styles.container}>
           <div className={styles.alertHeaderContainer}>
             <div className={styles.heading}>
-              <p>View Report - {props.eventID}</p>
+              <p>View Report </p>
             </div>
-            <div onClick={props.handleClose} style={{ cursor: "pointer" }}>
+            <div onClick={handleClose} style={{ cursor: "pointer" }}>
               <GrClose />
             </div>
           </div>
 
           <div className={styles.reportContainer}>
             <div className={styles.singleReport}>
-              <span>ID</span>
-              <span>:</span>
-              <span>[ID]</span>
-            </div>
-
-            <div className={styles.singleReport}>
               <span>Name</span>
               <span>:</span>
-              <span>[Name]</span>
+              <span>{event.name}</span>
+            </div>
+            <div className={styles.singleReport}>
+              <span>Type</span>
+              <span>:</span>
+              <span>{event.type}</span>
             </div>
 
             <div className={styles.singleReport}>
               <span>Date</span>
               <span>:</span>
-              <span>[Date]</span>
+              <span>{format(new Date(event.date), "dd/MM/yyyy")}</span>
             </div>
 
             <div className={styles.singleReport}>
               <span>People Reached</span>
               <span>:</span>
-              <span>[People Reached]</span>
+              <span>{event.peopleReached}</span>
             </div>
 
             <div className={styles.singleReport}>
-              <span>People Reached</span>
+              <span>Expenses</span>
               <span>:</span>
-              <span>[People Reached]</span>
+              <span>{event.expenses}</span>
+            </div>
+
+            {event.budget && (
+              <div className={styles.singleReport}>
+                <span>Budget</span>
+                <span>:</span>
+                <span>{event.budget}</span>
+              </div>
+            )}
+
+            <div className={styles.singleReport}>
+              <span>Location</span>
+              <span>:</span>
+              <span>
+                {event.city}, {event.country}
+              </span>
+            </div>
+
+            <div className={styles.singleReport}>
+              <span>Invoice</span>
+              <span>:</span>
+              <a target="_blank" href={event.invoice}>
+                View Invoice{" "}
+              </a>
             </div>
           </div>
         </div>

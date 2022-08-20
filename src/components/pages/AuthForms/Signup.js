@@ -22,11 +22,12 @@ const Signup = (props) => {
     name: "",
     email: "",
     password: "",
-    confirmPassword: ""
+    confirmPassword: "",
+    pin: ""
   });
   const [selectedOption, setSelectedOption] = useState(null);
 
-  const { name, email, password, confirmPassword, licenceID } = user;
+  const { name, email, password, confirmPassword, licenceID, pin } = user;
   const { signup, registered, error, clearError } = useContext(authContext);
 
   useEffect(() => {
@@ -74,8 +75,12 @@ const Signup = (props) => {
       toast.error("Both Passwords don't match!");
       return;
     }
+    if (isNaN(Number(pin))) {
+      toast.error("Pin must be a number");
+      return;
+    }
     setRegistering(true);
-    await signup({ ...user, role: selectedOption.value });
+    await signup({ ...user, role: selectedOption.value, pin: +pin });
     setRegistering(false);
   };
 
@@ -90,7 +95,7 @@ const Signup = (props) => {
 
           <p className={styles.loginTitle}>Sign Up</p>
 
-          <form className={styles.formContainer}>
+          <form className={styles.formContainer} onSubmit={handleSubmit}>
             <div className={styles.inputContainer}>
               <label htmlFor="id">Licence ID</label>
               <input
@@ -100,7 +105,7 @@ const Signup = (props) => {
                 value={licenceID}
                 onChange={onChange}
                 placeholder="Licence ID"
-                required={true}
+                required
               />
             </div>
             <div className={styles.inputContainer}>
@@ -112,7 +117,7 @@ const Signup = (props) => {
                 value={name}
                 onChange={onChange}
                 placeholder="Name"
-                required={true}
+                required
               />
             </div>
 
@@ -125,7 +130,7 @@ const Signup = (props) => {
                 value={email}
                 onChange={onChange}
                 placeholder="Email Address"
-                required={true}
+                required
               />
             </div>
 
@@ -142,11 +147,7 @@ const Signup = (props) => {
                   required={true}
                   autoComplete="off"
                 />
-                <button
-                  tabIndex={-1}
-                  className={styles.showPassword}
-                  onClick={togglePassword}
-                >
+                <div className={styles.showPassword} onClick={togglePassword}>
                   {passwordShown ? (
                     <img
                       src="https://cdn-icons-png.flaticon.com/512/159/159604.png"
@@ -158,7 +159,7 @@ const Signup = (props) => {
                       alt="hide-password"
                     />
                   )}
-                </button>
+                </div>
               </div>
             </div>
 
@@ -175,11 +176,7 @@ const Signup = (props) => {
                   required={true}
                   autoComplete="off"
                 />
-                <button
-                  tabIndex={-1}
-                  className={styles.showPassword}
-                  onClick={toggleConfirmPassword}
-                >
+                <div className={styles.showPassword} onClick={toggleConfirmPassword}>
                   {confirmPasswordShown ? (
                     <img
                       src="https://cdn-icons-png.flaticon.com/512/159/159604.png"
@@ -191,7 +188,7 @@ const Signup = (props) => {
                       alt="hide-confirm-password"
                     />
                   )}
-                </button>
+                </div>
               </div>
             </div>
             <div className={styles.inputContainer}>
@@ -203,9 +200,23 @@ const Signup = (props) => {
                 placeholder="Select your role"
               />
             </div>
+            {selectedOption.value !== "ICCRUser" && (
+              <div className={styles.inputContainer}>
+                <input
+                  type="text"
+                  id="pin"
+                  name="pin"
+                  value={pin}
+                  maxLength="4"
+                  minLength="4"
+                  onChange={onChange}
+                  placeholder="Enter 4 digit PIN"
+                  required
+                />
+              </div>
+            )}
             <button
               type="submit"
-              onClick={handleSubmit}
               className={styles.submit}
               // disabled={registering}
             >

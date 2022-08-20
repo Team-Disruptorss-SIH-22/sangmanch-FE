@@ -44,8 +44,7 @@ export default (state, action) => {
       return {
         ...state,
         error: action.payload,
-        loading: false,
-        error: null
+        loading: false
       };
     case CLEAR_ERROR:
       return {

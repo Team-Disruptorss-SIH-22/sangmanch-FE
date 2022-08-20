@@ -16,6 +16,7 @@ import ViewReport from "./ViewReport";
 import { ColumnFilter } from "../Admin/ColumnFilter";
 import eventContext from "context/event/eventContext";
 import styles from "../../../styles/admin/reports.module.css";
+import authContext from "context/auth/authContext";
 
 const COLUMNS = [
   {
@@ -55,12 +56,26 @@ const COLUMNS = [
     type: "button"
   },
   {
+    Header: "Status",
+    accessor: "status",
+    filterable: false,
+    name: "report status",
+    Cell: ({ value }) => statusMapping[value]
+  },
+  {
     Header: "View",
     accessor: "view_report",
     name: "def",
     type: "button"
   }
 ];
+
+const statusMapping = {
+  "-1": "Rejected",
+  0: "Pending on Finance Manager",
+  1: "Pending on Governing Body",
+  2: "completed"
+};
 
 const Reports = () => {
   //to store the values once and for all
@@ -70,14 +85,19 @@ const Reports = () => {
   const [pageIndex, setPageIndex] = useState(1);
   const [reviewReport, setReviewReport] = useState(false);
   const [viewReport, setViewReport] = useState(false);
-  const [eventID, setEventID] = useState();
+  const [event, setEvent] = useState({});
 
-  const { events, getAllEvents } = useContext(eventContext);
+  const { user } = useContext(authContext);
+  const { events, getAllEvents, getEventsOfUser } = useContext(eventContext);
 
-  useEffect(async () => {
-    getAllEvents();
+  useEffect(() => {
+    user.role === "ICCRUser" ? getEventsOfUser() : getAllEvents();
   }, []);
 
+  const hiddenColumns = useMemo(
+    () => (user.role === "ICCRUser" ? ["report_details"] : ["status"]),
+    [user.role]
+  );
   const {
     getTableProps,
     getTableBodyProps,
@@ -92,18 +112,23 @@ const Reports = () => {
   } = useTable(
     {
       columns,
-      data: events
+      data: events,
+      initialState: {
+        hiddenColumns: hiddenColumns
+      }
     },
     useFilters,
     useSortBy,
     usePagination
   );
 
+  const isDisabled = () => {};
+
   return (
     <div className={styles.alertsContainer}>
       {reviewReport && (
         <ReviewReport
-          eventID={eventID}
+          event={event}
           handleClose={() => {
             setReviewReport(!reviewReport);
           }}
@@ -111,14 +136,14 @@ const Reports = () => {
       )}
       {viewReport && (
         <ViewReport
-          eventID={eventID}
+          event={event}
           handleClose={() => {
             setViewReport(!viewReport);
           }}
         />
       )}
       <div className={styles.alertHeaderContainer}>
-        <p>Received User Reports</p>
+        <p>User Reports</p>
         <div className={styles.tableOperations + " " + styles.clrGrey}>
           <div className={styles.operation}>
             <BiSortUp />
@@ -174,13 +199,15 @@ const Reports = () => {
                         <button
                           onClick={() => {
                             //change it when get original json data from backend
-                            setEventID(cell.row.index + 1);
+                            setEvent(cell.row.original);
                             if (cell?.column?.id === "view_report") {
                               setViewReport(!viewReport);
                             } else if (cell?.column?.id === "report_details") {
+                              console.log("happening");
                               setReviewReport(!reviewReport);
                             }
                           }}
+                          disabled={isDisabled}
                           className={styles.report_details + " " + styles.tableSingleCell}
                         >
                           {cell.column.Header}

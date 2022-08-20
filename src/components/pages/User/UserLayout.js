@@ -22,14 +22,13 @@ const UserLayout = ({ Component, title }) => {
           </Link>
         </div>
         <ul className={styles.collection}>
-          {user?.role !== "ICCRUser" && (
-            <li>
-              <FaChartPie size={15} />
-              <span>
-                <Link to="/user/dashboard">Overview</Link>
-              </span>
-            </li>
-          )}
+          <li>
+            <FaChartPie size={15} />
+            <span>
+              <Link to="/user/dashboard">Overview</Link>
+            </span>
+          </li>
+
           <li>
             <MdDateRange size={18} />
             <span>
@@ -43,15 +42,15 @@ const UserLayout = ({ Component, title }) => {
               <Link to="/user/reports">Report Status</Link>
             </span>
           </li>
-          {user?.role !== "ICCRUser" && (
-            <li>
-              <AiFillInfoCircle size={18} />
-              <span>
-                {/* <Link to="/user/infographics">Infographics</Link> */}
-                <Link to="/user/infographics">Infographics</Link>
-              </span>
-            </li>
-          )}
+
+          <li>
+            <AiFillInfoCircle size={18} />
+            <span>
+              {/* <Link to="/user/infographics">Infographics</Link> */}
+              <Link to="/user/infographics">Infographics</Link>
+            </span>
+          </li>
+
           <div className={styles.divider}></div>
           <li>
             <AiFillSetting size={18} />
