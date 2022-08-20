@@ -88,7 +88,7 @@ const Reports = () => {
         />
       )}
       <div className={styles.alertHeaderContainer}>
-        <p>Received User Reports</p>
+        <p>User Reports</p>
         <div className={styles.tableOperations + " " + styles.clrGrey}>
           <div className={styles.operation}>
             <BiSortUp />

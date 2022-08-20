@@ -90,6 +90,7 @@ const EventState = (props) => {
   // Review Event
   const reviewEvent = async (reviewReport) => {
     setLoading();
+
     try {
       const config = {
         headers: {
@@ -110,13 +111,16 @@ const EventState = (props) => {
         type: FORM_ERROR,
         payload: err.response.data.msg || errorMsg
       });
+      throw err;
     }
   };
 
-  const clearError = () => {
-    dispatch({
-      type: CLEAR_ERROR
-    });
+  const clearError = (timeoutVal = 3000) => {
+    setTimeout(() => {
+      dispatch({
+        type: CLEAR_ERROR
+      });
+    }, timeoutVal);
   };
 
   const setLoading = () => {

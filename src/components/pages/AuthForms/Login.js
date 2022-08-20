@@ -102,12 +102,7 @@ const UserLogin = (props) => {
                   autoComplete="off"
                   placeholder="Password"
                 />
-                <button
-                  tabIndex={-1}
-                  type="submit"
-                  className={styles.showPassword}
-                  onClick={togglePassword}
-                >
+                <div className={styles.showPassword} onClick={togglePassword}>
                   {passwordShown ? (
                     <img
                       src="https://cdn-icons-png.flaticon.com/512/565/565655.png"
@@ -119,7 +114,7 @@ const UserLogin = (props) => {
                       alt="show-password"
                     />
                   )}
-                </button>
+                </div>
               </div>
             </div>
             <button type="submit" className={styles.submit} disabled={loggingIn}>

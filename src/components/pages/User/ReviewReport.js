@@ -7,7 +7,7 @@ import styles from "../../../styles/user/reviewReport.module.css";
 import { useEffect } from "react";
 import { toast } from "react-toastify";
 
-const ReviewReport = (props) => {
+const ReviewReport = ({ event, handleClose }) => {
   const [report, setReport] = useState({
     pin: "",
     comment: "",
@@ -31,18 +31,18 @@ const ReviewReport = (props) => {
   };
 
   const handleSubmit = async (e) => {
-    e.preventDefault();
-    await reviewEvent({
-      ...report,
-      pin: +report.pin,
-      status: +report.status,
-      userID: user._id,
-      eventID: props.eventID
-    });
-    if (!loading && error === null) {
-      console.log(Date.now());
+    try {
+      e.preventDefault();
+      await reviewEvent({
+        ...report,
+        pin: +report.pin,
+        status: +report.status,
+        userID: user._id,
+        eventID: event._id
+      });
       toast.success("Report Reviewed");
-    }
+      handleClose();
+    } catch (error) {}
   };
 
   return (
@@ -51,9 +51,9 @@ const ReviewReport = (props) => {
         <div className={styles.container}>
           <div className={styles.alertHeaderContainer}>
             <div className={styles.heading}>
-              <p>Review Report - {props.eventID}</p>
+              <p>Review Report</p>
             </div>
-            <div onClick={props.handleClose} style={{ cursor: "pointer" }}>
+            <div onClick={handleClose} style={{ cursor: "pointer" }}>
               <GrClose />
             </div>
           </div>
@@ -119,7 +119,7 @@ const ReviewReport = (props) => {
 
             <div className={styles.buttonContainer}>
               <button
-                onClick={props.handleClose}
+                onClick={handleClose}
                 className={styles.buttonCommon + " " + styles.cancel}
               >
                 Cancel
