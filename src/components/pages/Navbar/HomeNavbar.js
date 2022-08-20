@@ -34,6 +34,20 @@ const HomeNavbar = (props) => {
     };
   }, []);
 
+  const handleChange = (type) => {
+    const htmlEl = document.querySelector("html");
+    const computedFontSize = Number(
+      window.getComputedStyle(htmlEl).fontSize.split("px")[0]
+    );
+    if (type === "inc" && computedFontSize < 24) {
+      htmlEl.style.fontSize = `${computedFontSize + 2}px`;
+    } else if (type === "dec" && computedFontSize > 12) {
+      htmlEl.style.fontSize = `${computedFontSize - 2}px`;
+    } else if (type === "reset") {
+      htmlEl.style.fontSize = `16px`;
+    }
+  };
+
   return (
     <>
       <div className={styles.top_Default_Bar}>
@@ -49,9 +63,14 @@ const HomeNavbar = (props) => {
 
           <div className={styles.rightSide}>
             <div className={styles.font_size_change}>
-              <button>A +</button>
-              <button className={styles.currentFontSize}>A</button>
-              <button>A -</button>
+              <button onClick={() => handleChange("inc")}>A +</button>
+              <button
+                onClick={() => handleChange("reset")}
+                className={styles.currentFontSize}
+              >
+                A
+              </button>
+              <button onClick={() => handleChange("dec")}>A -</button>
             </div>
 
             <div className={styles.language_change}>

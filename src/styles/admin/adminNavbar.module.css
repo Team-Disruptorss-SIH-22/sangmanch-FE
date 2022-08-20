@@ -5,7 +5,7 @@
 
 .heading_primary {
   font-weight: var(--fontMedium);
-  font-size: 20px;
+  font-size: 1.25rem;
 }
 
 .navbar__menu {

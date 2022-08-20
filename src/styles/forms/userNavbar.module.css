@@ -130,7 +130,7 @@
 .userIconAction .menu ul li a,
 .userIconAction .menu ul li p {
   cursor: pointer;
-  font-size: 13.6px;
+  font-size: 0.85rem;
   font-weight: var(--fontMedium);
   text-decoration: none;
   color: var(--colorSecondary);

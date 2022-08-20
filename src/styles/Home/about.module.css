@@ -11,11 +11,11 @@
   text-align: center;
   color: #147eb7;
   margin-bottom: 6px;
-  font-size: 24px;
+  font-size: 1.5rem;
 }
 
 .about .about_container .about_content p {
-  font-size: 18px;
+  font-size: 1.125rem;
   text-align: justify;
   line-height: 21px;
 }
