@@ -26,14 +26,11 @@ const faq = [
 ];
 
 const FAQ = () => {
-  const [activeAnswers, setactiveAnswers] = useState([]);
+  const [activeAnswer, setActiveAnswer] = useState(null);
 
   const questionClickHandler = (index) => {
-    if (activeAnswers.includes(index)) {
-      setactiveAnswers(activeAnswers.filter((item) => item !== index));
-    } else {
-      setactiveAnswers([...activeAnswers, index]);
-    }
+    if (activeAnswer === index) setActiveAnswer(null);
+    else setActiveAnswer(index);
   };
 
   return (
@@ -45,7 +42,7 @@ const FAQ = () => {
             <Fragment>
               <div
                 className={`${styles.faq_item} ${
-                  activeAnswers.includes(idx) ? styles.active : ""
+                  activeAnswer === idx ? styles.active : ""
                 }`}
                 key={idx}
               >
