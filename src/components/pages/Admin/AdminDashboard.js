@@ -19,15 +19,15 @@ const AdminDashboard = () => {
   const [drugsInPipeline, setDrugsInPipeline] = useState(610000);
   const [deliveredDrugs, setDeliveredDrugs] = useState(500);
   const [safeDeliveries, setSafeDeliveries] = useState(443);
-  const [anamoliesDetected, setAnamoliesDetected] = useState(57);
+  const [anomaliesDetected, setanomaliesDetected] = useState(57);
 
   // Charts
   const [charts, setCharts] = useState({
     consignmentsReceived: 4490,
     safeDeliveries: 426,
-    anamoliesDetected: 33,
-    anamoliesForwarded: 3,
-    anamoliesDiscarded: 8
+    anomaliesDetected: 33,
+    anomaliesForwarded: 3,
+    anomaliesDiscarded: 8
   });
 
   // Tasks
@@ -108,8 +108,8 @@ const AdminDashboard = () => {
         </div>
 
         <div className={styles.stats + " " + styles.clrRed}>
-          <p>Anamolies Detected</p>
-          <p className={styles.stats_number}>{anamoliesDetected}</p>
+          <p>Anomalies Detected</p>
+          <p className={styles.stats_number}>{anomaliesDetected}</p>
         </div>
       </div>
 
