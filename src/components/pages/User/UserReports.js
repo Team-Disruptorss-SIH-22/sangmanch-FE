@@ -17,6 +17,7 @@ import { ColumnFilter } from "../Admin/ColumnFilter";
 import eventContext from "context/event/eventContext";
 import styles from "../../../styles/admin/reports.module.css";
 import authContext from "context/auth/authContext";
+import Loader from "../Loader";
 
 const COLUMNS = [
   {
@@ -88,7 +89,7 @@ const Reports = () => {
   const [event, setEvent] = useState({});
 
   const { user } = useContext(authContext);
-  const { events, getAllEvents, getEventsOfUser } = useContext(eventContext);
+  const { events, getAllEvents, getEventsOfUser, loading } = useContext(eventContext);
 
   useEffect(() => {
     user.role === "ICCRUser" ? getEventsOfUser() : getAllEvents();
@@ -121,6 +122,8 @@ const Reports = () => {
     useSortBy,
     usePagination
   );
+
+  if (loading) return <Loader />;
 
   const isDisabled = () => {};
 

@@ -133,6 +133,7 @@ const EventState = (props) => {
     <EventContext.Provider
       value={{
         events: state.events,
+        loading: state.loading,
         error: state.error,
         getEventsOfUser,
         getAllEvents,

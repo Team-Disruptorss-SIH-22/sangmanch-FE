@@ -36,7 +36,7 @@ function App() {
           <Router>
             <Switch>
               <Route exact path="/" component={Home} />
-              <PublicRoute exact path="/about" component={About} />
+              <Route exact path="/about" component={About} />
               <PublicRoute exact path="/signup" component={Signup} />
               <PublicRoute exact path="/login" component={Login} />
               <PublicRoute exact path="/verify/:token" component={Verify} />

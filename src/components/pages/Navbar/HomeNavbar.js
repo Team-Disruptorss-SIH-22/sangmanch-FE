@@ -74,10 +74,7 @@ const HomeNavbar = (props) => {
             </div>
 
             <div className={styles.language_change}>
-              <select name="languages" className={styles.languages}>
-                <option value="English">English</option>
-                <option value="Hindi">Hindi</option>
-              </select>
+              <div id="google_translate_element"></div>
             </div>
           </div>
         </div>

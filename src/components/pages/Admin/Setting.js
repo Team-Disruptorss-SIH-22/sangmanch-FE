@@ -4,7 +4,7 @@ const Comp = (props) => {
   return (
     <div className={styles.outerBlock}>
       <div className={styles.innerBlock}>
-        <h3>{props.heading}</h3>
+        <p className={styles.heading}>{props.heading}</p>
         <p>{props.para}</p>
       </div>
       <button className={props.btn === "Delete Account" ? styles.delBtn : styles.button}>
