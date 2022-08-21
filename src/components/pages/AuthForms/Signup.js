@@ -194,13 +194,13 @@ const Signup = (props) => {
             <div className={styles.inputContainer}>
               <Select
                 className={styles.select}
-                defaultValue={selectedOption}
+                value={selectedOption}
                 onChange={setSelectedOption}
                 options={roleOptions}
                 placeholder="Select your role"
               />
             </div>
-            {selectedOption.value !== "ICCRUser" && (
+            {selectedOption?.value !== "ICCRUser" && (
               <div className={styles.inputContainer}>
                 <input
                   type="text"

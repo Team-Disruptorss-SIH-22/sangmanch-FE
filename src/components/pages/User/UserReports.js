@@ -19,86 +19,96 @@ import styles from "../../../styles/admin/reports.module.css";
 import authContext from "context/auth/authContext";
 import Loader from "../Loader";
 
-const COLUMNS = [
-  {
-    Header: "S. No",
-    id: "row",
-    width: 100,
-    Filter: ColumnFilter,
-    Cell: (row) => {
-      return <div>{row.row.index + 1}</div>;
-    }
-  },
-  {
-    Header: "Report Number",
-    accessor: "_id",
-    width: 250,
-    Filter: ColumnFilter
-  },
-  {
-    Header: "Event Name",
-    accessor: "name",
-    width: 200,
-    Filter: ColumnFilter
-  },
-  {
-    Header: "Date",
-    accessor: "date",
-    Cell: ({ value }) => {
-      return format(new Date(value), "dd/MM/yyyy");
-    },
-    Filter: ColumnFilter
-  },
-  {
-    Header: "Review",
-    accessor: "report_details",
-    filterable: false,
-    name: "abc",
-    type: "button"
-  },
-  {
-    Header: "Status",
-    accessor: "status",
-    filterable: false,
-    name: "report status",
-    Cell: ({ value }) => statusMapping[value]
-  },
-  {
-    Header: "View",
-    accessor: "view_report",
-    name: "def",
-    type: "button"
-  }
-];
-
 const statusMapping = {
-  "-1": "Rejected",
+  "-1": "Rejected by Finance Manager",
+  "-2": "Rejected by Governing Body",
   0: "Pending on Finance Manager",
   1: "Pending on Governing Body",
-  2: "completed"
+  2: "Completed"
 };
 
 const Reports = () => {
-  //to store the values once and for all
-  const columns = useMemo(() => COLUMNS, []);
-  // const data = useMemo(() => MOCK_DATA, []);
   const [toggleFilter, setToggleFilter] = useState(false);
   const [pageIndex, setPageIndex] = useState(1);
   const [reviewReport, setReviewReport] = useState(false);
   const [viewReport, setViewReport] = useState(false);
+  const [eventState, setEventState] = useState([]);
   const [event, setEvent] = useState({});
 
   const { user } = useContext(authContext);
   const { events, getAllEvents, getEventsOfUser, loading } = useContext(eventContext);
 
+  const COLUMNS = [
+    {
+      Header: "S. No",
+      id: "row",
+      width: 100,
+      Filter: ColumnFilter,
+      Cell: (row) => {
+        return <div>{row.row.index + 1}</div>;
+      }
+    },
+    {
+      Header: "Report Number",
+      accessor: "_id",
+      width: 250,
+      Filter: ColumnFilter
+    },
+    {
+      Header: "Event Name",
+      accessor: "name",
+      width: 200,
+      Filter: ColumnFilter
+    },
+    {
+      Header: "Date",
+      accessor: "date",
+      Cell: ({ value }) => {
+        return format(new Date(value), "dd/MM/yyyy");
+      },
+      Filter: ColumnFilter
+    },
+    // {
+    //   Header: "Review",
+    //   accessor: "report_details",
+    //   filterable: false,
+    //   name: "abc",
+    //   type: "button",
+    //   Cell: ({ row, value }) => "" + value
+    // },
+    {
+      Header: user.role === "ICCRUser" ? "Status" : "Review",
+      accessor: "status",
+      filterable: false,
+      name: "report status",
+      type: user.role === "ICCRUser" ? null : "button",
+      Cell: ({ value }) =>
+        user.role === "ICCRUser" ? statusMapping[value] : getText(value)
+    },
+    {
+      Header: "View",
+      accessor: "view_report",
+      name: "def",
+      type: "button",
+      Cell: () => "View"
+    }
+  ];
+  const columns = useMemo(() => COLUMNS, []);
+
   useEffect(() => {
     user.role === "ICCRUser" ? getEventsOfUser() : getAllEvents();
   }, []);
 
-  const hiddenColumns = useMemo(
-    () => (user.role === "ICCRUser" ? ["report_details"] : ["status"]),
-    [user.role]
-  );
+  useEffect(() => {
+    const roleWiseEvents =
+      user.role === "governingBody" ? events?.filter((ev) => ev.status !== 0) : events;
+    setEventState(roleWiseEvents);
+  }, [events]);
+
+  // const hiddenColumns = useMemo(
+  //   () => (user.role === "ICCRUser" ? ["report_details"] : ["status"]),
+  //   [user.role]
+  // );
   const {
     getTableProps,
     getTableBodyProps,
@@ -113,19 +123,31 @@ const Reports = () => {
   } = useTable(
     {
       columns,
-      data: events,
-      initialState: {
-        hiddenColumns: hiddenColumns
-      }
+      data: eventState
     },
     useFilters,
     useSortBy,
     usePagination
   );
 
+  const getText = (status) => {
+    if (status === 0) return "Review";
+    if (status === -1) return "Rejected by Finance Manager";
+    if (status === -2) return "Rejected by Governing Body";
+    if (status === 1 && user.role === "financeManager") return "Accepted";
+    if (status === 2 && user.role === "governingBody") return "Completed";
+    if (status === 2 && user.role === "financeManager") return "Completed";
+    return "Review";
+  };
+
   if (loading) return <Loader />;
 
-  const isDisabled = () => {};
+  const isDisabled = (currEvent) => {
+    if (currEvent.status < 0) return true;
+    if (currEvent.status - 1 >= 0 && user.role === "financeManager") return true;
+    if (currEvent.status === 2 && user.role === "governingBody") return true;
+    return false;
+  };
 
   return (
     <div className={styles.alertsContainer}>
@@ -205,15 +227,20 @@ const Reports = () => {
                             setEvent(cell.row.original);
                             if (cell?.column?.id === "view_report") {
                               setViewReport(!viewReport);
-                            } else if (cell?.column?.id === "report_details") {
-                              console.log("happening");
+                            } else if (cell?.column?.id === "status") {
                               setReviewReport(!reviewReport);
                             }
                           }}
-                          disabled={isDisabled}
-                          className={styles.report_details + " " + styles.tableSingleCell}
+                          disabled={
+                            cell?.column?.id === "status" && isDisabled(cell.row.original)
+                          }
+                          className={`
+                            ${cell?.column?.id === "status" && styles.status} ${
+                            styles.button
+                          } 
+                            `}
                         >
-                          {cell.column.Header}
+                          {cell.render("Cell")}
                         </button>
                       </td>
                     ) : (
@@ -245,7 +272,7 @@ const Reports = () => {
         <div className={styles.rowsPerPage}>
           <p>
             {" "}
-            Page: {pageIndex > 1 ? pageIndex : 1} of {Math.round(events.length / 10)}
+            Page: {pageIndex > 1 ? pageIndex : 1} of {Math.round(eventState?.length / 10)}
           </p>
           <button
             className={styles.backForth}

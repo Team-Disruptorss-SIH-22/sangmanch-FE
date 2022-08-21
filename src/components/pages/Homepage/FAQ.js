@@ -39,7 +39,7 @@ const FAQ = () => {
         <h1 className={styles.faqHeading}>Frequently Asked Questions</h1>
         <div className={styles.faqContent}>
           {faq.map((item, idx) => (
-            <Fragment>
+            <Fragment key={idx}>
               <div
                 className={`${styles.faq_item} ${
                   activeAnswer === idx ? styles.active : ""

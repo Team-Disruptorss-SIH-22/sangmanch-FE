@@ -29,13 +29,15 @@ const UserLayout = ({ Component, title }) => {
             </span>
           </li>
 
-          <li>
-            <MdDateRange size={18} />
-            <span>
-              {/* <Link to="/user/events">User Reports</Link> */}
-              <Link to="/user/events">Events</Link>
-            </span>
-          </li>
+          {user.role === "ICCRUser" && (
+            <li>
+              <MdDateRange size={18} />
+              <span>
+                {/* <Link to="/user/events">User Reports</Link> */}
+                <Link to="/user/events">Events</Link>
+              </span>
+            </li>
+          )}
           <li>
             <TbReport size={18} />
             <span>

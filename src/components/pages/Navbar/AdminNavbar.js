@@ -16,13 +16,6 @@ const Navbar = (props) => {
   const { isAuthenticated, user, logout } = useContext(authContext);
   const [menuToggle, setMenuToggle] = useState(false);
 
-  useEffect(() => {
-    if (isAuthenticated === true) {
-      if (user.role === "ICCRUser") props.history?.push("/user/events");
-      else props.history?.push("/user/dashboard");
-    }
-  }, [isAuthenticated]);
-
   const onLogout = () => {
     logout();
     toast.success("Logged out successfully");

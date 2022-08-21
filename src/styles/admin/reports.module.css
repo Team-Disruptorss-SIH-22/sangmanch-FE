@@ -131,14 +131,19 @@
   padding: 7%;
 }
 
-.table .report_details {
+.table .button {
   text-decoration: none;
   font-weight: 300;
   background: #263252;
   color: white;
   padding: 5px 10px;
-  width: 70px;
+  min-width: 70px;
   border-radius: 15px;
+}
+
+.table .button.status:disabled {
+  background: rgba(65, 81, 125, 0.75);
+  cursor: default;
 }
 
 .footer {

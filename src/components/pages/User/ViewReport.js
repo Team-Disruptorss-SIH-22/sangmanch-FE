@@ -5,6 +5,13 @@ import { GrClose } from "react-icons/gr";
 import styles from "../../../styles/user/viewReport.module.css";
 
 const ViewReport = ({ event, handleClose }) => {
+  const statusMapping = {
+    "-1": "Rejected by Finance Manager",
+    "-2": "Rejected by Governing Body",
+    0: "Pending on Finance Manager",
+    1: "Pending on Governing Body",
+    2: "Completed"
+  };
   return (
     <div className={styles.outer}>
       <div className={styles.content}>
@@ -19,6 +26,21 @@ const ViewReport = ({ event, handleClose }) => {
           </div>
 
           <div className={styles.reportContainer}>
+            <div className={styles.singleReport}>
+              <span>Status</span>
+              <span>:</span>
+              <span
+                className={
+                  event.status < 0
+                    ? styles.rejected
+                    : event.status < 2
+                    ? styles.pending
+                    : styles.accepted
+                }
+              >
+                <strong>{statusMapping[event.status]}</strong>
+              </span>
+            </div>
             <div className={styles.singleReport}>
               <span>Name</span>
               <span>:</span>

@@ -12,13 +12,6 @@ const HomeNavbar = (props) => {
   const { isAuthenticated, user } = useContext(authContext);
   const [showModal, setShowModal] = useState(false);
 
-  useEffect(() => {
-    if (isAuthenticated === true) {
-      console.log(props);
-      // props.history?.push(`${user.role}/dispatch`);
-    }
-  }, [isAuthenticated]);
-
   const modalClickHandler = (e) => {
     e.stopPropagation();
   };

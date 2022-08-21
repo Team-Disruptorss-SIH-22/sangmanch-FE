@@ -54,6 +54,18 @@
   align-items: center;
 }
 
+.singleReport span.accepted {
+  color: #00a65a;
+}
+
+.singleReport span.rejected {
+  color: #dd4b39;
+}
+
+.singleReport span.pending {
+  color: #f39c12;
+}
+
 .singleReport > *:nth-child(odd) {
   flex-basis: 49%;
 }
