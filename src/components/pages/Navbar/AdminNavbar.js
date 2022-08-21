@@ -56,14 +56,14 @@ const Navbar = (props) => {
 
           {menuToggle && (
             <div className={styles.menu}>
-              <h3>USER ID</h3>
+              <h3>Quick Actions</h3>
               <ul>
                 <li>
                   <FiSettings size={20} className={styles.menu_image} />
-                  <Link to={"/manufacturer/settings"}>Settings</Link>
+                  <Link to={"/user/settings"}>Settings</Link>
                 </li>
                 <li>
-                  <BiLogOut size={20} className={styles.menu_image} />
+                  <BiLogOut size={24} className={styles.menu_image} />
                   <div onClick={onLogout}>Log Out</div>
                 </li>
               </ul>

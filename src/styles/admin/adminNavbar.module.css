@@ -33,6 +33,7 @@
   padding: 0;
   display: flex;
   justify-content: flex-end;
+  position: relative;
 }
 
 .navbar__menu .menuAction .menu__profile {
@@ -52,8 +53,8 @@
 
 .navbar__menu .menuAction .menu {
   position: absolute;
-  width: 13%;
-  top: 9%;
+  width: auto;
+  top: 30px;
   box-shadow: 0px 0px 20px 5px rgba(148, 148, 148, 0.3);
   border-radius: 5px;
   border: 1px solid rgba(0, 0, 0, 0.1);
@@ -73,26 +74,29 @@
 }
 
 .navbar__menu .menuAction .menu h3 {
-  margin-top: 8%;
+  margin-top: 12px;
+  margin-bottom: 6px;
   font-size: 1rem;
   text-align: center;
   font-weight: var(--fontMedium);
+  padding: 0px 12px;
 }
 
 .navbar__menu .menuAction .menu ul {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
+  list-style: none;
 }
 
 .navbar__menu .menuAction .menu ul li {
-  width: 70%;
   display: flex;
-  padding: 3% 0;
-  justify-content: space-evenly;
+  padding: 6px 0;
+  gap: 8px;
+  justify-content: center;
   align-items: center;
   border-top: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+.navbar__menu .menuAction .menu ul li:nth-child(2) svg {
+  margin-left: -8px;
 }
 
 .navbar__menu .menuAction .menu ul li .menu_image {
