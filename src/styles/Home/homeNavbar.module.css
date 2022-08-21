@@ -84,6 +84,13 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  height: 50px;
+}
+
+.logo__center img {
+  width: auto;
+  height: 100%;
+  object-fit: contain;
 }
 
 .navbar__wrapper {

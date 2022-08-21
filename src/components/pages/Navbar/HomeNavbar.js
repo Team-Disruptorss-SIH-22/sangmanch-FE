@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import { HashLink } from "react-router-hash-link";
 
 import IccrLogo from "assets/icons/iccr_logo.svg";
-import Sangmanch from "assets/sangmanch_logo.svg";
+import Sangmanch from "assets/sangmanch_logo.png";
 import styles from "../../../styles/Home/homeNavbar.module.css";
 import authContext from "context/auth/authContext";
 import { GiHamburgerMenu } from "react-icons/gi";
@@ -77,8 +77,6 @@ const HomeNavbar = (props) => {
               <select name="languages" className={styles.languages}>
                 <option value="English">English</option>
                 <option value="Hindi">Hindi</option>
-                <option value="Gujrati">Gujrati</option>
-                <option value="Punjabi">Punjabi</option>
               </select>
             </div>
           </div>

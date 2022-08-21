@@ -36,7 +36,7 @@
 .faq_item .faq_item_question p {
   flex-grow: 1;
   font-size: 1.125rem;
-  line-height: 21px;
+  line-height: 1.3125rem;
   font-weight: 600;
 }
 
