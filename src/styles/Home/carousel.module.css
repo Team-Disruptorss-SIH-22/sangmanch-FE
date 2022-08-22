@@ -96,6 +96,6 @@
   }
   .bgImage img {
     height: 425px;
-    content: url("../../assets//home/carousel/carousel__mobile.jpg");
+    object-fit: contain;
   }
 }

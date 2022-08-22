@@ -78,3 +78,18 @@ button {
   background: #3498db;
   border-radius: 7px;
 }
+
+.goog-te-banner-frame.skiptranslate {
+  display: none !important;
+}
+body {
+  top: 0px !important;
+}
+
+.goog-te-gadget-simple {
+  font-size: 14px;
+}
+
+.goog-te-gadget-icon {
+  display: none;
+}

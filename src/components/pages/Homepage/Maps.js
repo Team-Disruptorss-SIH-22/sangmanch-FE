@@ -24,7 +24,7 @@ const Maps = () => {
   };
   return (
     <div className={styles.maps_container}>
-      <p className={styles.map_heading}>Indian Cultural Centers Abroad</p>
+      <h1 className={styles.map_heading}>Indian Cultural Centers Abroad</h1>
       <div className={styles.map}>
         <GoogleMapReact
           bootstrapURLKeys={{ key: "AIzaSyD7T84NejT_97g8OH2BDIPl8O0F0CyQlwY" }}

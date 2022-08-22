@@ -100,3 +100,15 @@
     overflow-y: scroll;
   }
 }
+
+@media screen and (max-width: 650px) {
+  .faq {
+    margin: 40px 0;
+  }
+  .faqHeading {
+    margin-bottom: 20px;
+  }
+  .faqContent {
+    width: 100%;
+  }
+}
