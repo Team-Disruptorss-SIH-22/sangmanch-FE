@@ -4,12 +4,23 @@ import axios from "axios";
 import EventContext from "./eventContext";
 import eventReducer from "./eventReducer";
 
-import { CREATE_EVENT, CLEAR_ERROR, GET_EVENTS, FORM_ERROR } from "../types";
+import {
+  CREATE_EVENT,
+  CLEAR_ERROR,
+  GET_EVENTS_OF_USER,
+  GET_ALL_EVENTS,
+  FORM_ERROR,
+  REVIEW_EVENT,
+  SET_LOADING
+} from "../types";
+
+const errorMsg = "Something went wrong. Please try again later.";
 
 const EventState = (props) => {
   const initialState = {
     error: null,
-    events: []
+    events: [],
+    loading: false
   };
   const [state, dispatch] = useReducer(eventReducer, initialState);
 
@@ -17,23 +28,42 @@ const EventState = (props) => {
   // const url = "http://localhost:5000";
 
   // Get Events
-  const getEvents = async () => {
+  const getEventsOfUser = async () => {
+    setLoading();
     try {
       const res = await axios.get(`${url}/api/event`);
       dispatch({
-        type: GET_EVENTS,
+        type: GET_EVENTS_OF_USER,
         payload: res.data.data.events
       });
     } catch (err) {
       dispatch({
         type: FORM_ERROR,
-        payload: err.response.data.error
+        payload: err.response.data.msg || errorMsg
+      });
+    }
+  };
+
+  // Get All Events
+  const getAllEvents = async () => {
+    setLoading();
+    try {
+      const res = await axios.get(`${url}/api/event/all`);
+      dispatch({
+        type: GET_ALL_EVENTS,
+        payload: res.data.data.events
+      });
+    } catch (err) {
+      dispatch({
+        type: FORM_ERROR,
+        payload: err.response.data.msg || errorMsg
       });
     }
   };
 
   // Create Event
   const createEvent = async (event) => {
+    setLoading();
     try {
       const config = {
         headers: {
@@ -52,14 +82,50 @@ const EventState = (props) => {
     } catch (err) {
       dispatch({
         type: FORM_ERROR,
-        payload: err.response.data.error
+        payload: err.response.data.msg || errorMsg
       });
     }
   };
 
-  const clearError = () => {
+  // Review Event
+  const reviewEvent = async (reviewReport) => {
+    setLoading();
+
+    try {
+      const config = {
+        headers: {
+          "Content-Type": "application/json"
+        }
+      };
+      const res = await axios.patch(
+        url + `/api/event/resolve/${reviewReport.eventID}`,
+        reviewReport,
+        config
+      );
+      dispatch({
+        type: REVIEW_EVENT,
+        payload: res.data.data.event
+      });
+    } catch (err) {
+      dispatch({
+        type: FORM_ERROR,
+        payload: err.response.data.msg || errorMsg
+      });
+      throw err;
+    }
+  };
+
+  const clearError = (timeoutVal = 3000) => {
+    setTimeout(() => {
+      dispatch({
+        type: CLEAR_ERROR
+      });
+    }, timeoutVal);
+  };
+
+  const setLoading = () => {
     dispatch({
-      type: CLEAR_ERROR
+      type: SET_LOADING
     });
   };
 
@@ -67,8 +133,12 @@ const EventState = (props) => {
     <EventContext.Provider
       value={{
         events: state.events,
-        getEvents,
+        loading: state.loading,
+        error: state.error,
+        getEventsOfUser,
+        getAllEvents,
         createEvent,
+        reviewEvent,
         clearError
       }}
     >

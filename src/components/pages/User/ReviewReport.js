@@ -1,34 +1,28 @@
-
-import "styles/user/review.module.css";
-
-const ReviewReport = () => {
-  return (
-
-    <div className="outer">
-
-      <div className="container">
-        <h2>Review Report- Report ID</h2>
-      </div>
-    </div>
-  )
-}
-
-
-
-export default ReviewReport;
-
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import { GrClose } from "react-icons/gr";
+import eventContext from "context/event/eventContext";
+import authContext from "context/auth/authContext";
 
 import styles from "../../../styles/user/reviewReport.module.css";
+import { useEffect } from "react";
+import { toast } from "react-toastify";
 
-const ReviewReport = (props) => {
+const ReviewReport = ({ event, handleClose }) => {
   const [report, setReport] = useState({
-    username: "",
     pin: "",
-    comments: "",
+    comment: "",
     status: ""
   });
+  const { reviewEvent, error, clearError, loading } = useContext(eventContext);
+  const { user } = useContext(authContext);
+
+  useEffect(() => {
+    if (!loading && error) {
+      console.log(Date.now());
+      toast.error(error);
+      clearError();
+    }
+  }, [loading, error]);
 
   const handleInput = (e) => {
     const name = e.target.name;
@@ -36,41 +30,34 @@ const ReviewReport = (props) => {
     setReport({ ...report, [name]: value });
   };
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    console.log(report);
+  const handleSubmit = async (e) => {
+    try {
+      e.preventDefault();
+      await reviewEvent({
+        ...report,
+        pin: +report.pin,
+        status: +report.status,
+        userID: user._id,
+        eventID: event._id
+      });
+      toast.success("Report Reviewed");
+      handleClose();
+    } catch (error) {}
   };
 
   return (
     <div className={styles.outer}>
       <div className={styles.content}>
-        <div className={styles.alertHeaderContainer}>
-          <div className={styles.heading}>
-            <p>Review Report - {props.id}</p>
-          </div>
-          <div onClick={props.handleClose} style={{ cursor: "pointer" }}>
-            <GrClose />
-          </div>
-        </div>
         <div className={styles.container}>
-          <form className={styles.formContainer} action="" onSubmit={handleSubmit}>
-            <div className={styles.inputContainer}>
-              <label htmlFor="username">
-                User ID<span style={{ color: "red" }}> *</span>
-              </label>
-              <input
-                className="form-field"
-                type="number"
-                autoComplete="off"
-                value={report.username}
-                onChange={handleInput}
-                name="username"
-                id="username"
-                placeholder="Enter username"
-                required
-              />
+          <div className={styles.alertHeaderContainer}>
+            <div className={styles.heading}>
+              <p>Review Report</p>
             </div>
-
+            <div onClick={handleClose} style={{ cursor: "pointer" }}>
+              <GrClose />
+            </div>
+          </div>
+          <form className={styles.formContainer} onSubmit={handleSubmit}>
             <div className={styles.inputContainer}>
               <label htmlFor="pin">
                 4 digit Pin<span style={{ color: "red" }}> *</span>
@@ -82,50 +69,57 @@ const ReviewReport = (props) => {
                 value={report.pin}
                 onChange={handleInput}
                 name="pin"
+                minLength={4}
+                maxLength={4}
                 id="pin"
-                placeholder="Enter password"
+                placeholder="Enter pin"
                 required
               />
             </div>
 
             <div className={styles.inputContainer}>
-              <label htmlFor="comments">
-                Comments <span style={{ color: "red" }}> *</span>
+              <label htmlFor="comment">
+                comment <span style={{ color: "red" }}> *</span>
               </label>
               <input
                 className="form-field"
                 type="text"
                 autoComplete="off"
-                value={report.comments}
+                value={report.comment}
                 onChange={handleInput}
-                name="comments"
-                id="comments"
-                placeholder="Enter comments"
+                name="comment"
+                id="comment"
+                placeholder="Enter comment"
+                required
               />
             </div>
-            <label htmlFor="accepted" className={styles.checkboxContainer}>
-              <input
-                type="radio"
-                value="accepted"
-                onChange={handleInput}
-                name="status"
-                id="accepted"
-              />
-              Accepted
-            </label>
-            <label htmlFor="rejected" className={styles.checkboxContainer}>
-              <input
-                type="radio"
-                value="rejected"
-                onChange={handleInput}
-                name="status"
-                id="rejected"
-              />
-              Rejected
-            </label>
+            <div className={styles.checkBoxSuperContainer}>
+              <div className={styles.checkboxContainer}>
+                <input
+                  type="radio"
+                  value={1}
+                  onChange={handleInput}
+                  name="status"
+                  id="accepted"
+                  required
+                />
+                <label htmlFor="accepted">Accepted</label>
+              </div>
+              <div className={styles.checkboxContainer}>
+                <input
+                  type="radio"
+                  value={-1}
+                  onChange={handleInput}
+                  name="status"
+                  id="rejected"
+                />
+                <label htmlFor="rejected">Rejected</label>
+              </div>
+            </div>
+
             <div className={styles.buttonContainer}>
               <button
-                onClick={props.handleClose}
+                onClick={handleClose}
                 className={styles.buttonCommon + " " + styles.cancel}
               >
                 Cancel
@@ -142,4 +136,3 @@ const ReviewReport = (props) => {
 };
 
 export default ReviewReport;
-

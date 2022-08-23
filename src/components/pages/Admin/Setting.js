@@ -7,7 +7,7 @@ const Comp = (props) => {
     <div className={styles.outerBlock}>
 
       <div className={styles.innerBlock}>
-        <h3>{props.heading}</h3>
+        <p className={styles.heading}>{props.heading}</p>
         <p>{props.para}</p>
       </div>
 

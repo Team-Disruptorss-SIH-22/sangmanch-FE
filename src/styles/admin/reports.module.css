@@ -88,15 +88,12 @@
 .table th:first-of-type {
   text-align: center;
 }
-.table td:last-of-type {
-  font-size: 0.8rem;
-  font-weight: 600;
-}
 
 .tableHeaderRow {
   border-bottom: 1px solid rgba(0, 0, 0, 0.2);
   font-weight: 400;
-  text-align: left;
+  text-align: center;
+  max-width: 100px;
   /* border: 1px solid red; */
 }
 
@@ -121,26 +118,33 @@
 
 .table .tableSingleCell {
   font-size: 0.8rem;
+  max-width: 100px;
   padding: 2% 0;
-  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+  text-align: center;
+  border: 1px solid rgba(0, 0, 0, 0.1);
 }
 
-.table .report_status_container{
+.table .report_status_container {
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding: 7%;
 }
 
-.table .report_details{
+.table .button {
   text-decoration: none;
   font-weight: 300;
   background: #263252;
   color: white;
-  padding: 2% 10%;
+  padding: 5px 10px;
+  min-width: 70px;
   border-radius: 15px;
 }
 
+.table .button.status:disabled {
+  background: rgba(65, 81, 125, 0.75);
+  cursor: default;
+}
 
 .footer {
   width: 100%;

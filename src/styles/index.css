@@ -33,6 +33,10 @@ input[type="number"] {
   -moz-appearance: textfield;
 }
 
+button {
+  cursor: pointer;
+}
+
 :root {
   /* COLORS */
   --colorPrimary: #2a2b33;
@@ -53,4 +57,39 @@ input[type="number"] {
   --fontRegular: 400;
   --fontMedium: 500;
   --fontBold: 700;
+}
+
+/* PACKAGE OVERRIDING STYLES */
+.fc-daygrid-day-frame {
+  max-height: 70px;
+  overflow: auto;
+}
+.fc-daygrid-day-top {
+  justify-content: center;
+}
+
+.fc-daygrid-day-frame::-webkit-scrollbar {
+  width: 5px;
+}
+.fc-daygrid-day-frame::-webkit-scrollbar-track {
+  -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+}
+.fc-daygrid-day-frame::-webkit-scrollbar-thumb {
+  background: #3498db;
+  border-radius: 7px;
+}
+
+.goog-te-banner-frame.skiptranslate {
+  display: none !important;
+}
+body {
+  top: 0px !important;
+}
+
+.goog-te-gadget-simple {
+  font-size: 14px;
+}
+
+.goog-te-gadget-icon {
+  display: none;
 }

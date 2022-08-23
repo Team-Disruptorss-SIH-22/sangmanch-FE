@@ -1,15 +1,16 @@
 import React, { useContext } from "react";
-import styles from "../../styles/admin/adminLayout.module.css";
-import Navbar from "./Navbar/AdminNavbar";
-import SangmanchLogo from "../../assets/sangmanch_logo.png";
+import { Link } from "react-router-dom";
+import { AiFillSetting, AiFillInfoCircle } from "react-icons/ai";
+import { FaChartPie } from "react-icons/fa";
 import { MdDateRange } from "react-icons/md";
 import { TbReport } from "react-icons/tb";
-import { FaChartPie } from "react-icons/fa";
-import { AiFillSetting, AiFillInfoCircle } from "react-icons/ai";
-import { Link } from "react-router-dom";
-import AuthContext from "context/auth/authContext";
 
-const Sidebar = ({ Component, title }) => {
+import Navbar from "components/pages/Navbar/AdminNavbar";
+import AuthContext from "context/auth/authContext";
+import SangmanchLogo from "assets/sangmanch_logo.png";
+import styles from "styles/admin/adminLayout.module.css";
+
+const UserLayout = ({ Component, title }) => {
   const { user } = useContext(AuthContext);
 
   return (
@@ -21,35 +22,28 @@ const Sidebar = ({ Component, title }) => {
           </Link>
         </div>
         <ul className={styles.collection}>
-          {user?.role !== "ICCRUser" && (
+          <li>
+            <FaChartPie size={15} />
+            <span>
+              <Link to="/user/dashboard">Overview</Link>
+            </span>
+          </li>
+
+          {user.role === "ICCRUser" && (
             <li>
-              <FaChartPie size={15} />
+              <MdDateRange size={18} />
               <span>
-                <Link to="/user/dashboard">Overview</Link>
+                {/* <Link to="/user/events">User Reports</Link> */}
+                <Link to="/user/events">Events</Link>
               </span>
             </li>
           )}
-          <li>
-            <MdDateRange size={18} />
-            <span>
-              {/* <Link to="/user/events">User Reports</Link> */}
-              <Link to="/user/events">Events</Link>
-            </span>
-          </li>
           <li>
             <TbReport size={18} />
             <span>
               <Link to="/user/reports">Report Status</Link>
             </span>
           </li>
-          {/* review report */}
-          <li>
-            <TbReport size={18} />
-            <span>
-              <Link to="/user/reviewreport">Review Report</Link>
-            </span>
-          </li>
-
 
           <li>
             <AiFillInfoCircle size={18} />
@@ -58,16 +52,6 @@ const Sidebar = ({ Component, title }) => {
               <Link to="/user/infographics">Infographics</Link>
             </span>
           </li>
-
-          {user?.role !== "ICCRUser" && (
-            <li>
-              <AiFillInfoCircle size={18} />
-              <span>
-                {/* <Link to="/user/infographics">Infographics</Link> */}
-                <Link to="/user/infographics">Infographics</Link>
-              </span>
-            </li>
-          )}
 
           <div className={styles.divider}></div>
           <li>
@@ -86,4 +70,4 @@ const Sidebar = ({ Component, title }) => {
   );
 };
 
-export default Sidebar;
+export default UserLayout;

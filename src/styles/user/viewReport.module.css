@@ -1,0 +1,75 @@
+.outer {
+  position: fixed;
+  background: #00000050;
+  width: 100%;
+  height: 100vh;
+  top: 0;
+  left: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.content {
+  width: 500px;
+  height: auto;
+  background: #fff;
+  border-radius: 4px;
+  padding: 20px;
+  border: 1px solid #999;
+  overflow: auto;
+}
+
+.container {
+  background-color: #fff;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.alertHeaderContainer {
+  width: 95%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.heading {
+  font-size: 1rem;
+  font-weight: 600;
+}
+
+.reportContainer {
+  width: 95%;
+  margin-top: 18px;
+}
+
+.singleReport {
+  width: 100%;
+  padding: 2% 0;
+  font-size: 0.8rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.singleReport span.accepted {
+  color: #00a65a;
+}
+
+.singleReport span.rejected {
+  color: #dd4b39;
+}
+
+.singleReport span.pending {
+  color: #f39c12;
+}
+
+.singleReport > *:nth-child(odd) {
+  flex-basis: 49%;
+}
+
+.singleReport > *:nth-child(3) {
+  text-align: right;
+}

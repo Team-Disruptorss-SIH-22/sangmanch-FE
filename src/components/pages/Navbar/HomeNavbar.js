@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import { HashLink } from "react-router-hash-link";
 
 import IccrLogo from "assets/icons/iccr_logo.svg";
-import Sangmanch from "assets/sangmanch_logo.svg";
+import Sangmanch from "assets/sangmanch_logo.png";
 import styles from "../../../styles/Home/homeNavbar.module.css";
 import authContext from "context/auth/authContext";
 import { GiHamburgerMenu } from "react-icons/gi";
@@ -11,13 +11,6 @@ import { GiHamburgerMenu } from "react-icons/gi";
 const HomeNavbar = (props) => {
   const { isAuthenticated, user } = useContext(authContext);
   const [showModal, setShowModal] = useState(false);
-
-  useEffect(() => {
-    if (isAuthenticated === true) {
-      console.log(props);
-      // props.history?.push(`${user.role}/dispatch`);
-    }
-  }, [isAuthenticated]);
 
   const modalClickHandler = (e) => {
     e.stopPropagation();
@@ -34,6 +27,20 @@ const HomeNavbar = (props) => {
     };
   }, []);
 
+  const handleChange = (type) => {
+    const htmlEl = document.querySelector("html");
+    const computedFontSize = Number(
+      window.getComputedStyle(htmlEl).fontSize.split("px")[0]
+    );
+    if (type === "inc" && computedFontSize < 24) {
+      htmlEl.style.fontSize = `${computedFontSize + 2}px`;
+    } else if (type === "dec" && computedFontSize > 12) {
+      htmlEl.style.fontSize = `${computedFontSize - 2}px`;
+    } else if (type === "reset") {
+      htmlEl.style.fontSize = `16px`;
+    }
+  };
+
   return (
     <>
       <div className={styles.top_Default_Bar}>
@@ -49,18 +56,18 @@ const HomeNavbar = (props) => {
 
           <div className={styles.rightSide}>
             <div className={styles.font_size_change}>
-              <button>A +</button>
-              <button className={styles.currentFontSize}>A</button>
-              <button>A -</button>
+              <button onClick={() => handleChange("inc")}>A +</button>
+              <button
+                onClick={() => handleChange("reset")}
+                className={styles.currentFontSize}
+              >
+                A
+              </button>
+              <button onClick={() => handleChange("dec")}>A -</button>
             </div>
 
             <div className={styles.language_change}>
-              <select name="languages" className={styles.languages}>
-                <option value="English">English</option>
-                <option value="Hindi">Hindi</option>
-                <option value="Gujrati">Gujrati</option>
-                <option value="Punjabi">Punjabi</option>
-              </select>
+              <div id="google_translate_element"></div>
             </div>
           </div>
         </div>

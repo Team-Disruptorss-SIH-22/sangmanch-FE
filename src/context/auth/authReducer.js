@@ -4,11 +4,17 @@ import {
   GET_USER,
   AUTH_FAIL,
   CLEAR_ERROR,
-  LOGOUT_USER
+  LOGOUT_USER,
+  SET_LOADING
 } from "../types";
 
 export default (state, action) => {
   switch (action.type) {
+    case SET_LOADING:
+      return {
+        ...state,
+        loading: true
+      };
     case GET_USER:
       return {
         ...state,

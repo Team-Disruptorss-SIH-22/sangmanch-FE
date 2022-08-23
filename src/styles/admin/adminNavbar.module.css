@@ -5,7 +5,7 @@
 
 .heading_primary {
   font-weight: var(--fontMedium);
-  font-size: 20px;
+  font-size: 1.25rem;
 }
 
 .navbar__menu {
@@ -18,7 +18,7 @@
   display: flex;
 }
 
-.navbar__logo>i {
+.navbar__logo > i {
   margin-right: 20px;
 }
 
@@ -33,6 +33,7 @@
   padding: 0;
   display: flex;
   justify-content: flex-end;
+  position: relative;
 }
 
 .navbar__menu .menuAction .menu__profile {
@@ -40,7 +41,6 @@
   width: 100%;
   overflow: hidden;
   cursor: pointer;
-  /* border: 1px solid red; */
   display: flex;
   align-items: center;
   color: #000;
@@ -52,8 +52,8 @@
 
 .navbar__menu .menuAction .menu {
   position: absolute;
-  width: 9%;
-  top: 9%;
+  width: 175px;
+  top: 30px;
   box-shadow: 0px 0px 20px 5px rgba(148, 148, 148, 0.3);
   border-radius: 5px;
   border: 1px solid rgba(0, 0, 0, 0.1);
@@ -73,26 +73,28 @@
 }
 
 .navbar__menu .menuAction .menu h3 {
-  margin-top: 8%;
+  margin-top: 12px;
+  margin-bottom: 6px;
   font-size: 1rem;
-  text-align: center;
   font-weight: var(--fontMedium);
+  padding: 0px 12px;
 }
 
 .navbar__menu .menuAction .menu ul {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
+  list-style: none;
 }
 
 .navbar__menu .menuAction .menu ul li {
-  width: 70%;
   display: flex;
-  padding: 3% 0;
-  justify-content: space-evenly;
+  padding: 8px 0;
+  gap: 8px;
   align-items: center;
+  padding-left: 12px;
   border-top: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+.navbar__menu .menuAction .menu ul li:nth-child(2) svg {
+  margin-left: -4px;
 }
 
 .navbar__menu .menuAction .menu ul li .menu_image {
@@ -106,12 +108,10 @@
 .navbar__menu .menuAction .menu ul li a {
   text-decoration: none;
   color: rgba(0, 0, 0, 0.5);
-  padding-left: 0.6rem;
 }
 
 .navbar__menu .menuAction .menu ul li:hover,
 .navbar__menu .menuAction .menu ul li a:hover {
   color: rgba(0, 0, 0, 0.8);
   cursor: pointer;
-
 }

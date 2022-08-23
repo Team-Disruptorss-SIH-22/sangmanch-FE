@@ -16,13 +16,6 @@ const Navbar = (props) => {
   const { isAuthenticated, user, logout } = useContext(authContext);
   const [menuToggle, setMenuToggle] = useState(false);
 
-  useEffect(() => {
-    if (isAuthenticated === true) {
-      if (user.role === "ICCRUser") props.history?.push("/user/events");
-      else props.history?.push("/user/overview");
-    }
-  }, [isAuthenticated]);
-
   const onLogout = () => {
     logout();
     toast.success("Logged out successfully");
@@ -50,24 +43,21 @@ const Navbar = (props) => {
               setMenuToggle(!menuToggle);
             }}
           >
-            <span>Welcome {user?.name}!</span>
+            <span>Hello {user?.name}!</span>
             <FaUserCircle size={20} />
           </div>
 
           {menuToggle && (
             <div className={styles.menu}>
+              <h3>Quick Actions</h3>
               <ul>
                 <li>
                   <FiSettings size={20} className={styles.menu_image} />
-                  <Link to={"/settings"}>Settings</Link>
+                  <Link to={"/user/settings"}>Settings</Link>
                 </li>
                 <li>
-                  <BiLogOut size={20} className={styles.menu_image} />
-
-                  <Link to={"/"}>Log Out</Link>
-
+                  <BiLogOut size={24} className={styles.menu_image} />
                   <div onClick={onLogout}>Log Out</div>
-
                 </li>
               </ul>
             </div>
