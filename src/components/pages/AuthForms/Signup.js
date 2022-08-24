@@ -200,7 +200,7 @@ const Signup = (props) => {
                 placeholder="Select your role"
               />
             </div>
-            {selectedOption?.value !== "ICCRUser" && (
+            {selectedOption && selectedOption?.value !== "ICCRUser" && (
               <div className={styles.inputContainer}>
                 <input
                   type="text"
