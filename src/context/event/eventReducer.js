@@ -26,7 +26,6 @@ export default (state, action) => {
         error: null
       };
     case CREATE_EVENT:
-      console.log(state, action);
       return {
         ...state,
         events: [...state.events, action.payload],
@@ -34,10 +33,12 @@ export default (state, action) => {
         error: null
       };
     case REVIEW_EVENT:
-      console.log(state, action);
       return {
         ...state,
         loading: false,
+        events: state.events.map((event) =>
+          event._id === action.payload._id ? action.payload : event
+        ),
         error: null
       };
     case FORM_ERROR:

@@ -24,7 +24,7 @@ const Settings = () => {
       />
       <Comp
         heading="Change password"
-        para="Requires old password ad OTP confirmation from Official Email ID"
+        para="Requires old password and OTP confirmation from Official Email ID"
         btn="Reset Password"
       />
       <Comp
