@@ -5,7 +5,7 @@ import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
 import styles from "../../../styles/user/events.module.css";
-import { typeOptions } from "components/Utils/constant";
+import { countryOptions, reqtypeOptions } from "components/Utils/constant";
 import eventContext from "context/event/eventContext";
 
 const initialState = {
@@ -17,13 +17,16 @@ const initialState = {
   requirement: "",
   link: "",
   date: "",
+  address: "",
+  city: "",
+  country: ""
 };
 const Requirements = () => {
-
+  const [country, setCountry] = useState(null);
+  const [type, setType] = useState(null);
   const [eventRegistration, setEventRegistration] = useState(initialState);
   const { getEventsOfUser, createEvent } = useContext(eventContext);
 
-  const [type, setType] = useState(null);
   useEffect(() => {
     getEventsOfUser();
   }, []);
@@ -52,7 +55,10 @@ const Requirements = () => {
       !eventRegistration.link ||
       !eventRegistration.budget ||
       !eventRegistration.type ||
-      !eventRegistration.eventdate
+      !eventRegistration.eventdate ||
+      !eventRegistration.address ||
+      !eventRegistration.city ||
+      !eventRegistration.country
     ) {
       toast.error("Please enter all the fields");
     } else {
@@ -61,6 +67,7 @@ const Requirements = () => {
       toast.success("Event Added Successfully!");
       setEventRegistration(initialState);
       setType(null);
+      setCountry(null);
     }
   };
   return (
@@ -74,7 +81,7 @@ const Requirements = () => {
         <div className={styles.container}>
           <form className={styles.formContainer} action="" onSubmit={handleSubmit}>
             <div className={styles.inputContainer}>
-              <label htmlFor="name">Event Name <span style={{ color: "red" }}> *</span></label>
+              <label htmlFor="name">Title <span style={{ color: "red" }}> *</span></label>
               <input
                 className="form-field"
                 type="text"
@@ -104,7 +111,7 @@ const Requirements = () => {
             </div>
 
             <div className={styles.inputContainer}>
-              <label htmlFor="budget">Budget <span style={{ color: "red" }}> *</span></label>
+              <label htmlFor="budget">Budget</label>
               <input
                 className="form-field"
                 type="number"
@@ -120,7 +127,7 @@ const Requirements = () => {
               <label htmlFor="type">Type <span style={{ color: "red" }}> *</span></label>
               <Select
                 className={styles.select}
-                options={typeOptions}
+                options={reqtypeOptions}
                 value={type}
                 onChange={(value) => {
                   setType(value);
@@ -142,6 +149,56 @@ const Requirements = () => {
                 name="date"
                 id="date"
                 placeholder="Enter date"
+              />
+            </div>
+
+            <div className={styles.inputContainer}>
+              <label htmlFor="address">Address <span style={{ color: "red" }}> *</span></label>
+              <input
+                className="form-field"
+                type="text"
+                autoComplete="off"
+                value={eventRegistration.address}
+                onChange={handleInput}
+                name="address"
+                id="address"
+                placeholder="Enter Addresss"
+                required
+              />
+            </div>
+
+            <div className={styles.inputContainer}>
+              <label htmlFor="city">
+                City <span style={{ color: "red" }}> *</span>
+              </label>
+              <input
+                className="form-field"
+                type="text"
+                autoComplete="off"
+                value={eventRegistration.city}
+                onChange={handleInput}
+                name="city"
+                id="city"
+                placeholder="Enter City"
+                required
+              />
+            </div>
+
+            <div className={styles.inputContainer}>
+              <label htmlFor="country">
+                Country <span style={{ color: "red" }}> *</span>
+              </label>
+              <Select
+                className={styles.select}
+                options={countryOptions}
+                value={country}
+                onChange={(value) => {
+                  setCountry(value);
+                }}
+                name="country"
+                id="country"
+                placeholder="Select Country"
+                required
               />
             </div>
 
