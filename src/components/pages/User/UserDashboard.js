@@ -4,13 +4,11 @@ import { AiOutlinePlus } from "react-icons/ai";
 import CountUp from "react-countup";
 
 import styles from "styles/admin/adminDashboard.module.css";
+import axios from "axios";
 
 const AdminDashboard = () => {
   // Stats
-  const [totalExpenditure, setTotalExpenditure] = useState(61000);
-  const [pendingReports, setPendingReports] = useState(500);
-  const [approvedReports, setApprovedReports] = useState(443);
-  const [anomaliesDetected, setanomaliesDetected] = useState(57);
+  const [stats, setStats] = useState({});
 
   // Charts
   const [charts, setCharts] = useState({
@@ -20,6 +18,17 @@ const AdminDashboard = () => {
     anomaliesForwarded: 3,
     anomaliesDiscarded: 8
   });
+
+  const fetchMetrics = async () => {
+    const { data } = await axios.get(
+      "https://sangmanch.herokuapp.com/api/dashboard/details"
+    );
+    setStats(data.data);
+  };
+
+  useEffect(() => {
+    fetchMetrics();
+  }, []);
 
   const [tasks, setTasks] = useState([
     "Escalate Report Number 234 to Finance Team",
@@ -85,30 +94,30 @@ const AdminDashboard = () => {
     <div className={styles.dashboardContainer}>
       <div className={styles.stats_container}>
         <div className={styles.stats}>
-          <p className={styles.clrGrey}>Total Expenditure</p>
+          <p className={styles.clrGrey}>Total Expense</p>
           <p className={styles.stats_number}>
-            <CountUp end={totalExpenditure} start={0} duration={3}></CountUp>
+            <CountUp end={stats.expenses} start={0} duration={3}></CountUp>
           </p>
         </div>
 
         <div className={styles.stats}>
-          <p className={styles.clrGrey}>Pending Reports</p>
+          <p className={styles.clrGrey}>People Reached</p>
           <p className={styles.stats_number}>
-            <CountUp end={pendingReports} start={0} duration={3}></CountUp>
+            <CountUp end={stats.peopleReached} start={0} duration={3}></CountUp>
           </p>
         </div>
 
         <div className={styles.stats + " " + styles.clrGreen}>
-          <p>Approved Reports</p>
+          <p>Closed Reports</p>
           <p className={styles.stats_number}>
-            <CountUp end={approvedReports} start={0} duration={3}></CountUp>
+            <CountUp end={stats.closedReports} start={0} duration={3}></CountUp>
           </p>
         </div>
 
         <div className={styles.stats + " " + styles.clrRed}>
-          <p>Anomalies Detected</p>
+          <p>Pending Reports</p>
           <p className={styles.stats_number}>
-            <CountUp end={anomaliesDetected} start={0} duration={3}></CountUp>
+            <CountUp end={stats.pendingReports} start={0} duration={3}></CountUp>
           </p>
         </div>
       </div>

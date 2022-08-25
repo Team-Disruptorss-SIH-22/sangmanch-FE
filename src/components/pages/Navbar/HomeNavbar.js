@@ -112,30 +112,27 @@ const HomeNavbar = (props) => {
             <div className={styles.phoneMenu} onClick={modalClickHandler}>
               <GiHamburgerMenu size={30} onClick={() => setShowModal((curr) => !curr)} />
               <div
-                className={`${styles.phoneMenuPopup} ${showModal ? styles.activeModal : ""
-                  }`}
+                className={`${styles.phoneMenuPopup} ${
+                  showModal ? styles.activeModal : ""
+                }`}
               >
                 <ul>
                   <li>
-                    <Link to="/about" target="_blank">
-                      About Sangmanch
-                    </Link>
+                    <Link to="/about">About Sangmanch</Link>
                   </li>
                   <li>
-                    <Link to="/#faq" target="_blank">
-                      FAQs
-                    </Link>
+                    <HashLink to="/#faq">FAQs</HashLink>
                   </li>
                   <li>
-                    <Link to="/#footer" target="_blank">
-                      Contact Us
-                    </Link>
+                    <HashLink to="/#footer">Contact Us</HashLink>
                   </li>
+                  {!isAuthenticated && (
+                    <li>
+                      <Link to="/signup">SignUp</Link>
+                    </li>
+                  )}
                   <li>
-                    <Link to="/signup">SignUp</Link>
-                  </li>
-                  <li>
-                    <Link to="/login">Login</Link>
+                    <Link to="/login">{isAuthenticated ? "Dashboard" : "Login"} </Link>
                   </li>
                 </ul>
               </div>
