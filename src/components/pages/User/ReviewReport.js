@@ -108,7 +108,7 @@ const ReviewReport = ({ event, handleClose }) => {
               <div className={styles.checkboxContainer}>
                 <input
                   type="radio"
-                  value={-1}
+                  value={user?.role === "financeManager" ? -1 : -2}
                   onChange={handleInput}
                   name="status"
                   id="rejected"
