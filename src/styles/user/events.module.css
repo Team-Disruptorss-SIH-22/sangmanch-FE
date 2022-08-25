@@ -13,7 +13,7 @@
   padding: 2% 2% 0 2%;
 }
 
-.eventsHeaderContainer > p {
+.eventsHeaderContainer>p {
   font-size: 1.2rem;
   font-weight: 600;
 }
@@ -40,7 +40,7 @@
   width: 35%;
 }
 
-.form_super_container > p {
+.form_super_container>p {
   text-align: center;
 }
 
@@ -74,7 +74,8 @@
 .formContainer .inputContainer ::placeholder {
   /* Chrome, Firefox, Opera, Safari 10.1+ */
   color: rgba(159, 162, 180, 0.5);
-  opacity: 1; /* Firefox */
+  opacity: 1;
+  /* Firefox */
 }
 
 .formContainer .inputContainer input {
@@ -115,4 +116,20 @@
 .submit:hover {
   background-color: #116897;
   cursor: pointer;
+}
+
+.requirement_form {
+  width: 45%;
+  margin: 2% 0 0 25%;
+  /* border: 1px solid black; */
+  border-radius: 2%;
+}
+
+textarea {
+  outline: none;
+  width: 100%;
+  margin: 1.5% 0;
+  padding: 3%;
+  border: 1px solid rgba(159, 162, 180, 0.4);
+  border-radius: 5px;
 }
