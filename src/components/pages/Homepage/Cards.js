@@ -9,7 +9,7 @@ import Third from "assets/home/cards/Third.jpg";
 const data = [
   {
     num: 1,
-    heading: "Upload Event Details",
+    heading: "Upload Event and logistic requirement Details",
     description: "",
     img: First
   },
@@ -21,7 +21,7 @@ const data = [
   },
   {
     num: 3,
-    heading: "Get Paid for the Event",
+    heading: "Get Paid for the expenses",
     description: "",
     img: Third
   }
