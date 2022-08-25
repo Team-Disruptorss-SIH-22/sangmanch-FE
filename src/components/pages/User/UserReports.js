@@ -79,18 +79,20 @@ const Reports = () => {
     {
       Header: user.role === "ICCRUser" ? "Status" : "Review",
       accessor: "status",
-      filterable: false,
       name: "report status",
       type: user.role === "ICCRUser" ? null : "button",
-      Cell: ({ value }) =>
-        user.role === "ICCRUser" ? statusMapping[value] : getText(value)
+      Cell: ({ value }) => {
+        return user.role === "ICCRUser" ? statusMapping[value] : getText(value)
+      },
+      Filter: ColumnFilter
     },
     {
       Header: "View",
       accessor: "view_report",
       name: "def",
       type: "button",
-      Cell: () => "View"
+      Cell: () => "View",
+      disableFilters: true
     }
   ];
   const columns = useMemo(() => COLUMNS, []);
@@ -207,7 +209,9 @@ const Reports = () => {
                         ""
                       )}
                     </span>
-                    {toggleFilter && (column.canFilter ? column.render("Filter") : null)}
+                    <div className={styles.filter}>
+                      {toggleFilter && (column.canFilter ? column.render("Filter") : null)}
+                    </div>
                   </th>
                 ))}
               </tr>
