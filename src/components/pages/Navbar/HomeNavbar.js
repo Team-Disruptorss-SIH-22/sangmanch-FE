@@ -112,37 +112,27 @@ const HomeNavbar = (props) => {
             <div className={styles.phoneMenu} onClick={modalClickHandler}>
               <GiHamburgerMenu size={30} onClick={() => setShowModal((curr) => !curr)} />
               <div
-                className={`${styles.phoneMenuPopup} ${
-                  showModal ? styles.activeModal : ""
-                }`}
+                className={`${styles.phoneMenuPopup} ${showModal ? styles.activeModal : ""
+                  }`}
               >
                 <ul>
                   <li>
-                    <a
-                      href="https://narcoticsindia.nic.in/"
-                      target="_blank"
-                      rel="noreferrer"
-                    >
-                      About NCB
-                    </a>
-                  </li>
-                  <li>
-                    <Link to="/admin/signup" target="_blank">
-                      Services
+                    <Link to="/about" target="_blank">
+                      About Sangmanch
                     </Link>
                   </li>
                   <li>
-                    <Link to="/admin/signup" target="_blank">
+                    <Link to="/#faq" target="_blank">
                       FAQs
                     </Link>
                   </li>
                   <li>
-                    <Link to="/admin/signup" target="_blank">
+                    <Link to="/#footer" target="_blank">
                       Contact Us
                     </Link>
                   </li>
                   <li>
-                    <Link to="/signup/manufacturer">SignUp</Link>
+                    <Link to="/signup">SignUp</Link>
                   </li>
                   <li>
                     <Link to="/login">Login</Link>
