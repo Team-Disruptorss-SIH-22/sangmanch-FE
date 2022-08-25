@@ -268,7 +268,7 @@ const Reports = () => {
             onChange={(e) => {
               const pageNumber = e.target.value ? Number(e.target.value) - 1 : 0;
               gotoPage(pageNumber);
-              setPageIndex(e.target.value);
+              setPageIndex(e.target.value <= Math.ceil(eventState?.length / 10) ? e.target.value: Math.ceil(eventState?.length / 10));
             }}
           />
         </div>
@@ -276,7 +276,7 @@ const Reports = () => {
         <div className={styles.rowsPerPage}>
           <p>
             {" "}
-            Page: {pageIndex > 1 ? pageIndex : 1} of {Math.round(eventState?.length / 10)}
+            Page: {pageIndex > 1 ? pageIndex : 1} of {Math.ceil(eventState?.length / 10)}
           </p>
           <button
             className={styles.backForth}
