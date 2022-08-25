@@ -21,6 +21,7 @@ import UserDashboard from "./User/UserDashboard";
 import UserReports from "./User/UserReports";
 import Events from "./User/Events";
 import UserInfographics from "./User/UserInfographics";
+import Requirements from './User/Requirements';
 
 import Page404 from "./Page404";
 import Home from "./Homepage/Home";
@@ -45,5 +46,6 @@ export {
   UserDashboard,
   UserInfographics,
   Events,
-  Settings
+  Settings,
+  Requirements
 };

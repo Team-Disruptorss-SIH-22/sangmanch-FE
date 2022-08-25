@@ -1,6 +1,6 @@
 import React, { useContext } from "react";
 import { Link } from "react-router-dom";
-import { AiFillSetting, AiFillInfoCircle } from "react-icons/ai";
+import { AiFillSetting, AiFillInfoCircle, AiFillQuestionCircle } from "react-icons/ai";
 import { FaChartPie } from "react-icons/fa";
 import { MdDateRange } from "react-icons/md";
 import { TbReport } from "react-icons/tb";
@@ -50,6 +50,12 @@ const UserLayout = ({ Component, title }) => {
             <span>
               {/* <Link to="/user/infographics">Infographics</Link> */}
               <Link to="/user/infographics">Infographics</Link>
+            </span>
+          </li>
+          <li>
+            <AiFillQuestionCircle size={18} />
+            <span>
+              <Link to="/user/requirements">Requirements</Link>
             </span>
           </li>
 

@@ -16,7 +16,8 @@ import {
   Events,
   Verify,
   Settings,
-  UserInfographics
+  UserInfographics,
+  Requirements
 } from "./pages/index";
 
 import AuthState from "context/auth/AuthState";
@@ -75,6 +76,12 @@ function App() {
                 path="/user/infographics"
                 title={""}
                 component={UserInfographics}
+              />
+              <PrivateRoute
+                exact
+                path="/user/requirements"
+                title={""}
+                component={Requirements}
               />
               <PrivateRoute exact path="/user/settings" title={""} component={Settings} />
               <PrivateRoute exact path="/user/events" title={""} component={Events} />

@@ -5,7 +5,7 @@ import SangmanchLogo from "../../../assets/sangmanch_logo.png";
 import { MdDateRange } from "react-icons/md";
 import { TbReport } from "react-icons/tb";
 import { FaChartPie } from "react-icons/fa";
-import { AiFillSetting, AiFillInfoCircle } from "react-icons/ai";
+import { AiFillSetting, AiFillInfoCircle, AiFillQuestionCircle } from "react-icons/ai";
 import { Link } from "react-router-dom";
 
 const AdminLayout = ({ Component, title }) => {
@@ -38,6 +38,12 @@ const AdminLayout = ({ Component, title }) => {
             <AiFillInfoCircle size={18} />
             <span>
               <Link to="/infographics">Infographics</Link>
+            </span>
+          </li>
+          <li>
+            <AiFillQuestionCircle size={18} />
+            <span>
+              <Link to="/requirements">Requirements</Link>
             </span>
           </li>
           <div className={styles.divider}></div>
