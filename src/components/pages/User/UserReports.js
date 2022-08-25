@@ -282,7 +282,7 @@ const Reports = () => {
             className={styles.backForth}
             onClick={() => {
               previousPage();
-              setPageIndex(pageIndex - 1);
+              setPageIndex(parseInt(pageIndex) - 1);
             }}
             disabled={!canPreviousPage}
           >
@@ -292,7 +292,7 @@ const Reports = () => {
             className={styles.backForth}
             onClick={() => {
               nextPage();
-              setPageIndex(pageIndex + 1);
+              setPageIndex(parseInt(pageIndex) + 1);
             }}
             disabled={!canNextPage}
           >
