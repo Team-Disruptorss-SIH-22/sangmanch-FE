@@ -92,6 +92,8 @@ body {
 
 .goog-te-gadget-simple {
   font-size: 14px;
+  padding: 10px;
+  border-radius: 20px;
 }
 
 .goog-te-gadget-icon {
