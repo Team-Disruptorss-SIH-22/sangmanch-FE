@@ -112,9 +112,8 @@ const HomeNavbar = (props) => {
             <div className={styles.phoneMenu} onClick={modalClickHandler}>
               <GiHamburgerMenu size={30} onClick={() => setShowModal((curr) => !curr)} />
               <div
-                className={`${styles.phoneMenuPopup} ${
-                  showModal ? styles.activeModal : ""
-                }`}
+                className={`${styles.phoneMenuPopup} ${showModal ? styles.activeModal : ""
+                  }`}
               >
                 <ul>
                   <li>
@@ -123,7 +122,7 @@ const HomeNavbar = (props) => {
                       target="_blank"
                       rel="noreferrer"
                     >
-                      About NCB
+                      About Sangmanch
                     </a>
                   </li>
                   <li>
