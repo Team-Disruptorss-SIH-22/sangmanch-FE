@@ -119,7 +119,7 @@ const UserLogin = (props) => {
             <div className={styles.form__footer}>
               <div className={`${styles.row} ${styles.links}`}>
                 <Link to="/signup" className={styles.link}>
-                  <p>Create an account</p>
+                  <p>Create Account</p>
                 </Link>
                 <Link to="/" className={styles.link}>
                   <p>Forgot Password</p>
