@@ -95,6 +95,7 @@
   font-size: 1.25rem;
   /* border: 1px solid red; */
 }
+
 .headers .titleDetails {
   font-weight: var(--fontMedium);
   color: var(--colorSecondary);
@@ -130,7 +131,8 @@
 .formContainer .inputContainer ::placeholder {
   /* Chrome, Firefox, Opera, Safari 10.1+ */
   color: rgba(159, 162, 180, 0.5);
-  opacity: 1; /* Firefox */
+  opacity: 1;
+  /* Firefox */
 }
 
 .formContainer .inputContainer input {
@@ -181,7 +183,7 @@
   width: 20px;
   position: absolute;
   right: 10px;
-  bottom: 5px;
+  bottom: 0px;
   cursor: pointer;
   /* border: 1px solid cyan; */
 }

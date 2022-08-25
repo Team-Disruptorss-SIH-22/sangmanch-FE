@@ -117,31 +117,22 @@ const HomeNavbar = (props) => {
               >
                 <ul>
                   <li>
-                    <a
-                      href="https://narcoticsindia.nic.in/"
-                      target="_blank"
-                      rel="noreferrer"
-                    >
+                    <Link to="/about" target="_blank">
                       About Sangmanch
-                    </a>
-                  </li>
-                  <li>
-                    <Link to="/admin/signup" target="_blank">
-                      Services
                     </Link>
                   </li>
                   <li>
-                    <Link to="/admin/signup" target="_blank">
+                    <Link to="/#faq" target="_blank">
                       FAQs
                     </Link>
                   </li>
                   <li>
-                    <Link to="/admin/signup" target="_blank">
+                    <Link to="/#footer" target="_blank">
                       Contact Us
                     </Link>
                   </li>
                   <li>
-                    <Link to="/signup/manufacturer">SignUp</Link>
+                    <Link to="/signup">SignUp</Link>
                   </li>
                   <li>
                     <Link to="/login">Login</Link>
