@@ -4,6 +4,7 @@ import { AiFillSetting, AiFillInfoCircle, AiFillQuestionCircle } from "react-ico
 import { FaChartPie } from "react-icons/fa";
 import { MdDateRange } from "react-icons/md";
 import { TbReport } from "react-icons/tb";
+import { HiUserGroup } from "react-icons/hi";
 
 import Navbar from "components/pages/Navbar/AdminNavbar";
 import AuthContext from "context/auth/authContext";
@@ -30,13 +31,21 @@ const UserLayout = ({ Component, title }) => {
           </li>
 
           {user.role === "ICCRUser" && (
-            <li>
-              <MdDateRange size={18} />
-              <span>
-                {/* <Link to="/user/events">User Reports</Link> */}
-                <Link to="/user/events">Events</Link>
-              </span>
-            </li>
+            <>
+              <li>
+                <MdDateRange size={18} />
+                <span>
+                  {/* <Link to="/user/events">User Reports</Link> */}
+                  <Link to="/user/events">Events</Link>
+                </span>
+              </li>
+              <li>
+                <HiUserGroup size={18} />
+                <span>
+                  <Link to="/user/alumniconnect">Alumni Connect</Link>
+                </span>
+              </li>
+            </>
           )}
           <li>
             <TbReport size={18} />

@@ -23,6 +23,7 @@ import UserReports from "./User/UserReports";
 import Events from "./User/Events";
 import UserInfographics from "./User/UserInfographics";
 import Requirements from './User/Requirements';
+import AlumniConnect from "./User/AlumniConnect";
 
 // Alumni Dashboard
 import AlumniLayout from "./Alumni/AlumniLayout";
@@ -55,6 +56,7 @@ export {
   Events,
   Settings,
   Requirements,
+  AlumniConnect,
   AlumniLayout,
   AlumniNews,
   AlumniRequests

@@ -21,6 +21,7 @@ import {
   Requirements,
   AlumniLayout,
   AlumniNews,
+  AlumniConnect,
 } from "./pages/index";
 
 import AuthState from "context/auth/AuthState";
@@ -88,6 +89,7 @@ function App() {
               />
               <PrivateRoute exact path="/user/settings" title={""} component={Settings} />
               <PrivateRoute exact path="/user/events" title={""} component={Events} />
+              <PrivateRoute exact path="/user/alumniconnect" title={""} component={AlumniConnect} />
 
               <AlumniRoute exact path="/alumni/news" title={""}  component={AlumniNews}/>
               <AlumniRoute exact path="/alumni/settings" title={""} component={Settings}/>
