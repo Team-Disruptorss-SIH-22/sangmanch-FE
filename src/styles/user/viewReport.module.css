@@ -73,3 +73,27 @@
 .singleReport > *:nth-child(3) {
   text-align: right;
 }
+
+.separator {
+  width: 100%;
+  height: 2px;
+  background-color: #999;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+.commentsHeading {
+  text-align: center;
+  text-decoration: underline;
+  font-weight: 700;
+  color: #999;
+}
+
+.comment .commentHeader {
+  font-size: 0.8rem;
+  font-weight: 600;
+}
+.comment .commentBody {
+  font-size: 0.8rem;
+  color: #444;
+}

@@ -193,7 +193,6 @@ const AdminDashboard = () => {
                 value={task}
                 onChange={(e) => setTask(e.target.value)}
               />
-              {console.log(task)}
               <button className={styles.addTaskButton} onClick={handleAddTasks}>
                 <AiOutlinePlus />
               </button>

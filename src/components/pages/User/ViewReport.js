@@ -1,17 +1,30 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
+import styles from "../../../styles/user/viewReport.module.css";
+import axios from "axios";
 import { format } from "date-fns";
 import { GrClose } from "react-icons/gr";
 
-import styles from "../../../styles/user/viewReport.module.css";
+const statusMapping = {
+  "-1": "Rejected by Finance Manager",
+  "-2": "Rejected by Governing Body",
+  0: "Pending on Finance Manager",
+  1: "Pending on Governing Body",
+  2: "Completed"
+};
 
 const ViewReport = ({ event, handleClose }) => {
-  const statusMapping = {
-    "-1": "Rejected by Finance Manager",
-    "-2": "Rejected by Governing Body",
-    0: "Pending on Finance Manager",
-    1: "Pending on Governing Body",
-    2: "Completed"
+  const url = "https://sangmanch.herokuapp.com";
+  const [comments, setComments] = useState([]);
+
+  const getComments = async () => {
+    const { data } = await axios.get(`${url}/api/event/comments/${event._id}`);
+    setComments(data.data.comments);
   };
+
+  useEffect(() => {
+    getComments();
+  }, []);
+
   return (
     <div className={styles.outer}>
       <div className={styles.content}>
@@ -93,6 +106,23 @@ const ViewReport = ({ event, handleClose }) => {
                 View Invoice{" "}
               </a>
             </div>
+            {(comments[0] || comments[1]) && (
+              <>
+                <div className={styles.separator} />
+                <p className={styles.commentsHeading}>Comment Trail</p>
+              </>
+            )}
+            {comments.map(
+              (comment, idx) =>
+                comment && (
+                  <div key={idx} className={styles.comment}>
+                    <div className={styles.commentHeader}>
+                      {idx === 0 ? "Finance Manager :" : "Governing Body :"}
+                    </div>
+                    <div className={styles.commentBody}>{comment}</div>
+                  </div>
+                )
+            )}
           </div>
         </div>
       </div>
