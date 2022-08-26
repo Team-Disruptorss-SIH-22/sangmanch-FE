@@ -17,7 +17,8 @@ import {
   Verify,
   Settings,
   UserInfographics,
-  Requirements
+  Requirements,
+  SearchReports
 } from "./pages/index";
 
 import AuthState from "context/auth/AuthState";
@@ -70,6 +71,12 @@ function App() {
                 path="/user/reports"
                 title={""}
                 component={UserReports}
+              />
+              <PrivateRoute
+                exact
+                path="/search-reports"
+                title={""}
+                component={SearchReports}
               />
               <PrivateRoute
                 exact

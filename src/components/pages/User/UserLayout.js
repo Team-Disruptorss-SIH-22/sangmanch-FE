@@ -4,6 +4,7 @@ import { AiFillSetting, AiFillInfoCircle, AiFillQuestionCircle } from "react-ico
 import { FaChartPie } from "react-icons/fa";
 import { MdDateRange } from "react-icons/md";
 import { TbReport } from "react-icons/tb";
+import { BiSearchAlt } from "react-icons/bi";
 
 import Navbar from "components/pages/Navbar/AdminNavbar";
 import AuthContext from "context/auth/authContext";
@@ -44,7 +45,12 @@ const UserLayout = ({ Component, title }) => {
               <Link to="/user/reports">Report Status</Link>
             </span>
           </li>
-
+          <li>
+            <BiSearchAlt size={18} />
+            <span>
+              <Link to="/search-reports">Search Reports</Link>
+            </span>
+          </li>
           <li>
             <AiFillInfoCircle size={18} />
             <span>
