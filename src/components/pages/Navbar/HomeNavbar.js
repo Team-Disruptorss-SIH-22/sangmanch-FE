@@ -157,7 +157,7 @@ const HomeNavbar = (props) => {
                           <Link to="/signup">ICC/ICCR</Link>
                         </option>
                         <option>
-                          <Link to="#">Alumni</Link>
+                          <Link to="/alumni/signup">Alumni</Link>
                         </option>
                       </select>
                       {/* <Link to="/signup">SignUp</Link> */}
