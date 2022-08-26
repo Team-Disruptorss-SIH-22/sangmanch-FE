@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useEffect, useState} from "react";
 import {
   BarChart,
   Bar,
@@ -12,6 +12,7 @@ import {
   AreaChart,
   Area
 } from "recharts";
+import axios from "axios";
 
 import styles from "../../../styles/admin/infographics.module.css";
 
@@ -60,16 +61,26 @@ const data = [
   }
 ];
 
-const data01 = [
-  { name: "Group A", value: 400 },
-  { name: "Group B", value: 300 },
-  { name: "Group C", value: 300 },
-  { name: "Group D", value: 200 },
-  { name: "Group E", value: 278 },
-  { name: "Group F", value: 189 }
-];
 
 const UserInfographics = () => {
+
+  // const [data, setData] = useState([]);
+  const [barData, setBarData] = useState([]);
+
+  useEffect(() => {
+    const fetchBarData = async () => {
+      const {data} = await axios.get("http://sangmanch-vis.herokuapp.com/user/count");
+      const parsedResponse = JSON.parse(data)
+      let newData = [];
+      for(let i = 0; i < parsedResponse.x.length; i++) {
+        newData.push({"name": parsedResponse.x[i],
+          "value": parsedResponse.y[i]});
+      }
+      setBarData(newData);
+    }
+    fetchBarData();  
+  }, []);
+
   return (
     <div className={styles.container}>
       <div className={styles.monthly_exp_container}>
@@ -130,7 +141,7 @@ const UserInfographics = () => {
               <Pie
                 dataKey="value"
                 isAnimationActive={false}
-                data={data01}
+                data={barData}
                 cx="50%"
                 cy="50%"
                 outerRadius={80}
