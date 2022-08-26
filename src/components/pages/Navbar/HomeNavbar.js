@@ -11,6 +11,11 @@ import { GiHamburgerMenu } from "react-icons/gi";
 const HomeNavbar = (props) => {
   const { isAuthenticated, user } = useContext(authContext);
   const [showModal, setShowModal] = useState(false);
+  const [isActive, setActive] = useState(false);
+
+  const toggle_signup = () => {
+    setActive(!isActive);
+  };
 
   const modalClickHandler = (e) => {
     e.stopPropagation();
@@ -106,7 +111,7 @@ const HomeNavbar = (props) => {
               {!isAuthenticated && (
                 <li>
                   <div class={styles.dropdown}>
-                    <button onclick="myFunction()" className={styles.dropbtn}>
+                    <button onclick={toggle_signup} className={styles.dropbtn}>
                       Dropdown
                     </button>
                     <div id="myDropdown" className={styles.dropdown__content}>
@@ -127,9 +132,8 @@ const HomeNavbar = (props) => {
             <div className={styles.phoneMenu} onClick={modalClickHandler}>
               <GiHamburgerMenu size={30} onClick={() => setShowModal((curr) => !curr)} />
               <div
-                className={`${styles.phoneMenuPopup} ${
-                  showModal ? styles.activeModal : ""
-                }`}
+                className={`${styles.phoneMenuPopup} ${showModal ? styles.activeModal : ""
+                  }`}
               >
                 <ul>
                   <li>
