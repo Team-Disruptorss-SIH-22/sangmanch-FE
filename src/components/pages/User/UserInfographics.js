@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useEffect, useState} from "react";
 import {
   BarChart,
   Bar,
@@ -12,6 +12,7 @@ import {
   AreaChart,
   Area
 } from "recharts";
+import axios from "axios";
 
 import {user} from '../../Utils/api_urls';
 import styles from "../../../styles/admin/infographics.module.css";
@@ -61,7 +62,7 @@ const oldData = [
   }
 ];
 
-<<<<<<< Updated upstream
+
 const data01 = [
   { name: "Group A", value: 400 },
   { name: "Group B", value: 300 },
@@ -71,8 +72,6 @@ const data01 = [
   { name: "Group F", value: 189 }
 ];
 
-const UserInfographics = () => {
-=======
 const initialState = {
   expense_reach_graph: [],
   event_type: [],
@@ -116,7 +115,21 @@ const UserInfographics = () => {
     
   }, []);
 
->>>>>>> Stashed changes
+
+  useEffect(() => {
+    const fetchBarData = async () => {
+      const {data} = await axios.get("http://sangmanch-vis.herokuapp.com/user/count");
+      const parsedResponse = JSON.parse(data)
+      let newData = [];
+      for(let i = 0; i < parsedResponse.x.length; i++) {
+        newData.push({"name": parsedResponse.x[i],
+          "value": parsedResponse.y[i]});
+      }
+      setBarData(newData);
+    }
+    fetchBarData();  
+  }, []);
+
   return (
     <div className={styles.container}>
       <div className={styles.monthly_exp_container}>
@@ -177,11 +190,7 @@ const UserInfographics = () => {
               <Pie
                 dataKey="value"
                 isAnimationActive={false}
-<<<<<<< Updated upstream
-                data={data01}
-=======
                 data={data.event_type}
->>>>>>> Stashed changes
                 cx="50%"
                 cy="50%"
                 outerRadius={80}

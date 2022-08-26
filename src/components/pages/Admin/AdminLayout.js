@@ -1,14 +1,17 @@
-import React from "react";
+import React, { useContext } from "react";
 import styles from "../../../styles/admin/adminLayout.module.css";
 import Navbar from "../Navbar/AdminNavbar";
 import SangmanchLogo from "../../../assets/sangmanch_logo.png";
 import { MdDateRange } from "react-icons/md";
 import { TbReport } from "react-icons/tb";
 import { FaChartPie } from "react-icons/fa";
-import { AiFillSetting, AiFillInfoCircle } from "react-icons/ai";
+import { AiFillSetting, AiFillInfoCircle, AiFillQuestionCircle } from "react-icons/ai";
 import { Link } from "react-router-dom";
+import authContext from "context/auth/authContext";
 
 const AdminLayout = ({ Component, title }) => {
+  const { user } = useContext(authContext);
+
   return (
     <div className={styles.container}>
       <aside className={styles.sidebar}>
@@ -40,6 +43,14 @@ const AdminLayout = ({ Component, title }) => {
               <Link to="/infographics">Infographics</Link>
             </span>
           </li>
+          {user.role === "ICCRUser" && (
+            <li>
+              <AiFillQuestionCircle size={18} />
+              <span>
+                <Link to="/requirements">Requirements</Link>
+              </span>
+            </li>
+          )}
           <div className={styles.divider}></div>
           <li>
             <AiFillSetting size={18} />

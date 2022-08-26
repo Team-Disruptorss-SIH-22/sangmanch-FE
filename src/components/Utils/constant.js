@@ -180,3 +180,14 @@ export const roleOptions = [
     label: "General Assembly"
   }
 ];
+
+export const reqtypeOptions = [
+  { value: "scholarship", label: "Scholarship" },
+  { value: "festival", label: "Festival" },
+  { value: "seminar", label: "Seminar" },
+  { value: "languageFest", label: "Language Fest" },
+  { value: "culturalFest", label: "Cultural Fest" },
+  { value: "exhibition", label: "Exhibition" },
+  { value: "others", label: "Others" }
+
+];

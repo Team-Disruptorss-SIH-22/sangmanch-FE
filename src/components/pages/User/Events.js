@@ -44,7 +44,6 @@ const Events = () => {
   //   let obj = events[idx];
   //   setEventRegistration({ ...obj });
   // }
-  // console.log(info.event._def.publicId);
   // };
 
   const handleDateClick = (e) => {

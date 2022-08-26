@@ -1,6 +1,7 @@
 .about {
   margin-top: 30px;
   margin-bottom: 60px;
+  padding: 0 30px;
 }
 .about .about_container {
   max-width: 1200px;
@@ -12,6 +13,7 @@
   color: #147eb7;
   margin-bottom: 6px;
   font-size: 1.5rem;
+  line-height: 1.2;
 }
 
 .about .about_container .about_content p {
@@ -22,4 +24,14 @@
 
 .about .about_container .about_content p:nth-of-type(2) {
   margin-top: 16px;
+}
+
+@media screen and (max-width: 768px) {
+  .about .about_container .about_heading {
+    font-size: 1.2rem;
+    margin-bottom: 12px;
+  }
+  .about .about_container .about_content p {
+    font-size: 1rem;
+  }
 }

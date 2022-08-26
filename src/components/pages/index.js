@@ -22,6 +22,7 @@ import UserDashboard from "./User/UserDashboard";
 import UserReports from "./User/UserReports";
 import Events from "./User/Events";
 import UserInfographics from "./User/UserInfographics";
+import Requirements from './User/Requirements';
 
 // Alumni Dashboard
 import AlumniLayout from "./Alumni/AlumniLayout";
@@ -52,13 +53,9 @@ export {
   UserDashboard,
   UserInfographics,
   Events,
-<<<<<<< Updated upstream
-  Settings
-=======
   Settings,
   Requirements,
   AlumniLayout,
   AlumniNews,
   AlumniRequests
->>>>>>> Stashed changes
 };

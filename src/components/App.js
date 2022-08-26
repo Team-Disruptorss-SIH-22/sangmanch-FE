@@ -17,14 +17,10 @@ import {
   Events,
   Verify,
   Settings,
-<<<<<<< Updated upstream
-  UserInfographics
-=======
   UserInfographics,
   Requirements,
   AlumniLayout,
-  AlumniNews
->>>>>>> Stashed changes
+  AlumniNews,
 } from "./pages/index";
 
 import AuthState from "context/auth/AuthState";
@@ -83,6 +79,12 @@ function App() {
                 path="/user/infographics"
                 title={""}
                 component={UserInfographics}
+              />
+              <PrivateRoute
+                exact
+                path="/user/requirements"
+                title={""}
+                component={Requirements}
               />
               <PrivateRoute exact path="/user/settings" title={""} component={Settings} />
               <PrivateRoute exact path="/user/events" title={""} component={Events} />

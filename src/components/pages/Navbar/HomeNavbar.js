@@ -118,34 +118,21 @@ const HomeNavbar = (props) => {
               >
                 <ul>
                   <li>
-                    <a
-                      href="https://narcoticsindia.nic.in/"
-                      target="_blank"
-                      rel="noreferrer"
-                    >
-                      About NCB
-                    </a>
+                    <Link to="/about">About Sangmanch</Link>
                   </li>
                   <li>
-                    <Link to="/admin/signup" target="_blank">
-                      Services
-                    </Link>
+                    <HashLink to="/#faq">FAQs</HashLink>
                   </li>
                   <li>
-                    <Link to="/admin/signup" target="_blank">
-                      FAQs
-                    </Link>
+                    <HashLink to="/#footer">Contact Us</HashLink>
                   </li>
+                  {!isAuthenticated && (
+                    <li>
+                      <Link to="/signup">SignUp</Link>
+                    </li>
+                  )}
                   <li>
-                    <Link to="/admin/signup" target="_blank">
-                      Contact Us
-                    </Link>
-                  </li>
-                  <li>
-                    <Link to="/signup/manufacturer">SignUp</Link>
-                  </li>
-                  <li>
-                    <Link to="/login">Login</Link>
+                    <Link to="/login">{isAuthenticated ? "Dashboard" : "Login"} </Link>
                   </li>
                 </ul>
               </div>

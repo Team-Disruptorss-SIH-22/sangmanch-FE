@@ -79,18 +79,20 @@ const Reports = () => {
     {
       Header: user.role === "ICCRUser" ? "Status" : "Review",
       accessor: "status",
-      filterable: false,
       name: "report status",
       type: user.role === "ICCRUser" ? null : "button",
-      Cell: ({ value }) =>
-        user.role === "ICCRUser" ? statusMapping[value] : getText(value)
+      Cell: ({ value }) => {
+        return user.role === "ICCRUser" ? statusMapping[value] : getText(value)
+      },
+      Filter: ColumnFilter
     },
     {
       Header: "View",
       accessor: "view_report",
       name: "def",
       type: "button",
-      Cell: () => "View"
+      Cell: () => "View",
+      disableFilters: true
     }
   ];
   const columns = useMemo(() => COLUMNS, []);
@@ -207,7 +209,9 @@ const Reports = () => {
                         ""
                       )}
                     </span>
-                    {toggleFilter && (column.canFilter ? column.render("Filter") : null)}
+                    <div className={styles.filter}>
+                      {toggleFilter && (column.canFilter ? column.render("Filter") : null)}
+                    </div>
                   </th>
                 ))}
               </tr>
@@ -264,7 +268,7 @@ const Reports = () => {
             onChange={(e) => {
               const pageNumber = e.target.value ? Number(e.target.value) - 1 : 0;
               gotoPage(pageNumber);
-              setPageIndex(e.target.value);
+              setPageIndex(e.target.value <= Math.ceil(eventState?.length / 10) ? e.target.value: Math.ceil(eventState?.length / 10));
             }}
           />
         </div>
@@ -272,13 +276,13 @@ const Reports = () => {
         <div className={styles.rowsPerPage}>
           <p>
             {" "}
-            Page: {pageIndex > 1 ? pageIndex : 1} of {Math.round(eventState?.length / 10)}
+            Page: {pageIndex > 1 ? pageIndex : 1} of {Math.ceil(eventState?.length / 10)}
           </p>
           <button
             className={styles.backForth}
             onClick={() => {
               previousPage();
-              setPageIndex(pageIndex - 1);
+              setPageIndex(parseInt(pageIndex) - 1);
             }}
             disabled={!canPreviousPage}
           >
@@ -288,7 +292,7 @@ const Reports = () => {
             className={styles.backForth}
             onClick={() => {
               nextPage();
-              setPageIndex(pageIndex + 1);
+              setPageIndex(parseInt(pageIndex) + 1);
             }}
             disabled={!canNextPage}
           >

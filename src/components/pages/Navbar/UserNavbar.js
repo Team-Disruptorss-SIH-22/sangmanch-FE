@@ -33,7 +33,7 @@ const HomeNavbar = (props) => {
           <div className={homeNavStyles.logo}>
             <Link to="/" className={homeNavStyles.logo__center}>
               <img src={ncb__logo} alt="NCB Logo" />
-              <p>NCB DAAS</p>
+              <p>Sangmanch</p>
             </Link>
           </div>
 

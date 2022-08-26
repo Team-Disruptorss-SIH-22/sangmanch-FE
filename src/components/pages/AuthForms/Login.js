@@ -2,6 +2,8 @@ import { useState, useEffect, useContext, Fragment } from "react";
 import { Link } from "react-router-dom";
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import { AiFillEye } from "react-icons/ai";
+import { AiFillEyeInvisible } from "react-icons/ai";
 
 import Logo from "assets/icons/iccr_logo.svg";
 import HomeNavbar from "../Navbar/HomeNavbar";
@@ -104,15 +106,9 @@ const UserLogin = (props) => {
                 />
                 <div className={styles.showPassword} onClick={togglePassword}>
                   {passwordShown ? (
-                    <img
-                      src="https://cdn-icons-png.flaticon.com/512/565/565655.png"
-                      alt="hide-password"
-                    />
+                    <AiFillEye size={20} />
                   ) : (
-                    <img
-                      src="https://cdn-icons-png.flaticon.com/512/159/159604.png"
-                      alt="show-password"
-                    />
+                    <AiFillEyeInvisible size={20} />
                   )}
                 </div>
               </div>
@@ -123,7 +119,7 @@ const UserLogin = (props) => {
             <div className={styles.form__footer}>
               <div className={`${styles.row} ${styles.links}`}>
                 <Link to="/signup" className={styles.link}>
-                  <p>Create an account</p>
+                  <p>Create Account</p>
                 </Link>
                 <Link to="/" className={styles.link}>
                   <p>Forgot Password</p>
