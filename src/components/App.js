@@ -22,6 +22,7 @@ import {
   AlumniLayout,
   AlumniNews,
   AlumniConnect,
+  AlumniSignup,
 } from "./pages/index";
 
 import AuthState from "context/auth/AuthState";
@@ -43,6 +44,7 @@ function App() {
               <Route exact path="/" component={Home} />
               <Route exact path="/about" component={About} />
               <PublicRoute exact path="/signup" component={Signup} />
+              <PublicRoute exact path="/alumni/signup" component={AlumniSignup} />
               <PublicRoute exact path="/login" component={Login} />
               <PublicRoute exact path="/verify/:token" component={Verify} />
 
