@@ -1,5 +1,9 @@
 export const monthOptions = [
   {
+    value: null,
+    label: "Select Month"
+  },
+  {
     value: 1,
     label: "January"
   },
@@ -50,6 +54,10 @@ export const monthOptions = [
 ];
 
 export const countryOptions = [
+  {
+    value: null,
+    label: "Select Country"
+  },
   {
     value: "Afghanistan",
     label: "Afghanistan"
@@ -205,6 +213,7 @@ export const countryOptions = [
 ];
 
 export const typeOptions = [
+  { value: null, label: "Select Type" },
   { value: "scholarship", label: "Scholarship" },
   { value: "festival", label: "Festival" },
   { value: "seminar", label: "Seminar" },
