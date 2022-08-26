@@ -10,7 +10,6 @@ import SangmanchLogo from "assets/sangmanch_logo.png";
 import styles from "styles/admin/adminLayout.module.css";
 
 const AlumniLayout = ({ Component, title }) => {
-
   return (
     <div className={styles.container}>
       <aside className={styles.sidebar}>
@@ -30,7 +29,7 @@ const AlumniLayout = ({ Component, title }) => {
           <li>
             <MdOutlineBackupTable size={18} />
             <span>
-              <Link to="#">Requests</Link>
+              <Link to="/alumni/requests">Requests</Link>
             </span>
           </li>
 

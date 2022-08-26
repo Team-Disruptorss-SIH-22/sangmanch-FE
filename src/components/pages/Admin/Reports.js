@@ -14,7 +14,7 @@ import { format } from "date-fns";
 
 import ReviewReport from "./ReviewReport";
 import styles from "../../../styles/admin/reports.module.css";
-import { ColumnFilter } from "../Admin/ColumnFilter";
+import { ColumnFilter } from "./ColumnFilter";
 
 const COLUMNS = [
   {

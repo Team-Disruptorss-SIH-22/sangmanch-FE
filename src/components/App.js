@@ -23,6 +23,7 @@ import {
   AlumniNews,
   AlumniConnect,
   AlumniSignup,
+  AlumniRequests,
 } from "./pages/index";
 
 import AuthState from "context/auth/AuthState";
@@ -94,6 +95,7 @@ function App() {
               <PrivateRoute exact path="/user/alumniconnect" title={""} component={AlumniConnect} />
 
               <AlumniRoute exact path="/alumni/news" title={""}  component={AlumniNews}/>
+              <AlumniRoute exact path="/alumni/requests" title={""}  component={AlumniRequests}/>
               <AlumniRoute exact path="/alumni/settings" title={""} component={Settings}/>
 
               <Route path="*" component={Page404} />

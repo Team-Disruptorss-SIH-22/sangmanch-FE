@@ -1,9 +1,7 @@
-import React from 'react'
+import React from "react";
 
 const AlumniNews = () => {
-  return (
-    <div>AlumniNews</div>
-  )
-}
+  return <div>Coming Soon!</div>;
+};
 
-export default AlumniNews
+export default AlumniNews;
