@@ -6,6 +6,7 @@ import AlumniRoute from "components/HOC/AlumniRoute";
 // Signup & Login Forms
 import Login from "./AuthForms/Login";
 import Signup from "./AuthForms/Signup";
+import AlumniSignup from "./AuthForms/AlumniSignup";
 import AdminSignup from "./AuthForms/AdminSignup";
 import Verify from "./AuthForms/Verify";
 
@@ -22,7 +23,7 @@ import UserDashboard from "./User/UserDashboard";
 import UserReports from "./User/UserReports";
 import Events from "./User/Events";
 import UserInfographics from "./User/UserInfographics";
-import Requirements from './User/Requirements';
+import Requirements from "./User/Requirements";
 import AlumniConnect from "./User/AlumniConnect";
 
 // Alumni Dashboard
@@ -42,6 +43,7 @@ export {
   Home,
   About,
   Signup,
+  AlumniSignup,
   AdminSignup,
   Verify,
   Page404,

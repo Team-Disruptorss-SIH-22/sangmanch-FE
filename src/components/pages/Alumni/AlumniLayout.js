@@ -1,8 +1,8 @@
 import React, { useContext } from "react";
 import { Link } from "react-router-dom";
 import { AiFillSetting, AiFillInfoCircle, AiFillQuestionCircle } from "react-icons/ai";
-import { FaChartPie } from "react-icons/fa";
-import { MdDateRange } from "react-icons/md";
+import { BsNewspaper } from "react-icons/bs";
+import { MdOutlineBackupTable } from "react-icons/md";
 import { TbReport } from "react-icons/tb";
 
 import Navbar from "components/pages/Navbar/AdminNavbar";
@@ -21,14 +21,14 @@ const AlumniLayout = ({ Component, title }) => {
         </div>
         <ul className={styles.collection}>
           <li>
-            <FaChartPie size={15} />
+            <BsNewspaper size={15} />
             <span>
               <Link to="/alumni/news">What's New!</Link>
             </span>
           </li>
 
           <li>
-            <MdDateRange size={18} />
+            <MdOutlineBackupTable size={18} />
             <span>
               <Link to="#">Requests</Link>
             </span>
@@ -44,7 +44,7 @@ const AlumniLayout = ({ Component, title }) => {
         </ul>
       </aside>
       <main className={styles.contentWrapper}>
-        <Navbar/>
+        <Navbar />
         <Component />
       </main>
     </div>

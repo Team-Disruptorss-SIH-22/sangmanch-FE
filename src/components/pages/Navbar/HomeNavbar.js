@@ -128,7 +128,16 @@ const HomeNavbar = (props) => {
                   </li>
                   {!isAuthenticated && (
                     <li>
-                      <Link to="/signup">SignUp</Link>
+                      <select>
+                        <option>SignUp</option>
+                        <option>
+                          <Link to="/signup">ICC/ICCR</Link>
+                        </option>
+                        <option>
+                          <Link to="#">Alumni</Link>
+                        </option>
+                      </select>
+                      {/* <Link to="/signup">SignUp</Link> */}
                     </li>
                   )}
                   <li>
