@@ -1,0 +1,41 @@
+.sectionHeading {
+  font-size: 2rem;
+  font-weight: 600;
+  color: #444;
+}
+
+.article {
+  margin-top: 1rem;
+  border: 1px solid #999;
+  border-radius: 6px;
+  padding: 8px 12px;
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+.article img {
+  width: 100px;
+  height: 100px;
+  object-fit: cover;
+  border-radius: 8px;
+}
+
+.article .articleData .title {
+  font-size: 20px;
+  color: #555;
+  margin-top: 4px;
+}
+
+.article .articleData .description {
+  font-size: 14px;
+  color: #666;
+  margin-top: 4px;
+}
+
+.article .articleData .link {
+  font-size: 14px;
+  color: blue;
+  text-decoration: none;
+  display: block;
+  margin-top: 6px;
+}

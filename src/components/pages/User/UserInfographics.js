@@ -14,9 +14,10 @@ import {
 } from "recharts";
 import axios from "axios";
 
+import {user} from '../../Utils/api_urls';
 import styles from "../../../styles/admin/infographics.module.css";
 
-const data = [
+const oldData = [
   {
     name: 1,
     uv: 7000,
@@ -62,10 +63,58 @@ const data = [
 ];
 
 
+const data01 = [
+  { name: "Group A", value: 400 },
+  { name: "Group B", value: 300 },
+  { name: "Group C", value: 300 },
+  { name: "Group D", value: 200 },
+  { name: "Group E", value: 278 },
+  { name: "Group F", value: 189 }
+];
+
+const initialState = {
+  expense_reach_graph: [],
+  event_type: [],
+}
+
+
 const UserInfographics = () => {
 
-  // const [data, setData] = useState([]);
+  const [data, setData] = useState(initialState);
   const [barData, setBarData] = useState([]);
+
+  const fetchBarData = async () => {
+    const {data} = await axios.get(user.event_type);
+    const parsedResponse = JSON.parse(data);
+    let newData = [];
+    for(let i = 0; i < parsedResponse.x.length; i++) {
+      newData.push({
+        "name": parsedResponse.x[i],
+        "value": parsedResponse.y[i]
+      });
+    }
+    setData({...initialState, event_type: newData});
+  }
+
+  // const fetchData = async (url) => {
+    
+  //   let newData = [];
+  //   for(let i = 0; i < parsedResponse.x.length; i++) {
+  //     newData.push({
+  //       "name": parsedResponse.x[i],
+  //       "value": parsedResponse.y[i]
+  //     });
+  //   }
+  // }
+
+  useEffect(() => {
+    
+    fetchBarData();
+    console.log(data.event_type);
+
+    
+  }, []);
+
 
   useEffect(() => {
     const fetchBarData = async () => {
@@ -90,7 +139,7 @@ const UserInfographics = () => {
             <BarChart
               width={300}
               height={300}
-              data={data}
+              data={oldData}
               margin={{
                 top: 5,
                 right: 20,
@@ -115,7 +164,7 @@ const UserInfographics = () => {
             <BarChart
               width={300}
               height={300}
-              data={data}
+              data={oldData}
               margin={{
                 top: 5,
                 right: 20,
@@ -141,7 +190,7 @@ const UserInfographics = () => {
               <Pie
                 dataKey="value"
                 isAnimationActive={false}
-                data={barData}
+                data={data.event_type}
                 cx="50%"
                 cy="50%"
                 outerRadius={80}
@@ -160,7 +209,7 @@ const UserInfographics = () => {
             <AreaChart
               width={500}
               height={300}
-              data={data}
+              data={oldData}
               margin={{
                 top: 5,
                 right: 20,

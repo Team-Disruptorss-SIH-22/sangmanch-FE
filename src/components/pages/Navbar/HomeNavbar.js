@@ -11,6 +11,7 @@ import { GiHamburgerMenu } from "react-icons/gi";
 const HomeNavbar = (props) => {
   const { isAuthenticated, user } = useContext(authContext);
   const [showModal, setShowModal] = useState(false);
+  const [isSignupActive, setSignupActive] = useState(false);
 
   const modalClickHandler = (e) => {
     e.stopPropagation();
@@ -104,8 +105,30 @@ const HomeNavbar = (props) => {
                 <Link to="/login">{isAuthenticated ? "Dashboard" : "Login"}</Link>
               </li>
               {!isAuthenticated && (
-                <li className={styles.signup}>
-                  <Link to="/signup">Signup</Link>
+                <li>
+                  <div class={styles.dropdown}>
+                    <button
+                      onClick={() => setSignupActive(!isSignupActive)}
+                      className={styles.dropbtn}
+                    >
+                      <b>Sign Up</b>
+                    </button>
+                    <div
+                      id="myDropdown"
+                      style={{ display: !isSignupActive ? "none" : "block" }}
+                      className={styles.dropdown__content}
+                    >
+                      <ul>
+                        <li>
+                          <Link to="/signup">ICC/ICCR</Link>
+                        </li>
+                        <li>
+                          <Link to="/alumni/signup">Alumni</Link>
+                        </li>
+                      </ul>
+                    </div>
+                  </div>
+                  {/* <Link to="/signup">SignUp</Link> */}
                 </li>
               )}
             </ul>
@@ -128,7 +151,16 @@ const HomeNavbar = (props) => {
                   </li>
                   {!isAuthenticated && (
                     <li>
-                      <Link to="/signup">SignUp</Link>
+                      <select>
+                        <option>SignUp</option>
+                        <option>
+                          <Link to="/signup">ICC/ICCR</Link>
+                        </option>
+                        <option>
+                          <Link to="/alumni/signup">Alumni</Link>
+                        </option>
+                      </select>
+                      {/* <Link to="/signup">SignUp</Link> */}
                     </li>
                   )}
                   <li>

@@ -7,14 +7,13 @@ import { FiArrowLeft, FiArrowRight } from "react-icons/fi";
 import { FaFilter } from "react-icons/fa";
 import { BsSortDownAlt, BsSortDown, BsThreeDotsVertical } from "react-icons/bs";
 
-// REACT TABLE
 import MOCK_DATA from "../../../assets/MOCK_DATA.json";
 import { useTable, useSortBy, useFilters, usePagination } from "react-table";
 import { format } from "date-fns";
 
-import ReviewReport from "./ReviewReport";
+import ReviewConsent from "./ReviewConsent";
 import styles from "../../../styles/admin/reports.module.css";
-import { ColumnFilter } from "./ColumnFilter";
+import { ColumnFilter } from "../Admin/ColumnFilter";
 
 const COLUMNS = [
   {
@@ -23,17 +22,17 @@ const COLUMNS = [
     Filter: ColumnFilter
   },
   {
-    Header: "Report Number",
+    Header: "Request ID",
     accessor: "report_number",
     Filter: ColumnFilter
   },
   {
-    Header: "Customer Name",
+    Header: "ICCR Centre",
     accessor: "customer_name",
     Filter: ColumnFilter
   },
   {
-    Header: "Date",
+    Header: "Event Date",
     accessor: "date",
     Cell: ({ value }) => {
       return format(new Date(value), "dd/MM/yyyy");
@@ -41,13 +40,13 @@ const COLUMNS = [
     Filter: ColumnFilter
   },
   {
-    Header: "Report Details",
+    Header: "Confirmation",
     accessor: "report_details",
     Filter: ColumnFilter
   }
 ];
 
-const Reports = () => {
+const AlumniRequests = () => {
   //to store the values once and for all
   const columns = useMemo(() => COLUMNS, []);
   const data = useMemo(() => MOCK_DATA, []);
@@ -80,7 +79,7 @@ const Reports = () => {
   return (
     <div className={styles.alertsContainer}>
       {viewReport && (
-        <ReviewReport
+        <ReviewConsent
           id={reportID}
           handleClose={() => {
             setViewReport(!viewReport);
@@ -88,7 +87,7 @@ const Reports = () => {
         />
       )}
       <div className={styles.alertHeaderContainer}>
-        <p>User Reports</p>
+        <p>Volunteering Requests</p>
         <div className={styles.tableOperations + " " + styles.clrGrey}>
           <div className={styles.operation}>
             <BiSortUp />
@@ -140,24 +139,20 @@ const Reports = () => {
                 <tr {...row.getRowProps()}>
                   {row.cells.map((cell) => {
                     return cell?.column?.id === "report_details" ? (
-                      <td
-                        className={
-                          styles.tableSingleCell + " " + styles.report_status_container
-                        }
-                        {...cell.getCellProps()}
-                      >
+                      <td className={styles.tableSingleCell} {...cell.getCellProps()}>
                         <button
-                          style={{ cursor: "pointer" }}
+                          //  + " " + styles.report_status_container
+                          className={styles.status + " " + styles.button}
                           onClick={() => {
                             //change it when get original json data from backend
                             setReportID(cell.row.original.serial_no);
                             setViewReport(!viewReport);
                           }}
-                          className={styles.report_details + " " + styles.tableSingleCell}
+                          // className={styles.report_details + " " + styles.tableSingleCell}
                         >
-                          View
+                          Consent
                         </button>
-                        <button
+                        {/* <button
                           style={{
                             cursor: "pointer",
                             background: "none",
@@ -170,7 +165,7 @@ const Reports = () => {
                           }}
                         >
                           <BsThreeDotsVertical />
-                        </button>
+                        </button> */}
                       </td>
                     ) : (
                       <td className={styles.tableSingleCell} {...cell.getCellProps()}>
@@ -229,4 +224,4 @@ const Reports = () => {
   );
 };
 
-export default Reports;
+export default AlumniRequests;

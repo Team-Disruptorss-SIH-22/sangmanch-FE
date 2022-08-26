@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import {
   PublicRoute,
   PrivateRoute,
+  AlumniRoute,
   Signup,
   Login,
   Home,
@@ -18,6 +19,11 @@ import {
   Settings,
   UserInfographics,
   Requirements,
+  AlumniLayout,
+  AlumniNews,
+  AlumniConnect,
+  AlumniSignup,
+  AlumniRequests,
   SearchReports
 } from "./pages/index";
 
@@ -40,6 +46,7 @@ function App() {
               <Route exact path="/" component={Home} />
               <Route exact path="/about" component={About} />
               <PublicRoute exact path="/signup" component={Signup} />
+              <PublicRoute exact path="/alumni/signup" component={AlumniSignup} />
               <PublicRoute exact path="/login" component={Login} />
               <PublicRoute exact path="/verify/:token" component={Verify} />
 
@@ -92,6 +99,27 @@ function App() {
               />
               <PrivateRoute exact path="/user/settings" title={""} component={Settings} />
               <PrivateRoute exact path="/user/events" title={""} component={Events} />
+              <PrivateRoute
+                exact
+                path="/user/alumniconnect"
+                title={""}
+                component={AlumniConnect}
+              />
+
+              <AlumniRoute exact path="/alumni/news" title={""} component={AlumniNews} />
+              <AlumniRoute
+                exact
+                path="/alumni/requests"
+                title={""}
+                component={AlumniRequests}
+              />
+              <AlumniRoute
+                exact
+                path="/alumni/settings"
+                title={""}
+                component={Settings}
+              />
+
               <Route path="*" component={Page404} />
               {/* hello */}
             </Switch>
