@@ -18,7 +18,6 @@ const ReviewReport = ({ event, handleClose }) => {
 
   useEffect(() => {
     if (!loading && error) {
-      console.log(Date.now());
       toast.error(error);
       clearError();
     }

@@ -18,7 +18,6 @@ const Verify = (props) => {
         const res = await axios.get(
           `https://sangmanch.herokuapp.com/api/auth/confirmEmail/${token}`
         );
-        console.log(res);
         toast.success("Email Verified Successfully");
         props.history.push("/login");
       } catch (err) {
