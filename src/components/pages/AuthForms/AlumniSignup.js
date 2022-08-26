@@ -10,7 +10,7 @@ import Footer from "../Footer";
 
 import styles from "../../../styles/forms/signup.module.css";
 import authContext from "context/auth/authContext";
-import { roleOptions } from "components/Utils/constant";
+import { countryOptions } from "components/Utils/constant";
 
 const AlumniSignup = (props) => {
   const [passwordShown, setPasswordShown] = useState(false);
@@ -18,16 +18,16 @@ const AlumniSignup = (props) => {
   const [registering, setRegistering] = useState(false);
 
   const [user, setUser] = useState({
-    licenceID: "",
+    ICCRID: "",
     name: "",
     email: "",
     password: "",
     confirmPassword: "",
-    pin: ""
+    country: ""
   });
   const [selectedOption, setSelectedOption] = useState(null);
-
-  const { name, email, password, confirmPassword, licenceID, pin } = user;
+  const [country, setCountry] = useState(null);
+  const { name, email, password, confirmPassword, ICCRID } = user;
   const { signup, registered, error, clearError } = useContext(authContext);
 
   useEffect(() => {
@@ -75,14 +75,7 @@ const AlumniSignup = (props) => {
       toast.error("Both Passwords don't match!");
       return;
     }
-    if (isNaN(Number(pin))) {
-      toast.error("Pin must be a number");
-      return;
-    }
-    setRegistering(true);
-    await signup({ ...user, role: selectedOption.value, pin: +pin });
-    setRegistering(false);
-  };
+  }
 
   return (
     <Fragment>
@@ -97,19 +90,19 @@ const AlumniSignup = (props) => {
 
           <form className={styles.formContainer} onSubmit={handleSubmit}>
             <div className={styles.inputContainer}>
-              <label htmlFor="id">Licence ID</label>
+              <label htmlFor="id">ICCR ID <span style={{ color: "red" }}> *</span></label>
               <input
                 type="text"
-                id="licenceID"
-                name="licenceID"
-                value={licenceID}
+                id="ICCRID"
+                name="ICCRID"
+                value={ICCRID}
                 onChange={onChange}
-                placeholder="Licence ID"
+                placeholder="ICCR ID"
                 required
               />
             </div>
             <div className={styles.inputContainer}>
-              <label htmlFor="id">Name</label>
+              <label htmlFor="id">NAME <span style={{ color: "red" }}> *</span></label>
               <input
                 type="text"
                 id="name"
@@ -122,7 +115,7 @@ const AlumniSignup = (props) => {
             </div>
 
             <div className={styles.inputContainer}>
-              <label htmlFor="email">EMAIL</label>
+              <label htmlFor="email">EMAIL <span style={{ color: "red" }}> *</span></label>
               <input
                 type="email"
                 id="email"
@@ -135,7 +128,7 @@ const AlumniSignup = (props) => {
             </div>
 
             <div className={styles.inputContainer}>
-              <label htmlFor="password">PASSWORD</label>
+              <label htmlFor="password">PASSWORD <span style={{ color: "red" }}> *</span></label>
               <div className={styles.inputPassword}>
                 <input
                   type={passwordShown ? "text" : "password"}
@@ -164,7 +157,7 @@ const AlumniSignup = (props) => {
             </div>
 
             <div className={styles.inputContainer}>
-              <label htmlFor="confirm-password">VERIFY PASSWORD</label>
+              <label htmlFor="confirm-password">VERIFY PASSWORD <span style={{ color: "red" }}> *</span></label>
               <div className={styles.inputPassword}>
                 <input
                   type={confirmPasswordShown ? "text" : "password"}
@@ -191,10 +184,27 @@ const AlumniSignup = (props) => {
                 </div>
               </div>
             </div>
+
+            <div className={styles.inputContainer}>
+              <label htmlFor="country">COUNTRY <span style={{ color: "red" }}> *</span>
+              </label>
+              <Select
+                className={styles.select}
+                options={countryOptions}
+                value={country}
+                onChange={(value) => {
+                  setCountry(value);
+                }}
+                name="country"
+                id="country"
+                placeholder="Select Country"
+                required
+              />
+            </div>
             <button
               type="submit"
               className={styles.submit}
-              // disabled={registering}
+            // disabled={registering}
             >
               {registering ? "Registering.." : "Sign Up"}
             </button>
