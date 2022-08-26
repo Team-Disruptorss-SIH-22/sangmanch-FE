@@ -104,8 +104,23 @@ const HomeNavbar = (props) => {
                 <Link to="/login">{isAuthenticated ? "Dashboard" : "Login"}</Link>
               </li>
               {!isAuthenticated && (
-                <li className={styles.signup}>
-                  <Link to="/signup">Signup</Link>
+                <li>
+                  <div class={styles.dropdown}>
+                    <button onclick="myFunction()" className={styles.dropbtn}>
+                      Dropdown
+                    </button>
+                    <div id="myDropdown" className={styles.dropdown__content}>
+                      <ul>
+                        <li>
+                          <Link to="/signup">ICC/ICCR</Link>
+                        </li>
+                        <li>
+                          <Link to="/alumni/signup">Alumni</Link>
+                        </li>
+                      </ul>
+                    </div>
+                  </div>
+                  {/* <Link to="/signup">SignUp</Link> */}
                 </li>
               )}
             </ul>
