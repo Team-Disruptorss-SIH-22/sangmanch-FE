@@ -1,6 +1,7 @@
 // HOC
 import PublicRoute from "components/HOC/PublicRoute";
 import PrivateRoute from "components/HOC/PrivateRoute";
+import AlumniRoute from "components/HOC/AlumniRoute";
 
 // Signup & Login Forms
 import Login from "./AuthForms/Login";
@@ -22,6 +23,11 @@ import UserReports from "./User/UserReports";
 import Events from "./User/Events";
 import UserInfographics from "./User/UserInfographics";
 
+// Alumni Dashboard
+import AlumniLayout from "./Alumni/AlumniLayout";
+import AlumniNews from "./Alumni/AlumniNews";
+import AlumniRequests from "./Alumni/AlumniRequests";
+
 import Page404 from "./Page404";
 import Home from "./Homepage/Home";
 import About from "./About/About";
@@ -29,6 +35,7 @@ import About from "./About/About";
 export {
   PublicRoute,
   PrivateRoute,
+  AlumniRoute,
   Login,
   Home,
   About,
@@ -45,5 +52,13 @@ export {
   UserDashboard,
   UserInfographics,
   Events,
+<<<<<<< Updated upstream
   Settings
+=======
+  Settings,
+  Requirements,
+  AlumniLayout,
+  AlumniNews,
+  AlumniRequests
+>>>>>>> Stashed changes
 };

@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import {
   PublicRoute,
   PrivateRoute,
+  AlumniRoute,
   Signup,
   Login,
   Home,
@@ -16,7 +17,14 @@ import {
   Events,
   Verify,
   Settings,
+<<<<<<< Updated upstream
   UserInfographics
+=======
+  UserInfographics,
+  Requirements,
+  AlumniLayout,
+  AlumniNews
+>>>>>>> Stashed changes
 } from "./pages/index";
 
 import AuthState from "context/auth/AuthState";
@@ -78,6 +86,10 @@ function App() {
               />
               <PrivateRoute exact path="/user/settings" title={""} component={Settings} />
               <PrivateRoute exact path="/user/events" title={""} component={Events} />
+
+              <AlumniRoute exact path="/alumni/news" title={""}  component={AlumniNews}/>
+              <AlumniRoute exact path="/alumni/settings" title={""} component={Settings}/>
+
               <Route path="*" component={Page404} />
               {/* hello */}
             </Switch>
