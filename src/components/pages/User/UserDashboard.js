@@ -21,7 +21,7 @@ const AdminDashboard = () => {
 
   const fetchMetrics = async () => {
     const { data } = await axios.get(
-      "https://sangmanch.herokuapp.com/api/dashboard/details"
+      "https://sangmanch-be.onrender.com/api/dashboard/details"
     );
     setStats(data.data);
   };

@@ -24,7 +24,7 @@ const EventState = (props) => {
   };
   const [state, dispatch] = useReducer(eventReducer, initialState);
 
-  const url = "https://sangmanch.herokuapp.com";
+  const url = "https://sangmanch-be.onrender.com";
   // const url = "http://localhost:5000";
 
   // Get Events

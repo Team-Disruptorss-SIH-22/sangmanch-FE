@@ -26,7 +26,7 @@ const SearchReports = () => {
       type: type?.value
     };
     const { data } = await axios.get(
-      `https://sangmanch.herokuapp.com/api/event/filter/`,
+      `https://sangmanch-be.onrender.com/api/event/filter/`,
       {
         params: queryParams
       }

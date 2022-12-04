@@ -13,7 +13,7 @@ const statusMapping = {
 };
 
 const ViewReport = ({ event, handleClose }) => {
-  const url = "https://sangmanch.herokuapp.com";
+  const url = "https://sangmanch-be.onrender.com";
   const [comments, setComments] = useState([]);
 
   const getComments = async () => {

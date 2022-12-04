@@ -16,7 +16,7 @@ const Verify = (props) => {
     async function verifyUser() {
       try {
         const res = await axios.get(
-          `https://sangmanch.herokuapp.com/api/auth/confirmEmail/${token}`
+          `https://sangmanch-be.onrender.com/api/auth/confirmEmail/${token}`
         );
         toast.success("Email Verified Successfully");
         props.history.push("/login");

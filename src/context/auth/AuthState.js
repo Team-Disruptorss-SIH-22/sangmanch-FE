@@ -25,7 +25,7 @@ const AuthState = (props) => {
   };
   const [state, dispatch] = useReducer(authReducer, initialState);
 
-  const url = "https://sangmanch.herokuapp.com";
+  const url = "https://sangmanch-be.onrender.com";
   // const url = "http://localhost:5000";
 
   // Set token and load user
